@@ -2,6 +2,10 @@
 
 ## PantherX Distribution
 
+- [PantherX_Linux](PantherX_Linux)
+- [PantherX Linux](PantherX Linux)
+- [PantherX-Linux](PantherX-Linux)
+
 - [PantherX Linux](PantherX_Linux)  
 Overview of PantherX Linux
 - [Frequently asked questions](Frequently_asked_questions)  
