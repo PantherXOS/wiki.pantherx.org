@@ -13,7 +13,7 @@ Guide through the process of installing PantherX Linux in VirtualBox.
 - [General recommendations](General-recommendations)  
 Annotated index of post-installation tutorials and other popular articles.
 - [List of applications](List-of-applications)  
-Categorised presentation of common official and AUR packages.
+Categorised presentation of common official and 3rd party packages.
 
 ---
 
