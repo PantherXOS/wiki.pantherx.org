@@ -7,25 +7,6 @@
 - [NetworkManager](NetworkManager) — is a system network service that manages your network devices and connections, attempting to keep active network connectivity when available. It manages ethernet, WiFi, mobile broadband (WWAN), and PPPoE devices, and provides VPN integration with a variety of different VPN services.  
 https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI: `network-manager-applet`
 
-## Web browsers
-
-## Web servers
-
-# Multimedia
-
-## Codecs
-
-...
-
-
-
-
-# Internet
-
-## Network connection
-
-### Network managers
-
 ### VPN clients
 
 ### Proxy servers
@@ -37,16 +18,13 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 ### Console
 
 ### Graphical
-                1.2.2.1 Gecko-based
-                    1.2.2.1.1 Firefox spin-offs
-                1.2.2.2 Blink-based
-                    1.2.2.2.1 Chromium spin-offs
-                    1.2.2.2.2 Browsers based on qt5-webengine
-                    1.2.2.2.3 Browsers based on electron/muon
-                1.2.2.3 WebKit-based
-                    1.2.2.3.1 Browsers based on webkit2gtk
-                    1.2.2.3.2 Browsers based on qt5-webkit
-                1.2.2.4 Other
+
+#### Gecko-based
+
+#### Blink-based
+
+#### WebKit-based
+
 ## Web servers
 
 ### Static web servers
@@ -60,20 +38,26 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 ## File sharing
 
 ### Download managers
-                1.4.1.1 Console
-                1.4.1.2 Graphical
+
+#### Console
+
+#### Graphical
 
 ### Cloud storage servers
 
 ### Cloud synchronization clients
 
 ### FTP
-                1.4.4.1 FTP clients
-                1.4.4.2 FTP servers
+
+#### FTP clients
+
+#### FTP servers
 
 ### BitTorrent clients
-                1.4.5.1 Console
-                1.4.5.2 Graphical
+
+#### Console
+
+#### Graphical
 
 ### Other P2P networks
 
@@ -82,34 +66,54 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 ## Communication
 
 ### Email clients
-                1.5.1.1 Console
-                1.5.1.2 Graphical
+
+#### Console
+
+#### Graphical
 
 ### Mail servers
 
 ### Mail retrieval agents
 
 ### Instant messaging clients
-                1.5.4.1 Multi-protocol clients
-                    1.5.4.1.1 Console
-                    1.5.4.1.2 Graphical
-                1.5.4.2 IRC clients
-                    1.5.4.2.1 Console
-                    1.5.4.2.2 Graphical
-                1.5.4.3 XMPP clients
-                    1.5.4.3.1 Console
-                    1.5.4.3.2 Graphical
-                1.5.4.4 SIP clients
-                1.5.4.5 Matrix clients
-                1.5.4.6 Tox clients
-                1.5.4.7 Serverless (decentralized) clients
-                1.5.4.8 Other IM clients
+
+#### Multi-protocol clients
+
+##### Console
+
+##### Graphical
+
+#### IRC clients
+
+##### Console
+
+##### Graphical
+
+#### XMPP clients
+
+##### Console
+
+##### Graphical
+
+#### SIP clients
+
+#### Matrix clients
+
+#### Tox clients
+
+#### Serverless (decentralized) clients
+
+#### Other IM clients
 
 ### Instant messaging servers
-                1.5.5.1 IRC servers
-                1.5.5.2 XMPP servers
-                1.5.5.3 SIP servers
-                1.5.5.4 Other IM servers
+
+#### IRC servers
+
+#### XMPP servers
+
+#### SIP servers
+
+#### Other IM servers
  
 ### Collaborative software
 
@@ -117,22 +121,30 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 
 ### News aggregators
 
-                1.6.1.1 Console
-                1.6.1.2 Graphical
+#### Console
+
+#### Graphical
+
 ### Podcast clients
 
-                1.6.2.1 Console
-                1.6.2.2 Graphical
+#### Console
+
+#### Graphical
 
 ### Usenet newsreaders
-                1.6.3.1 Console
-                1.6.3.2 Graphical
+
+#### Console
+
+#### Graphical
 
 ### Blog engines
+
 ### Microblogging clients
 
-                1.6.5.1 Console
-                1.6.5.2 Graphical
+#### Console
+
+#### Graphical
+
 ## Remote desktop
 
 ### Remote desktop clients
@@ -146,13 +158,16 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 ## Image
 
 ### Image viewers
-                2.2.1.1 Framebuffer image viewers
-                2.2.1.2 Graphical image viewers
+
+#### Framebuffer image viewers
+
+#### Graphical image viewers
 
 ### Image organizers
 
 ### Image processing
-                2.2.3.1 Image compression
+
+#### Image compression
 
 ### Raster graphics editors
 
@@ -177,16 +192,16 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 ### Audio systems
 
 ### Audio players
-                2.3.2.1 Console
-                2.3.2.2 Graphical
-                    2.3.2.2.1 GStreamer-based
-                    2.3.2.2.2 Phonon-based
-                    2.3.2.2.3 Qt Multimedia-based
-                    2.3.2.2.4 Other
+
+#### Console
+
+#### Graphical
 
 ### Audio tag editors
-                2.3.3.1 Console
-                2.3.3.2 Graphical
+
+#### Console
+
+#### Graphical
 
 ### Lyrics
 
@@ -199,28 +214,36 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 ### Audio analyzers
 
 ### Scorewriters
-            2.3.10 Audio synthesis environments
-            2.3.11 Sound generators
-            2.3.12 Music trackers
-            2.3.13 DJ
-            2.3.14 Audio effects
-            2.3.15 Audio visualizers
-            2.3.16 Volume control
-            2.3.17 CD ripping
+
+### Audio synthesis environments
+
+### Sound generators
+
+### Music trackers
+
+### DJ
+
+### Audio effects
+
+### Audio visualizers
+
+### Volume control
+
+### CD ripping
 
 ## Video
 
 ### Video players
-                2.4.1.1 Console
-                2.4.1.2 Graphical
-                    2.4.1.2.1 GStreamer-based
-                    2.4.1.2.2 mpv-based
-                    2.4.1.2.3 MPlayer-based
-                    2.4.1.2.4 Other
+
+#### Console
+
+#### Graphical
 
 ### Video converters
-                2.4.2.1 Console
-                2.4.2.2 Graphical
+
+#### Console
+
+#### Graphical
 
 ### Video editors
 
@@ -247,154 +270,257 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 # Utilities
 
 ## Terminal
-            3.1.1 Command shells
-            3.1.2 Terminal emulators
-                3.1.2.1 VTE-based
-                3.1.2.2 KMS-based
-                3.1.2.3 framebuffer-based
-            3.1.3 Terminal pagers
-            3.1.4 Terminal multiplexers
+
+### Command shells
+
+### Terminal emulators
+
+### Terminal pagers
+
+### Terminal multiplexers
 
 ## Files
-            3.2.1 File managers
-                3.2.1.1 Console
-                3.2.1.2 Graphical
-                    3.2.1.2.1 Twin-panel
-            3.2.2 Trash management
-            3.2.3 File synchronization
-            3.2.4 Archiving and compression tools
-                3.2.4.1 Archive managers
-            3.2.5 Comparison, diff, merge
-            3.2.6 Batch renamers
-            3.2.7 File searching
-                3.2.7.1 Console
-                3.2.7.2 Graphical
-                    3.2.7.2.1 File indexers
-            3.2.8 Full-text searching
-                3.2.8.1 Full-text indexers
+
+### File managers
+
+#### Console
+
+#### Graphical
+
+### Trash management
+
+### File synchronization
+
+### Archiving and compression tools
+
+#### Archive managers
+
+### Comparison, diff, merge
+
+### Batch renamers
+
+### File searching
+
+#### Console
+
+#### Graphical
+
+### Full-text searching
+
+#### Full-text indexers
 
 ## Development
-            3.3.1 Version control systems
-            3.3.2 Build automation
-            3.3.3 Integrated development environments
-                3.3.3.1 Java IDEs
-                3.3.3.2 Python IDEs
-                3.3.3.3 Educational IDEs
-            3.3.4 Debuggers
-            3.3.5 Lexing and parsing
-            3.3.6 GUI builders
-            3.3.7 Hex editors
-            3.3.8 JSON tools
-            3.3.9 UML modelers
-            3.3.10 API documentation browsers
-            3.3.11 Issue tracking systems
-            3.3.12 Code review
+
+### Version control systems
+
+### Build automation
+
+### Integrated development environments
+
+#### Java IDEs
+
+#### Python IDEs
+
+#### Educational IDEs
+
+### Debuggers
+
+### Lexing and parsing
+
+### GUI builders
+
+### Hex editors
+
+### JSON tools
+
+### UML modelers
+
+### API documentation browsers
+
+### Issue tracking systems
+
+### Code review
+
             3.3.13 Game development
 
 ## Text input
-            3.4.1 Character selectors
-            3.4.2 On-screen keyboards
-            3.4.3 Keyboard layout switchers
-            3.4.4 Input methods
+
+### Character selectors
+
+### On-screen keyboards
+
+### Keyboard layout switchers
+
+### Input methods
 
 ## Disks
-            3.5.1 Partitioning tools
-            3.5.2 Formatting tools
-            3.5.3 Cloning tools
-            3.5.4 Mount tools
-            3.5.5 Disk usage display
-            3.5.6 Disk health status
-            3.5.7 File recovery tools
-            3.5.8 Disk cleaning
-            3.5.9 Disk image writing
+
+### Partitioning tools
+
+### Formatting tools
+
+### Cloning tools
+
+### Mount tools
+
+### Disk usage display
+
+### Disk health status
+
+### File recovery tools
+
+### Disk cleaning
+
+### Disk image writing
 
 ## System
-            3.6.1 Task managers
-            3.6.2 System monitors
-            3.6.3 Hardware sensor monitoring
-            3.6.4 System information viewers
-                3.6.4.1 Console
-                3.6.4.2 Graphical
-            3.6.5 System log viewers
-            3.6.6 Font viewers
-            3.6.7 Help viewers
-            3.6.8 Command schedulers
-            3.6.9 Shutdown timers
-            3.6.10 Clock synchronization
-            3.6.11 Screen management
-            3.6.12 Backlight management
-            3.6.13 Color management
-            3.6.14 Printer management
-            3.6.15 Bluetooth management
-            3.6.16 Power management
-            3.6.17 Package management
+
+### Task managers
+
+### System monitors
+
+### Hardware sensor monitoring
+
+### System information viewers
+
+#### Console
+
+#### Graphical
+
+### System log viewers
+
+### Font viewers
+
+### Help viewers
+
+### Command schedulers
+
+### Shutdown timers
+
+### Clock synchronization
+ 
+### Screen management
+
+### Backlight management
+
+### Color management
+
+### Printer management
+
+### Bluetooth management
+
+### Power management
+
+### Package management
+
 # Documents and texts
 
 ## Text editors
-            4.1.1 Console
-            4.1.2 Graphical
-            4.1.3 Emacs text editors
-            4.1.4 Vi text editors
+
+### Console
+
+### Graphical
+
+### Emacs text editors
+ 
+### Vi text editors
  
 ## Office
-            4.2.1 Office suites
-            4.2.2 Word processors
-            4.2.3 Presentations
-            4.2.4 Spreadsheets
-            4.2.5 Database tools
-            4.2.6 Formula editors
+
+### Office suites
+
+### Word processors
+
+### Presentations
+
+### Spreadsheets
+
+### Database tools
+
+### Formula editors
 
 ## Markup languages
-            4.3.1 AsciiDoc
-            4.3.2 Markdown
-                4.3.2.1 Python implementations
-                4.3.2.2 Ruby implementations
-                4.3.2.3 Markdown editors
-            4.3.3 Typesetting systems
-            4.3.4 TeX editors
-            4.3.5 TeX formula editors
-            4.3.6 XML editors
+
+### AsciiDoc
+
+### Markdown
+
+#### Python implementations
+
+#### Ruby implementations
+
+#### Markdown editors
+
+### Typesetting systems
+
+### TeX editors
+
+### TeX formula editors
+
+### XML editors
  
 ## Document converters
 
 ## Bibliographic reference managers
 
 ## Readers and viewers
-            4.6.1 PDF and DjVu
-            4.6.2 E-book
-            4.6.3 Comic book
-            4.6.4 CHM
+
+### PDF and DjVu
+
+### E-book
+
+### Comic book
+
+### CHM
 
 ## Document managers
 
 ## Scanning software
 
 ## OCR software
-            4.9.1 Console
-            4.9.2 Graphical
+
+### Console
+
+### Graphical
 
 ## Notes
-            4.10.1 Note-taking software
-                4.10.1.1 Console
-                4.10.1.2 Graphical
-            4.10.2 Stylus note-taking
-            4.10.3 Diary
-            4.10.4 Mind-mapping
-            4.10.5 Sticky notes
+
+### Note-taking software
+
+#### Console
+
+#### Graphical
+
+### Stylus note-taking
+
+### Diary
+
+### Mind-mapping
+
+### Sticky notes
 
 ## Special writing environments
-            4.11.1 Distraction-free writing
-            4.11.2 Story writing
-            4.11.3 Screenwriting
+
+### Distraction-free writing
+
+### Story writing
+
+### Screenwriting
 
 ## Language
-            4.12.1 Dictionary and thesaurus
-            4.12.2 Spell checkers
-            4.12.3 Translation and localization
+
+### Dictionary and thesaurus
+
+### Spell checkers
+
+### Translation and localization
 
 ## Barcode generators and readers
-            4.13.1 Console
-            4.13.2 Graphical
+
+### Console
+
+### Graphical
+
 # Security
 
 ## Network security
@@ -412,104 +538,173 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 ## Screen lockers
 
 ## Password managers
-            5.8.1 Console
-            5.8.2 Graphical
+
+### Console
+
+### Graphical
 
 ## Cryptography
-            5.9.1 Hash checkers
-            5.9.2 Encryption, signing, steganography
-            5.9.3 Disk encryption
+ 
+### Hash checkers
+
+### Encryption, signing, steganography
+
+### Disk encryption
+
 # Science
 
 ## Mathematics
-            6.1.1 Calculator
-            6.1.2 Computer algebra system
-            6.1.3 Scientific or technical computing
-            6.1.4 Statistics
-            6.1.5 Data analysis and plotting
-            6.1.6 Proof assistants
+
+### Calculator
+
+### Computer algebra system
+
+### Scientific or technical computing
+
+### Statistics
+
+### Data analysis and plotting
+
+### Proof assistants
 
 ## Physics
-            6.2.1 Physics simulation
-            6.2.2 Unit conversion
+
+### Physics simulation
+
+### Unit conversion
 
 ## Chemistry
-            6.3.1 Molecules
-                6.3.1.1 Viewers
-                6.3.1.2 Drawing
-                6.3.1.3 Modeling
-            6.3.2 Periodic table
+
+### Molecules
+
+#### Viewers
+
+#### Drawing
+
+#### Modeling
+
+### Periodic table
 
 ## Earth science
-            6.4.1 Geography
-            6.4.2 Meteorology
+
+### Geography
+
+### Meteorology
 
 ## Astronomy
 
 ## Biology
-            6.6.1 Computational biology and bioinformatics
-            6.6.2 Biochemistry
-            6.6.3 Image manipulation
+
+### Computational biology and bioinformatics
+
+### Biochemistry
+
+### Image manipulation
 
 ## Engineering
-            6.7.1 Computer-aided design
-            6.7.2 Electronics
-                6.7.2.1 Digital logic
-                6.7.2.2 HDL
-                6.7.2.3 MCU IDE
-                6.7.2.4 Schematic capture editor
+
+### Computer-aided design
+
+### Electronics
+
+#### Digital logic
+
+#### HDL
+
+#### MCU IDE
+
+#### Schematic capture editor
 
 ## Telecommunication
-            6.8.1 Amateur radio
+
+### Amateur radio
 
 ## Simulation modeling
 
 ## Computer science
-            6.10.1 Artificial intelligence
+
+### Artificial intelligence
+
 # Others
 
 ## Organization
-            7.1.1 Personal information managers
-            7.1.2 Time management
-                7.1.2.1 Console
-                7.1.2.2 Graphical
-            7.1.3 Time trackers
-            7.1.4 Task management
-                7.1.4.1 Console
-                7.1.4.2 Graphical
-            7.1.5 Contacts management
-            7.1.6 Financial management
-            7.1.7 Cryptocurrency
-            7.1.8 Project management
+
+### Personal information managers
+
+### Time management
+
+#### Console
+
+#### Graphical
+
+### Time trackers
+
+### Task management
+
+#### Console
+
+#### Graphical
+
+### Contacts management
+
+### Financial management
+
+### Cryptocurrency
+
+### Project management
 
 ## Education
-            7.2.1 Flashcards
-            7.2.2 Touch typing
-                7.2.2.1 Console
-                7.2.2.2 Graphical
-            7.2.3 Recipe management
+
+### Flashcards
+
+### Touch typing
+
+#### Console
+
+#### Graphical
+
+### Recipe management
 
 ## Accessibility
-            7.3.1 Speech synthesizers
-            7.3.2 Speech recognition
-            7.3.3 Screen magnifiers
-            7.3.4 Mouse
+
+### Speech synthesizers
+
+### Speech recognition
+
+### Screen magnifiers
+
+### Mouse
 
 ## Display managers
 
 ## Desktop environments
-            7.5.1 Window managers
-                7.5.1.1 Console
-                7.5.1.2 Graphical
-                7.5.1.3 Composite managers
-            7.5.2 Window tilers
-            7.5.3 Taskbars
-            7.5.4 System tray
-            7.5.5 Application launchers
-            7.5.6 Application menu editors
-            7.5.7 Wallpaper setters
-            7.5.8 Virtual desktop pagers
-            7.5.9 Desktop widgets
-            7.5.10 Desktop notifications
-            7.5.11 Clipboard managers
- # See also
+ 
+### Window managers
+
+#### Console
+
+#### Graphical
+
+#### Composite managers
+
+### Window tilers
+
+### Taskbars
+
+### System tray
+
+### Application launchers
+
+### Application menu editors
+
+### Wallpaper setters
+
+### Virtual desktop pagers
+
+### Desktop widgets
+
+### Desktop notifications
+
+### Clipboard managers
+
+# See also
