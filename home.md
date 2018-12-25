@@ -2,21 +2,17 @@
 
 ## PantherX Distribution
 
-- [PantherX_Linux](PantherX_Linux)
-- [PantherX Linux](PantherX Linux)
-- [PantherX-Linux](PantherX-Linux)
-
-- [PantherX Linux](PantherX_Linux)  
+- [PantherX Linux](PantherX-Linux)  
 Overview of PantherX Linux
-- [Frequently asked questions](Frequently_asked_questions)  
+- [Frequently asked questions](Frequently-asked-questions)  
 Notable questions and facts
-- [PantherX compared to other distributions](PantherX_compared_to_other_distributions)  
+- [PantherX compared to other distributions](PantherX-compared-to-other-distributions)  
 Summarises the similarities and differences between PantherX and other distributions.
-- [Installation guide](Installation_guide)  
+- [Installation guide](Installation-guide)  
 Guide through the process of installing PantherX Linux in VirtualBox.
-- [General recommendations](General_recommendations)  
+- [General recommendations](General-recommendations)  
 Annotated index of post-installation tutorials and other popular articles.
-- [List of applications](List_of_applications)  
+- [List of applications](List-of-applications)  
 Categorised presentation of common official and AUR packages.
 
 ---
