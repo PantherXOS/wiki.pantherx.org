@@ -300,3 +300,164 @@ To create an environment for packages in manifest _file_:
 ```bash
 guix environment -m file
 ```
+
+# Troubleshooting
+
+## guix substitute
+
+### guix substitute: error: connect: Network is unreachable (mirror down)
+
+This happens, when either your network is down, or the _guix mirror_ is unreachable.
+
+```bash
+substitution of /gnu/store/2lc6b2yfa7vkxbfvsf5pjwwp467g9lik-cairo-1.14.10.tar.xz failed
+guix substitute: error: connect: Network is unreachable
+substitution of /gnu/store/84dgv1gy1cyms37zlmykpsafbpwbm7xr-dbus-1.12.6 failed
+guix substitute: error: connect: Network is unreachable
+substitution of /gnu/store/hqhzp6d2b396yqdcappqbjk8xz1fm9jl-flex-2.6.1 failed
+guix substitute: error: connect: Network is unreachable
+```
+
+To use an alternative _guix mirror_, you'll need to authorize it first.
+
+**(1)** Get the _guix mirror_ public key and save it:
+
+```bash
+$ nano berlin.guixsd.org.pub
+```
+
+The public key for _berlin.guixsd.org_ is:
+
+```scheme
+(public-key
+ (ecc
+  (curve Ed25519)
+  (q #8D156F295D24B0D9A86FA5741A840FF2D24F60F7B6C4134814AD55625971B394#)
+  )
+ )
+```
+
+**(2)** Authorize the mirror with Guix:
+
+```bash
+$ guix archive --authorize < /root/berlin.guixsd.org.pub
+```
+
+**(2)** Use mirror with Guix:
+
+```bash
+$ guix package -i packagename --substitute-urls=https://berlin.guixsd.org
+```
+
+## guix refresh
+
+### guix refresh: peer-certificate-status Throw gnutls-error
+
+When `guix refresh` produces an error, similar to this:
+
+```bash
+gnu/packages/admin.scm:2452:13: thermald would be upgraded from 1.7.2 to 1.8
+Backtrace:
+          16 (primitive-load "/root/.config/guix/current/bin/guix")
+In guix/ui.scm:
+  1583:12 15 (run-guix-command _ . _)
+In ice-9/boot-9.scm:
+    829:9 14 (catch _ _ #<procedure 7f3d05aee458 at guix/ui.scm:615…> …)
+    829:9 13 (catch _ _ #<procedure 7f3d05aee470 at guix/ui.scm:733…> …)
+In guix/scripts/refresh.scm:
+   458:12 12 (_)
+In srfi/srfi-1.scm:
+    640:9 11 (for-each #<procedure 1557b00 at guix/scripts/refresh.…> …)
+In guix/scripts/refresh.scm:
+    241:2 10 (check-for-package-update #<package rename@1.00 gnu/pa…> …)
+In guix/import/cpan.scm:
+    286:2  9 (latest-release #<package rename@1.00 gnu/packages/admi…>)
+In guix/import/json.scm:
+     50:9  8 (json-fetch-alist _)
+In ice-9/boot-9.scm:
+    829:9  7 (catch srfi-34 #<procedure 2ce9b80 at guix/import/json…> …)
+In guix/import/json.scm:
+    42:19  6 (_)
+In guix/http-client.scm:
+    88:25  5 (http-fetch _ #:port _ #:text? _ #:buffered? _ # _ # _ # …)
+In guix/build/download.scm:
+    403:4  4 (open-connection-for-uri _ #:timeout _ # _)
+    301:6  3 (tls-wrap #<input-output: socket 25> _ # _)
+In ice-9/boot-9.scm:
+    829:9  2 (catch tls-certificate-error #<procedure 2ce9880 at gu…> …)
+In guix/build/download.scm:
+    220:2  1 (assert-valid-server-certificate #<session 372aea0> "fa…")
+In unknown file:
+           0 (peer-certificate-status #<session 372aea0>)
+
+ERROR: In procedure peer-certificate-status:
+Throw to key `gnutls-error' with args `(#<gnutls-error-enum An unimplemented or disabled feature has been requested.> peer-certificate-status)'.
+```
+
+To fix this, install `gnutls` with:
+
+```bash
+$ guix package -i gnutls
+```
+
+### guix refresh: X.509 certificate verification issue
+
+When you see an error, similar to this:
+
+```bash
+$ user@system ~$ guix refresh
+Backtrace:
+          13 (primitive-load "/home/user/.config/guix/current/bin…")
+In guix/ui.scm:
+  1583:12 12 (run-guix-command _ . _)
+In ice-9/boot-9.scm:
+    829:9 11 (catch srfi-34 #<procedure 1839a80 at guix/ui.scm:615:…> …)
+    829:9 10 (catch system-error #<procedure 1b1c0f0 at guix/script…> …)
+In guix/scripts/refresh.scm:
+   458:12  9 (_)
+In srfi/srfi-1.scm:
+    640:9  8 (for-each #<procedure 1839380 at guix/scripts/refresh.…> …)
+In guix/scripts/refresh.scm:
+    241:2  7 (check-for-package-update #<package acct@6.6.4 gnu/pac…> …)
+In guix/gnu-maintenance.scm:
+   561:21  6 (latest-gnu-release _)
+   546:16  5 (_)
+In ice-9/boot-9.scm:
+    829:9  4 (catch srfi-34 #<procedure 1b1c0a0 at guix/http-client…> …)
+In guix/http-client.scm:
+   182:20  3 (_)
+    88:25  2 (http-fetch _ #:port _ #:text? _ #:buffered? _ # _ # _ # …)
+In guix/build/download.scm:
+    403:4  1 (open-connection-for-uri _ #:timeout _ # _)
+    301:6  0 (tls-wrap #<closed: file 3d22380> _ # _)
+
+guix/build/download.scm:301:6: In procedure tls-wrap:
+X.509 certificate of 'ftp.gnu.org' could not be verified:
+  signer-not-found
+  invalid
+```
+
+This issue is related to SSL certificate verification.
+
+To install fix this, install and configure `nss-certs`:
+
+```bash
+$ guix package -i nss-certs
+$ export SSL_CERT_DIR="$HOME/.guix-profile/etc/ssl/certs"
+$ export SSL_CERT_FILE="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
+$ export GIT_SSL_CAINFO="$SSL_CERT_FILE"
+```
+
+## guix archive
+
+### guix archive: error: build failed: getting status of `/etc/guix/signing-key.sec'
+
+```bash
+guix archive: error: build failed: getting status of `/etc/guix/signing-key.sec': No such file or directory
+```
+
+To fix this, generate a new key pair for the daemon. This is a prerequisite before archives can be exported with --export. Note that this operation usually takes time, because it needs to gather enough entropy to generate the key pair. _([Source](https://www.gnu.org/software/guix/manual/en/html_node/Invoking-guix-archive.html))_
+
+```bash
+$ guix archive --generate-key
+```
