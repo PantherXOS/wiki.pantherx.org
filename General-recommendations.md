@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 # System administration
 
 ## Users and groups
@@ -10,13 +12,13 @@ PantherX uses [shepherd](/Shepherd) as the init process, which is a system and s
 
 ## System maintenance
 
-PantherX comes in two flavours, a rolling release, and LTS (Long Term Support) release. Read more about [system maintenance](System-maintenance). 
+PantherX comes in two flavours, a rolling release, and LTS (Long Term Support) release. Read more about [system maintenance](System-maintenance).
 
 # Package management
 
 ## guix
 
-[guix](/guix) is the PantherX package manager: all users are required to become familiar with it before reading any other articles. 
+[guix](/guix) is the PantherX package manager: all users are required to become familiar with it before reading any other articles.
 
 ## Repositories
 

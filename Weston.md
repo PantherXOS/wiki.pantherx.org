@@ -1,3 +1,7 @@
+[[_TOC_]]
+
+Weston is a lightweight and functional Wayland compositor.
+
 # Installation
 
 ## Global Installation
@@ -51,3 +55,5 @@ $ weston-launch
 ## Customizing Leave
 
 # See also
+
+- [weston source code](https://gitlab.freedesktop.org/wayland/weston/) on GitLab

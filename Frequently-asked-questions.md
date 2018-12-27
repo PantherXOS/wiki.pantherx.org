@@ -13,4 +13,3 @@
 ## When will the new release be made available?
 
 ## Is PantherX Linux a stable distribution? Will I get frequent breakage?
-

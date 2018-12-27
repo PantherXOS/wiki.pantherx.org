@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 # General
 
 ## Debian
@@ -11,7 +13,7 @@
 ## Ubuntu
 
 ## Linux Mint
- 
+
 ## openSUSE
 
 ## Mandriva/Mageia

@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 # Internet
 
 ## Network connection
@@ -32,7 +34,7 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 ### Specialized web servers
 
 ### WSGI servers
- 
+
 ### Performance testing
 
 ## File sharing
@@ -114,7 +116,7 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 #### SIP servers
 
 #### Other IM servers
- 
+
 ### Collaborative software
 
 ## News, RSS, and blogs
@@ -313,6 +315,9 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 
 ### Version control systems
 
+- [git](git) — Git is a free distributed version control system designed to handle everything from small to very large projects with speed and efficiency.  
+https://www.gnome.org/projects/NetworkManager/ || CLI: `git`
+
 ### Build automation
 
 ### Integrated development environments
@@ -341,7 +346,7 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 
 ### Code review
 
-            3.3.13 Game development
+#### Game development
 
 ## Text input
 
@@ -377,6 +382,9 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 
 ### Task managers
 
+- [htop](htop) — An interactive process viewer.  It is a text-mode application (for console or X terminals) and requires ncurses.
+http://htop.sourceforge.net/ | CLI: `htop`
+
 ### System monitors
 
 ### Hardware sensor monitoring
@@ -398,7 +406,7 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 ### Shutdown timers
 
 ### Clock synchronization
- 
+
 ### Screen management
 
 ### Backlight management
@@ -422,9 +430,9 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 ### Graphical
 
 ### Emacs text editors
- 
+
 ### Vi text editors
- 
+
 ## Office
 
 ### Office suites
@@ -458,7 +466,7 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 ### TeX formula editors
 
 ### XML editors
- 
+
 ## Document converters
 
 ## Bibliographic reference managers
@@ -544,7 +552,7 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 ### Graphical
 
 ## Cryptography
- 
+
 ### Hash checkers
 
 ### Encryption, signing, steganography
@@ -678,7 +686,7 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 ## Display managers
 
 ## Desktop environments
- 
+
 ### Window managers
 
 #### Console

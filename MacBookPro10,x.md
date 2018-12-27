@@ -1,3 +1,4 @@
+[[_TOC_]]
 
 # Preparing for the Installation
 
