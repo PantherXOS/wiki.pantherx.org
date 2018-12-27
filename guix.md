@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 # Usage
 
 ## Installing packages
@@ -437,6 +439,12 @@ X.509 certificate of 'ftp.gnu.org' could not be verified:
   invalid
 ```
 
+or this:
+
+```bash
+fatal: unable to access 'https://address.org/': Problem with the SSL CA cert (path? access rights?)
+```
+
 This issue is related to SSL certificate verification.
 
 To install fix this, install and configure `nss-certs`:
@@ -447,6 +455,8 @@ $ export SSL_CERT_DIR="$HOME/.guix-profile/etc/ssl/certs"
 $ export SSL_CERT_FILE="$HOME/.guix-profile/etc/ssl/certs/ca-certificates.crt"
 $ export GIT_SSL_CAINFO="$SSL_CERT_FILE"
 ```
+
+Read more about [X.509 Certificates in the Guix Manual](https://www.gnu.org/software/guix/manual/en/html_node/X_002e509-Certificates.html).
 
 ## guix archive
 
@@ -460,4 +470,53 @@ To fix this, generate a new key pair for the daemon. This is a prerequisite befo
 
 ```bash
 $ guix archive --generate-key
+```
+
+## guix package
+
+### guix package: error: build failed: some substitutes for the outputs of derivation
+
+When you see an error, similar to this:
+
+```bash
+$ guix package -i python2
+substitute: updating substitutes from 'https://mirror.hydra.gnu.org'... 100.0%
+
+The following package will be installed:
+   python2	2.7.14	/gnu/store/53qclss2ic8lrs4l9778rf4fkr55rg45-python2-2.7.14
+
+substitute: updating substitutes from 'https://mirror.hydra.gnu.org'... 100.0%
+substitute: updating substitutes from 'https://mirror.hydra.gnu.org'... 100.0%
+substitute: updating substitutes from 'https://mirror.hydra.gnu.org'... 100.0%
+substitute: updating substitutes from 'https://mirror.hydra.gnu.org'... 100.0%
+substitute: updating substitutes from 'https://mirror.hydra.gnu.org'... 100.0%
+The following derivations will be built:
+   /gnu/store/gly2wxpgb6amfdwv848c8cd4f81f6h01-profile.drv
+   /gnu/store/k0isxpanm0qavrgrbxai70y5fiynb153-info-dir.drv
+   /gnu/store/glykncy3qpsdxkxm55cbwb2qym3pnv4p-ca-certificate-bundle.drv
+   /gnu/store/c2gzbf55fl7z7wilb4d3hl787v4lzbfq-fonts-dir.drv
+   /gnu/store/056fvy2kybsl0iisnvc2k2fhxkjxp71j-python2-2.7.14.drv
+   /gnu/store/kwicx940qyyb125v3r8y5f4wikrpsvrz-manual-database.drv
+Downloading https://mirror.hydra.gnu.org/guix/nar/gzip/waszs4why44hpha9xlzp7p8fdc577xlm-python2-2.7.14-tk...
+guix substitute: error: download from 'https://mirror.hydra.gnu.org/guix/nar/gzip/waszs4why44hpha9xlzp7p8fdc577xlm-python2-2.7.14-tk' failed: 504, "Gateway Time-out"
+guix package: error: build failed: some substitutes for the outputs of derivation `/gnu/store/yhmbka6gryhl69432k3krvaz73ym8130-python2-2.7.14.drv' failed (usually happens due to networking issues); try `--fallback' to build derivation from source
+```
+
+This could have one of two causes:
+
+1. The package has been modified but a substitute is not yet available (the source has not been build)
+2. The mirror is failing (Gateway Time-out)
+
+To fallback, to building unavailable packages locally, do:
+
+```bash
+$ guix package -i python2 --fallback
+```
+
+If that doesn't work, refresh your package index first:
+
+```bash
+$ guix pull
+$ guix package -u
+$ guix package -i python2
 ```
