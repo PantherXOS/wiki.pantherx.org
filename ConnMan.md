@@ -15,6 +15,18 @@ $ guix package -i connman
 
 ### Ethernet
 
+#### System Configuration
+
+```scheme
+(service connman-service-type
+         (connman-configuration
+           (disable-vpn? #t)))
+```
+
+Read more about [System configuration](System-configuration) on PantherX.
+
+#### Config file
+
 ```
 [service_home_ethernet]
 Type = ethernet
@@ -54,3 +66,4 @@ MAC = 06:05:04:03:02:01
 
 - [ConnMan service provisioning file](https://manpages.debian.org/testing/connman/connman-service.config.5.en.html)
 - [ConnMan on Arch Wiki](https://wiki.archlinux.org/index.php/ConnMan#Wi-Fi)
+- [Networking Services on GuixSD](https://www.gnu.org/software/guix/manual/en/html_node/Networking-Services.html)

@@ -1,16 +1,22 @@
-<section class="section">
-	<div class="sidebar-nav">
-		<ul class="is-level-1">
-			{% for item in site.sidebar %}
-			<li>
-				{% unless item[0] == "top" %}{{ item[0] | capitalize }}{% endunless %}
-				<ul class="is-level-2 is-level-sub">
-					{% for sub in item[1] %}
-					<li><a href="{% if sub == "Main page" %}/{% else %}{{ sub | replace: ' ', '-' }}{% endif %}">{{ sub }}</a></li>
-					{% endfor %}
-				</ul>
-			</li>
-			{% endfor %}
-		</ul>
-	</div>
-</section>
+<div class="sidebar-nav">
+	<ul class="is-level-1">
+		{% for item in site.sidebar %}
+		<li>
+			{% unless item[0] == "top" %}{{ item[0] | capitalize }}{% endunless %}
+			<ul class="is-level-2 is-level-sub">
+				{% for sub in item[1] %}
+				<li>
+					{% if sub == "Main page" %}
+					<a href="/">{{ sub }}</a>
+					{% elsif sub == "Recent Changes" %}
+					<a href="https://git.pantherx.org/development/wiki-pantherx.org/commits/master/{{ page.path }}">{{ sub }}</a>
+					{% else %}
+					<a href="{{ sub | replace: ' ', '-' }}">{{ sub }}</a>
+					{% endif %}
+				</li>
+				{% endfor %}
+			</ul>
+		</li>
+		{% endfor %}
+	</ul>
+</div>
