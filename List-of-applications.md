@@ -421,11 +421,17 @@ http://htop.sourceforge.net/ | CLI: `htop`
 
 ### Package management
 
+- [guix](guix) — A package manager based on the Nix package manager with Guile Scheme APIs.  
+https://www.gnu.org/software/guix/ || CLI: `guix`
+
 # Documents and texts
 
 ## Text editors
 
 ### Console
+
+- [nano](nano) — GNU nano is a small and simple text editor for use in a terminal.  Besides basic editing, it supports: undo/redo, syntax highlighting, spell checking, justifying, auto-indentation, bracket matching, interactive search-and-replace (with regular expressions), and the editing of multiple files.
+https://www.nano-editor.org/ || CLI: `nano`
 
 ### Graphical
 
