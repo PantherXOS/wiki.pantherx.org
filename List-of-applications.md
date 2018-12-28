@@ -1,724 +1,725 @@
-[[_TOC_]]
+---
+---
 
-# Internet
+## Internet
 
-## Network connection
+### Network connection
 
-### Network managers
+#### Network managers
 
 - [NetworkManager](NetworkManager) — is a system network service that manages your network devices and connections, attempting to keep active network connectivity when available. It manages ethernet, WiFi, mobile broadband (WWAN), and PPPoE devices, and provides VPN integration with a variety of different VPN services.  
 https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI: `network-manager-applet`
 
-### VPN clients
+#### VPN clients
 
-### Proxy servers
+#### Proxy servers
 
-### Anonymizing networks
+#### Anonymizing networks
 
-## Web browsers
-
-### Console
-
-### Graphical
-
-#### Gecko-based
-
-#### Blink-based
-
-#### WebKit-based
-
-## Web servers
-
-### Static web servers
-
-### Specialized web servers
-
-### WSGI servers
-
-### Performance testing
-
-## File sharing
-
-### Download managers
+### Web browsers
 
 #### Console
 
 #### Graphical
 
-### Cloud storage servers
+##### Gecko-based
 
-### Cloud synchronization clients
+##### Blink-based
 
-### FTP
+##### WebKit-based
 
-#### FTP clients
+### Web servers
 
-#### FTP servers
+#### Static web servers
 
-### BitTorrent clients
+#### Specialized web servers
 
-#### Console
+#### WSGI servers
 
-#### Graphical
+#### Performance testing
 
-### Other P2P networks
+### File sharing
 
-### Pastebin clients
-
-## Communication
-
-### Email clients
-
-#### Console
-
-#### Graphical
-
-### Mail servers
-
-### Mail retrieval agents
-
-### Instant messaging clients
-
-#### Multi-protocol clients
+#### Download managers
 
 ##### Console
 
 ##### Graphical
 
-#### IRC clients
+#### Cloud storage servers
+
+#### Cloud synchronization clients
+
+#### FTP
+
+##### FTP clients
+
+##### FTP servers
+
+#### BitTorrent clients
 
 ##### Console
 
 ##### Graphical
 
-#### XMPP clients
+#### Other P2P networks
+
+#### Pastebin clients
+
+### Communication
+
+#### Email clients
 
 ##### Console
 
 ##### Graphical
 
-#### SIP clients
+#### Mail servers
 
-#### Matrix clients
+#### Mail retrieval agents
 
-#### Tox clients
+#### Instant messaging clients
 
-#### Serverless (decentralized) clients
+##### Multi-protocol clients
 
-#### Other IM clients
+###### Console
 
-### Instant messaging servers
+###### Graphical
 
-#### IRC servers
+##### IRC clients
 
-#### XMPP servers
+###### Console
 
-#### SIP servers
+###### Graphical
 
-#### Other IM servers
+##### XMPP clients
 
-### Collaborative software
+###### Console
 
-## News, RSS, and blogs
+###### Graphical
 
-### News aggregators
+##### SIP clients
 
-#### Console
+##### Matrix clients
 
-#### Graphical
+##### Tox clients
 
-### Podcast clients
+##### Serverless (decentralized) clients
 
-#### Console
+##### Other IM clients
 
-#### Graphical
+#### Instant messaging servers
 
-### Usenet newsreaders
+##### IRC servers
 
-#### Console
+##### XMPP servers
 
-#### Graphical
+##### SIP servers
 
-### Blog engines
+##### Other IM servers
 
-### Microblogging clients
+#### Collaborative software
 
-#### Console
+### News, RSS, and blogs
 
-#### Graphical
+#### News aggregators
 
-## Remote desktop
+##### Console
 
-### Remote desktop clients
+##### Graphical
 
-### Remote desktop servers
+#### Podcast clients
 
-# Multimedia
+##### Console
 
-## Codecs
+##### Graphical
 
-## Image
+#### Usenet newsreaders
 
-### Image viewers
+##### Console
 
-#### Framebuffer image viewers
+##### Graphical
 
-#### Graphical image viewers
+#### Blog engines
 
-### Image organizers
+#### Microblogging clients
 
-### Image processing
+##### Console
 
-#### Image compression
+##### Graphical
 
-### Raster graphics editors
+### Remote desktop
 
-### Photo editors
+#### Remote desktop clients
 
-### Vector graphics editors
+#### Remote desktop servers
 
-### Font editors
+## Multimedia
 
-### 2D animation
+### Codecs
 
-### 3D computer graphics
+### Image
 
-### Color pickers
+#### Image viewers
 
-### Screenshot
+##### Framebuffer image viewers
 
-### Digital camera managers
+##### Graphical image viewers
 
-## Audio
+#### Image organizers
 
-### Audio systems
+#### Image processing
 
-### Audio players
+##### Image compression
 
-#### Console
+#### Raster graphics editors
 
-#### Graphical
+#### Photo editors
 
-### Audio tag editors
+#### Vector graphics editors
 
-#### Console
+#### Font editors
 
-#### Graphical
+#### 2D animation
 
-### Lyrics
+#### 3D computer graphics
 
-### Audio converters
+#### Color pickers
 
-### Audio editors
+#### Screenshot
 
-### Digital audio workstations
+#### Digital camera managers
 
-### Audio analyzers
+### Audio
 
-### Scorewriters
+#### Audio systems
 
-### Audio synthesis environments
+#### Audio players
 
-### Sound generators
+##### Console
 
-### Music trackers
+##### Graphical
 
-### DJ
+#### Audio tag editors
 
-### Audio effects
+##### Console
 
-### Audio visualizers
+##### Graphical
 
-### Volume control
+#### Lyrics
 
-### CD ripping
+#### Audio converters
 
-## Video
+#### Audio editors
 
-### Video players
+#### Digital audio workstations
 
-#### Console
+#### Audio analyzers
 
-#### Graphical
+#### Scorewriters
 
-### Video converters
+#### Audio synthesis environments
 
-#### Console
+#### Sound generators
 
-#### Graphical
+#### Music trackers
 
-### Video editors
+#### DJ
 
-### Subtitles
+#### Audio effects
 
-### Screencast
+#### Audio visualizers
 
-### Webcam
+#### Volume control
 
-### DVD authoring
+#### CD ripping
 
-### DVD ripping
+### Video
 
-## Collection managers
+#### Video players
 
-## Media servers
+##### Console
 
-## Metadata
+##### Graphical
 
-## Mobile device managers
+#### Video converters
 
-## Optical disc burning
+##### Console
 
-# Utilities
+##### Graphical
 
-## Terminal
+#### Video editors
 
-### Command shells
+#### Subtitles
 
-### Terminal emulators
+#### Screencast
 
-### Terminal pagers
+#### Webcam
 
-### Terminal multiplexers
+#### DVD authoring
 
-## Files
+#### DVD ripping
 
-### File managers
+### Collection managers
 
-#### Console
+### Media servers
 
-#### Graphical
+### Metadata
 
-### Trash management
+### Mobile device managers
 
-### File synchronization
+### Optical disc burning
 
-### Archiving and compression tools
+## Utilities
 
-#### Archive managers
+### Terminal
 
-### Comparison, diff, merge
+#### Command shells
 
-### Batch renamers
+#### Terminal emulators
 
-### File searching
+#### Terminal pagers
 
-#### Console
+#### Terminal multiplexers
 
-#### Graphical
+### Files
 
-### Full-text searching
+#### File managers
 
-#### Full-text indexers
+##### Console
 
-## Development
+##### Graphical
 
-### Version control systems
+#### Trash management
+
+#### File synchronization
+
+#### Archiving and compression tools
+
+##### Archive managers
+
+#### Comparison, diff, merge
+
+#### Batch renamers
+
+#### File searching
+
+##### Console
+
+##### Graphical
+
+#### Full-text searching
+
+##### Full-text indexers
+
+### Development
+
+#### Version control systems
 
 - [git](git) — Git is a free distributed version control system designed to handle everything from small to very large projects with speed and efficiency.  
 https://www.gnome.org/projects/NetworkManager/ || CLI: `git`
 
-### Build automation
+#### Build automation
 
-### Integrated development environments
+#### Integrated development environments
 
-#### Java IDEs
+##### Java IDEs
 
-#### Python IDEs
+##### Python IDEs
 
-#### Educational IDEs
+##### Educational IDEs
 
-### Debuggers
+#### Debuggers
 
-### Lexing and parsing
+#### Lexing and parsing
 
-### GUI builders
+#### GUI builders
 
-### Hex editors
+#### Hex editors
 
-### JSON tools
+#### JSON tools
 
-### UML modelers
+#### UML modelers
 
-### API documentation browsers
+#### API documentation browsers
 
-### Issue tracking systems
+#### Issue tracking systems
 
-### Code review
+#### Code review
 
-#### Game development
+##### Game development
 
-## Text input
+### Text input
 
-### Character selectors
+#### Character selectors
 
-### On-screen keyboards
+#### On-screen keyboards
 
-### Keyboard layout switchers
+#### Keyboard layout switchers
 
-### Input methods
+#### Input methods
 
-## Disks
+### Disks
 
-### Partitioning tools
+#### Partitioning tools
 
-### Formatting tools
+#### Formatting tools
 
-### Cloning tools
+#### Cloning tools
 
-### Mount tools
+#### Mount tools
 
-### Disk usage display
+#### Disk usage display
 
-### Disk health status
+#### Disk health status
 
-### File recovery tools
+#### File recovery tools
 
-### Disk cleaning
+#### Disk cleaning
 
-### Disk image writing
+#### Disk image writing
 
-## System
+### System
 
-### Task managers
+#### Task managers
 
 - [htop](htop) — An interactive process viewer.  It is a text-mode application (for console or X terminals) and requires ncurses.
 http://htop.sourceforge.net/ | CLI: `htop`
 
-### System monitors
+#### System monitors
 
-### Hardware sensor monitoring
+#### Hardware sensor monitoring
 
-### System information viewers
+#### System information viewers
 
-#### Console
+##### Console
 
-#### Graphical
+##### Graphical
 
-### System log viewers
+#### System log viewers
 
-### Font viewers
+#### Font viewers
 
-### Help viewers
+#### Help viewers
 
-### Command schedulers
+#### Command schedulers
 
-### Shutdown timers
+#### Shutdown timers
 
-### Clock synchronization
+#### Clock synchronization
 
-### Screen management
+#### Screen management
 
-### Backlight management
+#### Backlight management
 
-### Color management
+#### Color management
 
-### Printer management
+#### Printer management
 
-### Bluetooth management
+#### Bluetooth management
 
-### Power management
+#### Power management
 
-### Package management
+#### Package management
 
 - [guix](guix) — A package manager based on the Nix package manager with Guile Scheme APIs.  
 https://www.gnu.org/software/guix/ || CLI: `guix`
 
-# Documents and texts
+## Documents and texts
 
-## Text editors
+### Text editors
 
-### Console
+#### Console
 
 - [nano](nano) — GNU nano is a small and simple text editor for use in a terminal.  Besides basic editing, it supports: undo/redo, syntax highlighting, spell checking, justifying, auto-indentation, bracket matching, interactive search-and-replace (with regular expressions), and the editing of multiple files.
 https://www.nano-editor.org/ || CLI: `nano`
 
-### Graphical
+#### Graphical
 
-### Emacs text editors
+#### Emacs text editors
 
-### Vi text editors
+#### Vi text editors
 
-## Office
+### Office
 
-### Office suites
+#### Office suites
 
-### Word processors
+#### Word processors
 
-### Presentations
+#### Presentations
 
-### Spreadsheets
+#### Spreadsheets
 
-### Database tools
+#### Database tools
 
-### Formula editors
+#### Formula editors
 
-## Markup languages
+### Markup languages
 
-### AsciiDoc
+#### AsciiDoc
 
-### Markdown
+#### Markdown
 
-#### Python implementations
+##### Python implementations
 
-#### Ruby implementations
+##### Ruby implementations
 
-#### Markdown editors
+##### Markdown editors
 
-### Typesetting systems
+#### Typesetting systems
 
-### TeX editors
+#### TeX editors
 
-### TeX formula editors
+#### TeX formula editors
 
-### XML editors
+#### XML editors
 
-## Document converters
+### Document converters
 
-## Bibliographic reference managers
+### Bibliographic reference managers
 
-## Readers and viewers
+### Readers and viewers
 
-### PDF and DjVu
+#### PDF and DjVu
 
-### E-book
+#### E-book
 
-### Comic book
+#### Comic book
 
-### CHM
+#### CHM
 
-## Document managers
+### Document managers
 
-## Scanning software
+### Scanning software
 
-## OCR software
-
-### Console
-
-### Graphical
-
-## Notes
-
-### Note-taking software
+### OCR software
 
 #### Console
 
 #### Graphical
 
-### Stylus note-taking
+### Notes
 
-### Diary
+#### Note-taking software
 
-### Mind-mapping
+##### Console
 
-### Sticky notes
+##### Graphical
 
-## Special writing environments
+#### Stylus note-taking
 
-### Distraction-free writing
+#### Diary
 
-### Story writing
+#### Mind-mapping
 
-### Screenwriting
+#### Sticky notes
 
-## Language
+### Special writing environments
 
-### Dictionary and thesaurus
+#### Distraction-free writing
 
-### Spell checkers
+#### Story writing
 
-### Translation and localization
+#### Screenwriting
 
-## Barcode generators and readers
+### Language
 
-### Console
+#### Dictionary and thesaurus
 
-### Graphical
+#### Spell checkers
 
-# Security
+#### Translation and localization
 
-## Network security
-
-## Firewall management
-
-## Threat and vulnerability detection
-
-## File security
-
-## Anti malware
-
-## Backup programs
-
-## Screen lockers
-
-## Password managers
-
-### Console
-
-### Graphical
-
-## Cryptography
-
-### Hash checkers
-
-### Encryption, signing, steganography
-
-### Disk encryption
-
-# Science
-
-## Mathematics
-
-### Calculator
-
-### Computer algebra system
-
-### Scientific or technical computing
-
-### Statistics
-
-### Data analysis and plotting
-
-### Proof assistants
-
-## Physics
-
-### Physics simulation
-
-### Unit conversion
-
-## Chemistry
-
-### Molecules
-
-#### Viewers
-
-#### Drawing
-
-#### Modeling
-
-### Periodic table
-
-## Earth science
-
-### Geography
-
-### Meteorology
-
-## Astronomy
-
-## Biology
-
-### Computational biology and bioinformatics
-
-### Biochemistry
-
-### Image manipulation
-
-## Engineering
-
-### Computer-aided design
-
-### Electronics
-
-#### Digital logic
-
-#### HDL
-
-#### MCU IDE
-
-#### Schematic capture editor
-
-## Telecommunication
-
-### Amateur radio
-
-## Simulation modeling
-
-## Computer science
-
-### Artificial intelligence
-
-# Others
-
-## Organization
-
-### Personal information managers
-
-### Time management
+### Barcode generators and readers
 
 #### Console
 
 #### Graphical
 
-### Time trackers
+## Security
 
-### Task management
+### Network security
 
-#### Console
+### Firewall management
 
-#### Graphical
+### Threat and vulnerability detection
 
-### Contacts management
+### File security
 
-### Financial management
+### Anti malware
 
-### Cryptocurrency
+### Backup programs
 
-### Project management
+### Screen lockers
 
-## Education
-
-### Flashcards
-
-### Touch typing
+### Password managers
 
 #### Console
 
 #### Graphical
 
-### Recipe management
+### Cryptography
 
-## Accessibility
+#### Hash checkers
 
-### Speech synthesizers
+#### Encryption, signing, steganography
 
-### Speech recognition
+#### Disk encryption
 
-### Screen magnifiers
+## Science
 
-### Mouse
+### Mathematics
 
-## Display managers
+#### Calculator
 
-## Desktop environments
+#### Computer algebra system
 
-### Window managers
+#### Scientific or technical computing
 
-#### Console
+#### Statistics
 
-#### Graphical
+#### Data analysis and plotting
 
-#### Composite managers
+#### Proof assistants
 
-### Window tilers
+### Physics
 
-### Taskbars
+#### Physics simulation
 
-### System tray
+#### Unit conversion
 
-### Application launchers
+### Chemistry
 
-### Application menu editors
+#### Molecules
 
-### Wallpaper setters
+##### Viewers
 
-### Virtual desktop pagers
+##### Drawing
 
-### Desktop widgets
+##### Modeling
 
-### Desktop notifications
+#### Periodic table
 
-### Clipboard managers
+### Earth science
 
-# See also
+#### Geography
+
+#### Meteorology
+
+### Astronomy
+
+### Biology
+
+#### Computational biology and bioinformatics
+
+#### Biochemistry
+
+#### Image manipulation
+
+### Engineering
+
+#### Computer-aided design
+
+#### Electronics
+
+##### Digital logic
+
+##### HDL
+
+##### MCU IDE
+
+##### Schematic capture editor
+
+### Telecommunication
+
+#### Amateur radio
+
+### Simulation modeling
+
+### Computer science
+
+#### Artificial intelligence
+
+## Others
+
+### Organization
+
+#### Personal information managers
+
+#### Time management
+
+##### Console
+
+##### Graphical
+
+#### Time trackers
+
+#### Task management
+
+##### Console
+
+##### Graphical
+
+#### Contacts management
+
+#### Financial management
+
+#### Cryptocurrency
+
+#### Project management
+
+### Education
+
+#### Flashcards
+
+#### Touch typing
+
+##### Console
+
+##### Graphical
+
+#### Recipe management
+
+### Accessibility
+
+#### Speech synthesizers
+
+#### Speech recognition
+
+#### Screen magnifiers
+
+#### Mouse
+
+### Display managers
+
+### Desktop environments
+
+#### Window managers
+
+##### Console
+
+##### Graphical
+
+##### Composite managers
+
+#### Window tilers
+
+#### Taskbars
+
+#### System tray
+
+#### Application launchers
+
+#### Application menu editors
+
+#### Wallpaper setters
+
+#### Virtual desktop pagers
+
+#### Desktop widgets
+
+#### Desktop notifications
+
+#### Clipboard managers
+
+## See also

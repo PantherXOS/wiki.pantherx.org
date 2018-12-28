@@ -1,3 +1,8 @@
+---
+title: test
+permalink: /docs/test
+---
+
 # PantherX Wiki
 
 ## PantherX distribution

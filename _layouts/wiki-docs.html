@@ -1,0 +1,32 @@
+---
+layout: wiki
+---
+
+<h1 class="title is-1" id="title">{% if page.title %}{{ page.title }}{% else %}{{ page.path | replace: '-', ' ' | replace: '.md', '' | replace: '.html', '' }}{% endif %}</h1>
+
+<div class="toc">
+
+  <b>Table of Content</b>
+
+  <ul class="is-level-1">
+    {% for item in page.subnav %}
+    {% assign current_index = forloop.index %}
+    <li>
+      <span class="index">{{ forloop.index}}</span> <a href="#{{ item.title | downcase | replace: ' ', '-' }}">{{ item.title }}</a>
+      {% if item.children[0].title %}
+      <ul class="is-level-2 is-level-sub">
+        {% for item in item.children %}
+        <li><span class="index">{{ current_index }}.{{ forloop.index}}</span> <a href="#{{ item.title | downcase | replace: ' ', '-' }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<hr>
+
+<div class="content">
+  {{ content }}
+</div>

@@ -1,133 +1,135 @@
-[[_TOC_]]
+---
+category: test
+---
 
-# System administration
+## System administration
 
-## Users and groups
+### Users and groups
 
-## Privilege escalation
+### Privilege escalation
 
-## Service management
+### Service management
 
 PantherX uses [shepherd](/Shepherd) as the init process, which is a system and service manager for Linux. For maintaining your Arch Linux installation, it is a good idea to learn the basics about it. Interaction with _shepherd_ is done through the _herd_ command.
 
-## System maintenance
+### System maintenance
 
 PantherX comes in two flavours, a rolling release, and LTS (Long Term Support) release. Read more about [system maintenance](System-maintenance).
 
-# Package management
+## Package management
 
-## guix
+### guix
 
 [guix](/guix) is the PantherX package manager: all users are required to become familiar with it before reading any other articles.
 
-## Repositories
+### Repositories
 
-## Mirrors
+### Mirrors
 
-## Arch Build System
+### Arch Build System
 
-## Arch User Repository
+### Arch User Repository
 
-# Booting
+## Booting
 
-## Hardware auto-recognition
+### Hardware auto-recognition
 
-## Microcode
+### Microcode
 
-## Retaining boot messages
+### Retaining boot messages
 
-## Num Lock activation
+### Num Lock activation
 
-# Graphical user interface
+## Graphical user interface
 
-## Display server
+### Display server
 
-## Display drivers
+### Display drivers
 
-## Desktop environments
+### Desktop environments
 
-## Window managers
+### Window managers
 
-## Display manager
+### Display manager
 
-# Power management
+## Power management
 
-## ACPI events
+### ACPI events
 
-## CPU frequency scaling
+### CPU frequency scaling
 
-## Laptops
+### Laptops
 
-## Suspend and Hibernate
+### Suspend and Hibernate
 
-# Multimedia
+## Multimedia
 
-## Sound
+### Sound
 
-## Browser plugins
+### Browser plugins
 
-## Codecs
+### Codecs
 
-# Networking
+## Networking
 
-## Clock synchronization
+### Clock synchronization
 
-## DNS security
+### DNS security
 
-## Setting up a firewall
+### Setting up a firewall
 
-## Resource sharing
+### Resource sharing
 
-# Input devices
+## Input devices
 
-## Keyboard layouts
+### Keyboard layouts
 
-## Mouse buttons
+### Mouse buttons
 
-## Laptop touchpads
+### Laptop touchpads
 
-## TrackPoints
+### TrackPoints
 
-# Optimization
+## Optimization
 
-## Benchmarking
+### Benchmarking
 
-## Improving performance
+### Improving performance
 
-## Solid state drives
+### Solid state drives
 
-# System service
+## System service
 
-## File index and search
+### File index and search
 
-## Local mail delivery
+### Local mail delivery
 
-## Printing
+### Printing
 
-# Appearance
+## Appearance
 
-## Fonts
+### Fonts
 
-## GTK+ and Qt themes
+### GTK+ and Qt themes
 
-# Console improvements
+## Console improvements
 
-## Tab-completion enhancements
+### Tab-completion enhancements
 
-## Aliases
+### Aliases
 
-## Alternative shells
+### Alternative shells
 
-## Bash additions
+### Bash additions
 
-## Colored output
+### Colored output
 
-## Console prompt
+### Console prompt
 
-## Emacs shell
+### Emacs shell
 
-## Mouse support
+### Mouse support
 
-## Scrollback buffer
+### Scrollback buffer
 
-## Session management
+### Session management

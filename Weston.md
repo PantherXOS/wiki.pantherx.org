@@ -1,12 +1,13 @@
-[[_TOC_]]
+---
+---
 
 Weston is a lightweight and functional Wayland compositor.
 
-# Installation
+## Installation
 
-## Global Installation
+### Global Installation
 
-## User Profile Installation
+### User Profile Installation
 
 To install _weston_, run:
 
@@ -14,9 +15,9 @@ To install _weston_, run:
 $ guix package -i weston
 ```
 
-# Starting the desktop
+## Starting the desktop
 
-## From terminal
+### From terminal
 
 To launch _weston_, we need to set a number of environment variables:
 
@@ -34,26 +35,26 @@ Now launch _weston_:
 $ weston-launch
 ```
 
-## Graphical login
+### Graphical login
 
-# Configuration
+## Configuration
 
-## Use a different window manager
+### Use a different window manager
 
-## Autostart
+### Autostart
 
-## Set-up environment variables
+### Set-up environment variables
 
-## Editing the Application Menu
+### Editing the Application Menu
 
-# Troubleshooting
+## Troubleshooting
 
-## Desktop icons are grouped together
+### Desktop icons are grouped together
 
-# Tips and tricks
+## Tips and tricks
 
-## Customizing Leave
+### Customizing Leave
 
-# See also
+## See also
 
 - [weston source code](https://gitlab.freedesktop.org/wayland/weston/) on GitLab

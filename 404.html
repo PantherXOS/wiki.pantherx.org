@@ -1,0 +1,19 @@
+---
+layout: wiki-page
+index: false
+---
+
+<h1 class="title is-1" id="title"></h1>
+
+<div class="content">
+	<p>This page does not exist yet. <a href="" id="link">Create it now.</a></p>
+</div>
+
+<script>
+	let raw = window.location.pathname;
+	let raw_segment_last = raw.substr(raw.lastIndexOf('/') + 1);
+	let title = raw_segment_last.replace("-", " ");
+	let url_new = "https://git.pantherx.org/development/wiki-pantherx.org/blob/master/-/" + raw_segment_last + ".md";
+	document.getElementById("title").innerHTML = title;
+	document.getElementById('link').href = url_new;
+</script>

@@ -1,8 +1,9 @@
-[[_TOC_]]
+---
+---
 
-# Installation
+## Installation
 
-## Global Installation
+### Global Installation
 
 Open and edit your system configuration:
 
@@ -85,28 +86,28 @@ Now populate them with the example, from the reference:
 `.config/lxqt/lxqt.conf` with [ref](https://github.com/lxqt/lxqt-session/blob/master/config/lxqt.conf)  
 `.config/lxqt/session.conf` with [ref](https://github.com/lxqt/lxqt-session/blob/master/config/session.conf)
 
-# Starting the desktop
+## Starting the desktop
 
-## Using xinit
+### Using xinit
 
-## Graphical login
+### Graphical login
 
-# Configuration
+## Configuration
 
-## Use a different window manager
+### Use a different window manager
 
-## Autostart
+### Autostart
 
-## Set-up environment variables
+### Set-up environment variables
 
-## Editing the Application Menu
+### Editing the Application Menu
 
-# Troubleshooting
+## Troubleshooting
 
-## Desktop icons are grouped together
+### Desktop icons are grouped together
 
-# Tips and tricks
+## Tips and tricks
 
-## Customizing Leave
+### Customizing Leave
 
-# See also
+## See also

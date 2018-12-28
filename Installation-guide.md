@@ -1,12 +1,13 @@
-[[_TOC_]]
+---
+---
 
-# Pre-installation
+## Pre-installation
 
-## Verify signature
+### Verify signature
 
-## Boot the live environment
+### Boot the live environment
 
-## Set the keyboard layout
+### Set the keyboard layout
 
 To set the keyboard layout:
 
@@ -16,7 +17,7 @@ $ loadkeys dvorak
 
 To list available keyboard layouts, refer to `/run/current-system/profile/share/keymaps` or run `man loadkeys`.
 
-## Connect to the Internet
+### Connect to the Internet
 
 Find available network interfaces:
 
@@ -24,7 +25,7 @@ Find available network interfaces:
 $ ifconfig -a
 ```
 
-### Wired Network
+#### Wired Network
 
 To configure a wired network run the following command, substituting interface with the name of the wired interface you want to use:
 
@@ -32,7 +33,7 @@ To configure a wired network run the following command, substituting interface w
 $ ifconfig interface up
 ```
 
-### Wireless Network
+#### Wireless Network
 
 To configure wireless networking, create a configuration file for the wpa_supplicant configuration tool:
 
@@ -56,7 +57,7 @@ To start the wireless service, and run it on _interface_ in the background:
 $ wpa_supplicant -c wpa_supplicant.conf -i interface -B
 ```
 
-### Get IP
+#### Get IP
 
 To get a new IP on your _interface_:
 
@@ -64,38 +65,38 @@ To get a new IP on your _interface_:
 $ dhclient -v interface
 ```
 
-## Update the system clock
+### Update the system clock
 
-## Partition the disks
+### Partition the disks
 
-## Format the partitions
+### Format the partitions
 
-## Mount the file systems
+### Mount the file systems
 
-# Installation
+## Installation
 
-## Select the mirrors
+### Select the mirrors
 
-## Install the base packages
+### Install the base packages
 
-# Configure the system
+## Configure the system
 
-## Fstab
+### Fstab
 
-## Chroot
+### Chroot
 
-## Time zone
+### Time zone
 
-## Localization
+### Localization
 
-## Network configuration
+### Network configuration
 
-## Initramfs
+### Initramfs
 
-## Root password
+### Root password
 
-## Boot loader
+### Boot loader
 
-# Reboot
+## Reboot
 
-# Post-installation
+## Post-installation

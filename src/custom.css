@@ -1,0 +1,27 @@
+body {
+	background-color: #f6f9fc;
+}
+
+a {
+	color: #003468;
+}
+
+.toc {
+	padding: 1rem;
+	max-width: 600px;
+	background-color: #f6f9fc;
+}
+
+.toc ul li, .sidebar-nav ul li {
+	font-size: .8rem;
+	line-height: 1.4rem;
+}
+
+.toc ul .is-level-sub, .sidebar-nav ul .is-level-sub {
+	padding-left: 1rem;
+}
+
+.wiki-body {
+	padding: 1rem;
+	background-color: #fff;
+}

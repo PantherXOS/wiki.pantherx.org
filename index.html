@@ -1,0 +1,28 @@
+---
+title: PantherX Wiki
+layout: wiki-page
+index: false
+---
+
+<h2 class="title is-2">The distribution</h2>
+
+<div class="columns is-multiline">
+  {% for section in site.sections.distribution %}
+  <div class="column is-half">
+
+    <a href="{{ section.title | replace: " ", "-" }}">
+    {{ section.title }}
+    </a>
+
+    <p>{{ section.description }}</p>
+
+  </div>
+  {% endfor %}
+</div>
+
+{% for doc in site.docs %}
+<p>
+  {{ doc.title }}
+  <br>{{ doc.url }}
+</p>
+{% endfor %}

@@ -1,12 +1,15 @@
-# Stable repositories
+---
+---
 
-## core
+## Stable repositories
 
-## extra
+### core
 
-## community
+### extra
 
-# Testing repositories
+### community
+
+## Testing repositories
 
 To edit available repositories, for the current user, open `channels.scm` with:
 
@@ -14,7 +17,7 @@ To edit available repositories, for the current user, open `channels.scm` with:
 $ nano ~/.config/guix/channels.scm
 ```
 
-## testing
+### testing
 
 To access the current, testing repositories, replace `channels.scm` content with:
 
@@ -29,10 +32,10 @@ To access the current, testing repositories, replace `channels.scm` content with
        (branch "master")))
 ```
 
-## lxqt-unstable
+### lxqt-unstable
 
-## gnome-unstable
+### gnome-unstable
 
-## kde-unstable
+### kde-unstable
 
-# Staging repositories
+## Staging repositories

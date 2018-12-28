@@ -1,5 +1,4 @@
-
-# Installation
+## Installation
 
 To install _git_ for the current user, run:
 
@@ -7,13 +6,13 @@ To install _git_ for the current user, run:
 $ guix package -i git
 ```
 
-## Graphical front-ends
+#### Graphical front-ends
 
-# Configuration
+## Configuration
 
-# Usage
+## Usage
 
-## Creating a Git repository
+#### Creating a Git repository
 
 To create a new git repository, in the current directory, do:
 
@@ -27,7 +26,7 @@ A message should confirm the creation of the repository:
 Initialized empty Git repository in /root/test/.git/
 ```
 
-## Getting a Git repository
+#### Getting a Git repository
 
 To clone an existing _git_ repository, do:
 
@@ -41,11 +40,11 @@ This will create a new folder `awesome-for-beginners`. To go to the new folder:
 $ cd awesome-for-beginners
 ```
 
-## Recording changes
+#### Recording changes
 
 After you've made some changes, commit them to the _git_ repository, to permanently _save_ the current version.
 
-### Staging changes
+##### Staging changes
 
 To add all changed, files to the commit, do:
 
@@ -71,7 +70,7 @@ If you like to clear the staging area, and start again, do:
 $ git reset
 ```
 
-### Committing changes
+##### Committing changes
 
 To commit the changes you've made, make sure that you've added them to the staging area with `git add .` and reviewed all changes with `git status`. Now go ahead, and commit _(save)_ the changes:
 
@@ -81,67 +80,70 @@ $ git commit -m "file: revised instructions"
 
 It's good practice, to add short but clear commit messages.
 
-### Revision selection
+##### Revision selection
 
-### Viewing changes
+##### Viewing changes
 
-## Undoing things
+#### Undoing things
 
-## Branching
+#### Branching
 
-## Collaboration
+#### Collaboration
 
-### Pull requests
+##### Pull requests
 
-### Using remotes
+##### Using remotes
 
-### Push to a repository
+##### Push to a repository
 
-### Dealing with merges
+##### Dealing with merges
 
-## History and versioning
+#### History and versioning
 
-### Searching the history
+##### Searching the history
 
-### Tagging
+##### Tagging
 
-### Organizing commits
+##### Organizing commits
 
-# Tips and tricks
+---
+---
 
-## Using git-config
+## Tips and tricks
 
-## Adopting a good etiquette
+#### Using git-config
 
-## Speeding up authentication
+#### Adopting a good etiquette
 
-## Protocol defaults
+#### Speeding up authentication
 
-## Bash completion
+#### Protocol defaults
 
-## Git prompt
+#### Bash completion
 
-## Visual representation
+#### Git prompt
 
-## Commit tips
+#### Visual representation
 
-## Signing commits
+#### Commit tips
 
-## Working with a non-master branch
+#### Signing commits
 
-## Directly sending patches to a mailing list
+#### Working with a non-master branch
 
-## When the remote repo is huge
+#### Directly sending patches to a mailing list
 
-### Simplest way: fetch the entire repo
+#### When the remote repo is huge
 
-### Partial fetch
+##### Simplest way: fetch the entire repo
 
-### Get other branches
+##### Partial fetch
 
-### Possible Future alternative
+##### Get other branches
 
-# See also
+##### Possible Future alternative
+
+## See also
 
 - [git website](https://git-scm.com/)
 - [git man pages](https://jlk.fjfi.cvut.cz/arch/manpages/man/git.1)

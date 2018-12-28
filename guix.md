@@ -1,10 +1,8 @@
-[[_TOC_]]
+## Usage
 
-# Usage
+### Installing packages
 
-## Installing packages
-
-### Installing specific packages
+#### Installing specific packages
 
 To install a single package or list of packages, including dependencies, issue the following command:
 
@@ -12,7 +10,7 @@ To install a single package or list of packages, including dependencies, issue t
 $ guix package -i package-name1 package-name2 ...
 ```
 
-#### Install specific package version
+##### Install specific package version
 
 ```scheme
 emacs
@@ -20,7 +18,7 @@ gcc-toolchain@7
 gcc-toolchain:debug
 ```
 
-## Removing packages
+### Removing packages
 
 To remove a single package:
 
@@ -28,7 +26,7 @@ To remove a single package:
 $ guix package -r package-name
 ```
 
-## Upgrading packages
+### Upgrading packages
 
 The following command synchronizes the repository channels and updates the system package references, excluding "local" packages that are not in the configured repositories:
 
@@ -64,7 +62,7 @@ To update a single package:
 $ guix package -u package-name
 ```
 
-### Upgrading the system
+#### Upgrading the system
 
 To perform a system update:
 
@@ -72,7 +70,7 @@ To perform a system update:
 $ guix system reconfigure /etc/config.scm
 ```
 
-### Roll-back a system upgrade
+#### Roll-back a system upgrade
 
 To roll back your system, list the available system generations:
 
@@ -86,7 +84,7 @@ and initiate a roll-back, to the desired generation:
 $ guix system switch-generation number
 ```
 
-## Querying package channels
+### Querying package channels
 
 _Guix_ can search for packages in the channel, searching both in packages' names and descriptions:
 
@@ -100,7 +98,7 @@ To show more information about an individual package:
 $ guix package --show=package-name
 ```
 
-### Add a new package channel
+#### Add a new package channel
 
 Channels specify Git repositories where `guix pull` looks for updates to Guix and external package repositories. By default guix pull reads `~/.config/guix/channels.scm`; with -C it can take channel specifications from a user-supplied file that looks like this:
 
@@ -112,7 +110,7 @@ Channels specify Git repositories where `guix pull` looks for updates to Guix an
       %default-channels)
 ```
 
-## Cleaning the package cache
+### Cleaning the package cache
 
 _Guix_ stores its downloaded packages in `/gnu/store/` and does not remove the old or uninstalled versions automatically. This has some advantages:
 
@@ -145,9 +143,9 @@ To remove generations (packages) older than - e.g. _1m_ for one month
 guix package -d duration
 ```
 
-## Additional commands
+### Additional commands
 
-### Developing Packages
+#### Developing Packages
 
 To view package definitions:
 
@@ -239,7 +237,7 @@ To lint packages:
 $ guix lint package-name
 ```
 
-### Creating Application Bundles
+#### Creating Application Bundles
 
 To create a tarball:
 
@@ -277,7 +275,7 @@ To create a package from manifest in _file_:
 $ guix pack -m file
 ```
 
-### Creating Environments
+#### Creating Environments
 
 To create an environment containing _spec ..._:
 
@@ -303,11 +301,11 @@ To create an environment for packages in manifest _file_:
 guix environment -m file
 ```
 
-# Troubleshooting
+## Troubleshooting
 
-## guix substitute
+### guix substitute
 
-### guix substitute: error: connect: Network is unreachable (mirror down)
+#### guix substitute: error: connect: Network is unreachable (mirror down)
 
 This happens, when either your network is down, or the _guix mirror_ is unreachable.
 
@@ -351,9 +349,9 @@ $ guix archive --authorize < /root/berlin.guixsd.org.pub
 $ guix package -i packagename --substitute-urls=https://berlin.guixsd.org
 ```
 
-## guix refresh
+### guix refresh
 
-### guix refresh: peer-certificate-status Throw gnutls-error
+#### guix refresh: peer-certificate-status Throw gnutls-error
 
 When `guix refresh` produces an error, similar to this:
 
@@ -381,10 +379,10 @@ In ice-9/boot-9.scm:
 In guix/import/json.scm:
     42:19  6 (_)
 In guix/http-client.scm:
-    88:25  5 (http-fetch _ #:port _ #:text? _ #:buffered? _ # _ # _ # …)
+    88:25  5 (http-fetch _ #:port _ #:text? _ #:buffered? _ ## _ ## _ ## …)
 In guix/build/download.scm:
-    403:4  4 (open-connection-for-uri _ #:timeout _ # _)
-    301:6  3 (tls-wrap #<input-output: socket 25> _ # _)
+    403:4  4 (open-connection-for-uri _ #:timeout _ ## _)
+    301:6  3 (tls-wrap #<input-output: socket 25> _ ## _)
 In ice-9/boot-9.scm:
     829:9  2 (catch tls-certificate-error #<procedure 2ce9880 at gu…> …)
 In guix/build/download.scm:
@@ -402,7 +400,7 @@ To fix this, install `gnutls` with:
 $ guix package -i gnutls
 ```
 
-### guix refresh: X.509 certificate verification issue
+#### guix refresh: X.509 certificate verification issue
 
 When you see an error, similar to this:
 
@@ -428,10 +426,10 @@ In ice-9/boot-9.scm:
     829:9  4 (catch srfi-34 #<procedure 1b1c0a0 at guix/http-client…> …)
 In guix/http-client.scm:
    182:20  3 (_)
-    88:25  2 (http-fetch _ #:port _ #:text? _ #:buffered? _ # _ # _ # …)
+    88:25  2 (http-fetch _ #:port _ #:text? _ #:buffered? _ ## _ ## _ ## …)
 In guix/build/download.scm:
-    403:4  1 (open-connection-for-uri _ #:timeout _ # _)
-    301:6  0 (tls-wrap #<closed: file 3d22380> _ # _)
+    403:4  1 (open-connection-for-uri _ #:timeout _ ## _)
+    301:6  0 (tls-wrap #<closed: file 3d22380> _ ## _)
 
 guix/build/download.scm:301:6: In procedure tls-wrap:
 X.509 certificate of 'ftp.gnu.org' could not be verified:
@@ -458,9 +456,9 @@ $ export GIT_SSL_CAINFO="$SSL_CERT_FILE"
 
 Read more about [X.509 Certificates in the Guix Manual](https://www.gnu.org/software/guix/manual/en/html_node/X_002e509-Certificates.html).
 
-## guix archive
+### guix archive
 
-### guix archive: error: build failed: getting status of `/etc/guix/signing-key.sec'
+#### guix archive: error: build failed: getting status of `/etc/guix/signing-key.sec'
 
 ```bash
 guix archive: error: build failed: getting status of `/etc/guix/signing-key.sec': No such file or directory
@@ -472,9 +470,9 @@ To fix this, generate a new key pair for the daemon. This is a prerequisite befo
 $ guix archive --generate-key
 ```
 
-## guix package
+### guix package
 
-### guix package: error: build failed: some substitutes for the outputs of derivation
+#### guix package: error: build failed: some substitutes for the outputs of derivation
 
 When you see an error, similar to this:
 

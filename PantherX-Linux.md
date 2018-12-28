@@ -1,15 +1,16 @@
-[[_TOC_]]
+---
+---
 
-# Principles
+## Principles
 
-## Simplicity
+### Simplicity
 
-## Modernity
+### Modernity
 
-## Security
+### Security
 
-## Versatility
+### Versatility
 
-# History
+## History
 
-## The early years
+### The early years

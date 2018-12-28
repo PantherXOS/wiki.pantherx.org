@@ -1,28 +1,29 @@
-[[_TOC_]]
+---
+---
 
-# General
+## General
 
 PantherX is a GuixSD upstream distribution, with the aim to provide a more complete, lightweight and user friendly computing environment.
 
-## GuixSD
+### GuixSD
 
-## Debian
+### Debian
 
-## Fedora
+### Fedora
 
-## Slackware
+### Slackware
 
-# Beginner-friendly
+## Beginner-friendly
 
-## Ubuntu
+### Ubuntu
 
-## Linux Mint
+### Linux Mint
 
-## openSUSE
+### openSUSE
 
-## Mandriva/Mageia
+### Mandriva/Mageia
 
-# See also
+## See also
 
 - [DistroWatch](https://distrowatch.com/) - Linux distributions news and reviews
 - [The Live CD List](https://livecdlist.com/) - List of Live operating systems images

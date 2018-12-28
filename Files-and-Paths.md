@@ -1,6 +1,9 @@
-# Navigation
+---
+---
 
-## Using Terminal
+## Navigation
+
+### Using Terminal
 
 To see all files in the current folder:
 
@@ -52,15 +55,15 @@ Finally, to navigate to your _Desktop_ folder, you can always, from anywhere, do
 cd ~/Desktop
 ```
 
-# Paths
+## Paths
 
-## General
+### General
 
 ```bash
 $ ls -a ~
 ```
 
-### Bash
+#### Bash
 
 [Bash](/Bash) is a command processor that typically runs in your terminal, where you type commands, which cause actions.
 
@@ -68,7 +71,7 @@ $ ls -a ~
 - `.bash_profile`
 - `.bash_history` a history of all your _bash_ terminal commands
 
-### Application Specific
+#### Application Specific
 
 - `.gitconfig` contains your _git_ preferences, if you have [git](/git) installed.
 - ``
@@ -77,9 +80,9 @@ $ ls -a ~
 $ ls ~/.config
 ```
 
-## Desktop
+### Desktop
 
-### LXQt
+#### LXQt
 
 ```
 $ ls -a ~/.config/lxqt

@@ -1,0 +1,76 @@
+title: PantherX Wiki
+description:
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+markdown: redcarpet
+redcarpet:
+    extensions: [
+        'no_intra_emphasis',
+        'fenced_code_blocks',
+        'autolink',
+        'strikethrough',
+        'superscript',
+        'with_toc_data',
+        'tables',
+        'hardwrap'
+    ]
+
+permalink: /:title
+
+exclude:
+  - src/
+  - gulpfile.js
+  - package.json
+  - yarn.lock
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .idea
+  - .bit.json
+  - .bitmap
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: wiki-docs
+
+sections:
+  distribution:
+    -
+      title: PantherX Linux
+      description: Overview of PantherX Linux
+    -
+      title: Frequently asked questions
+      description: Notable questions and facts
+    -
+      title: PantherX compared to other distributions
+      description: Summarises the similarities and differences between PantherX and other distributions.
+    -
+      title: Installation guide
+      description: Guide through the process of installing PantherX Linux in VirtualBox.
+    -
+      title: General recommendations
+      description: Annotated index of post-installation tutorials and other popular articles.
+    -
+      title: List of applications
+      description: Categorised presentation of common official and 3rd party packages.
+
+sidebar:
+  top:
+    - Main page
+    - Table of contents
+    - Getting involved
+    - Wiki news
+  interaction:
+    - Help
+    - Contributing
+    - Recent Changes
+    - Special Pages
