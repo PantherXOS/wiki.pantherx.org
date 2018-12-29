@@ -91,6 +91,99 @@ Now run _jekyll_ as usual:
 jekyll serve
 ```
 
+### Jekyll with bundler
+
+Create a new file
+
+```bash
+$ nano jekyll-website.scm
+```
+
+with the following content:
+
+```scheme
+(use-modules (guix packages)
+             (guix licenses)
+             (guix build-system ruby)
+             (gnu packages)
+             (gnu packages version-control)
+             (gnu packages ssh)
+             (gnu packages ruby))
+
+(package
+  (name "jekyll-project")
+  (version "1.0")
+  (source #f) ; not needed just to create dev environment
+  (build-system ruby-build-system)
+  ;; These correspond roughly to "development" dependencies.
+  (native-inputs
+   `(("git" ,git)
+     ("openssh" ,openssh)
+     ("ruby-rspec" ,ruby-rspec)))
+  (propagated-inputs
+   `(("bundler" ,bundler)))
+  (synopsis "A jekyll website")
+  (description "This is a jekyll example website")
+  (home-page "https://example.com")
+  (license expat))
+```
+
+To initiate the new project environment, run:
+
+```bash
+$ guix environment -l jekyll-website.scm
+```
+
+Create a new folder, and initialize _bundler_:
+
+```bash
+$ mkdir my-site && cd my-site
+$ bundle init
+```
+
+Set _bundler_ to use `vendor/bundle` for gem files:
+
+```bash
+$ bundle install --path vendor/bundle
+```
+
+Add add _jekyll_:
+
+```bash
+$ bundle add jekyll
+```
+
+Now you can create the scaffolding site using:
+
+```bash
+$ bundle exec jekyll new --force --skip-bundle .
+$ bundle install
+```
+
+To run _jekyll_:
+
+```bash
+$ bundle exec jekyll serve
+```
+
+<!-- TODO: bundler: command not found: jekyll -->
+
+## Troubleshooting
+
+### Errno::EACCES: Permission denied @ rb_sysopen - ~/my-site/Gemfile
+
+Check file permissions with:
+
+```bash
+$ ls -la ~/my-site/
+```
+
+and add _read_ and _write_ permissions as necessary:
+
+```bash
+$ chmod +rw ~/my-site/Gemfile
+```
+
 ## See also
 
 - [Ruby on Guix](https://dthompson.us/ruby-on-guix.html)
