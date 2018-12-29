@@ -69,6 +69,9 @@ sections:
 
 nav:
   -
+    title: Home
+    url: https://www.pantherx.org/
+  -
     title: PantherX OS
     url: https://www.pantherx.org/#PantherX+Operating+System
   -
