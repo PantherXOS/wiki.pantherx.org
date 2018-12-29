@@ -65,4 +65,4 @@ Read more about [LXQt](LXQt).
 
 ## See also
 
-- [Using the Configuration System on GuixSD](https://www.gnu.org/software/guix/manual/en/html_node/Using-the-Configuration-System.html)
+- [Guix Manual: Using the Configuration System](https://www.gnu.org/software/guix/manual/en/html_node/Using-the-Configuration-System.html)

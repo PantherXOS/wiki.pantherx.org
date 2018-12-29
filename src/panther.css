@@ -1,0 +1,22 @@
+body {
+	font-family: 'Oswald', sans-serif;
+}
+
+.hero img {
+	max-width: 800px;
+}
+
+.hero.has-background {
+	background-size: cover;
+	background-position: center;
+	background-image: url(/assets/images/bg01.jpg);
+}
+
+.navbar-item, .navbar-link {
+	color: #fff;
+}
+
+.navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover {
+	background-color: #fafafa4d;
+	color: #fff;
+}

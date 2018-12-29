@@ -723,3 +723,5 @@ https://www.nano-editor.org/ || CLI: `nano`
 #### Clipboard managers
 
 ## See also
+
+- [Guix Manual: System Installation](https://www.gnu.org/software/guix/manual/en/html_node/System-Installation.html)

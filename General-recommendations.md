@@ -1,5 +1,4 @@
 ---
-category: test
 ---
 
 ## System administration

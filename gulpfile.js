@@ -10,6 +10,7 @@ gulp.task('css', function () {
     ([
       'node_modules/buefy/dist/buefy.min.css',
 	    'src/prism.css',
+	    'src/panther.css',
       'src/custom.css'
     ])
     .pipe(concat('custom.min.css'))

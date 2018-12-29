@@ -1,3 +1,6 @@
+---
+---
+
 ## Installation
 
 To install _git_ for the current user, run:

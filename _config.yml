@@ -67,6 +67,23 @@ sections:
       title: Getting involved
       description: Describes various ways you can contribute to the Panther community.
 
+nav:
+  -
+    title: PantherX OS
+    url: https://www.pantherx.org/#PantherX+Operating+System
+  -
+    title: Wiki
+    url: /
+  -
+    title: FAQ
+    url: https://www.pantherx.org/faq/
+  -
+    title: About Us
+    url: https://www.pantherx.org/about/
+  -
+    title: Contact
+    url: https://www.pantherx.org/contact/
+
 sidebar:
   top:
     - Main page

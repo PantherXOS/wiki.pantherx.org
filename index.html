@@ -20,9 +20,13 @@ index: false
   {% endfor %}
 </div>
 
-{% for doc in site.docs %}
-<p>
-  {{ doc.title }}
-  <br>{{ doc.url }}
-</p>
+<h2 class="title is-2">Recently added pages</h2>
+
+{% for page in site.pages %}
+{% unless page.index == false or page.path == "feed.xml" %}
+<a href="{{ page.path | replace: '.md', '' | replace: '.html', '' }}">
+  {% if page.title %}{{ page.title }}{% else %}{{ page.path | replace: '-', ' ' | replace: '.md', '' | replace: '.html', '' }}{% endif %}
+</a>
+<br>
+{% endunless %}
 {% endfor %}

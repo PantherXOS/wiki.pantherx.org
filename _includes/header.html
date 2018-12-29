@@ -1,0 +1,30 @@
+<section class="hero has-background">
+<div class="hero-head">
+	<nav class="navbar">
+		<div class="container">
+			{% unless page.home == true %}
+			<div class="navbar-brand">
+				<a href="/" class="navbar-item">
+					<img src="/assets/images/logo.png" alt="PantherX Logo">
+				</a>
+				<span class="navbar-burger burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+			</div>
+			{% endunless %}
+			<div id="navbarMenuHeroA" class="navbar-menu">
+				<div class="navbar-end">
+					{% assign pages = site.nav %}
+					{% for page in pages %}
+					<a href="{{ page.url }}" class="navbar-item">
+						{{ page.title }}
+					</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</nav>
+</div>
+</section>

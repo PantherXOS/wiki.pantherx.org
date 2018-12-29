@@ -2,6 +2,8 @@
 
 _Once the Wiki is a little more complete, we'll publish it on wiki.pantherx.org._
 
+**Reminder: Update `robots.txt` before launch.**
+
 ## Working with the Wiki
 
 To create a new file, use the title as file name, for example: `LXQt.md`.
