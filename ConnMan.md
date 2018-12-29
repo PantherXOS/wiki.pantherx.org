@@ -13,6 +13,12 @@ $ guix package -i connman
 
 ## Usage
 
+To find out more about _connman_ command line access, review:
+
+```bash
+$ connmanctl --help
+```
+
 ### Ethernet
 
 #### System Configuration
