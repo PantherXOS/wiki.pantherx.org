@@ -7,16 +7,13 @@ index: false
 
 <p>This page does not exist yet.</p>
 
-<p>To create it, go to <a href="https://git.pantherx.org/development/wiki-pantherx.org/new/master" id="link">git.pantherx.org</a> and use <b><span id="file-new-path"></span></b> as file name.</p>
+<p>To create it, go to <a href="https://git.pantherx.org/development/wiki-pantherx.org/new/master">git.pantherx.org</a> and use <b><span id="filename"></span></b> as file name.</p>
 
 <script>
 	let raw = window.location.pathname;
-	let raw_segment_last = raw.substr(raw.lastIndexOf('/') + 1);
-	let title = raw_segment_last.replace("-", " ");
-	let file_new_path = raw_segment_last + ".md";
-	let url_edit = "https://git.pantherx.org/development/wiki-pantherx.org/blob/master/-/" + raw_segment_last + ".md";
-
+	let path = raw.split('/').join('');
+	let title = path.split('-').join(' ');
+	let filename = path + ".md";
 	document.getElementById("title").innerHTML = title;
-	document.getElementById("file-new-path").innerHTML = file_new_path;
-	document.getElementById('url-edit').href = url_edit;
+	document.getElementById("filename").innerHTML = filename;
 </script>

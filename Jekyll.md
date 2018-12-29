@@ -13,11 +13,15 @@ guix package -i jekyll
 
 ### On-Demand environment
 
+```bash
 guix package --profile=jekyll --install ruby@2.4.3 jekyll@2.8.3 ruby-jekyll-watch@2.0.0
+```
 
-The environment will be stored at `~/jekyll`
+The environment will be stored at `~/jekyll`.
 
+```bash
 guix package --search-paths --profile=jekyll
+```
 
 <!-- TODO: Complete instructions to create on-demand jekyll environment -->
 
