@@ -17,7 +17,7 @@ redcarpet:
         'hardwrap'
     ]
 
-permalink: /:title
+permalink: /:title/
 
 exclude:
   - src/
