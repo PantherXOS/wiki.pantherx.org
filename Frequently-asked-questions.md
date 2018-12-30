@@ -20,7 +20,7 @@ Yes, PantherX has been designed, specifically designed for end-user, no matter w
 
 ### Is PantherX designed to be used as a server? A desktop? A workstation?
 
-PantherX is configured entirely using a system configuration file, that means, it can be used for anything, anywhere. By default, PantherX features a fully configured, ready to use desktop environment, however, on a fresh installation, you may opt for a more lightweight configuration. In fact, given Panther's nature, you can even re-configure an existing desktop, into a server OS - completely clean, and in minutes.
+PantherX is configured entirely using a [system configuration](/System-configuration/) file, that means, it can be used for anything, anywhere. By default, PantherX features a fully configured, ready to use desktop environment, however, on a fresh installation, you may opt for a more lightweight configuration. In fact, given Panther's nature, you can even re-configure an existing desktop, into a server OS - completely clean, and in minutes.
 
 ### When will the new release be made available?
 
@@ -31,4 +31,4 @@ The release cycle depends on the release you're running:
 
 ### Is PantherX Linux a stable distribution? Will I get frequent breakage?
 
-Our flagship _ARM_ release should never break and is tested extensively, on [/Panther-Alpha/], but even the _x86-64_ based, rolling-release should be at least as stable, as an _Arch Linux_ based installation. Unlike _Arch Linux_, you can always roll-back, in a matter of seconds, even if your kernel breaks.
+Our flagship _ARM_ release should never break and is tested extensively, on [Panther Alpha](/Panther-Alpha/), but even the _x86-64_ based, rolling-release should be at least as stable, as an _Arch Linux_ based installation. Unlike _Arch Linux_, you can always roll-back, in a matter of seconds, even if your kernel breaks.
