@@ -88,7 +88,7 @@ nav:
     url: https://www.pantherx.org/contact/
 
 sidebar:
-  top:
+  overview:
     - Main page
     - Table of contents
     - Getting involved

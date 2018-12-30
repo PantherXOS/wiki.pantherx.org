@@ -1,4 +1,15 @@
 ---
+namespace: lxqt
+description: "LXQt is a free and open source Linux desktop environment, that was formed from the merger of the LXDE and Razor-qt projects. "
+description-source: "https://en.wikipedia.org/wiki/LXQt"
+categories:
+ - type:
+   - "Application"
+ - location:
+   - "System administration"
+   - "Graphical user interfaces"
+   - "Desktop environments"
+language: en
 ---
 
 ## Installation

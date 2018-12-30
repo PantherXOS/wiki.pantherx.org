@@ -1,4 +1,12 @@
 ---
+namespace: diff
+description:
+categories:
+ - type:
+   - "Guide"
+ - location:
+   - "General"
+language: en
 ---
 
 ## Navigation

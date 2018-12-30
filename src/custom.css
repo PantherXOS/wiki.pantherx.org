@@ -8,7 +8,6 @@ a {
 
 .toc {
 	padding: 1rem;
-	max-width: 600px;
 	background-color: #f6f9fc;
 }
 
@@ -19,6 +18,19 @@ a {
 
 .toc ul .is-level-sub, .sidebar-nav ul .is-level-sub {
 	padding-left: 1rem;
+}
+
+ul.categories {
+
+}
+
+ul.categories li.type {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+ul.categories li.location {
+	margin-right: 1rem;
 }
 
 .wiki-body {

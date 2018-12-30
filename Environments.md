@@ -1,4 +1,15 @@
 ---
+namespace: diff
+description:
+description-source:
+categories:
+ - type:
+   - "Application"
+ - location:
+   - "System Administration"
+   - "Network Configuration"
+   - "Virtualization"
+language: en
 ---
 
 ## Installation

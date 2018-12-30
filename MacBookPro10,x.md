@@ -1,4 +1,14 @@
 ---
+namespace: macbook
+description:
+categories:
+ - type:
+   - "Guide"
+ - location:
+   - "Hardware"
+   - "Laptops"
+   - "Apple"
+language: en
 ---
 
 ## Preparing for the Installation

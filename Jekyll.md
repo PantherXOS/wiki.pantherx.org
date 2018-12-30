@@ -1,4 +1,15 @@
 ---
+namespace: git
+description: "Jekyll is a simple, blog-aware, static site generator for personal, project, or organization sites. Written in Ruby by Tom Preston-Werner, GitHub's co-founder, it is distributed under the open source MIT license."
+description-source: "https://en.wikipedia.org/wiki/Jekyll_(software)"
+categories:
+ - type:
+   - "Application"
+ - location:
+   - "Development"
+   - "Frameworks"
+   - "Web frameworks"
+language: en
 ---
 
 ## Installation

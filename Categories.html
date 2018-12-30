@@ -1,0 +1,22 @@
+---
+layout: wiki-page
+index: false
+---
+
+{% for page in site.pages %}
+{% if page.categories %}
+{{ page.path | replace: '-', ' ' | replace: '.md', '' | replace: '.html', '' }} - {% for c in page.categories %}{{ c }}{% endfor %}
+<hr>
+{% endif %}
+{% endfor %}
+
+
+
+{% for page in site.pages %}
+{% unless page.index == false or page.path == "feed.xml" %}
+<a href="/{{ page.path | replace: '.md', '' | replace: '.html', '' }}/">
+	{% if page.title %}{{ page.title }}{% else %}{{ page.path | replace: '-', ' ' | replace: '.md', '' | replace: '.html', '' }}{% endif %}
+</a>
+<br>
+{% endunless %}
+{% endfor %}

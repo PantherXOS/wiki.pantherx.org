@@ -1,4 +1,15 @@
 ---
+namespace: lxqt
+description: "Weston is the reference implementation of a Wayland compositor also developed by the Wayland project. It is written in C and published under the MIT License. Weston only has official support for the Linux operating system due to its dependence on certain features of the Linux kernel, such as kernel mode-setting, Graphics Execution Manager (GEM), and udev, which have not been implemented in other Unix-like operating systems."
+description-source: "https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)#WESTON"
+categories:
+ - type:
+   - "Application"
+ - location:
+   - "System administration"
+   - "Graphical user interfaces"
+   - "Desktop environments"
+language: en
 ---
 
 Weston is a lightweight and functional Wayland compositor.

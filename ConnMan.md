@@ -1,4 +1,15 @@
 ---
+namespace: connmann
+description: "ConnMan is an internet connection manager for embedded devices running the Linux operating system. The Connection Manager is designed to be slim and to use as few resources as possible, so it can be easily integrated. It is a fully modular system that can be extended, through plug-ins, to support all kinds of wired or wireless technologies. Also, configuration methods, like DHCP and domain name resolving, are implemented using plug-ins. The plug-in approach allows for easy adaption and modification for various use cases."
+description-source: "https://en.wikipedia.org/wiki/ConnMan"
+categories:
+ - type:
+   - "Service"
+ - location:
+   - "Networking"
+   - "Network configuration"
+   - "Network managers"
+language: en
 ---
 
 ## Installation
