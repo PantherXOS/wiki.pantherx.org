@@ -25,10 +25,6 @@ PantherX comes in two flavours, a rolling release, and LTS (Long Term Support) r
 
 ### Mirrors
 
-### Arch Build System
-
-### Arch User Repository
-
 ## Booting
 
 ### Hardware auto-recognition

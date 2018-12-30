@@ -1,6 +1,5 @@
 ;; This is an operating system configuration template
-;; for a "desktop" setup with GNOME and Xfce where the
-;; root partition is encrypted with LUKS.
+;; for a "desktop" setup with Xfce
 ;; read more at https://www.gnu.org/software/guix/manual/en/guix.html#Using-the-Configuration-System
 
 (use-modules (gnu) (gnu system nss))
