@@ -38,3 +38,22 @@ ul.categories li.location {
 	background-color: #fff;
 }
 
+.button, .button:hover {
+	color: #fff;
+	background-color: #003368;
+}
+
+.button:hover {
+	background-color: #000;
+}
+
+.input.is-active, .input.is-focused, .input:active, .input:focus, .taginput .is-active.taginput-container.is-focusable, .taginput .is-focused.taginput-container.is-focusable, .taginput .taginput-container.is-focusable:active, .taginput .taginput-container.is-focusable:focus, .textarea.is-active, .textarea.is-focused, .textarea:active, .textarea:focus {
+	border-color: #003368;
+	box-shadow: 0 0 0 .125em rgba(0, 51, 104, 0.1);
+}
+
+@media (max-width: 1087px) {
+	.navbar-menu {
+		background-color: transparent;
+	}
+}

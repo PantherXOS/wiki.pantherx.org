@@ -1,0 +1,40 @@
+---
+layout: wiki-plain
+index: false
+---
+
+<div id="search">
+
+	<div class="content">
+		<p>Search for wiki pages, applications, guides and more.</p>
+	</div>
+
+	<div class="field has-addons">
+		<div class="control">
+			<input class="input" type="text" v-model="query" @keyup="search()" placeholder="Search for entries">
+		</div>
+		<div class="control">
+			<a class="button" @click="search()">
+				Search
+			</a>
+		</div>
+	</div>
+
+	<hr v-if="result.length > 0">
+
+	<ul>
+		<li v-for="item in result">
+			<nav class="level">
+				<div class="level-left">
+					<a href="">
+						<b><% item.ref %><b>
+					</a>
+				</div>
+				<div class="level-right has-text-right">
+					<em>Score: <% item.score %></em>
+				</div>
+			</nav>
+		</li>
+	</ul>
+
+</div>

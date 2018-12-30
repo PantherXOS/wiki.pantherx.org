@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "buefy": "^0.7.1",
     "bulma": "^0.7.1",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.10.0",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^5.0.3",
     "gulp-uglify-es": "^1.0.4",
+    "lunr": "^2.3.5",
     "pump": "^3.0.0",
     "vue": "^2.5.13"
   }

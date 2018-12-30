@@ -1,1 +1,79 @@
 <script src="/assets/js/bundle.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+	// Get all "navbar-burger" elements
+	const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+	// Check if there are any navbar burgers
+	if ($navbarBurgers.length > 0) {
+
+		// Add a click event on each of them
+		$navbarBurgers.forEach( el => {
+			el.addEventListener('click', () => {
+
+				// Get the target from the "data-target" attribute
+				const target = el.dataset.target;
+				const $target = document.getElementById(target);
+
+				// Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+				el.classList.toggle('is-active');
+				$target.classList.toggle('is-active');
+
+			});
+		});
+	}
+
+});
+</script>
+
+{% if page.url == "/Search/" %}
+<script>
+	// Just temporary, will be replaced by a serverless function
+
+	// JSON of all pages
+	var pages = [
+		{% for page in site.pages %}
+		{% unless page.index == false or page.path == "feed.xml" %}
+		{
+			"title": "{{ page.path | replace: '-', ' ' | replace: '.md', '' | replace: '.html', '' }}",
+			"description": "{{ page.description }} {% if page.categories %}{% for category in page.categories[1].location %}{{ category }} {% endfor %}{% endif %}"
+		},
+		{% endunless %}
+		{% endfor %}
+	]
+
+	// build lunr index
+	var idx = lunr(function () {
+		this.ref('title');
+		this.field('description');
+		pages.forEach(function (page) {
+			this.add(page)
+		}, this)
+	});
+
+	// let vue.js handle the rest ...
+	new Vue({
+		delimiters:['<%', '%>'],
+		el: '#search',
+		data: {
+			pages: pages,
+			idx: idx,
+			query: '',
+			result: '',
+		},
+		methods: {
+			search: function() {
+				if (this.query.length > 0) {
+					console.log('Searching for: ' + this.query);
+					this.result = idx.search(this.query + '~1');
+				} else {
+					console.log('Please enter a search term');
+					this.result = '';
+				}
+			}
+		},
+	});
+</script>
+{% endif %}

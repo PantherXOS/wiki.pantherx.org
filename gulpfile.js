@@ -8,7 +8,7 @@ var pump = require('pump');
 gulp.task('css', function () {
 	return gulp.src
     ([
-      'node_modules/buefy/dist/buefy.min.css',
+      'node_modules/bulma/css/bulma.min.css',
 	    'src/prism.css',
 	    'src/panther.css',
       'src/custom.css'
@@ -23,7 +23,7 @@ gulp.task('js', function (cb) {
 				gulp.src
 				([
 					'node_modules/vue/dist/vue.js',
-					'node_modules/buefy/dist/buefy.min.js',
+					'node_modules/lunr/lunr.js',
 					'src/prism.js',
 					'src/custom.js'
 				]),

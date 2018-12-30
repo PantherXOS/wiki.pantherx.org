@@ -14,10 +14,6 @@ PantherX comes in two flavours, with notable differences:
 1. _x86-64_ is a unsupported (but stable), rolling-release similar to _Arch Linux_ where we test new features
 2. _ARM_ is our supported, LTS (long term stable) release, specifically designed for PantherX
 
-### Does PantherX follow the Linux Foundation's Filesystem Hierarchy Standard (FHS)?
-
-No, for reasons explained [here](/Filesystem-Hierarchy/)
-
 ### I am a complete GNU/Linux beginner. Should I use PantherX?
 
 Yes, PantherX has been designed, specifically designed for end-user, no matter whether you're an existing GNU/Linux user, or are migrating from Mac OSX or Windows. You'll feel right at home, with PantherX.
