@@ -32,3 +32,13 @@ The release cycle depends on the release you're running:
 ### Is PantherX Linux a stable distribution? Will I get frequent breakage?
 
 Our flagship _ARM_ release should never break and is tested extensively, on [Panther Alpha](/Panther-Alpha/), but even the _x86-64_ based, rolling-release should be at least as stable, as an _Arch Linux_ based installation. Unlike _Arch Linux_, you can always roll-back, in a matter of seconds, even if your kernel breaks.
+
+### What problems does PantherX solve?
+
+If you've ever experienced any of these problems, _PantherX_ is your solution:
+
+- Your system failed during the upgrade, and does not boot anymore.
+- Your upgrade completely successfully, but something broke, and your system won't boot anymore.
+- You install a package / service / desktop, and now want to completely reverse it
+- You're working with 10 different package managers, including _apt_, _pip_, _rvm_, ... and can't take it anymore
+- You set-up a desktop / server and experience an issue, which you cannot reproduce
