@@ -37,7 +37,7 @@
                 ;; and access the webcam.
                 (supplementary-groups '("wheel"
                                         "audio" "video"))
-                (home-directory "/home/alice"))
+                (home-directory "/home/your-name"))
                %base-user-accounts))
 
   ;; Globally-installed packages.

@@ -32,7 +32,7 @@
                 (group "users")
                 (supplementary-groups '("wheel" "netdev"
                                         "audio" "video"))
-                (home-directory "/home/bob"))
+                (home-directory "/home/your-name"))
                %base-user-accounts))
 
   ;; This is where we specify system-wide packages.

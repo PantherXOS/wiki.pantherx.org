@@ -82,6 +82,15 @@ First we'll need to create at least one partition:
 $ cfdisk
 ```
 
+**For a very basic set-up, go with**
+
+- dos
+- new
+- keep size
+- primary
+- write - yes
+- quit
+
 ### Format the partitions
 
 To format the new partition, use:
