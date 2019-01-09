@@ -5,7 +5,7 @@
 # profile: panther.jekyll
 s3_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
 s3_secret: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
-s3_bucket: staging.wiki.pantherx.org
+s3_bucket: wiki.pantherx.org
 
 site: public/
 index_document: index.html
