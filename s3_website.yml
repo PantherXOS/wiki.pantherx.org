@@ -25,5 +25,5 @@ ignore_on_server:
   - _config.yml
   - yarn-error.log
 
-# cloudfront_distribution_id: E175HAF845TII7
-# cloudfront_wildcard_invalidation: true
+cloudfront_distribution_id: E38F5RE2KPRRHH
+cloudfront_wildcard_invalidation: true
