@@ -532,3 +532,17 @@ $ guix pull
 $ guix package -u
 $ guix package -i python2
 ```
+
+#### guix package: error: unpack failed: tar `Operation not permitted` issue
+
+```bash
+starting phase `unpack
+tar: .: Cannot utime: Operation not permitted
+tar: .: Cannot change mode to rwxr-xr-t: Operation not permitted
+tar: Exiting with failure status due to previous errors
+```
+
+This issue could be related *tarbomb*, and causes when we don't provide a root folder inside package `.tgz` archive files. 
+
+While creating package archive files is not standard, and forces us to apply manual modifications and additional workarounds to fix upcoming issues, we still could create these package for this type of archives, by using `(method url-fetch/tarbomb)` instead of `(method url-fetch)` inside our package definition. 
+
