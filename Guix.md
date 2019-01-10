@@ -546,3 +546,8 @@ This issue could be related *tarbomb*, and causes when we don't provide a root f
 
 While creating package archive files is not standard, and forces us to apply manual modifications and additional workarounds to fix upcoming issues, we still could create these package for this type of archives, by using `(method url-fetch/tarbomb)` instead of `(method url-fetch)` inside our package definition. 
 
+#### guix package: installation paths 
+
+During package installation, each installed file, creates a *symbolic link* inside `~/.guix-profile/` based on its relative defined path. 
+
+For example while `~/.guix-profile/share/guile/site/2.2/` is the base path for installed *guile* scripts, we need to install our `.scm` scripts to `share/guile/site/2.2` relative path in *store*. Later during package installation, a *symlink* will create inside current users *guix-profile* path.
