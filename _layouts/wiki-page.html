@@ -2,7 +2,9 @@
 layout: wiki
 ---
 
-<h1 class="title is-1" id="title">{% if page.title %}{{ page.title }}{% else %}{{ page.path | replace: '-', ' ' | replace: '.md', '' | replace: '.html', '' }}{% endif %}</h1>
+<h1 class="title is-1" id="title">
+	{% if page.title %}{{ page.title }}{% else %}{{ page.path | replace: '-', ' ' | replace: '.md', '' | replace: '.html', '' }}{% endif %}
+</h1>
 
 <div class="content">
 	{{ content }}

@@ -724,4 +724,5 @@ https://www.nano-editor.org/ || CLI: `nano`
 
 ## See also
 
+- [PantherX: Packages](https://www.pantherx.org/packages/)
 - [Guix Manual: System Installation](https://www.gnu.org/software/guix/manual/en/html_node/System-Installation.html)

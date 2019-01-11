@@ -1,13 +1,16 @@
 ---
-layout: wiki-page
+layout: wiki-plain
 index: false
 ---
 
 {% for page in site.pages %}
 {% unless page.index == false or page.path == "feed.xml" %}
-	<a href="/{{ page.path | replace: '.md', '' | replace: '.html', '' }}/">
-		{% if page.title %}{{ page.title }}{% else %}{{ page.path | replace: '-', ' ' | replace: '.md', '' | replace: '.html', '' }}{% endif %}
-	</a>
-	<br>
+<ul>
+	<li>
+		<a href="/{{ page.path | replace: '.md', '' | replace: '.html', '' }}/">
+			{% if page.title %}{{ page.title }}{% else %}{{ page.path | replace: '-', ' ' | replace: '.md', '' | replace: '.html', '' }}{% endif %}
+		</a>
+	</li>
+</ul>
 {% endunless %}
 {% endfor %}

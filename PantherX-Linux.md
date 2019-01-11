@@ -1,6 +1,8 @@
 ---
 ---
 
+![PantherX Desktop](/assets/images/px-desktop.jpg)
+
 ## Principles
 
 ### Simplicity
