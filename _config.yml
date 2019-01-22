@@ -35,6 +35,8 @@ exclude:
   - .idea
   - .bit.json
   - .bitmap
+  - yarn-error.log
+  - bit.json
 
 defaults:
   -
