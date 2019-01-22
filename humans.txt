@@ -1,0 +1,16 @@
+---
+---
+
+/* EDITOR */
+
+  Franz Geffke <franz@pantherx.org>
+  Reza Alizadeh Majd <r.majd@pantherx.org>
+
+  We're looking for new contributors: Drop us a mail at team@pantherx.org.
+
+/* SITE */
+
+  Last update: {{ site.time }}
+  Language: English
+  Doctype: HTML5
+  IDE: WebStorm, Atom

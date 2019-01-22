@@ -124,6 +124,23 @@ It's good practice, to add short but clear commit messages.
 
 ## Tips and tricks
 
+#### Using multiple SSH keys
+
+Create `~/.ssh/config` and define all domains, and keys you'd like to use.
+
+
+```bash
+host git.domain1.com
+ HostName git.domain1.com
+ IdentityFile ~/.ssh/key1
+ User git
+
+host git.domain2.com
+ HostName git.domain2.com
+ IdentityFile ~/.ssh/key2
+ User git
+```
+
 #### Using git-config
 
 #### Adopting a good etiquette

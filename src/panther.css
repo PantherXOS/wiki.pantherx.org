@@ -6,7 +6,7 @@ body {
 	font-size: 1.1rem;
 }
 
-.content a, .timeline a {
+.content a, .timeline a, .mastodon .mastodon-author a {
 	color: #4a4a4a;
 	text-decoration: underline;
 }
@@ -23,6 +23,10 @@ body {
 
 .hero .title, .box.has-link .title, .navbar-item, .navbar-link, .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover, .section.is-dark .box.has-link .title, .section.is-dark .content table, .section.is-dark .title, .section.is-dark .content h1, .section.is-dark .content h2, .section.is-dark pre, .section.is-dark .content ul, .section.is-dark p, .footer.is-dark p, .footer.is-dark strong {
 	color: #fff;
+}
+
+.title.is-1, .navbar-link, a.navbar-item {
+	text-shadow: 2px 2px 2px #0000004d;
 }
 
 .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover {
@@ -246,6 +250,39 @@ img.author {
 
 .is-list-item.is-aside {
 	margin-bottom: 1rem;
+}
+
+.icon {
+	width:1rem;
+}
+
+.mastodon {
+
+}
+
+.mastodon .mastodon-entry {
+	font-size: 0.9rem;
+	margin-bottom: 1rem;
+}
+
+.mastodon .mastodon-content {
+	color: #6e6e6e;
+	border-left: 5px solid #dedede;
+	margin-bottom: 0.5rem;
+	padding: 0rem 0rem 0rem 0.5rem;
+}
+
+.mastodon .mastodon-content a {
+	color: #6e6e6e;
+	text-decoration: underline;
+}
+
+.mastodon .mastodon-author {
+	font-weight: bold;
+}
+
+.mastodon .mastodon-author img.avatar {
+	width: 30px;
 }
 
 [v-cloak] { display: none; }
