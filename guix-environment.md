@@ -1,3 +1,4 @@
+---
 ## _guix environment_
 The purpose of guix environment is to assist hackers in creating reproducible development environments without polluting their package profile.
 *  The guix environment tool takes one or more packages, builds all of their inputs, and creates a shell environment to use them.
@@ -59,3 +60,4 @@ $ guix environment --ad-hoc python python-numpy --container
 ### References:
 * https://www.gnu.org/software/guix/manual/en/html_node/Invoking-guix-environment.html
 * https://trivialfis.github.io/linux/2018/06/10/Using-guix-for-development.html#introduction
+---
