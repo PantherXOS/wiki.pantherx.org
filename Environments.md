@@ -24,26 +24,32 @@ _Environments_ are part of [Guix](/Guix), and installed by default.
 
 ## Usage
 __1.__ downloading or building packages in environment
-```shell
+
+```bash
 $ guix environment --ad-hoc python python-numpy
 ```
+
 `--ad-hoc` argument means that you want `python` and `python-numpy` as immediate packages. Without this argument, Guix will give you the dependencies of `python` and `numpy` themselves, which are those packages needed for compiling python and numpy. You don’t want to compile them, rather, you want to use them for your project, hence the `--ad-hoc` argument.
 
 __2.__ In the following example guix will remove all existing environment variables predefined in your shell. Which means the new environment is pure. You won’t be able to access any existing commands in your system except for python3.
-```shell
+
+```bash
  $ guix environment --ad-hoc python python-numpy --pure
 ```
 
 __3.__  You can write down your needed package in a file possibly named “foo-manifest.scm” like this one:
+
 ```scheme
 	(specifications->manifest
 		'("emacs" "python-numpy" "python" "python-flake8"))
 ```
-```shell
+
+```bash
 $ guix environment --manifest ./foo-manifest.scm
 ```
 
 __4.__  Create an environment for the package or list of packages that the code within file evaluates to.
+
 ```scheme
 ;;package.scm
 (use-modules (guix)
@@ -60,16 +66,20 @@ __4.__  Create an environment for the package or list of packages that the code 
                    ("texinfo" ,texinfo)
                    ,@(package-native-inputs gdb))))
 ```
-```shell
+
+```bash
 $ guix environment -l package.scm
 ```
 
 __5.__  Run command within an isolated container:   
 guix will create a environment with changed root. Which means you won’t be able to see any files other than those within your working directory and its sub-directories.
-```shell
+
+```bash
 $ guix environment --ad-hoc python python-numpy --container
 ```
+
 ---
+
 > guix environment defines the GUIX_ENVIRONMENT variable in the shell it spawns; its value is the file name of the profile of this environment. This allows users to, say, define a specific prompt for development environments in their .bashrc
 
 An active environment is indicated with `[env]` in your command line.
