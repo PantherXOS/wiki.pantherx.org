@@ -252,12 +252,17 @@ $ guix lint package-name
 ```
 
 #### Creating Application Bundles
+* The `guix pack` command creates a shrink-wrapped pack or software bundle: it creates a tarball or some other archive containing the binaries of the software you’re interested in, and all __its dependencies__.
+* The resulting archive can be used on __any machine__ that __does not have Guix__, and people can run the exact same binaries as those you have with Guix.
 
 To create a tarball:
 
 ```bash
 $ guix pack spec ...
 ```
+
+The result here is a tarball containing a `/gnu/store` directory with all the relevant packages.   
+__Note 1__ _Users of this pack would have to run /gnu/store/…-profile/bin/guile to run Guile_
 
 To create a Docker image:
 
@@ -277,11 +282,14 @@ To create a relocatable tarball:
 $ guix pack --relocatable spec ...
 ```
 
-To create a tarball where _/bin_ symlinks to the packages _bin_ directory:
+To create a tarball where _/bin_ symlinks to the packages _bin_ directory (To work around __Note 1__):
 
 ```bash
 $ guix pack -S /bin=bin spec ...
 ```
+
+That way, users can happily type /opt/gnu/bin/guile and enjoy.
+
 
 To create a package from manifest in _file_:
 
