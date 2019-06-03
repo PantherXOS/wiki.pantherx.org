@@ -45,7 +45,7 @@ __3.__  You can write down your needed package in a file possibly named “foo-m
 ```
 
 ```bash
-$ guix environment --manifest ./foo-manifest.scm
+$ guix environment --manifest=foo-manifest.scm
 ```
 
 __4.__  Create an environment for the package or list of packages that the code within file evaluates to.
