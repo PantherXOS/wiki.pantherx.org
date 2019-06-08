@@ -50,6 +50,8 @@ $ guix environment --manifest=foo-manifest.scm
 
 __4.__  Create an environment for the package or list of packages that the code within file evaluates to.
 
+(When we want to develop a special package _ex: gdb_ it would be better to using this definition for environment)
+
 ```scheme
 ;;package.scm
 (use-modules (guix)
