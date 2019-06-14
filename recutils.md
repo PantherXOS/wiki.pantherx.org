@@ -23,7 +23,7 @@ GNU `recutils` is a set of tools and libraries to access human-editable, text-ba
 
 **2.** _Records_ : The main entities of a recfile.    
 * _Example_:    
-```file
+```yaml
 Name: hamzeh
 Phone: 00989111111111
 Email: h.nasajpour@pantherx.org
