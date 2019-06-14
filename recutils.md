@@ -1,5 +1,5 @@
 ---
-namespace: git
+namespace: recutils
 description: "GNU recutils is a set of tools and libraries to access human-editable, text-based databases called recfiles."
 description-source: "https://www.gnu.org/software/recutils/"
 categories:
