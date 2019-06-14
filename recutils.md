@@ -16,15 +16,17 @@ GNU `recutils` is a set of tools and libraries to access human-editable, text-ba
 
 ## `recfile` Format
 **1.** _Fields_ : The key--value pairs which comprise the data.  
+
 *  _Example_: `Name: hamzeh`   
 *  The separator between the field name and the field value is a colon followed by a blank character (space and tabs, but not newlines)     
 *  A field name is a sequence of alphanumeric characters plus underscores (_), starting with a letter or the character %. (regex: `[a-zA-Z%][a-zA-Z0-9_]*`)   
 *  Field names are case-sensitive. Foo and foo are different field names.   
 
 **2.** _Records_ : The main entities of a recfile.    
+
 * _Example_:    
 
-```yaml
+```
 Name: hamzeh
 Phone: 00989111111111
 Email: h.nasajpour@pantherx.org
@@ -36,11 +38,13 @@ Email: h.nasajpour@pantherx.org
 *  Records are separated by one or more blank lines.   
 
 **3.** _Comments_ : Information for humans' benefit only.
+
 *  Any line having an # (ASCII 0x23) character in the first column is a comment line.   
 *  Unlike some file formats, comments in recfiles must be complete lines. You cannot start a comment in the middle of a line.   
 
 **4.** _Record Description_ : Describing different types of records.
 Certain properties of a set of records can be specified by preceding them with a record descriptor. A record descriptor is itself a record, and uses fields with some predefined names to store properties.
+
 *  [`%rec`](https://www.gnu.org/software/recutils/manual/recutils.html#Record-Sets): The most basic property that can be specified for a set of records is their type. The special field name %rec is used for that purpose:    
 *  [`%type`](https://www.gnu.org/software/recutils/manual/recutils.html#Naming-Record-Types)     
 *  [`%doc`](https://www.gnu.org/software/recutils/manual/recutils.html#Documenting-Records) As well as a name, it is a good idea to provide a description of the record set. This is sometimes called the record set's documentation and is specified using the %doc field.     
@@ -69,20 +73,20 @@ Phone: 00989222222222
 ```
 
 ## `recutils` Commands
-1. `recinf` - reads the given rec files (or the data from standard input if no file is specified) and prints a summary of the record types contained in the input.
+__1.__ `recinf` - reads the given rec files (or the data from standard input if no file is specified) and prints a summary of the record types contained in the input.
 
 ```bash
 $ recinf contacts.rec
 2 Contact
 ```
 
-2. `recfix` - check a recfile for errors:
+__2.__ `recfix` - check a recfile for errors:
 
 ```bash
 $ recfix contacts.rec
 ```
 
-3. `recsel` - recsel reads the given rec files (or the data in the standard input if no file is specified) and prints out records (or part of records) based upon some criteria specified by the user.
+__3.__ `recsel` - recsel reads the given rec files (or the data in the standard input if no file is specified) and prints out records (or part of records) based upon some criteria specified by the user.
 
 ```bash
 $ recsel contacts.rec
@@ -104,7 +108,7 @@ h.nasajpour@pantherx.org
 00989123456789
 ```
 
-4. `recins` - adds new records to a rec file or to rec data read from standard input.
+__4.__ `recins` - adds new records to a rec file or to rec data read from standard input.
 
 ```bash
 $ recins -f Name -v Alex -f Phone -v 9898111222333 contacts.rec
@@ -122,7 +126,7 @@ Name: hadi
 Phone: 00989222222222
 ```
 
-5. [more commands](https://www.gnu.org/software/recutils/manual/recutils.html#Invoking-the-Utilities)
+__5.__ [more commands](https://www.gnu.org/software/recutils/manual/recutils.html#Invoking-the-Utilities)
 
 ## Reference:
 https://www.gnu.org/software/recutils/manual/
