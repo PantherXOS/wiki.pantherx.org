@@ -68,18 +68,18 @@ Phone: 00989222222222
 
 ## `recutils` Commands
 1. `recinf` - reads the given rec files (or the data from standard input if no file is specified) and prints a summary of the record types contained in the input.
-```shell
+```bash
 $ recinf contacts.rec
 2 Contact
 ```
 
 2. `recfix` - check a recfile for errors:
-```shell
+```bash
 $ recfix contacts.rec
 ```
 
 3. `recsel` - recsel reads the given rec files (or the data in the standard input if no file is specified) and prints out records (or part of records) based upon some criteria specified by the user.
-```shell
+```bash
 $ recsel contacts.rec
 Name: hamzeh
 Phone: 00989111111111
@@ -100,7 +100,7 @@ h.nasajpour@pantherx.org
 ```
 
 4. `recins` - adds new records to a rec file or to rec data read from standard input.
-```shell
+```bash
 $ recins -f Name -v Alex -f Phone -v 9898111222333 contacts.rec
 
 $ recsel contacts.rec
