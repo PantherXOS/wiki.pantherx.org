@@ -23,11 +23,13 @@ GNU `recutils` is a set of tools and libraries to access human-editable, text-ba
 
 **2.** _Records_ : The main entities of a recfile.    
 * _Example_:    
+
 ```yaml
 Name: hamzeh
 Phone: 00989111111111
 Email: h.nasajpour@pantherx.org
 ```
+
 *  It is possible for several fields in a record to share the same name or/and the field value.   
 *  A record cannot be empty, so the minimum size for a record is 1.   
 *  The maximum number of fields for a record is only limited by the available physical resources.    
@@ -68,17 +70,20 @@ Phone: 00989222222222
 
 ## `recutils` Commands
 1. `recinf` - reads the given rec files (or the data from standard input if no file is specified) and prints a summary of the record types contained in the input.
+
 ```bash
 $ recinf contacts.rec
 2 Contact
 ```
 
 2. `recfix` - check a recfile for errors:
+
 ```bash
 $ recfix contacts.rec
 ```
 
 3. `recsel` - recsel reads the given rec files (or the data in the standard input if no file is specified) and prints out records (or part of records) based upon some criteria specified by the user.
+
 ```bash
 $ recsel contacts.rec
 Name: hamzeh
@@ -100,6 +105,7 @@ h.nasajpour@pantherx.org
 ```
 
 4. `recins` - adds new records to a rec file or to rec data read from standard input.
+
 ```bash
 $ recins -f Name -v Alex -f Phone -v 9898111222333 contacts.rec
 
