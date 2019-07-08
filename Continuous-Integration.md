@@ -1,6 +1,5 @@
 ---
 namespace: guix
-title: Continuous Integration on GuixSD
 description: "Cuirass is a continuous integration tool for Guix. It can be used both for development and for providing substitutes to others."
 description-source: "https://gnu.org/software/guix/manual/en/html_node/Continuous-Integration.html"
 categories:
@@ -144,13 +143,15 @@ now you need to add `guix-publish` service as follows:
          ))
 ```
 
-running the `guix-publish service`, clients need to register server public key:
+## Client Configuration
+In order to allow clients to access build server, we need to register server's
+public key on clients using `guix archive` command:
 
 ```bash
-guix archive --authorize < /path/to/signing-key.pub
+guix archive --authorize < /path/to/build-server-signing-key.pub
 ```
 
-and modify `guix-daemon` service to use our substitute server:
+now we need to modify `guix-daemon` service and add build server's url to that:
 
 ```scheme
 (append (modify-services %base-services
