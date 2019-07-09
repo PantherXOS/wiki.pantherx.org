@@ -214,3 +214,10 @@ for now we don't have any fix for this, and as a workaround, you need to aware a
 that not to start with `p` letter.
 
 *Reference:* [Guix-Devel mailing list](https://debbugs.gnu.org/cgi/bugreport.cgi?bug=36378)
+
+### Same Repository URL for inputs
+
+using same URL for multiple inputs (for example inputs for different branches of a git repository)
+could cause issues during build. since _Cuirass_ creates just one cache folder for each repository,
+switching between these branches during build, could cause the build process to be failed.
+
