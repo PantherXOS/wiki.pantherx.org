@@ -208,4 +208,9 @@ after `reboot`, we could see that old _Debian_ droplet is gone, and we have a ru
 This document is an updated version of previously provided [Blog Post](https://f-a.nz/dev/guixsd-on-digitalocean/).
 we use [Guix Binary Installation](https://guix.info/manual/en/html_node/Binary-Installation.html) and
 [Guix Build Environment Setup](https://guix.info/manual/en/html_node/Build-Environment-Setup.html#Build-Environment-Setup)
-documents to update tutorial to version `1.0.1` of _GuixSD_.
+documents to update this tutorial to version `1.0.1` of _GuixSD_.
+
+Some other useful references are:
+
+- [Guix-Devel Mailing List thread](https://lists.gnu.org/archive/html/guix-devel/2017-04/msg00139.html) which was referenced previously in parent blog post.
+- [Official Guix Installation Script](https://git.savannah.gnu.org/cgit/guix.git/tree/etc/guix-install.sh)
