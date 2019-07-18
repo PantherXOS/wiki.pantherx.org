@@ -1,37 +1,37 @@
 ---
 namespace: guix
-title: Install GuixSD on Digital Ocean
+title: Install Guix System on Digital Ocean
 categories:
  - type:
    - "Guide"
  - location:
-   - "GuixSD"
+   - "Guix"
    - "Server"
    - "Tutorial"
 language: "en"
 ---
 
 In this tutorial we want to provide a step-by-step guide to transform an existing DigitalOcean droplet
-to a GuixSD instance.
+to a Guix System instance.
 
 ## Prerequisites
 
-In order to Install GuixSD on DigitalOcean, we need a fresh droplet with at least 2GB of memory. In this
-tutorial we use a `Debian 9.7` droplet instance as our starting point, and we are installing `GuixSD 1.0.1`
-on it. using other distributions, you might need to change some parts by yourself.
+In order to Install Guix System on DigitalOcean, we need a fresh droplet with at least 2GB of memory. In
+this tutorial we use a `Debian 9.7` droplet instance as our starting point, and we are installing
+`Guix 1.0.1` binaries on it. using other distributions, you might need to change some parts by yourself.
 
 
 ## Installation Process
 
 ### Login to Droplet
-In order to install GuixSD, you need to login to your instance with `root` user:
+In order to install Guix System, you need to login to your instance with `root` user:
 
 ```bash
 ssh -i /path/to/ssh_key root@...
 ```
 
 ### Required Packages
-We need to install `xz-utils` package in order to extract GuixSD archive:
+We need to install `xz-utils` package in order to extract the archive file:
 
 ```bash
 apt-get update
@@ -170,7 +170,7 @@ related details, based on our droplet's details:
 with your droplet's network related configurations.
 
 
-### Build GuixSD
+### Build Guix System
 now, we need to build and reconfigure this configuration file using Guix:
 
 ```bash
@@ -178,15 +178,15 @@ guix system build /etc/config.scm
 guix system reconfigure /etc/config.scm
 ```
 
-since we are installing GuixSD on an existing distro, running `guix system reconfigure`, we will receive
-following error:
+since we are installing Guix System on an existing distro, running `guix system reconfigure`, we will
+receive following error:
 
 ```bash
 guix system: error: symlink: File exists: "/etc/ssl"
 ```
 
 to solve this issue, we need to remove old configurations of distro, and create a new `/etc` folder for
-GuixSD, with necessary data:
+Guix System, with necessary data:
 
 ```bash
 mv /etc /old-etc
@@ -201,14 +201,15 @@ guix system reconfigure /etc/config.scm
 ```
 
 ### Reboot
-after `reboot`, we could see that old _Debian_ droplet is gone, and we have a running _GuixSD_ instance.
+after `reboot`, we could see that old _Debian_ droplet is gone, and we have a running _Guix System_
+instance.
 
 
 ## References
 This document is an updated version of previously provided [Blog Post](https://f-a.nz/dev/guixsd-on-digitalocean/).
 we use [Guix Binary Installation](https://guix.info/manual/en/html_node/Binary-Installation.html) and
 [Guix Build Environment Setup](https://guix.info/manual/en/html_node/Build-Environment-Setup.html#Build-Environment-Setup)
-documents to update this tutorial to version `1.0.1` of _GuixSD_.
+documents to update this tutorial to version `1.0.1` of _Guix System_.
 
 Some other useful references are:
 
