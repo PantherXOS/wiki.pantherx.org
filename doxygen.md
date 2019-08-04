@@ -33,7 +33,7 @@ Doxygen is a tool that can generate project documentation in HTML, PDF or Latex 
 $ guix package -i doxygen graphviz 
 ```
 ## How to use
-### 1. Doxyfile Settings: 
+### 1. Doxyfile Settings    
 This section provides suitable settings for the Doxygen configuration file Doxyfile generated with the command `$ doxygen -g` or with the application DoxyWizard. The _Project Name_, _Project Breif_, _Input Source_ and _Output Directory_ are some of the settings that should be defined in _Doxyfile_. Full description of _Doxyfile_ is [here](http://www.doxygen.nl/manual/config.html).
 
 ### 2. Using Doxygen commands/tags in source codes
