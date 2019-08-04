@@ -61,13 +61,13 @@ After creating a _Doxyfile_ you should mark-up the source codes with doxygen com
 * `@see SomeClass::Method`	Reference to some class, method, or web site
 * `@li`	Bullet point
 
-#### 3.Generate the documentation
+#### 3. Generate the documentation
 ```bash
 $ doxygen Doxyfile 
 ```
 
 ## Using Doxygen with CMake for C/C++ Projects
-1. First of all, we assumed that the project has a file structure like this:
+**1.** First of all, we assumed that the project has a file structure like this:
 
 ```
 Project |
@@ -76,7 +76,7 @@ Project |
         └ CMakeLists.txt
 ```
 
-2. Generate a _Doxyfile_ in `docs` folder with `$ doxygen -g` and edit the following items:
+**2.** Generate a _Doxyfile_ in `docs` folder with `$ doxygen -g` and edit the following items:
 
 ```
 PROJECT_NAME           = "project name"
@@ -92,7 +92,7 @@ EXTRACT_LOCAL_METHODS  = NO # YES/NO : refer to http://www.doxygen.nl/manual/con
 EXTRACT_ANON_NSPACES   = NO # YES/NO : refer to http://www.doxygen.nl/manual/config.html#cfg_extract_anon_nspaces
 ```
 
-3. Add the following lines in the `CMakeLists.txt`:
+**3.** Add the following lines in the `CMakeLists.txt`:
 
 ```cmake
 [...]
@@ -119,7 +119,7 @@ endif (DOXYGEN_FOUND)
 [...]
 ```
 
-4. Build the project. After building the _html_ and _latex_ documents will be generated in the `project/docs/` folder.
+**4.** Build the project. After building the _html_ and _latex_ documents will be generated in the `project/docs/` folder.
 
 ```
 Project |
@@ -131,7 +131,7 @@ Project |
         └ CMakeLists.txt
 ```
 
-# References:
+## References:
 * [Doxygen Commands](http://www.doxygen.nl/manual/commands.html)
 * [CPP / C++ Notes - Doxygen - Documentation Generator](https://caiorss.github.io/C-Cpp-Notes/Doxygen-documentation.html)
 * [Quick setup to use Doxygen with CMake](https://vicrucann.github.io/tutorials/quick-cmake-doxygen/)
