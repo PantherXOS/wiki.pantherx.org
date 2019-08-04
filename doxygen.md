@@ -42,6 +42,7 @@ After creating a _Doxyfile_ you should mark-up the source codes with doxygen com
 * `@brief`	Brief description of class or function (fits a single line)
 * `@details`	Details about class or function
 * `@author <AUTHOR NAME>`	Insert author-name
+
 #### Function/Method Documentation
 * `@param <PARAM> <DESCR>`	Function or method parameter description
 * `@param[in] <PARAM> <DESCR>`	Input parameter (C-function)
@@ -52,6 +53,7 @@ After creating a _Doxyfile_ you should mark-up the source codes with doxygen com
 * `@pre <DESCR>`	Pre conditions
 * `@post <DESCR>`	Post conditions
 * `@return <DESCR>`	Description of return value or type.
+
 #### Miscellaneous
 * `@remark`	Additional side-notes
 * `@note`	Insert additional note
@@ -66,6 +68,7 @@ $ doxygen Doxyfile
 
 ## Using Doxygen with CMake for C/C++ Projects
 1. First of all, we assumed that the project has a file structure like this:
+
 ```
 Project |
         ├ docs\Doxyfile
@@ -74,6 +77,7 @@ Project |
 ```
 
 2. Generate a _Doxyfile_ in `docs` folder with `$ doxygen -g` and edit the following items:
+
 ```
 PROJECT_NAME           = "project name"
 PROJECT_NUMBER         = "revision number"
@@ -89,6 +93,7 @@ EXTRACT_ANON_NSPACES   = NO # YES/NO : refer to http://www.doxygen.nl/manual/con
 ```
 
 3. Add the following lines in the `CMakeLists.txt`:
+
 ```cmake
 [...]
 # check if Doxygen is installed
@@ -115,6 +120,7 @@ endif (DOXYGEN_FOUND)
 ```
 
 4. Build the project. After building the _html_ and _latex_ documents will be generated in the `project/docs/` folder.
+
 ```
 Project |
         ├ docs
