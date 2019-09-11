@@ -478,6 +478,30 @@ $ export GIT_SSL_CAINFO="$SSL_CERT_FILE"
 
 Read more about [X.509 Certificates in the Guix Manual](https://www.gnu.org/software/guix/manual/en/html_node/X_002e509-Certificates.html).
 
+### guix pull
+
+### guix pull: symlink exists error
+
+Executing `guix pull` command on a non-root user we might receive following error:
+
+```bash
+panther@panther ~$ guix pull
+Migrating profile generations to '/var/guix/profiles/per-user/panther'...
+guix pull: error: symlink: File exists: "/var/guix/profiles/per-user/panther/current-guix"
+```
+
+This problem is occurred because of an issue when guix tries to create  symlink
+to current profile for user.
+
+a workaround to resolve this issue is to remove current profile symlink, which
+is located in `~/.config/guix/current` and relink that using following command:
+
+```bash
+ln -s "/var/guix/profiles/per-user/$USER/current-guix" "~/.config/guix/current"
+```
+
+*Reference:* [Help-Guix mailing list](https://lists.gnu.org/archive/html/help-guix/2018-11/msg00068.html)
+
 ### guix archive
 
 #### guix archive: error: build failed: getting status of `/etc/guix/signing-key.sec'
