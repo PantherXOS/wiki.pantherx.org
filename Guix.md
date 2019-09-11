@@ -480,7 +480,7 @@ Read more about [X.509 Certificates in the Guix Manual](https://www.gnu.org/soft
 
 ### guix pull
 
-### guix pull: symlink exists error
+#### guix pull: symlink exists error
 
 Executing `guix pull` command on a non-root user we might receive following error:
 
