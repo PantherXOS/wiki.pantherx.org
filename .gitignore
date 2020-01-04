@@ -5,3 +5,4 @@ yarn.lock
 Gemfile.lock
 .idea
 package-lock.json
+vendor
