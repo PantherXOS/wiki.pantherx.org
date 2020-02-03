@@ -592,7 +592,8 @@ For example while `~/.guix-profile/share/guile/site/2.2/` is the base path for i
 
 #### guix system reconfigure: problem on detecting channels
 
-in some cases, users might face issues related to reading custom channels during system reconfigure:
+in some cases, users might face issues related to reading custom channels during
+system reconfigure:
 
 ```scheme
 no code for module (px packages accounts).
@@ -602,8 +603,10 @@ we need to check if the channels file is located in `~/.config/guix/channels.scm
 and it's accessible by current user (reconfigure needs to be performed by `root`
 user). later in order fix we need to perform following steps:
 
-1. login with `root` user using: `ssh -p 2222 root@127.0.0.1`
-2. remove `guix` cache folder located in `/root/.cache/guix/`
-3. run `guix pull` to get a fresh copy of package repositories from server
-4. run `guix system reconfigure ...` to reconfigure the based on system
+- login with `root` user
+  - using *Vagrant* as development environment, you can have root access over ssh
+    using: `ssh -p 2222 root@127.0.0.1` command
+- remove `guix` cache folder located in `/root/.cache/guix/`
+- run `guix pull` to get a fresh copy of package repositories from server
+- run `guix system reconfigure ...` to reconfigure the based on system
 configuration file
