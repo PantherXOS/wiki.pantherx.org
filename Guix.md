@@ -610,3 +610,14 @@ user). later in order fix we need to perform following steps:
 - run `guix pull` to get a fresh copy of package repositories from server
 - run `guix system reconfigure ...` to reconfigure the based on system
 configuration file
+
+### other guix related issues
+
+#### relation between `sudo` command and guix profiles
+
+`guix pull` command updates the `guix` command and package definitions only for
+the user it is ran as no matter to run with `sudo` or not.This means that if you
+choose to use `guix system reconfigure` in root's login shell, you'll need to
+`guix pull` separately.
+
+*Reference:* [regarding commit in Guix repositories](https://git.savannah.gnu.org/cgit/guix.git/commit/?id=6a7f4d89b2029b43b766217d71d5dbbdfcc5fa09)
