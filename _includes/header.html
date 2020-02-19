@@ -18,7 +18,7 @@
 				<div class="navbar-end">
 					{% assign pages = site.nav %}
 					{% for page in pages %}
-					<a href="{{ page.url }}" class="navbar-item">
+					<a href="{{ page.url }}" class="navbar-item{% if page.title == 'Wiki' %} is-active{% endif %}">
 						{{ page.title }}
 					</a>
 					{% endfor %}

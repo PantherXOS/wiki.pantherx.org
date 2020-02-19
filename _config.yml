@@ -37,6 +37,7 @@ exclude:
   - .bitmap
   - yarn-error.log
   - bit.json
+  - s3_website.yml
 
 defaults:
   -
@@ -77,6 +78,9 @@ nav:
   -
     title: PantherX OS
     url: https://www.pantherx.org/#PantherX+Operating+System
+  -
+    title: PantherX for Business
+    url: https://www.pantherx.org/for-small-business/
   -
     title: Wiki
     url: /
