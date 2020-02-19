@@ -252,12 +252,17 @@ $ guix lint package-name
 ```
 
 #### Creating Application Bundles
+* The `guix pack` command creates a shrink-wrapped pack or software bundle: it creates a tarball or some other archive containing the binaries of the software you’re interested in, and all __its dependencies__.
+* The resulting archive can be used on __any machine__ that __does not have Guix__, and people can run the exact same binaries as those you have with Guix.
 
 To create a tarball:
 
 ```bash
 $ guix pack spec ...
 ```
+
+The result here is a tarball containing a `/gnu/store` directory with all the relevant packages.   
+__Note 1__ _Users of this pack would have to run /gnu/store/…-profile/bin/guile to run Guile_
 
 To create a Docker image:
 
@@ -277,11 +282,14 @@ To create a relocatable tarball:
 $ guix pack --relocatable spec ...
 ```
 
-To create a tarball where _/bin_ symlinks to the packages _bin_ directory:
+To create a tarball where _/bin_ symlinks to the packages _bin_ directory (To work around __Note 1__):
 
 ```bash
 $ guix pack -S /bin=bin spec ...
 ```
+
+That way, users can happily type /opt/gnu/bin/guile and enjoy.
+
 
 To create a package from manifest in _file_:
 
@@ -470,6 +478,30 @@ $ export GIT_SSL_CAINFO="$SSL_CERT_FILE"
 
 Read more about [X.509 Certificates in the Guix Manual](https://www.gnu.org/software/guix/manual/en/html_node/X_002e509-Certificates.html).
 
+### guix pull
+
+#### guix pull: symlink exists error
+
+Executing `guix pull` command on a non-root user we might receive following error:
+
+```bash
+panther@panther ~$ guix pull
+Migrating profile generations to '/var/guix/profiles/per-user/panther'...
+guix pull: error: symlink: File exists: "/var/guix/profiles/per-user/panther/current-guix"
+```
+
+This problem is occurred because of an issue when guix tries to create  symlink
+to current profile for user.
+
+a workaround to resolve this issue is to remove current profile symlink, which
+is located in `~/.config/guix/current` and relink that using following command:
+
+```bash
+ln -s "/var/guix/profiles/per-user/$USER/current-guix" "~/.config/guix/current"
+```
+
+*Reference:* [Help-Guix mailing list](https://lists.gnu.org/archive/html/help-guix/2018-11/msg00068.html)
+
 ### guix archive
 
 #### guix archive: error: build failed: getting status of `/etc/guix/signing-key.sec'
@@ -555,3 +587,37 @@ During package installation, each installed file, creates a *symbolic link* insi
 For example while `~/.guix-profile/share/guile/site/2.2/` is the base path for installed *guile* scripts, we need to install our `.scm` scripts to `share/guile/site/2.2` relative path in *store*. Later during package installation, a *symlink* will create inside current users *guix-profile* path.
 
 *Reference:* [Help-Guix mailing list](http://lists.gnu.org/archive/html/help-guix/2019-01/msg00147.html)
+
+### guix system reconfigure
+
+#### guix system reconfigure: problem on detecting channels
+
+in some cases, users might face issues related to reading custom channels during
+system reconfigure:
+
+```scheme
+no code for module (px packages accounts).
+```
+
+we need to check if the channels file is located in `~/.config/guix/channels.scm`
+and it's accessible by current user (reconfigure needs to be performed by `root`
+user). later in order fix we need to perform following steps:
+
+- login with `root` user
+  - using *Vagrant* as development environment, you can have root access over ssh
+    using: `ssh -p 2222 root@127.0.0.1` command
+- remove `guix` cache folder located in `/root/.cache/guix/`
+- run `guix pull` to get a fresh copy of package repositories from server
+- run `guix system reconfigure ...` to reconfigure the based on system
+configuration file
+
+### other guix related issues
+
+#### relation between `sudo` command and guix profiles
+
+`guix pull` command updates the `guix` command and package definitions only for
+the user it is ran as no matter to run with `sudo` or not.This means that if you
+choose to use `guix system reconfigure` in root's login shell, you'll need to
+`guix pull` separately.
+
+*Reference:* [regarding commit in Guix repositories](https://git.savannah.gnu.org/cgit/guix.git/commit/?id=6a7f4d89b2029b43b766217d71d5dbbdfcc5fa09)
