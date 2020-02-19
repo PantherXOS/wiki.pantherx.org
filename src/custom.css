@@ -1,5 +1,5 @@
-body {
-	background-color: #f6f9fc;
+body, .toc {
+	background-color: #ececec;
 }
 
 a {
@@ -8,7 +8,6 @@ a {
 
 .toc {
 	padding: 1rem;
-	background-color: #f6f9fc;
 }
 
 .toc ul li, .sidebar-nav ul li {
@@ -35,7 +34,8 @@ ul.categories li.location {
 
 .wiki-body {
 	padding: 1rem;
-	background-color: #fff;
+	background: #fbfbfb;
+	min-height: 60vh;
 }
 
 .wiki-body .title, .wiki-body h1, .wiki-body h2, .wiki-body h3, .wiki-body h4, .wiki-body  h5, .wiki-body h6 {

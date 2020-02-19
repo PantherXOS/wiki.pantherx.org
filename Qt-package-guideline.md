@@ -1,18 +1,17 @@
 ---
-namespace: QT Application GUIX Packaging
-description: "How to package QT Applications for GUIX."
+namespace: qt
+description: "Qt package guidelines"
 categories:
  - type:
    - "Document"
  - location:
-   - "Document"
-   - "Qt"
-   - "Guix"
    - "Packaging"
+   - "Qt"
 language: en
 ---
 
-# Introduction
+## Introduction
+
 QT Applications have build steps nativly like this:
 
 ```bash
@@ -21,16 +20,16 @@ $ make
 $ make install
 ```
 
-On the other hand, the _GUIX_ has some _Build Systems_ for _C/C++_ packages:
+On the other hand, _PantherX_ has some _Build Systems_ for _C/C++_ packages:
 
 1. `gnu-build-system` : `configure & make & make install`.
 2. `cmake-build-system` : `cmake & make & make install`.
 3. `trivial-build-system` : Every thing should be defined in the package definition.
 
+With above descriptions, for packaging a _Qt Application_ For _PantherX_ we should select _1._ or _2._ and customize/replace some steps in guix build system.
 
-With above descriptions, for packaging a _Qt Application_ For _Guix_ we should select _1._ or _2._ and customize/replace some steps in guix build system.
+## PantherX Specifics
 
-# But How
 We can replace some steps in package building/installation. Here is a piece of package definition. In this sample the 
 `gnu-build-system` used. And generally two things added to the package definition:
 
@@ -62,7 +61,8 @@ instead of `$INSTALL_ROOT/usr`.
      )))
 ```
 
-# Examples:
+## Examples
+
 1. `qpdfview` - [Package Link](https://git.pantherx.org/development/guix-pantherx/blob/master/px/packages/document.scm#L28)
 2. `qview` - [Package Link](https://git.pantherx.org/development/pantherx/blob/px-development-stable-v1/gnu/packages/image-viewers.scm#L454)
 
