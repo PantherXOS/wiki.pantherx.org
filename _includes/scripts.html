@@ -11,15 +11,19 @@
 		{% unless page.index == false or page.path == "feed.xml" %}
 		{
 			"title": "{{ page.path | replace: '-', ' ' | replace: '.md', '' | replace: '.html', '' }}",
+			"doc": "{{ page.path | replace: '.md', '' | replace: '.html', '' }}",
 			"description": "{{ page.description }} {% if page.categories %}{% for category in page.categories[1].location %}{{ category }} {% endfor %}{% endif %}"
 		},
 		{% endunless %}
 		{% endfor %}
 	]
 
+	console.log(pages)
+
 	// build lunr index
 	var idx = lunr(function () {
 		this.ref('title');
+		this.field('doc');
 		this.field('description');
 		pages.forEach(function (page) {
 			this.add(page)
@@ -34,20 +38,23 @@
 			pages: pages,
 			idx: idx,
 			query: '',
-			result: '',
+			result: [],
 		},
 		methods: {
 			search: function() {
 				if (this.query.length > 0) {
-					console.log('Searching for: ' + this.query);
-					this.result = idx.search(this.query + '~1');
+					this.result = idx.search(this.query + '~2');
 				} else {
 					console.log('Please enter a search term');
-					this.result = '';
+					this.result = [];
 				}
 			},
 			open: function(ref) {
-				let destination = '/' + ref + '/';
+				console.log(ref)
+				console.log(this.pages)
+				const page = this.pages.filter(page => page.title === ref)
+				console.log(page)
+				let destination = '/' + page[0].doc + '/';
 				window.location = destination;
 			}
 		},

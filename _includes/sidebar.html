@@ -9,7 +9,7 @@
 					{% if sub == "Main page" %}
 					<a href="/">{{ sub }}</a>
 					{% elsif sub == "Recent Changes" %}
-					<a href="https://git.pantherx.org/development/wiki-pantherx.org/commits/master/{{ page.path }}">{{ sub }}</a>
+					<a href="https://git.pantherx.org/development/wiki.pantherx.org/-/commits/master/{{ page.path }}">{{ sub }}</a>
 					{% else %}
 					<a href="/{{ sub | replace: ' ', '-' }}/">{{ sub }}</a>
 					{% endif %}

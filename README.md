@@ -23,13 +23,13 @@ To run this Wiki locally, you need to install `bundle`, `yarn` and `jekyll`.
 
 ```bash
 $ bundle install
-$ yarn install
+$ npm install
 ```
 
 ### Compile Assets
 
 ```bash
-$ gulp
+$ node_modules/.bin/gulp
 ```
 
 ### Run Site
