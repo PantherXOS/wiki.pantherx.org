@@ -1,6 +1,6 @@
 ---
 namespace: shepherd
-description: "GuixSD uses the GNU Daemon Shepherd as its init system, which is developed in tandem with Guix and is written in Guile as well. It was previously known as 'DMD', which stood for 'Daemon managing Daemons' or 'Daemons-managing Daemon', but changed names to avoid collision with the Digital Mars D compiler."
+description: "PantherX and GNU Guix use the GNU Daemon Shepherd as init system, which is developed in tandem with Guix and is written in Guile as well. It was previously known as 'DMD', which stood for 'Daemon managing Daemons' or 'Daemons-managing Daemon', but changed names to avoid collision with the Digital Mars D compiler."
 description-source: "https://en.wikipedia.org/wiki/Guix_System_Distribution#GNU_Shepherd"
 categories:
  - type:

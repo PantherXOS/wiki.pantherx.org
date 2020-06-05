@@ -1,6 +1,6 @@
 ---
 namespace: guix
-description: "GNU Guix is a package manager. It is based on the Nix package manager with Guile Scheme APIs and specializes in providing exclusively free software."
+description: "Guix is a package manager. It is based on the Nix package manager with Guile Scheme APIs and specializes in providing exclusively free software."
 description-source: "https://en.wikipedia.org/wiki/GNU_Guix"
 categories:
  - type:

@@ -1,7 +1,7 @@
 ---
 ---
 
-For running some binaries which were not compiled on GuixSD, probably you'll faced with the following error:
+For running some binaries which were not compiled on PantherX or GNU Guix, probably you'll faced with the following error:
 
 ```
 -bash: ./path/to/foreign/binary: No such file or directory

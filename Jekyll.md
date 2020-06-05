@@ -42,7 +42,7 @@ To add more packages to a profile, do:
 $ guix package --profile=jekyll -i package-name
 ```
 
-**Note: You should run this, in the folder that contains your existing _jekyll_ profile. Otherwise, a new profile will be created.
+**Note: You should run this, in the folder that contains your existing _jekyll_ profile. Otherwise, a new profile will be created.**
 
 ### Reproducible environment
 

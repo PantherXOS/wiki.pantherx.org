@@ -49,8 +49,8 @@ defaults:
 sections:
   distribution:
     -
-      title: PantherX Linux
-      description: Overview of PantherX Linux
+      title: PantherX OS
+      description: Overview of PantherX OS
     -
       title: Frequently asked questions
       description: Notable questions and facts

@@ -1,6 +1,6 @@
 ---
 namespace: guix
-title: Install Guix System on Digital Ocean
+title: Install GNU Guix on Digital Ocean
 categories:
  - type:
    - "Guide"
@@ -9,6 +9,7 @@ categories:
    - "Server"
    - "Tutorial"
 language: "en"
+outdated: true
 ---
 
 In this tutorial we want to provide a step-by-step guide to transform an existing DigitalOcean droplet

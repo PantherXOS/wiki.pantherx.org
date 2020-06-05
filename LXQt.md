@@ -10,6 +10,7 @@ categories:
    - "Graphical user interfaces"
    - "Desktop environments"
 language: en
+outdated: true
 ---
 
 ## Installation

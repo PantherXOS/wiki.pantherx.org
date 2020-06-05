@@ -6,14 +6,15 @@ categories:
  - type:
    - "Guide"
  - location:
-   - "GuixSD"
+   - "GNU Guix"
    - "Server"
    - "Continuous Integration"
 language: "en"
 ---
 
-_GNU Cuirass_ is a Continuous Integration system provided for GuixSD. it could be run manually or as a service on top
-of Guix. In this document we will provide instructions about using _Cuirass_ to build a custom package list and how to
+_GNU Cuirass_ is a Continuous Integration system provided for PantherX and GNU Guix. 
+
+_Cuirass_ may be run manually or as service. In this document we will provide instructions about using _Cuirass_ to build a custom package list and how to
 setup a _Substitute Server_.
 
 ## Cuirass Spec Definition
