@@ -87,8 +87,10 @@ WARNING:root:Could not import pymongo, not available as a datastore backend
 ...
 ``` 
 
-__Note:__
+__Note:__   
+
 Maybe another solution is exporting the `LD_LIBRARY_PATH` to pointing to `LIBRARY_PATH`:
+
 ```bash
 export LD_LIBRARY_PATH=$LIBRARY_PATH
 /path/to/foreign/binary
