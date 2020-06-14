@@ -98,7 +98,7 @@ and initiate a roll-back, to the desired generation:
 $ guix system switch-generation number
 ```
 
-### Querying package channels
+### Search for Package in Channels
 
 _Guix_ can search for packages in the channel, searching both in packages' names and descriptions:
 
