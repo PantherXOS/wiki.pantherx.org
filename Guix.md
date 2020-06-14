@@ -166,6 +166,10 @@ To remove generations (packages) older than - e.g. _1m_ for one month
 guix package -d duration
 ```
 
+#### Cleaning th substitutes cache
+
+in some cases, we might need to refresh the `substitute` list cached in our local machine, for this we can delete substitute cache folder located in: `/var/guix/substitute/cache` 
+
 ### Additional commands
 
 #### Developing Packages
