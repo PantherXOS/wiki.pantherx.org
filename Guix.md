@@ -114,7 +114,7 @@ $ guix package --show=package-name
 
 #### Add a new package channel
 
-Channels specify Git repositories where `guix pull` looks for updates to Guix and external package repositories. By default guix pull reads `~/.config/guix/channels.scm`; with -C it can take channel specifications from a user-supplied file that looks like this:
+Channels specify Git repositories where `guix pull` looks for updates to Guix and external package repositories. By default `guix pull` reads `%default-channels` variable to load channels, we can alternatively can set `~/.config/guix/channels.scm` for user defined channels or `/etc/guix/channels.scm` for system-wide channel customization, we also are able to pass custom channel definition file to the `guix pull` command using `--channels` switch. channel specifications file looks like this:
 
 ```scheme
 (cons (channel
@@ -123,6 +123,15 @@ Channels specify Git repositories where `guix pull` looks for updates to Guix an
        (branch "master"))
       %default-channels)
 ```
+
+the order that `guix` looks for channel definitions is: 
+
+1. the `--channels` option;
+2. the user's `~/.config/guix/channels.scm` file;
+3. the system-wide `/etc/guix/channels.scm` file;
+4. the built-in default channels specified in the `%default-channels` variable. 
+
+_Reference_: [Invoking guix pull (Official Guix Documenst)](https://guix.gnu.org/manual/en/html_node/Invoking-guix-pull.html)
 
 ### Cleaning the package cache
 
