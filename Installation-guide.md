@@ -1,3 +1,4 @@
+
 ---
 ---
 
@@ -35,6 +36,8 @@ $ ifconfig interface up
 
 #### Wireless Network
 
+##### Using WPA-Supplicant
+
 To configure wireless networking, create a configuration file for the wpa_supplicant configuration tool:
 
 ```bash
@@ -55,6 +58,32 @@ To start the wireless service, and run it on _interface_ in the background:
 
 ```bash
 $ wpa_supplicant -c wpa_supplicant.conf -i interface -B
+```
+
+##### Using Connman
+
+another tool that is available on installation iso is `connman` service and  we
+can configure that using `connmanctl`. in order to connect to wifi networks using
+`connmanctl`, first we need to unblock `wifi` module using:
+
+```shell
+root@gnu ~# rfkill unblock wifi
+```
+
+now we can connect to wifi networks using `connmanctl`:
+
+```shell
+root@gnu ~# connmanctl
+connmanctl> scan wifi
+connmanctl> services
+SSID-1   wifi_...._......
+SSID-2   wifi_...._......
+SSID-3   wifi_...._......
+SSID-4   wifi_...._......
+SSID-5   wifi_...._......
+...
+connmanctl> agent on
+connmanctl> connect wifi_...
 ```
 
 #### Get IP

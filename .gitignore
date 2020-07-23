@@ -6,3 +6,5 @@ Gemfile.lock
 .idea
 package-lock.json
 vendor
+.stignore
+
