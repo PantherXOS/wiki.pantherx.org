@@ -152,6 +152,14 @@ $ swapon /mnt/swapfile
 $ mount LABEL=my-root /mnt
 ```
 
+additionally if you want to mount additional partitions (eg. `/home`),
+you need to mount them after this step:
+
+```bash
+mkdir -p /mnt/home
+mount /dev/sdaX /mnt/home
+```
+
 ## Installation
 
 ```bash
