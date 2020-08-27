@@ -19,7 +19,7 @@ a system configuration file. later we can pass QEMU parameters to this generated
 script.
 
 ```bash
-$ guix system reconfigure /path/to/config.scm
+$ guix system vm /path/to/config.scm
 ...
 /gnu/store/...-run-vm.sh
 $ /gnu/store/…-run-vm.sh -m 1024 -smp 2 -net user,model=virtio-net-pci
