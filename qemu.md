@@ -88,6 +88,11 @@ This is especially useful to access the virtual machine SSH, or any running appl
 
 If we combine this with the shared folder, we have a flexibe setup for development:
 
+You'll need to adapt two lines to suit your setup:
+
+- `QEMU_IMAGE=/your/imagefile.qcow`
+- `QEMU_SHARE=/your/shared/folder`
+
 ``` 
 export QEMU_IMAGE=/home/franz/virtual/debian_jekyll.qcow
 export QEMU_SHARE=/home/franz/shared_folder
@@ -105,3 +110,7 @@ In this case, we'd run Jekyll inside the VM. Here's what this will look like:
 
 Tip: You will have to run your application on `0.0.0.0`. 
 With jekyll, you can do `jekyll --host 0.0.0.0`.
+
+## See also
+
+- [9setup (wiki.qemu.org)](https://wiki.qemu.org/Documentation/9psetup)
