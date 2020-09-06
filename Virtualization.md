@@ -63,7 +63,7 @@ running the disk image there are a series of items that we need to consider:
    parameter.
 
    ```bash
-   guix system vm-image /path/to/config.scm --image-size 10G
+   guix system vm-image /path/to/config.scm --image-size=10G
    ```
 
 3. in order to have ssh access to the virtual machine, we need to forward
