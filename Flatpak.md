@@ -13,7 +13,7 @@ language: en
 Flatpak enables you to run some popular applications that are not yet available trough PantherX Software.
 
 - [Signal Desktop](https://flathub.org/apps/details/org.signal.Signal): Private messenger
-- [VSCodium](https://flathub.org/apps/details/com.vscodium.codium): Code editor
+- [Code-OSS (VSCodium)](https://flathub.org/apps/details/com.visualstudio.code-oss): Code editor
 - [Element (Riot)](https://flathub.org/apps/details/im.riot.Riot): Team and community chat
 
 ## Install Flatpak
@@ -26,6 +26,8 @@ guix package -i flatpak
 
 ### Configure Flatpak
 
+_TODO: This is pre-configured on PantherX. Verify it's working and remove this note._
+
 1. Open **Session Settings**.
 2. Go to "Environment (Advanced)"
 3. Add this variable:
@@ -36,7 +38,7 @@ guix package -i flatpak
 
 For the changes to take effect, you will need to log out.
 
-## Install Application (Example: Signal)
+### Install Application (Example: Signal)
 
 Go to [flathub.org](https://flathub.org/apps/details/org.signal.Signal) and click "Install". This will download a `org.signal.Signal.flatpakref`.
 
@@ -55,7 +57,7 @@ You can now delete the flatpak reference:
 rm ~/Downloads/org.signal.Signal.flatpakref
 ```
 
-## Run Application
+### Run Application
 
 _Note: Due to a bug, you may have to log out in order for the **Menu** items to reload, and newly installed applications to show up._
 
@@ -65,7 +67,7 @@ _Note: Due to a bug, you may have to log out in order for the **Menu** items to 
 
 You're now running Signal Desktop on PantherX.
 
-## Update Application
+### Update Application
 
 This will look for updates, for all installed Flatpak-managed applications.
 
@@ -73,7 +75,7 @@ This will look for updates, for all installed Flatpak-managed applications.
 sudo flatpak update
 ```
 
-## Remove Application
+### Remove Application
 
 To remove one application:
 
@@ -86,3 +88,47 @@ To remove all Flatpak-managed applications:
 ```bash
 sudo flatpak remove --all
 ```
+
+## Additional Configuration
+
+Software that you install from Flatpak might behave differently from what you're used to.
+For example, for OSS-Code (VSCodium) to take advantage of proper code indexing, linting and debugging, you need to install an extension, to support this.
+
+In my case, I needed node12:
+
+> This SDK extension allows you to build and run Node.js-based apps.
+
+To find your desired extension:
+
+```sh
+$ flatpak search org.freedesktop.Sdk.Extension.node
+Name                           Description                    Application ID                           
+Node.js SDK extension          Node.js SDK extension          org.freedesktop.Sdk.Extension.node12     
+Node.js SDK extension          Node.js SDK extension          org.freedesktop.Sdk.Extension.node10     
+```
+
+**Tip** Simply search their [GitHub repositories](https://github.com/flathub?q=org.freedesktop.Sdk.Extension&type=&language=)
+
+To install the extension:
+
+```sh
+sudo flatpak install org.freedesktop.Sdk.Extension.node12
+```
+
+Sometimes you may encounter multiple versions, of the same package. It's usually best, to install the latest version.
+
+```sh
+Similar refs found for ‘org.freedesktop.Sdk.Extension.node10’ in remote ‘flathub’ (system):
+
+1) runtime/org.freedesktop.Sdk.Extension.node10/x86_64/19.08
+2) runtime/org.freedesktop.Sdk.Extension.node10/x86_64/20.08
+3) runtime/org.freedesktop.Sdk.Extension.node10/x86_64/18.08
+```
+
+To enable the extension:
+
+```
+FLATPAK_ENABLE_SDK_EXT=node12; flatpak run com.visualstudio.code-oss
+```
+
+Once you start working, you might be prompted to allow the extension.
