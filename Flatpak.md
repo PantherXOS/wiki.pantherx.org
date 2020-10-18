@@ -148,3 +148,5 @@ $ flatpak run --filesystem=/var/guix/profiles com.visualstudio.code-oss
 
 **Note:** using this approach we still have issues during package build in C++ apps (during link time),
 and this issue only resolves the intellisense issue.
+
+*Reference:* [Flatpak official documents](https://docs.flatpak.org/en/latest/sandbox-permissions.html#filesystem-access)
