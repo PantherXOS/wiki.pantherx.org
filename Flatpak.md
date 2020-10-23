@@ -132,3 +132,21 @@ FLATPAK_ENABLE_SDK_EXT=node12; flatpak run com.visualstudio.code-oss
 ```
 
 Once you start working, you might be prompted to allow the extension.
+
+### Flatpak issue with Guix profile packages
+
+since Flatpak packages run in a sand-boxed mode, they don't have access to system paths like `/var`.
+since profiles are located in `/var/guix/profiles` path, they are not accessible for flapak packages 
+by default and if you need to allow an application to have access to them, you need to provide access
+explicitly using `--filesystem` switch:
+
+```bash
+$ flatpak run --filesystem=/var/guix/profiles com.visualstudio.code-oss
+```
+
+ this workaround helps fixing intellisense issue in IDEs like `vscode`.
+
+**Note:** using this approach we still have issues during package build in C++ apps (during link time),
+and this issue only resolves the intellisense issue.
+
+*Reference:* [Flatpak official documents](https://docs.flatpak.org/en/latest/sandbox-permissions.html#filesystem-access)
