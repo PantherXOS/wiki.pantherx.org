@@ -40,13 +40,18 @@ For the changes to take effect, you will need to log out.
 
 ### Install Application (Example: Signal)
 
+**Important**: We recommend that you append the `--user` flag to all Flatpak related commands, to ensure that you do not require _root_ priviliges in order to install, update or remove the applications.
+
+- `flatpak --user` for install, update, uninstall
+- `flatpak` for remaining commands (for ex. running)
+
 Go to [flathub.org](https://flathub.org/apps/details/org.signal.Signal) and click "Install". This will download a `org.signal.Signal.flatpakref`.
 
 Navgiate to your download folder, and install Signal Desktop:
 
 ```bash
 cd ~/Downloads
-sudo flatpak install org.signal.Signal.flatpakref
+flatpak --user install org.signal.Signal.flatpakref
 ```
 
 Accept and continue. That's it.
@@ -72,7 +77,7 @@ You're now running Signal Desktop on PantherX.
 This will look for updates, for all installed Flatpak-managed applications.
 
 ```bash
-sudo flatpak update
+flatpak --user update
 ```
 
 ### Remove Application
@@ -80,13 +85,13 @@ sudo flatpak update
 To remove one application:
 
 ```bash
-sudo flatpak remove org.signal.Signal
+$ flatpak --user remove org.signal.Signal
 ```
 
 To remove all Flatpak-managed applications:
 
 ```bash
-sudo flatpak remove --all
+$ flatpak --user --all remove
 ```
 
 ## Additional Configuration
@@ -112,7 +117,7 @@ Node.js SDK extension          Node.js SDK extension          org.freedesktop.Sd
 To install the extension:
 
 ```sh
-sudo flatpak install org.freedesktop.Sdk.Extension.node12
+$ flatpak --user install org.freedesktop.Sdk.Extension.node12
 ```
 
 Sometimes you may encounter multiple versions, of the same package. It's usually best, to install the latest version.
@@ -128,7 +133,7 @@ Similar refs found for ‘org.freedesktop.Sdk.Extension.node10’ in remote ‘f
 To enable the extension:
 
 ```
-FLATPAK_ENABLE_SDK_EXT=node12; flatpak run com.visualstudio.code-oss
+$ FLATPAK_ENABLE_SDK_EXT=node12; flatpak run com.visualstudio.code-oss
 ```
 
 Once you start working, you might be prompted to allow the extension.
