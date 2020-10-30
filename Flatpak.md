@@ -34,7 +34,7 @@ _TODO: This is pre-configured on PantherX. Verify it's working and remove this n
 
 | Variable Name 	| Value                                         	|
 |---------------	|-----------------------------------------------	|
-| XDG_DATA_DIRS 	| $XDG_DATA_DIRS:/var/lib/flatpak/exports/share 	|
+| XDG_DATA_DIRS 	| $XDG_DATA_DIRS:/var/lib/flatpak/exports/share:${HOME}/.local/share/flatpak/exports/share 	|
 
 For the changes to take effect, you will need to log out.
 
@@ -43,7 +43,7 @@ For the changes to take effect, you will need to log out.
 **Important**: We recommend that you append the `--user` flag to all Flatpak related commands, to ensure that you do not require _root_ priviliges in order to install, update or remove the applications.
 
 - `flatpak --user` for install, update, uninstall
-- `flatpak` for remaining commands (for ex. running)
+- `flatpak` for remaining commands (for ex. search)
 
 Go to [flathub.org](https://flathub.org/apps/details/org.signal.Signal) and click "Install". This will download a `org.signal.Signal.flatpakref`.
 
