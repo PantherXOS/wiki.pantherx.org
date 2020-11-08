@@ -1,6 +1,6 @@
 ---
 namespace: git
-description: "Docker is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers.[6] Containers are isolated from one another and bundle their own software, libraries and configuration files; they can communicate with each other through well-defined channels."
+description: "Docker is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers. Containers are isolated from one another and bundle their own software, libraries and configuration files; they can communicate with each other through well-defined channels."
 description-source: "https://en.wikipedia.org/wiki/Docker_(software)"
 categories:
  - type:
@@ -15,14 +15,14 @@ language: en
 
 Switch to **root** for installation:
 
-```
-su - root
+```bash
+$ su - root
 ```
 
 Open the system configuration:
 
 ```bash
-nano /etc/system.scm
+$ nano /etc/system.scm
 ```
 
 ### "Import" the module
@@ -34,7 +34,7 @@ Define the required module:
 
 The final result may look like this:
 
-```lisp
+```scheme
 (use-modules (gnu)
              (gnu packages docker)
              (gnu services docker)
@@ -46,7 +46,7 @@ Look for "GLOBAL PACKAGES".
 
 If you do not have any packages defined, add:
 
-```lisp
+```scheme
 ;; SERVICES
 (packages (cons* docker docker-compose
                  %pantherx-packages))
@@ -56,7 +56,7 @@ If you already have any existing packages defined,
 simply merge `docker` and `docker-compose` with the existing
 values like so:
 
-```lisp
+```scheme
 ;; PACKAGES
 (packages (cons* i3-vm i3status
 		 docker docker-compose               
@@ -69,7 +69,7 @@ Scroll to the bottom, and look for "SERVICES".
 
 If you do not have any services defined,  add:
 
-```lisp
+```scheme
 ;; SERVICES
 (services (cons (service docker-service-type)
                          %pantherx-services))
@@ -77,7 +77,7 @@ If you do not have any services defined,  add:
 
 If you already have an existing service, add `docker-service-type` like this:
 
-```lisp
+```scheme
 ;; SERVICES
 (services (cons* (service nftables-service-type)
                  (service docker-service-type)
@@ -90,7 +90,7 @@ Look for "USERS" and add the `docker` group to the `supplementary-groups` of the
 
 The result may look like this:
 
-```lisp
+```scheme
 ;; USERS
 (users (cons (user-account
                (name "franz")
@@ -104,8 +104,8 @@ The result may look like this:
 ### Reconfigure your system
 
 ```bash
-guix pull # optional
-guix system reconfigure /etc/system.scm
+$ guix pull # optional to fetch latest updates
+$ guix system reconfigure /etc/system.scm
 ```
 
 Reboot with `reboot`.
@@ -117,7 +117,7 @@ Now simply install Docker under whichever user you would like to use it.
 _Do not run these as root._
 
 ```bash
-guix package -i docker-cli docker-compose
+$ guix package -i docker-cli docker-compose
 ```
 
 ## See also

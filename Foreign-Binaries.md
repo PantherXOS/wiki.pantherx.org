@@ -18,13 +18,13 @@ patchelf --set-interpreter "$(patchelf --print-interpreter "$(realpath "$(which 
 
 ```bash
 # 1. setting the correct interpreter path
-patchelf --set-interpreter "$(patchelf --print-interpreter "$(realpath "$(which sh)")")" /path/to/foreign/binary
+$ patchelf --set-interpreter "$(patchelf --print-interpreter "$(realpath "$(which sh)")")" /path/to/foreign/binary
 
 # 2. running the `ldd` for binary file and checking the availablity of libraries.
-ldd /path/to/foriegn/binary
+$ ldd /path/to/foriegn/binary
 
 # 3. installing the libraries 
-guix package -i ...
+$ guix package -i ...
 
 # 4. running
 /path/to/foriegn/binary

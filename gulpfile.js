@@ -28,6 +28,7 @@ function js(cb) {
 				'node_modules/vue/dist/vue.js',
 				'node_modules/lunr/lunr.js',
 				'src/prism.js',
+				'src/mermaid.min.js',
 				'src/custom.js'
 			]),
 			concat('bundle.min.js'),
@@ -36,6 +37,11 @@ function js(cb) {
 		],
 		cb
 	);
+}
+
+function fonts() {
+	return gulp.src('src/fonts/**/*')
+		.pipe(gulp.dest('assets/fonts'))
 }
 
 function images() {
@@ -50,5 +56,5 @@ function watch() {
 	gulp.watch('src/images/**/*.{jpg,png,svg}', ['images']);
 }
 
-exports.default = series(css, js, images)
+exports.default = series(css, js, fonts, images)
 exports.watch = series(watch)

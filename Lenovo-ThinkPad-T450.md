@@ -1,5 +1,5 @@
 ---
-namespace: lenoco
+namespace: lenovo
 description:
 categories:
  - type:

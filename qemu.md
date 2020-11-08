@@ -14,7 +14,7 @@ language: en
 ## Installation
 
 ```bash
-guix package -i qemu
+$ guix package -i qemu
 ```
 
 ## Create a (Debian) virtual machine
@@ -27,7 +27,7 @@ Before we get started, we need some sort of disk, to store our data:
 - `8GB` is the (maximum) size
 
 ```bash
-qemu-img create -f qcow2 debian.qcow 8G
+$ qemu-img create -f qcow2 debian.qcow 8G
 ```
 
 ### Boot from ISO
@@ -35,7 +35,7 @@ qemu-img create -f qcow2 debian.qcow 8G
 We also need a ISO to boot and install from:
 
 ```bash
-wget https://cdimage.debian.org/cdimage/release/10.5.0/amd64/iso-cd/debian-10.5.0-amd64-netinst.iso
+$ wget https://cdimage.debian.org/cdimage/release/10.5.0/amd64/iso-cd/debian-10.5.0-amd64-netinst.iso
 ```
 
 Now we can boot qemu with the sparse bundle (HDD) and ISO attached:
@@ -43,7 +43,7 @@ Now we can boot qemu with the sparse bundle (HDD) and ISO attached:
 - `-m 512` is the assigned RAM in Megabyte (512 MB)
 
 ```bash
-qemu-system-x86_64 -hda debian.qcow -cdrom debian-10.5.0-amd64-netinst.iso -boot d -m 512
+$ qemu-system-x86_64 -hda debian.qcow -cdrom debian-10.5.0-amd64-netinst.iso -boot d -m 512
 ```
 
 Install and configure as desired. For this guide, we assume user `root` and `panther`.
@@ -53,7 +53,7 @@ After the installation has completed, shutdown the virtual machine.
 ### Boot from HDD after install
 
 ```bash
-qemu-system-x86_64 -hda debian.qcow -m 1024
+$ qemu-system-x86_64 -hda debian.qcow -m 1024
 ```
 
 ### Mount a shared folder
@@ -67,8 +67,8 @@ You essentially boot the VM, with the shared folder "attached". if your VM is al
 This is what it looks like:
 
 ```
-export QEMU_SHARE=/home/franz/shared_folder
-qemu-system-x86_64 -hda debian.qcow -m 1024 -virtfs local,path=$QEMU_SHARE,mount_tag=host0,security_model=none,id=host0
+$ export QEMU_SHARE=/home/franz/shared_folder
+$ qemu-system-x86_64 -hda debian.qcow -m 1024 -virtfs local,path=$QEMU_SHARE,mount_tag=host0,security_model=none,id=host0
 ```
 
 Now that Debian is running...
@@ -76,13 +76,13 @@ Now that Debian is running...
 Login as panther and create the shared folder:
 
 ```bash
-mkdir shared
+$ mkdir shared
 ```
 
 and mount it:
 
 ```bash
-sudo mount -t 9p -o trans=virtio,cache=none,rw host0 /home/panther/shared -oversion=9p2000.L -oaccess=user
+$ sudo mount -t 9p -o trans=virtio,cache=none,rw host0 /home/panther/shared -oversion=9p2000.L -oaccess=user
 ```
 
 _If you don't have `sudo` installed, you can also login as root with `su - root`.
@@ -105,7 +105,7 @@ To run Qemu with KVM (Kernel Virtual Machine) enabled, you have two options:
 1. Run with `sudo` like so:
 
 ```bash
-sudo qemu-system-x86_64 -enable-kvm ....
+$ sudo qemu-system-x86_64 -enable-kvm ....
 ```
 
 2. Add your user to the `kvm` group, and run without `sudo`, like so:
@@ -128,7 +128,7 @@ sudo qemu-system-x86_64 -enable-kvm ....
 Now you can:
 
 ```bash
-qemu-system-x86_64 -enable-kvm
+$ qemu-system-x86_64 -enable-kvm
 ```
 
 ### Bonus: Development setup
@@ -141,9 +141,9 @@ You'll need to adapt two lines to suit your setup:
 - `QEMU_SHARE=/your/shared/folder`
 
 ```bash
-export QEMU_IMAGE=/home/franz/virtual/debian_jekyll.qcow
-export QEMU_SHARE=/home/franz/shared_folder
-qemu-system-x86_64 -enable-kvm -hda $QEMU_IMAGE -m 1024 \
+$ export QEMU_IMAGE=/home/franz/virtual/debian_jekyll.qcow
+$ export QEMU_SHARE=/home/franz/shared_folder
+$ qemu-system-x86_64 -enable-kvm -hda $QEMU_IMAGE -m 1024 \
 -device e1000,netdev=net0 \
 -netdev user,id=net0,hostfwd=tcp::2222-:22,hostfwd=tcp::4000-:4000 \
 -virtfs local,path=$QEMU_SHARE,mount_tag=host0,security_model=none,id=host0

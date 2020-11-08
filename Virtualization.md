@@ -10,13 +10,13 @@ categories:
 language: en 
 ---
 
+Below you will find a summary of how-to generate a virtual environment from a system configuration file. If you would like to learn more about different virtualization software, and how-to install and use them, please continue here: [qemu](/qemu/) / [docker](/Docker/)
+
 ## QEMU
 
 ### Run as live machine
 
-Using Guix as host, we can generate a shell script that runs Guix based on
-a system configuration file. later we can pass QEMU parameters to this generated
-script.
+Using Guix as host, we can generate a shell script that runs Guix based on a system configuration file. later we can pass QEMU parameters to this generated script.
 
 ```bash
 $ guix system vm /path/to/config.scm
@@ -25,13 +25,11 @@ $ guix system vm /path/to/config.scm
 $ /gnu/store/…-run-vm.sh -m 1024 -smp 2 -net user,model=virtio-net-pci
 ```
 
-running the above script, we have a QEMU instance, that boots to an instance
-of Guix defined by our configuration file.
+running the above script, we have a QEMU instance, that boots to an instance of Guix defined by our configuration file.
 
 ### Prepare permanent disk image
 
-alternatively we can generate a disk image in QCOW2 format, containing Guix
-instance installed on match with our provided configuration file.
+alternatively we can generate a disk image in QCOW2 format, containing Guix instance installed on match with our provided configuration file.
 
 ```bash
 $ guix system vm-image /path/to/config.scm
@@ -53,40 +51,31 @@ $ qemu-system-x86_64 \
 
 running the disk image there are a series of items that we need to consider:
 
-1. generated disk image will be saved in `store`, and since store is a read-only
-   location, we need to copy that to some other place and assign write permission
-   before we can use generated image.
+1. generated disk image will be saved in `store`, and since store is a read-only location, we need to copy that to some other place and assign write permission before we can use generated image.
 
-2. default image generated using `guix system vm-image` usually doesn't have
-   enough space for additional files and packages to store/install. so if we
-   need more space, we should pass our desired size using `--image-size`
-   parameter.
+2. default image generated using `guix system vm-image` usually doesn't have enough space for additional files and packages to store/install. so if we need more space, we should pass our desired size using `--image-size` parameter.
 
-   ```bash
-   guix system vm-image /path/to/config.scm --image-size=10G
-   ```
+```bash
+$ guix system vm-image /path/to/config.scm --image-size=10G
+```
 
-3. in order to have ssh access to the virtual machine, we need to forward
-   default ssh port of the guest machine to some other port in host
-   using `hostfwt` parameter of QEMU:
+3. in order to have ssh access to the virtual machine, we need to forward default ssh port of the guest machine to some other port in host using `hostfwt` parameter of QEMU:
 
-   ```bash
-   qemu-system-x86_64 -nic user,model=virtio-net-pci,hostfwd=tcp::10022-:22 ...
-   ```
+```bash
+$ qemu-system-x86_64 -nic user,model=virtio-net-pci,hostfwd=tcp::10022-:22 ...
+```
 
-   later we can connect to guest machine using ssh client:
+later we can connect to guest machine using ssh client:
 
-   ```bash
-   ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 root@127.0.0.1
-   ```
+```bash
+$ ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 root@127.0.0.1
+```
 
 ### Useful QEMU tricks
 
 #### switch VTERM on guest OS
 
-in order to switch to other virtual TTY in guest os, we need to switch to
-_monitoring console_ of QEMU using `ctrl+alt+2` and send our key combination
-using `sendkey` command:
+in order to switch to other virtual TTY in guest os, we need to switch to _monitoring console_ of QEMU using `ctrl+alt+2` and send our key combination using `sendkey` command:
 
 ```bash
 sendkey ctrl-alt-f2
@@ -96,4 +85,4 @@ later we can switch back to default console using `ctrl+alt+1` command.
 
 ## Docker
 
-notes about generating docker images using Guix.
+_TODO_

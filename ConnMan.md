@@ -12,6 +12,8 @@ categories:
 language: en
 ---
 
+**The default on PantherX is Network Manager. ConnMan is working but unsupported.**
+
 ## Installation
 
 To install _ConnMan_ run:

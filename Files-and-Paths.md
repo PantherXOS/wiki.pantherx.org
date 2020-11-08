@@ -42,7 +42,7 @@ Notice the `~` before the `/Desktop`. If you add `~` before any path, you're alw
 To see all files in your _home_ folder:
 
 ```bash
-$ ls ~
+$ $ ls ~
 ```
 
 You'll probably see something like this:
@@ -54,13 +54,13 @@ Desktop/  Documents/  Downloads/  Music/  Pictures/  Public/  Templates/  Videos
 To see all files in your _Desktop_ folder:
 
 ```bash
-ls ~/Desktop
+$ ls ~/Desktop
 ```
 
 Finally, to navigate to your _Desktop_ folder, you can always, from anywhere, do:
 
 ```bash
-cd ~/Desktop
+$ cd ~/Desktop
 ```
 
 ## Paths
@@ -84,7 +84,7 @@ $ ls -a ~
 - `.gitconfig` contains your _git_ preferences, if you have [git](/git) installed.
 - ``
 
-```
+```bash
 $ ls ~/.config
 ```
 
@@ -92,7 +92,7 @@ $ ls ~/.config
 
 #### LXQt
 
-```
+```bash
 $ ls -a ~/.config/lxqt
 ```
 
@@ -105,7 +105,7 @@ $ ls -a ~/.config/lxqt
 - `power.conf`
 - `session.conf`
 
-```
+```bash
 $ ls -a ~/.config/openbox
 ```
 

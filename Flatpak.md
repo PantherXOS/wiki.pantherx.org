@@ -50,8 +50,8 @@ Go to [flathub.org](https://flathub.org/apps/details/org.signal.Signal) and clic
 Navgiate to your download folder, and install Signal Desktop:
 
 ```bash
-cd ~/Downloads
-flatpak --user install org.signal.Signal.flatpakref
+$ cd ~/Downloads
+$ flatpak --user install org.signal.Signal.flatpakref
 ```
 
 Accept and continue. That's it.
@@ -59,7 +59,7 @@ Accept and continue. That's it.
 You can now delete the flatpak reference:
 
 ```bash
-rm ~/Downloads/org.signal.Signal.flatpakref
+$ rm ~/Downloads/org.signal.Signal.flatpakref
 ```
 
 ### Run Application
@@ -77,7 +77,7 @@ You're now running Signal Desktop on PantherX.
 This will look for updates, for all installed Flatpak-managed applications.
 
 ```bash
-flatpak --user update
+$ flatpak --user update
 ```
 
 ### Remove Application

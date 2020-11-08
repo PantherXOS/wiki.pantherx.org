@@ -1,9 +1,8 @@
 title: PantherX Wiki
 description:
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: ""
+url: ""
 
-# Build settings
 markdown: redcarpet
 redcarpet:
     extensions: [
@@ -15,7 +14,7 @@ redcarpet:
         'with_toc_data',
         'tables',
         'hardwrap',
-        'footnoes' # marker next to the text (e.g. This is a sentence.[^1]) and a footnote definition on its own line anywhere within the document (e.g. [^1]: This is a footnote.)
+        'footnoes'
     ]
 
 permalink: /:title/
@@ -38,6 +37,8 @@ exclude:
   - yarn-error.log
   - bit.json
   - s3_website.yml
+  - project.config
+  - run.sh
 
 defaults:
   -

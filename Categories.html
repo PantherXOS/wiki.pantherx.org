@@ -10,8 +10,6 @@ index: false
 {% endif %}
 {% endfor %}
 
-
-
 {% for page in site.pages %}
 {% unless page.index == false or page.path == "feed.xml" %}
 <a href="/{{ page.path | replace: '.md', '' | replace: '.html', '' }}/">

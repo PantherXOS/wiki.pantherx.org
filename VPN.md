@@ -31,7 +31,7 @@ You now have a `mlvd-de12.conf` in your _Downloads_ folder and two options:
 To import to Network Manager, do:
 
 ```bash
-nmcli connection import type wireguard file mlvd-de12.conf
+$ nmcli connection import type wireguard file mlvd-de12.conf
 ```
 
 That's it! To verify you're connected, you can do one of two (many) things:

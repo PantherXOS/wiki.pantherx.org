@@ -99,7 +99,7 @@ you could also add following command-line arguments:
 In order to run _Cuirass_ as a service, first you need to define job specification, then you need to add it to list of
 services inside _System Configuration File_:
 
-```
+```scheme
 (define %cuirass-specs
    #~(list ... ))
 

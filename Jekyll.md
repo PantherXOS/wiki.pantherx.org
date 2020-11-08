@@ -17,7 +17,7 @@ language: en
 ### Default
 
 ```bash
-guix package -i jekyll
+$ guix package -i jekyll
 ```
 
 <!-- TODO: Complete instructions to install, and use jekyll -->
@@ -103,10 +103,10 @@ Here you may do as you please,
 As a little bonus, here's my deployment script:
 
 ```sh
-node_modules/.bin/gulp
-bundle exec jekyll build
-aws s3 sync _site/ s3://myawesomesite.com --delete
-aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+$ node_modules/.bin/gulp
+$ bundle exec jekyll build
+$ aws s3 sync _site/ s3://myawesomesite.com --delete
+$ aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
 ```
 
 This "ties" it all together.
@@ -125,13 +125,13 @@ Delete your `Gemfile.lock`
 ### On-Demand environment
 
 ```bash
-guix package --profile=jekyll --install ruby@2.4.3 jekyll@2.8.3 ruby-jekyll-watch@2.0.0
+$ guix package --profile=jekyll --install ruby@2.4.3 jekyll@2.8.3 ruby-jekyll-watch@2.0.0
 ```
 
 The environment will be stored at `~/jekyll`.
 
 ```bash
-guix package --search-paths --profile=jekyll
+$ guix package --search-paths --profile=jekyll
 ```
 
 <!-- TODO: Complete instructions to create on-demand jekyll environment -->
@@ -203,7 +203,7 @@ cd jekyll-new-site
 Now run _jekyll_ as usual:
 
 ```bash
-jekyll serve
+$ jekyll serve
 ```
 
 ### Jekyll with bundler

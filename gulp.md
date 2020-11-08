@@ -17,7 +17,7 @@ language: en
 In a perfect world, you'd install gulp with guix:
 
 ```bash
-guix package -i gulp
+$ guix package -i gulp
 ```
 
 But you'll likely find that gulp has not been packaged yet.
@@ -25,7 +25,7 @@ But you'll likely find that gulp has not been packaged yet.
 So we'll resort to npm:
 
 ```bash
-npm install gulp
+$ npm install gulp
 ```
 
 This will install gulp to the current folder, with executable under `node_modules/.bin/gulp`.
@@ -37,7 +37,7 @@ This will install gulp to the current folder, with executable under `node_module
 This error is related to a missing graphicsmagick library.
 
 ```sh
-node_modules/.bin/gulp
+$ node_modules/.bin/gulp
 [10:15:49] Using gulpfile ~/git/somesite.com/gulpfile.js
 [10:15:49] Starting 'default'...
 [10:15:49] Starting 'js'...
@@ -60,5 +60,5 @@ node_modules/.bin/gulp
 Resolve with:
 
 ```sh
-guix package -i imagemagick graphicsmagick
+$ guix package -i imagemagick graphicsmagick
 ```

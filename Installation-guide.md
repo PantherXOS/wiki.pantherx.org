@@ -66,13 +66,13 @@ can configure that using `connmanctl`. in order to connect to wifi networks usin
 `connmanctl`, first we need to unblock `wifi` module using:
 
 ```shell
-root@gnu ~# rfkill unblock wifi
+$ root@gnu ~# rfkill unblock wifi
 ```
 
 now we can connect to wifi networks using `connmanctl`:
 
 ```shell
-root@gnu ~# connmanctl
+$ root@gnu ~# connmanctl
 connmanctl> scan wifi
 connmanctl> services
 SSID-1   wifi_...._......

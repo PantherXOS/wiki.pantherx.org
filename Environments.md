@@ -1,6 +1,6 @@
 ---
 namespace: diff
-description:
+description: ""
 description-source:
 categories:
  - type:

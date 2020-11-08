@@ -16,7 +16,7 @@ language: en
 If LibreOffice is not pre-installed on your Desktop, here's how to install it:
 
 ```bash
-guix package -i libreoffice
+$ guix package -i libreoffice
 ```
 
 ## Troubleshooting
@@ -28,13 +28,13 @@ To get spell checking to work, install the required dictionaries.
 First, find the dictionaries you'll need:
 
 ```bash
-guix package -s hunspell-*
+$ guix package -s hunspell-*
 ```
 
 For example, to install US-english support, do:
 
 ```bash
-guix package -i hunspell-dict-en hunspell-dict-en-us
+$ guix package -i hunspell-dict-en hunspell-dict-en-us
 ```
 
 Activate using

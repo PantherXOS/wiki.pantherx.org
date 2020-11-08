@@ -5,6 +5,7 @@
 
   Franz Geffke <franz@pantherx.org>
   Reza Alizadeh Majd <r.majd@pantherx.org>
+  Hamzeh Nasajpour <h.nasajpour@pantherx.org>
 
   We're looking for new contributors: Drop us a mail at team@pantherx.org.
 

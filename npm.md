@@ -17,19 +17,19 @@ language: en
 Go ahead and install node and any packages you may need:
 
 ```bash
-guix package -i node js-json2
+$ guix package -i node js-json2
 ```
 
 You may optionally spawn a environment seperate from your system profile:
 
 ```bash
-guix environment node js-json2
+$ guix environment node js-json2
 ```
 
 If you insist on 100% purity for development, or testing, do:
 
 ```bash
-guix environment node js-json2 --pure
+$ guix environment node js-json2 --pure
 ```
 
 ### Using npm
@@ -37,14 +37,14 @@ guix environment node js-json2 --pure
 Go ahead and install node as usual:
 
 ```bash
-guix package -i node
+$ guix package -i node
 ```
 
 and use it in your projects, as always:
 
 ```bash
-cd project/
-npm install
+$ cd project/
+$ npm install
 ```
 
 ### Using npm for global packages
@@ -52,23 +52,23 @@ npm install
 This is a little tricky; If you have too much time, do make an effort to package whatever CLI libraries that you work with, but are not available on PantherX. Here's how to work with them anyways:
 
 ```bash
-mkdir ~/.NPM_GLOBAL
-cd ~/.NPM_GLOBAL
+$ mkdir ~/.NPM_GLOBAL
+$ cd ~/.NPM_GLOBAL
 ```
 
 Now install whatever package / CLI you need:
 
 ```bash
-npm install @vue/cli
-npm install @vue/cli-init
+$ npm install @vue/cli
+$ npm install @vue/cli-init
 ```
 
 and add it at the bottom of your your `~/.bash_profile` like so:
 
 ```bash
 # ~/.bash_profile
-alias vue=/home/franz/.NPM_GLOBAL/node_modules/.bin/vue
-alias vue-cli/home/franz/.NPM_GLOBAL/node_modules/.bin/vue-cli
+$ alias vue=/home/franz/.NPM_GLOBAL/node_modules/.bin/vue
+$ alias vue-cli/home/franz/.NPM_GLOBAL/node_modules/.bin/vue-cli
 ```
 
 _Lising each binary manually is a bit of a conservative approach, but may work well if it's mostly self-contained. Like vue CLI._
@@ -98,5 +98,5 @@ npm WARN deprecated fsevents@1.2.13: fsevents 1 will break on node v14+ and coul
 Resolve with:
 
 ```bash
-guix package -i autoconf automake gcc-toolchain glibc gcc-objc++
+$ guix package -i autoconf automake gcc-toolchain glibc gcc-objc++
 ```

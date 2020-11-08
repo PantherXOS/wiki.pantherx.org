@@ -1,10 +1,8 @@
 <script src="/assets/js/bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.2.6/mermaid.min.js"></script>
 
 {% if page.url == "/Search/" %}
 <script>
 	// Just temporary, will be replaced by a serverless function
-
 	// JSON of all pages
 	var pages = [
 		{% for page in site.pages %}
@@ -45,15 +43,11 @@
 				if (this.query.length > 0) {
 					this.result = idx.search(this.query + '~2');
 				} else {
-					console.log('Please enter a search term');
 					this.result = [];
 				}
 			},
 			open: function(ref) {
-				console.log(ref)
-				console.log(this.pages)
 				const page = this.pages.filter(page => page.title === ref)
-				console.log(page)
 				let destination = '/' + page[0].doc + '/';
 				window.location = destination;
 			}
