@@ -1,6 +1,6 @@
 ---
 namespace: fonts
-description: "In modern usage, with the advent of digital typography, "font" is frequently synonymous with "typeface". Each style is in a separate "font file"—for instance, the typeface "Bulmer" may include the fonts 'Bulmer roman', 'Bulmer', 'Bulmer bold' and 'Bulmer extended'—but the term 'font' might be applied either to one of these alone or to the whole typeface."
+description: 'In modern usage, with the advent of digital typography, "font" is frequently synonymous with "typeface". Each style is in a separate "font file"—for instance, the typeface "Bulmer" may include the fonts "Bulmer roman", "Bulmer", "Bulmer bold" and "Bulmer extended"—but the term "font" might be applied either to one of these alone or to the whole typeface.'
 description-source: "https://en.wikipedia.org/wiki/Font"
 categories:
  - type:
@@ -18,7 +18,7 @@ There are various ways to add new fonts to your system. Often it depends on what
 
 Many fonts are available via package. Just search and install ...
 
-```bash
+```sh
 $ guix package -s font-*
 
 name: font-ubuntu
@@ -48,7 +48,7 @@ relevance: 12
 
 and install with:
 
-```
+```sh
 $ guix package -i font-terminus
 ```
 
@@ -56,13 +56,13 @@ $ guix package -i font-terminus
 
 If you prefer to manage fonts manually, or use licensed fonts that are not packaged, you can simply drop them in a folder, in your user home directory.
 
-```
+```sh
 $ mkdir ~/.fonts
 ```
 
 and now move your desired fonts there. For ex.
 
-```
+```sh
 $ ls ~/.fonts/Metropolis/
  Metropolis-BlackItalic.otf   Metropolis-ExtraBoldItalic.otf    Metropolis-LightItalic.otf    Metropolis-RegularItalic.otf    Metropolis-ThinItalic.otf
  Metropolis-Black.otf         Metropolis-ExtraBold.otf          Metropolis-Light.otf          Metropolis-Regular.otf          Metropolis-Thin.otf

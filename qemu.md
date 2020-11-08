@@ -157,6 +157,7 @@ In this case, we'd run Jekyll inside the VM. Here's what this will look like:
 
 Tip: You will have to run your application on `0.0.0.0`. 
 With jekyll, you can do `jekyll --host 0.0.0.0`.
+For jekyll, you might also have to add `--force_polling` for your changes to get picked-up since inotify doesn't work trough p9.
 
 ## See also
 

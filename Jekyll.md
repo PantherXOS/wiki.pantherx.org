@@ -22,6 +22,106 @@ guix package -i jekyll
 
 <!-- TODO: Complete instructions to install, and use jekyll -->
 
+### Docker
+
+To get Jekyll to behave in Docker is pretty simple.
+
+Create a Dockerfile:
+
+```Dockerfile
+# Dockerfile
+FROM starefossen/ruby-node:2-10-slim
+WORKDIR /usr/working
+COPY Gemfile ./
+RUN apt-get update && apt-get install -y \
+    graphicsmagick \
+    imagemagick \
+    dh-autoreconf \
+    openssl \
+    awscli \
+    && aws configure set preview.cloudfront true
+RUN gem install bundler jekyll
+RUN bundle install
+EXPOSE 4000
+```
+
+_This image includes a whole bunch of stuff I use for image resizing, uploading and CDN invalidation (AWS CLI). Whatever you don't need, just remove."
+
+To get this working easily, create a docker-compose file:
+
+```yml
+# docker-compose.yml
+version: '3'
+services:
+  jekyll:
+    build: .
+    command: sh -c "bundle exec jekyll serve --host 0.0.0.0"
+    network_mode: "host"
+    working_dir: /usr/working
+    volumes:
+      - $PWD:/usr/working
+```
+
+A couple of things to look out for:
+
+- `bundle exec jekyll serve --host 0.0.0.0` basically runs jekyll
+- `network_mode: "host"` makes this work like running jekyll without Docker
+- `$PWD:/usr/working` mounts your working dir to the container
+
+`$PWD` basically grabs the current terminal directory.
+
+**Running**
+
+Now that we're all setup, create a `run.sh` with:
+
+```sh
+docker build --tag jekyll_dev .
+# docker run --detach --name gi nexinnotech
+docker container run -v ${PWD}:/usr/working \
+-e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} \
+-e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} \
+-e AWS_CLOUDFRONT_DISTRIBUTION_ID=${AWS_CLOUDFRONT_DISTRIBUTION_ID} \
+-e AWS_DEFAULT_REGION=eu-central-1 \
+-it jekyll_dev /bin/bash
+```
+
+Before you run this, clean-out everything you don't need! This example includes AWS environment variables for easy deployment, once I'm done with development.
+
+```sh
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=
+export AWS_CLOUDFRONT_DISTRIBUTION_ID=...
+sh run.sh
+```
+
+This will build and install everything, and finally drop you in the container shell.
+
+Here you may do as you please,
+
+- run jekyll with `
+
+As a little bonus, here's my deployment script:
+
+```sh
+node_modules/.bin/gulp
+bundle exec jekyll build
+aws s3 sync _site/ s3://myawesomesite.com --delete
+aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+```
+
+This "ties" it all together.
+
+#### Issues
+
+If you see errors like this:
+
+```sh
+jekyll_1  | bundler: failed to load command: jekyll (/usr/local/bundle/bin/jekyll)
+jekyll_1  | Bundler::LockfileError: You must use Bundler 2 or greater with this lockfile.
+```
+
+Delete your `Gemfile.lock`
+
 ### On-Demand environment
 
 ```bash
