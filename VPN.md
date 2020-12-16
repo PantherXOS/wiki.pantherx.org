@@ -42,6 +42,13 @@ That's it! To verify you're connected, you can do one of two (many) things:
 2. Check Mullvad's own "Connection Check" [here (https://mullvad.net/en/check/)](https://mullvad.net/en/check/)
 3. Run `nmcli` and ensure that: `mlvd-de12: connected to mlvd-de12`
 
+To remove this connection, simply run:
+
+```bash
+$ nmcli connection delete mlvd-se8
+Connection 'mlvd-se8' (acf9afff-d380-4d86-99b9-529a8b5c76ef) successfully deleted.
+```
+
 ## See also
 
 - [WireGuard in NetworkManager](https://blogs.gnome.org/thaller/2019/03/15/wireguard-in-networkmanager/)
