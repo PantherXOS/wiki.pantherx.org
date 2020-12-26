@@ -13,11 +13,11 @@ language: en
 
 ## Native Environments
 
-This approach utilizes `guix environment`.
+_All credit for this excellent approach goes to [Julien Lepiller](https://lepiller.eu/en/). I have really just adapted it for this wiki._
 
-All credit for this excellent approach goes to [Julien Lepiller](https://lepiller.eu/en/). I have really just adapted it for this wiki.
+Here we'll use `guix environment` to containerize Android Studio in order to work-around the countless of hard-coded paths that aren't available on PantherX. It's up to Google / JetBrains to fix this.
 
-### Prepare everything
+### Prepare
 
 Download Android Studio from [here](https://developer.android.com/studio).
 
@@ -37,6 +37,8 @@ $ tar -xvzf android-studio-ide-201.6953283-linux.tar.gz -C android
 ```
 
 _I have a bad habit of putting all development stuff under `~/git`. You may put it wherever you want (for ex. `~/dev`), just don't complain._
+
+### Configure the environment
 
 Create a manifest for the environment:
 
@@ -60,7 +62,7 @@ with the following content:
         mesa nss pulseaudio (list util-linux "lib") libx11 zlib))
 ```
 
-### Fix Java
+### Fix included Java
 
 Indeed the included Java at `~/git/android/android-studio/jre` gives us problems, so we'll replace that with our own:
 
@@ -84,6 +86,7 @@ To keep all Android related stuff in one place, we do:
 mkdir -p ~/git/android/home/android
 ln -sv ~/git/android/home ~/.android
 ln -sv ~/git/android/home/AndroidStudio4.0 ~/.AndroidStudio4.0
+```
 
 ### Create the environment
 
@@ -109,14 +112,26 @@ guix environment -C -N --share=$XAUTHORITY --share=/tmp/.X11-unix \
 LD_LIBRARY_PATH=/lib ./android-studio/bin/studio.sh
 ```
 
-To run AVD from studio:
+To run Android Virtual Device (AVD) from Studio:
 
 ```bash
 LD_LIBRARY_PATH=/lib:/lib/nss:$HOME/Android/Sdk/emulator/lib64/qt/lib:$HOME/Android/Sdk/emulator/lib64
     ./android-studio/bin/studio.sh
 ```
 
-_This is assuming you installed the SDK at `$HOME` (/home/USERNAME). You will have to run Android Studio once, to download the relevant SDK's.__
+_This is assuming you installed the SDK at `$HOME` (/home/USERNAME). You will have to run Android Studio once, to download the relevant SDK's before running the last command.._
+
+### Re-run
+
+To run this again, at a later point, go back to `~/git/android` and repeat the last two steps:
+
+1. Create the environment
+2. Run
+
+## Known Issues
+
+- There's an issue with built-in `adb`.
+- I haven't actually tried the device emulator (AVD)
 
 ## See also
 
