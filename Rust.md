@@ -45,3 +45,11 @@ $ cargo run
      Running `target/debug/hello_world`
 Hello, world!
 ```
+
+## Compilation issues
+
+### error occurred: Failed to find tool. Is `cc` installed?
+
+```bash
+export CC='ccmake'
+```
