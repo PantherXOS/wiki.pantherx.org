@@ -120,6 +120,21 @@ _Do not run these as root._
 $ guix package -i docker-cli docker-compose
 ```
 
+## Troubleshooting
+
+### No network inside container during docker build
+
+I sometimes encounter a situation where Docker itself seems to be able to communicate fine, but connectivity fails during the build process. To rely on host-network during build, modify your `docker-compose.yml` like so:
+
+```yml
+version: "3.7"
+services:
+  someapp:
+     build: 
+	context: .
+        network: host
+```
+	
 ## See also
 
 - [Docker Service (guix.gnu.org)](https://guix.gnu.org/manual/en/html_node/Miscellaneous-Services.html#Docker-Service)
