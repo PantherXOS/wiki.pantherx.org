@@ -52,4 +52,25 @@ parameter.
     (settings '(("fs.inotify.max_user_watches" . "524288")))))
 ```
 
-**reference**: Solution Inspired from a decission on [Guix IRC channel](http://logs.guix.gnu.org/guix/2019-09-10.log#112721).
+**Reference**: Solution Inspired from a decission on [Guix IRC channel](http://logs.guix.gnu.org/guix/2019-09-10.log#112721).
+
+### Pylint is not installed
+
+Open the OSS Code Terminal and type:
+
+```bash
+$ which pylint
+/home/franz/.guix-profile/bin/pylint
+```
+
+Now go to OSS Code settings and look for:
+
+```
+"python.linting.pylintPath": "pylint"
+```
+
+and change that to the path you discovered earlier:
+
+```
+"python.linting.pylintPath": "/home/franz/.guix-profile/bin/pylint"
+```
