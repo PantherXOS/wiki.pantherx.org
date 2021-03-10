@@ -131,6 +131,53 @@ Now you can:
 $ qemu-system-x86_64 -enable-kvm
 ```
 
+### Attach USB device
+
+It's easy to attach almost any USB device to qemu, including card readers, cameras, phones and hard disks. This is especially useful to work with legacy Windows tools.
+
+1) Find the desired device parameter:
+
+```bash
+$ lsusb
+Bus 004 Device 003: ID 05e3:0754 Genesys Logic, Inc. USB Storage
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 004: ID 04f2:b67c Chicony Electronics Co., Ltd Integrated Camera
+Bus 001 Device 012: ID 17ef:6099 Lenovo Lenovo Traditional USB Keyboard
+Bus 001 Device 011: ID 072f:b100 Advanced Card Systems, Ltd ACR39U <----
+...
+```
+
+2) Now that we have the device name, we simply append that to our qemu start command. Note `Bus 00` becomes `hostbus=1` and `Device 011` becomes `hostaddr=11`.
+
+```bash
+-usb -device usb-host,hostbus=1,hostaddr=11
+```
+
+You might run into some permission issues, and qemu might throw an error. Here's how-to assign yourself temporary permission, to access the specific device:
+
+```bash
+chmod a+w /dev/bus/usb/001/011
+```
+
+Here's the full command, booting from qcow image with Windows 7:
+
+```bash
+qemu-system-x86_64 \
+-enable-kvm \
+-hda windows7.qcow -m 2048 \
+-usb -device usb-host,hostbus=1,hostaddr=11
+```
+
+### Access VNC
+
+To enable VNC access to your VNC on local port `5900`, simply append:
+
+```
+-vnc :0
+```
+
+You should be able to connect to the VM via VNC on `127.0.0.1:5900`.
+
 ### Bonus: Development setup
 
 If we combine this with the shared folder, we have a flexibe setup for development:
