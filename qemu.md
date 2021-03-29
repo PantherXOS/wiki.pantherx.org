@@ -147,7 +147,7 @@ Bus 001 Device 011: ID 072f:b100 Advanced Card Systems, Ltd ACR39U <----
 ...
 ```
 
-2) Now that we have the device name, we simply append that to our qemu start command. Note `Bus 00` becomes `hostbus=1` and `Device 011` becomes `hostaddr=11`.
+2) Now that we have the device name, we simply append that to our qemu start command. Note `Bus 001` becomes `hostbus=1` and `Device 011` becomes `hostaddr=11`.
 
 ```bash
 -usb -device usb-host,hostbus=1,hostaddr=11
