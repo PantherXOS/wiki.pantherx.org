@@ -168,6 +168,21 @@ qemu-system-x86_64 \
 -usb -device usb-host,hostbus=1,hostaddr=11
 ```
 
+If you faced with an error like this:
+
+```
+qemu-system-x86_64: -device usb-host,hostbus=1,hostaddr=11: failed to open host usb device 1:6
+```
+
+you can add `-device qemu-xhci` before `-usb` option:
+
+```bash
+qemu-system-x86_64 \
+-enable-kvm \
+-hda windows7.qcow -m 2048 \
+-device qemu-xhci -usb -device usb-host,hostbus=1,hostaddr=11
+```
+
 ### Access VNC
 
 To enable VNC access to your VNC on local port `5900`, simply append:
