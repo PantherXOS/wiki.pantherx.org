@@ -37,11 +37,22 @@ $ /path/to/folder/clion/bin/clion.sh
 ```
 
 Update `CMake` and `GDB` path in `Configuration Toolchains`:
-* `/home/panther/.guix-profile/bin/cmake` for `CMake`
-* `/home/panther/.guix-profile/bin/gdb` for `gdb`
+- `/home/panther/.guix-profile/bin/cmake` for `CMake`
+- `/home/panther/.guix-profile/bin/gdb` for `gdb`
 
 *I assumed you installed `cmake` and `gdb` already.*
 
+### Auto completion
+
+CLion uses an embedded version of `clangd` as language server for auto completion support, and it crashes due to missing library issues. a quick workaround is to disable `clangd` completion and use build-in auto completion support in CLion. for this we need to go to following path
+
+ `settings` > `languages and frameworks` > `C\C++` > `clangd`
+
+and select `Disable Cland completion` option in `code completion` section.
+
+<!-- the other option is to find a solution to use guix provided version of clangd, located in `extra` output of `clang` package. -->
+
+### Trobleshooting 
 
 **Note**    
 If you faced with any java runtime exception the CLion version is not matched with installed JDK (`icedtea`). Currently the latest version of `icedtea` is `3.7` that is released for `OpenJDK 8`.
