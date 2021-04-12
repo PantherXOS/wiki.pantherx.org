@@ -13,7 +13,7 @@ language: en
 
 Running Clion in GuixSD:
 
-### Prepare
+## Prepare
 
 Download `clion` for Linux OS from [here](https://www.jetbrains.com/clion/download/other.html) and do these steps:
 
@@ -30,7 +30,7 @@ $ ln -sv /var/guix/gcroot/1y4mxpqdans1q8p6wskhklsl335abgqq-icedtea-3.7.0-jdk /pa
 ```
 
 
-### Run
+## Run
 
 ```bash
 $ /path/to/folder/clion/bin/clion.sh
@@ -42,6 +42,8 @@ Update `CMake` and `GDB` path in `Configuration Toolchains`:
 
 *I assumed you installed `cmake` and `gdb` already.*
 
+## Trobleshooting 
+
 ### Auto completion
 
 CLion uses an embedded version of `clangd` as language server for auto completion support, and it crashes due to missing library issues. a quick workaround is to disable `clangd` completion and use build-in auto completion support in CLion. for this we need to go to following path
@@ -52,9 +54,8 @@ and select `Disable Cland completion` option in `code completion` section.
 
 <!-- the other option is to find a solution to use guix provided version of clangd, located in `extra` output of `clang` package. -->
 
-### Trobleshooting 
+### Issues related to JDK version
 
-**Note**    
 If you faced with any java runtime exception the CLion version is not matched with installed JDK (`icedtea`). Currently the latest version of `icedtea` is `3.7` that is released for `OpenJDK 8`.
 
 One of popular errors is:
@@ -83,7 +84,7 @@ Let's see how the major version numbers map to Java versions:
 ```
 
 
-### Tested Versions
+## Tested Versions
 
 These version tested with this approach and are working with `icedtea@3.7`:
 
