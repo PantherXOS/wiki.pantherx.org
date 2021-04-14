@@ -42,7 +42,7 @@ $ flatpak run --filesystem=/var/guix/profiles com.visualstudio.code
                 "${HOME}/.guix-profile/include/**"
             ],
             "defines": [],
-            "compilerPath": "/home/panther/.guix-profile/bin/g++",
+            "compilerPath": "{$HOME}/.guix-profile/bin/g++",
             "cStandard": "c11",
             "cppStandard": "c++14",
             "intelliSenseMode": "gcc-x64"
