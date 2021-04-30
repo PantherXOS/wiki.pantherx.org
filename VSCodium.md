@@ -10,9 +10,15 @@ categories:
 language: en
 ---
 
-VSCodium is available on guix through [Flatpak](/Flatpak/) using following command:
+VSCodium is available in PantherX Package Repository and on guix through [Flatpak](/Flatpak/) using following command:
 
 ```bash
+# install in PantherX
+guix package -i vscodium
+```
+
+```bash
+# install via flatpak
 flatpak install flathub com.vscodium.codium
 ```
 
@@ -25,6 +31,8 @@ Because Flatpak packages run in a sand-boxed mode, they don't have access to sys
 ```bash
 $ flatpak run --filesystem=/var/guix/profiles com.visualstudio.code
 ```
+
+#### Visual Studio Code
 
 * Install `C/C++` Extension (`C/C++ for Visual Studio Code`).
 * Edit `c_cpp_properties.json`:
@@ -52,7 +60,39 @@ $ flatpak run --filesystem=/var/guix/profiles com.visualstudio.code
 }
 ```
 
+#### VSCodium
+
+The `C/C++` extension can't be installed in `VSCodium`, you can use `clangd` extension. If the `clangd` was not found in the `PATH` the extension will download the binary file and will run it internally. (If you faced with any issue in running the `clangd` binary file please read the `Foreign binary in Extensions` in `Troubleshooting` part).
+
 ## Troubleshooting
+
+### Foreign binary in Extensions
+
+if you faced with any issue in running the binary files in the extension you can run one of the following options as solution. I see this issue for `wakatime`, `cpptool` and `clangd` extension binary files.
+
+First of all run the `ldd` command on the binary file:
+
+```bash
+$ ldd path/to/binary/file
+ ...
+ /lib64/ld-linux-x86-64.so.2
+```
+
+The problem related to `ld-linux-x86-64.so.2` library that is not in the `/lib64`, so:
+
+1. You can create a symlink in this path, the `ld-linux-x86-64.so.2` is one of the shared library of `glibc`. Install `glibc` and then create a symlink:
+
+```bash
+sudo mkdir /lib64
+sudo ln -s /gnu/store/fa6wj5bxkj5ll1d7292a70knmyl7a0cr-glibc-2.31/lib/ld-linux-x86-64.so.2 /lib64/
+```
+
+2. You can patch the binary file and fix the library path:
+
+```bash
+patchelf --set-interpreter "$(patchelf --print-interpreter "$(realpath  "$(which sh)")")" path/to/binary/file
+```
+
 
 ### Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)
 
