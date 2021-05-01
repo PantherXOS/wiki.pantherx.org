@@ -10,12 +10,13 @@ categories:
 language: en
 ---
 
-VSCodium is available in PantherX Package Repository and on guix through [Flatpak](/Flatpak/) using following command:
+## Installation
 
 ```bash
-# install in PantherX
 guix package -i vscodium
 ```
+
+Optionally, VSCodium is also available as Flatpak (not recommended):
 
 ```bash
 # install via flatpak
@@ -65,6 +66,14 @@ $ flatpak run --filesystem=/var/guix/profiles com.visualstudio.code
 The `C/C++` extension can't be installed in `VSCodium`, you can use `clangd` extension. If the `clangd` was not found in the `PATH` the extension will download the binary file and will run it internally. (If you faced with any issue in running the `clangd` binary file please read the `Foreign binary in Extensions` in `Troubleshooting` part).
 
 ## Troubleshooting
+
+### Debug
+
+If VSCodium refuses to run, try loading it in debug mode. That usually gives at least some insight into what's wrong:
+
+```bash
+code --verbose --log debug --disable-gpu
+```
 
 ### Foreign binary in Extensions
 
