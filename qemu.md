@@ -87,6 +87,27 @@ $ sudo mount -t 9p -o trans=virtio,cache=none,rw host0 /home/panther/shared -ove
 
 _If you don't have `sudo` installed, you can also login as root with `su - root`.
 
+### Mount a shared folder via samba
+
+Only you should add `-net nic -net user,smb=shared_folder_path` option to `qemu-system-x86_64/qemu-system-i386` cli. So:
+
+```bash
+$ qemu-system-x86_64 ubuntu -m 6144 -enable-kvm -net nic -net user,smb=/home/panther/shared
+```
+
+* You should installed `samba` already on the host.
+* Install `cifs-utils` in your QEMU VM.
+
+```bash
+sudo apt install cifs-utils
+```
+
+* mount in your QEMU VM.
+
+```bash
+mount -t cifs //10.0.2.4/qemu/ /mnt/
+```
+
 ### Port forwarding
 
 This is especially useful to access the virtual machine SSH, or any running application.
