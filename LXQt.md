@@ -128,7 +128,31 @@ Launch failed (/gnu/store/j3nj0b5ajd7la5vi11rmhn0fkp6wn9vx-xdg-utils-1.1.3/bin/x
 
 The soltuion is easy, only update your `qtbase` package with `guix package -u qtbase`. This is related to patching the `xdg-utils` path in `qtbase` [here](https://git.savannah.gnu.org/cgit/guix.git/tree/gnu/packages/qt.scm?id=58b85f7f419e77930765647ffc41011c1103066e#n400)
 
+### Wallpaper resets on reboot
 
+If your wallpaper doesn't survive a reboot, it's likely that some permissions are off.
+
+First of all, check:
+
+```bash
+$ ls -la ~/.config/pcmanfm-qt/lx
+-r--r--r-- 1 franz users 106 Aug 31  2020 /home/franz/.config/pcmanfm-qt/lxqt/settings.conf
+```
+
+Let's add write permission for our user:
+
+```bash
+chmod +w ~/.config/pcmanfm-qt/lxqt/settings.conf
+```
+
+And double-check:
+
+```bash
+$ ls -la ~/.config/pcmanfm-qt/lxqt/settings.conf
+-rw-r--r-- 1 franz users 106 Aug 31  2020 /home/franz/.config/pcmanfm-qt/lxqt/settings.conf
+```
+
+That's it. All good.
 
 ### Desktop icons are grouped together
 
