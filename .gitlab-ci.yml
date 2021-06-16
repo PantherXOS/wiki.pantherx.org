@@ -7,7 +7,8 @@ cache:
 
 before_script:
   - bundle install --path vendor
-  - gem install redcarpet -v 3.5.0
+  - apk add py-pip
+  - pip install --user awscli
 
 website:
   stage: deploy
@@ -32,8 +33,6 @@ package:
     - rm -rf _site/
     - JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config_desktop.yml -d _site/
     - echo "=> Packaging desktop version ..."
-    - apk add py-pip
-    - pip install --user awscli
     - export PATH="$PATH:/root/.local/bin"
     - export AWS_ACCESS_KEY_ID=$(echo "$AWS_ACCESS_KEY_ID")
     - export AWS_SECRET_ACCESS_KEY=$(echo "$AWS_SECRET_ACCESS_KEY")
