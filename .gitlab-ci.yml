@@ -6,11 +6,8 @@ cache:
     - .npm/
 
 before_script:
+  - apt-get install libffi -y
   - bundle install --path vendor
-  - bundle update libffi
-  - export LDFLAGS="-L/usr/local/opt/libffi/lib"
-  - export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
-  - bundle install
 
 website:
   stage: deploy
