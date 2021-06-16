@@ -6,9 +6,9 @@ cache:
     - .npm/
 
 before_script:
-  - apt-get install libruby2.5
+  # - apt-get install libruby2.5
   - bundle install --path vendor
-  - gem pristine ffi
+  # - gem pristine ffi
 
 website:
   stage: deploy
