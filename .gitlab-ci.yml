@@ -7,7 +7,7 @@ cache:
 
 before_script:
   - bundle install --path vendor
-  - apt-get install awscli
+  - apt-get install awscli -y
 
 website:
   stage: deploy
