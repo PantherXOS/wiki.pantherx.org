@@ -6,9 +6,9 @@ cache:
     - .npm/
 
 before_script:
-  # - apt-get install libruby2.5
+  - apt-get install libffi libffi-dev
+  - gem install bundler:2.2.20
   - bundle install --path vendor
-  # - gem pristine ffi
 
 website:
   stage: deploy
