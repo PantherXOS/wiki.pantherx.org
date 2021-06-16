@@ -1,4 +1,4 @@
-image: franzos/jekyll-node-python-awscli:v0.4
+image: franzos/ruby-node-gulp-java
 
 cache:
   paths:
@@ -7,6 +7,7 @@ cache:
 
 before_script:
   - bundle install --path vendor
+  - gem install redcarpet -v 3.5.0
 
 website:
   stage: deploy
