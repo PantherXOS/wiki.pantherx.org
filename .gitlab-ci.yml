@@ -1,4 +1,4 @@
-image: franzos/ruby-node-gulp-java
+image: franzos/jekyll-node-python-awscli:v0.4
 
 cache:
   paths:
@@ -7,7 +7,6 @@ cache:
 
 before_script:
   - bundle install --path vendor
-  - apt-get install awscli -y
 
 website:
   stage: deploy
