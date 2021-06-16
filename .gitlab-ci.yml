@@ -1,10 +1,5 @@
 image: franzos/jekyll-node-python-awscli:v0.4
 
-cache:
-  paths:
-    - vendor/
-    - .npm/
-
 before_script:
   - apt-get install libffi6 libffi-dev
   - gem install bundler:2.2.20
