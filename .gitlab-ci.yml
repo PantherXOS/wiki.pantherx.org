@@ -5,7 +5,7 @@ cache:
     - vendor/
     - .npm/
 
-deploy:
+website:
   stage: deploy
   script:
     - echo "=> Building web version ..."
@@ -22,7 +22,7 @@ deploy:
 
 # Pack and upload to S3
 package:
-  stage: package
+  stage: deploy
   script:
     - echo "=> Building desktop version ..."
     - rm -rf _site/
