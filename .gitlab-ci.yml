@@ -7,8 +7,7 @@ cache:
 
 before_script:
   - bundle install --path vendor
-  - apk add py-pip
-  - pip install --user awscli
+  - apt-get install awscli
 
 website:
   stage: deploy
