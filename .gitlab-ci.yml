@@ -5,6 +5,7 @@ before_script:
   - gem install bundler:2.2.20
   - bundle install --path vendor
   - npm install --global gulp-cli
+  - npm install
 
 website:
   stage: deploy
