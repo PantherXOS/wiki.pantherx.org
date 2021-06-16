@@ -8,3 +8,4 @@ package-lock.json
 vendor
 .stignore
 project.config
+.jekyll-cache
