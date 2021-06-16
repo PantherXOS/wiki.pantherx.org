@@ -4,6 +4,7 @@ before_script:
   - apt-get install libffi6 libffi-dev
   - gem install bundler:2.2.20
   - bundle install --path vendor
+  - npm install --global gulp-cli
 
 website:
   stage: deploy
@@ -27,16 +28,15 @@ package:
   script:
     - echo "=> Building desktop version ..."
     - gulp
-    - JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config_desktop.yml -d _site/
+    - JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config_desktop.yml -d content/
     - echo "=> Packaging desktop version ..."
     - export PATH="$PATH:/root/.local/bin"
     - export AWS_ACCESS_KEY_ID=$(echo "$AWS_ACCESS_KEY_ID")
     - export AWS_SECRET_ACCESS_KEY=$(echo "$AWS_SECRET_ACCESS_KEY")
     - export AWS_DEFAULT_REGION=eu-central-1
-    - export PACKAGE_NAME="$(echo $CI_PROJECT_NAME)_$(echo $CI_COMMIT_TAG).tgz"
-    - ls
-    - tar -zcvf "$PACKAGE_NAME" _site/
-    - ls
+    # - export PACKAGE_NAME="$(echo $CI_PROJECT_NAME)_$(echo $CI_COMMIT_TAG).tgz"
+    - export PACKAGE_NAME="$(echo $CI_PROJECT_NAME)_latest.tgz"
+    - tar -zcvf "$PACKAGE_NAME" content/
     - aws s3 cp "$PACKAGE_NAME" s3://source-git-pantherx-org/
   only:
     - master
