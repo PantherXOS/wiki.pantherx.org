@@ -1,33 +1,43 @@
-image: franzos/ruby-node-gulp-java
+image: franzos/jekyll-node-python-awscli:v0.4
 
 cache:
   paths:
-  - vendor/
-
-before_script:
-  - bundle install --path vendor
-
-stages:
-  - build
-  - deploy
-
-build:
-  stage: build
-  script:
-  - npm install
-  - gulp
-  - JEKYLL_ENV=production bundle exec jekyll build -d public/
-  artifacts:
-    when: on_success
-    paths:
-    - public
-    expire_in: 1h
+    - vendor/
+    - .npm/
 
 deploy:
   stage: deploy
   script:
-  - export AWS_ACCESS_KEY_ID="$(echo "$AWS_ACCESS_KEY_ID")"
-  - export AWS_SECRET_ACCESS_KEY="$(echo "$AWS_SECRET_ACCESS_KEY")"
-  - bundle exec s3_website push
+    - echo "=> Building web version ..."
+    - JEKYLL_ENV=production bundle exec jekyll build -d _site/
+    - echo "=> Upload to Website"
+    - export AWS_S3_BUCKET=wiki.pantherx.org
+    - export LOCAL_AWS_CLOUDFRONT_DISTRIBUTION_ID="$(echo "$LOCAL_AWS_CLOUDFRONT_DISTRIBUTION_ID")"
+    - export LOCAL_AWS_ACCESS_KEY_ID="$(echo "$LOCAL_AWS_ACCESS_KEY_ID")"
+    - export LOCAL_AWS_SECRET_ACCESS_KEY="$(echo "$LOCAL_AWS_SECRET_ACCESS_KEY")"
+    - aws s3 sync _site/ s3://${AWS_S3_BUCKET} --delete
+    - aws cloudfront create-invalidation --distribution-id $LOCAL_AWS_CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
   only:
-  - master
+    - master
+
+# Pack and upload to S3
+package:
+  stage: package
+  script:
+    - echo "=> Building desktop version ..."
+    - rm -rf _site/
+    - JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config_desktop.yml -d _site/
+    - echo "=> Packaging desktop version ..."
+    - apk add py-pip
+    - pip install --user awscli
+    - export PATH="$PATH:/root/.local/bin"
+    - export AWS_ACCESS_KEY_ID=$(echo "$AWS_ACCESS_KEY_ID")
+    - export AWS_SECRET_ACCESS_KEY=$(echo "$AWS_SECRET_ACCESS_KEY")
+    - export AWS_DEFAULT_REGION=eu-central-1
+    - export PACKAGE_NAME="$(echo $CI_PROJECT_NAME)_$(echo $CI_COMMIT_TAG).tgz"
+    - ls
+    - tar -zcvf "$PACKAGE_NAME" _site/
+    - ls
+    - aws s3 cp "$PACKAGE_NAME" s3://source-git-pantherx-org/
+  only:
+    - master

@@ -3,18 +3,21 @@ description:
 baseurl: ""
 url: ""
 
+type: web
+
 markdown: redcarpet
 redcarpet:
-    extensions: [
-        'no_intra_emphasis',
-        'fenced_code_blocks',
-        'autolink',
-        'strikethrough',
-        'superscript',
-        'with_toc_data',
-        'tables',
-        'hardwrap',
-        'footnoes'
+  extensions:
+    [
+      "no_intra_emphasis",
+      "fenced_code_blocks",
+      "autolink",
+      "strikethrough",
+      "superscript",
+      "with_toc_data",
+      "tables",
+      "hardwrap",
+      "footnoes",
     ]
 
 permalink: /:title/
@@ -41,61 +44,45 @@ exclude:
   - run.sh
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
     values:
       layout: wiki-docs
 
 sections:
   distribution:
-    -
-      title: PantherX OS
+    - title: PantherX OS
       description: Overview of PantherX OS
-    -
-      title: Frequently asked questions
+    - title: Frequently asked questions
       description: Notable questions and facts
-    -
-      title: PantherX compared to other distributions
+    - title: PantherX compared to other distributions
       description: Summarises the similarities and differences between PantherX and other distributions.
-    -
-      title: Installation guide
+    - title: Installation guide
       description: Guide through the process of installing PantherX Linux in VirtualBox.
-    -
-      title: General recommendations
+    - title: General recommendations
       description: Annotated index of post-installation tutorials and other popular articles.
-    -
-      title: List of applications
+    - title: List of applications
       description: Categorised presentation of common official and 3rd party packages.
   community:
-    -
-      title: Getting involved
+    - title: Getting involved
       description: Describes various ways you can contribute to the Panther community.
 
 nav:
-  -
-    title: Home
+  - title: Home
     url: https://www.pantherx.org/
-  -
-    title: PantherX OS
+  - title: PantherX OS
     url: https://www.pantherx.org/#PantherX+Operating+System
-  -
-    title: PantherX for Business
+  - title: PantherX for Business
     url: https://www.pantherx.org/for-small-business/
-  -
-    title: Wiki
+  - title: Wiki
     url: /
-  -
-    title: FAQ
+  - title: FAQ
     url: https://www.pantherx.org/faq/
-  -
-    title: About Us
+  - title: About Us
     url: https://www.pantherx.org/about/
-  -
-    title: News
+  - title: News
     url: https://www.pantherx.org/news/
-  -
-    title: Contact
+  - title: Contact
     url: https://www.pantherx.org/contact/
 
 sidebar:

@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% include meta.html %}
-    <link rel="stylesheet" href="/assets/css/custom.min.css">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  </head>
-  <body>
 
-  {% include header.html %}
-  {{ content }}
-  {% include footer.html %}
-  {% include scripts.html %}
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% include meta.html %}
+	<link rel="stylesheet" href="/assets/css/custom.min.css">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+</head>
 
-  </body>
+<body>
+	{% if site.type == 'web' %}
+	{% include header.html %}
+	{% endif %}
+	{{ content }}
+	{% if site.type == 'web' %}
+	{% include footer.html %}
+	{% endif %}
+	{% include scripts.html %}
+</body>
+
 </html>

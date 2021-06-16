@@ -45,6 +45,8 @@ For the changes to take effect, you will need to log out.
 - `flatpak --user` for install, update, uninstall
 - `flatpak` for remaining commands (for ex. search)
 
+#### Manually
+
 Go to [flathub.org](https://flathub.org/apps/details/org.signal.Signal) and click "Install". This will download a `org.signal.Signal.flatpakref`.
 
 Navgiate to your download folder, and install Signal Desktop:
@@ -62,6 +64,37 @@ You can now delete the flatpak reference:
 $ rm ~/Downloads/org.signal.Signal.flatpakref
 ```
 
+#### Via CLI
+
+Search for a application:
+
+```bash
+$ flatpak search postman
+Name             Description                                                 Application ID                  Version          Branch         Remotes
+Postman          Postman is a complete API development environment.          com.getpostman.Postman          7.31.0           stable         flathub
+```
+
+Install application:
+
+```bash
+$ flatpak install --user com.getpostman.Postman
+Looking for matches…
+Found similar ref(s) for ‘com.getpostman.Postman’ in remote ‘flathub’ (user).
+Use this remote? [Y/n]: y
+
+com.getpostman.Postman permissions:
+    ipc    network    pulseaudio    x11    file access [1]    dbus access [2]
+
+    [1] home
+    [2] com.canonical.AppMenu.Registrar
+
+
+        ID                              Branch          Op          Remote          Download
+ 1. [✓] com.getpostman.Postman          stable          i           flathub         130.9 MB / 131.5 MB
+
+Installation complete.
+```
+
 ### Run Application
 
 _Note: Due to a bug, you may have to log out in order for the **Menu** items to reload, and newly installed applications to show up._
@@ -72,7 +105,7 @@ _Note: Due to a bug, you may have to log out in order for the **Menu** items to 
 
 You're now running Signal Desktop on PantherX.
 
-### Update Application
+### Update All Applications
 
 This will look for updates, for all installed Flatpak-managed applications.
 

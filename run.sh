@@ -5,8 +5,7 @@ echo ""
 . ./project.config
 
 function RUN_CONTAINER_BASH {
-  docker build --tag ${CONTAINER} .
-  # docker run --detach --name gi nexinnotech
+  docker build --network=host --tag ${CONTAINER} .
   docker container run --rm -v ${PWD}:/usr/working \
   -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} \
   -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} \
@@ -22,6 +21,7 @@ function BUILD_PROJECT {
 
 function DEPLOY_PROJECT {
   BUILD_PROJECT
+  bundle install
   bundle exec jekyll build -d ../_site
   aws s3 sync ../_site/ s3://${AWS_S3_BUCKET} --delete
   aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
@@ -29,7 +29,14 @@ function DEPLOY_PROJECT {
 
 function SERVE_PROJECT {
   BUILD_PROJECT
+  bundle install
   bundle exec jekyll serve --host 0.0.0.0 -d ../_site
+}
+
+function SERVE_PROJECT_DESKTOP {
+  BUILD_PROJECT
+  bundle install
+  bundle exec jekyll serve --config _config.yml,_config_desktop.yml --host 0.0.0.0 -d ../_site
 }
 
 while true; do
@@ -40,8 +47,9 @@ Welcome to Jekyll Manager v0.0.7
 Please select:
 
 1. jekyll serve (within container)
-2. jekyll build & s3 sync (within container)
-3. run container
+2. jekyll serve desktop (within container)
+3. jekyll build & s3 sync (within container)
+4. run container
 0. Quit
 
 _EOF_
@@ -55,10 +63,14 @@ _EOF_
         break
         ;;
       2)
-        DEPLOY_PROJECT
+        SERVE_PROJECT_DESKTOP
         break
         ;;
       3)
+        DEPLOY_PROJECT
+        break
+        ;;
+      4)
         RUN_CONTAINER_BASH
         break
         ;;
