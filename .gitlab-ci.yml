@@ -7,7 +7,7 @@ cache:
 
 before_script:
   - bundle install --path vendor
-  - brew upgrade libffi
+  - bundle update libffi
   - export LDFLAGS="-L/usr/local/opt/libffi/lib"
   - export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
   - bundle install
