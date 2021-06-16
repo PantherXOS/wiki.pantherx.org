@@ -9,6 +9,7 @@ website:
   stage: deploy
   script:
     - echo "=> Building web version ..."
+    - gulp
     - JEKYLL_ENV=production bundle exec jekyll build -d _site/
     - echo "=> Upload to Website"
     - export AWS_S3_BUCKET=wiki.pantherx.org
@@ -25,7 +26,7 @@ package:
   stage: deploy
   script:
     - echo "=> Building desktop version ..."
-    - rm -rf _site/
+    - gulp
     - JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config_desktop.yml -d _site/
     - echo "=> Packaging desktop version ..."
     - export PATH="$PATH:/root/.local/bin"
