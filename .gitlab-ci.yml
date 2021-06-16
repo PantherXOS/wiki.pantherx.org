@@ -6,8 +6,8 @@ cache:
     - .npm/
 
 before_script:
+  - apt-get install libruby2.5
   - bundle install --path vendor
-  - gem install ffi
 
 website:
   stage: deploy
