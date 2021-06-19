@@ -5,7 +5,11 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{% include meta.html %}
+	{% if site.type == 'web' %}
 	<link rel="stylesheet" href="/assets/css/custom.min.css">
+	{% else %}
+	<link rel="stylesheet" href="./assets/css/custom.min.css">
+	{% endif %}
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
