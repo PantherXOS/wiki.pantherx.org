@@ -61,18 +61,18 @@ $ wpa_supplicant -c wpa_supplicant.conf -i interface -B
 
 ##### Using Connman
 
-another tool that is available on installation iso is `connman` service and  we
-can configure that using `connmanctl`. in order to connect to wifi networks using
-`connmanctl`, first we need to unblock `wifi` module using:
+Note: We do not support connman.
+
+Another tool that is available is `connman` service and we can configure that using `connmanctl`. In order to connect to wifi networks using `connmanctl`, first we need to unblock the `wifi` module using:
 
 ```shell
-$ root@gnu ~# rfkill unblock wifi
+$ rfkill unblock wifi
 ```
 
 now we can connect to wifi networks using `connmanctl`:
 
 ```shell
-$ root@gnu ~# connmanctl
+$ connmanctl
 connmanctl> scan wifi
 connmanctl> services
 SSID-1   wifi_...._......
@@ -170,37 +170,48 @@ herd start cow-store /mnt
 
 ```bash
 $ mkdir /mnt/etc
-# System configuration examples are below
-$ nano /mnt/etc/system-config.scm
 ```
 
-Once you're satisfied with your configuration, proceed with the installation:
+Now we'll have to create 2 files:
+
+1. System configuration
+2. Channel configuration
 
 ```bash
-$ guix system init /mnt/etc/system-config.scm /mnt
+$ nano /mnt/etc/system.scm
 ```
 
-#### System configuration
-
-##### Bare bones example
+with the following content:
 
 ```scheme
-{% include config-examples/bare-bones.scm %}
+{% include config-examples/base-desktop.scm %}
 ```
 
-##### GNOME example
+Now the channels:
 
-```scheme
-{% include config-examples/gnome.scm %}
+```bash
+$ nano /mnt/etc/channels.scm
 ```
 
-##### Xfce example
+with the following content:
 
-```scheme
-{% include config-examples/xfce.scm %}
+```bash
+TODO
 ```
 
-Read more about [System Configuration](/System-configuration/) and discover countless of other examples.
+Once you're satisfied with your configuration, proceed with the installation.
+
+First we'll pull the latest packages:
+
+```bash
+$ guix pull --channels=/mnt/etc/channels.scm
+```
+
+Once that's done, initiate the system
+
+```bash
+$ guix system init /mnt/etc/system.scm /mnt
+```
 
 ## Reboot
 

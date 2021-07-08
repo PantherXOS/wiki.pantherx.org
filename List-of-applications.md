@@ -278,6 +278,9 @@ https://www.gnome.org/projects/NetworkManager/ || CLI: `network-manager` || GUI:
 
 #### Terminal emulators
 
+- QTerminal - is a lightweight Qt terminal emulator based on QTermWidget.
+- Kitty - is a fast and featureful GPU-based terminal emulator
+
 #### Terminal pagers
 
 #### Terminal multiplexers

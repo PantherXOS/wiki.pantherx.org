@@ -21,7 +21,6 @@ In order to Install Guix System on DigitalOcean, we need a fresh droplet with at
 this tutorial we use a `Debian 9.7` droplet instance as our starting point, and we are installing
 `Guix 1.0.1` binaries on it. using other distributions, you might need to change some parts by yourself.
 
-
 ## Installation Process
 
 ### Login to Droplet
@@ -134,7 +133,7 @@ related details, based on our droplet's details:
 ;; Update your hostname and timezone
 (operating-system
   (host-name "guix")
-  (timezone "Asia/Tehran")
+  (timezone "Europe/Berlin")
   (locale "en_US.UTF-8")
 
   (bootloader (bootloader-configuration

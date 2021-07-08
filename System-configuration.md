@@ -1,32 +1,32 @@
 ---
 ---
 
-## Server
+## Base
 
 ```scheme
-{% include config-examples/bare-bones.scm %}
+px-base-os
+%px-base-packages
+%px-base-services
 ```
 
 ## Desktop
 
-### LXQt
-
-Read more about [LXQt](LXQt). _LXQt_ is the only, officially supported desktop.
-
-### GNOME
-
-This is a community supported desktop.
-
-```scheme
-{% include config-examples/gnome.scm %}
+```
+px-desktop-os
+%px-desktop-packages
+%px-desktop-services
 ```
 
-### Xfce
+```scheme
+{% include config-examples/base-desktop.scm %}
+```
 
-This is a community supported desktop.
+## Server
 
 ```scheme
-{% include config-examples/xfce.scm %}
+px-server-os
+%px-server-packages
+%px-server-services
 ```
 
 ## See also
