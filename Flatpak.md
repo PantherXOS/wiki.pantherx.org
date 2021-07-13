@@ -10,11 +10,7 @@ categories:
 language: en
 ---
 
-Flatpak enables you to run some popular applications that are not yet available trough PantherX Software.
-
-- [Signal Desktop](https://flathub.org/apps/details/org.signal.Signal): Private messenger
-- [Code-OSS (VSCodium)](https://flathub.org/apps/details/com.visualstudio.code-oss): Code editor
-- [Element (Riot)](https://flathub.org/apps/details/im.riot.Riot): Team and community chat
+Flatpak enables you to run some popular applications that are not yet available trough **Software**.
 
 ## Install Flatpak
 

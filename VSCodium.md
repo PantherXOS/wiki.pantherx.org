@@ -12,9 +12,13 @@ language: en
 
 ## Installation
 
+### Native
+
 ```bash
 guix package -i vscodium
 ```
+
+### Flatpak
 
 Optionally, VSCodium is also available as Flatpak (not recommended):
 
@@ -26,12 +30,6 @@ flatpak install flathub com.vscodium.codium
 ## Usage
 
 ### Tips for C/C++ programming
-
-Because Flatpak packages run in a sand-boxed mode, they don't have access to system paths like `/var`. since profiles are located in `/var/guix/profiles` path, they are not accessible for flapak packages by default and if you need to allow an application to have access to them, you need to provide access explicitly using `--filesystem` switch:
-
-```bash
-$ flatpak run --filesystem=/var/guix/profiles com.visualstudio.code
-```
 
 #### Visual Studio Code
 
@@ -64,6 +62,14 @@ $ flatpak run --filesystem=/var/guix/profiles com.visualstudio.code
 #### VSCodium
 
 The `C/C++` extension can't be installed in `VSCodium`, you can use `clangd` extension. If the `clangd` was not found in the `PATH` the extension will download the binary file and will run it internally. (If you faced with any issue in running the `clangd` binary file please read the `Foreign binary in Extensions` in `Troubleshooting` part).
+
+#### Improved Sandboxing for Flatpak
+
+Because Flatpak packages run in a sand-boxed mode, they don't have access to system paths like `/var`. since profiles are located in `/var/guix/profiles` path, they are not accessible for flapak packages by default and if you need to allow an application to have access to them, you need to provide access explicitly using `--filesystem` switch:
+
+```bash
+$ flatpak run --filesystem=/var/guix/profiles com.visualstudio.code
+```
 
 ## Troubleshooting
 
@@ -102,7 +108,6 @@ sudo ln -s /gnu/store/fa6wj5bxkj5ll1d7292a70knmyl7a0cr-glibc-2.31/lib/ld-linux-x
 patchelf --set-interpreter "$(patchelf --print-interpreter "$(realpath  "$(which sh)")")" path/to/binary/file
 ```
 
-
 ### Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)
 
 > When you see this notification, it indicates that the VS Code file watcher is 
@@ -138,42 +143,3 @@ parameter.
 ```
 
 **Reference**: Solution Inspired from a decission on [Guix IRC channel](http://logs.guix.gnu.org/guix/2019-09-10.log#112721).
-
-### Pylint is not installed
-
-Open the OSS Code Terminal and type:
-
-```bash
-$ which pylint
-/home/franz/.guix-profile/bin/pylint
-```
-
-Now go to OSS Code settings and look for:
-
-```
-"python.linting.pylintPath": "pylint"
-```
-
-and change that to the path you discovered earlier:
-
-```json
-"python.linting.pylintPath": "/home/franz/.guix-profile/bin/pylint"
-```
-
-### autopep8 is not installed
-
-Similiar to pylint but it may not be installed yet:
-
-```bash
-$ guix package -i python-autopep8
-$ which autopep8
-/home/franz/.guix-profile/bin/autopep8
-```
-
-and update related settings:
-
-```json
-"python.formatting.autopep8Path": "/home/franz/.guix-profile/bin/autopep8"
-```
-
-_Reported not working_

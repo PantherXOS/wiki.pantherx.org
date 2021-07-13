@@ -5,6 +5,10 @@
 
 PantherX is a GNU Guix upstream distribution, with the aim to provide a more complete, lightweight and user friendly computing environment.
 
+What sparked PantherX was one user's frustration with the direction of MacOS and the endless number of failed attempts to permanently switch to any of the "popular" Linux distributions. While far from perfect, PantherX has finally sealed the deal, and is improving on a daily basis. It just feels right and literally never breaks - much of this is thanks to it's roots in Guix and LXQt.
+
+We owe our existance to the Guix and LXQt team.
+
 ### GNU Guix
 
 - contains no nonfree software but PantherX makes them available, where superior (or necessary)
@@ -36,6 +40,7 @@ Read more about the differences between Linux and Linux-libre on [stackexchange.
 
 - _GNU Guix_ and PantherX where in large parts inspired by _NixOS_
 - _Nix_ uses various languages, and a special DSL for packaging, PantherX uses _Guile_ for everything
+- supports various desktop environments
 
 ## Beginner-friendly
 

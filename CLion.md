@@ -11,8 +11,6 @@ categories:
 language: en
 ---
 
-Running Clion in GuixSD:
-
 ## Prepare
 
 Download `clion` for Linux OS from [here](https://www.jetbrains.com/clion/download/other.html) and do these steps:
@@ -28,7 +26,6 @@ $ guix build icedtea
 $ sudo ln -sv /gnu/store/1y4mxpqdans1q8p6wskhklsl335abgqq-icedtea-3.7.0-jdk /var/guix/gcroots
 $ ln -sv /var/guix/gcroot/1y4mxpqdans1q8p6wskhklsl335abgqq-icedtea-3.7.0-jdk /path/to/folder/clion/jbr
 ```
-
 
 ## Run
 

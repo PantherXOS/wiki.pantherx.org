@@ -1,5 +1,5 @@
 ---
-namespace: lxqt
+namespace: weston
 description: "Weston is the reference implementation of a Wayland compositor also developed by the Wayland project. It is written in C and published under the MIT License. Weston only has official support for the Linux operating system due to its dependence on certain features of the Linux kernel, such as kernel mode-setting, Graphics Execution Manager (GEM), and udev, which have not been implemented in other Unix-like operating systems."
 description-source: "https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)#WESTON"
 categories:
@@ -16,7 +16,11 @@ Weston is a lightweight and functional Wayland compositor.
 
 ## Installation
 
+**We do not support this. If you know what you're doing, this is a reference to get started working with Weston on PantherX.**
+
 ### Global Installation
+
+TODO
 
 ### User Profile Installation
 
@@ -45,26 +49,6 @@ Now launch _weston_:
 ```bash
 $ weston-launch
 ```
-
-### Graphical login
-
-## Configuration
-
-### Use a different window manager
-
-### Autostart
-
-### Set-up environment variables
-
-### Editing the Application Menu
-
-## Troubleshooting
-
-### Desktop icons are grouped together
-
-## Tips and tricks
-
-### Customizing Leave
 
 ## See also
 

@@ -2,12 +2,12 @@
 namespace: lenovo
 description:
 categories:
- - type:
-   - "Guide"
- - location:
-   - "Hardware"
-   - "Laptops"
-   - "Lenovo"
+  - type:
+      - "Guide"
+  - location:
+      - "Hardware"
+      - "Laptops"
+      - "Lenovo"
 language: en
 ---
 
@@ -23,22 +23,7 @@ issue with linux, and LTE module don't work on other disros either.
 ## Installation
 
 Supports both UEFI and MBR style bios. The [Installation guide](/Installation-guide/)
-helps you installing the PantherX on hardware, you only need to replace the kernel
-definition in system configuration file:
-
-```scheme
-(use-modules ...
-             (nongnu packages linux)
-             (nongnu system linux-initrd)
-             ...)
-
-(operating-system
-  ...
-  (kernel linux)
-  (initrd microcode-initrd)
-  (firmware (list linux-firmware))
-  ...)
-```
+helps you installing the PantherX on hardware.
 
 ## See also
 

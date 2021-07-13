@@ -11,7 +11,7 @@ categories:
 language: en
 ---
 
-_We do not endore this platform but do recognize it's value and place in the community._
+_We do not endorse this platform but do recognize it's value and place in the community._
 
 ## Setup
 
@@ -23,7 +23,7 @@ guix package -i steam libsteam
 
 Take note of the package notes:
 
-> This package provides a script for launching Steam in a Guix container which will use the directory `$HOME/.local/share/guix-sandbox-home' where all games will be installed.
+> This package provides a script for launching Steam in a Guix container which will use the directory `$HOME/.local/share/guix-sandbox-home` where all games will be installed.
 
 ## Usage
 

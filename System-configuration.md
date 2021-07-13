@@ -3,6 +3,10 @@
 
 ## Base
 
+This provides the bare system with minimal dependencies.
+
+- Libre kernel
+
 ```scheme
 px-base-os
 %px-base-packages
@@ -10,6 +14,10 @@ px-base-os
 ```
 
 ## Desktop
+
+This provides the default desktop environment.
+
+- Non-libre kernel
 
 ```
 px-desktop-os
@@ -21,7 +29,23 @@ px-desktop-os
 {% include config-examples/base-desktop.scm %}
 ```
 
+## Desktop Libre
+
+This provides the default desktop environment with non-libre components stipped.
+
+- Libre kernel
+
+```
+px-libre-desktop-os
+%px-desktop-packages
+%px-desktop-services
+```
+
 ## Server
+
+This provides the default server environment.
+
+- Libre kernel
 
 ```scheme
 px-server-os
