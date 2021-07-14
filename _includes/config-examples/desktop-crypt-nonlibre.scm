@@ -13,11 +13,6 @@
   (timezone "Europe/Berlin")
   (locale "en_US.utf8")
 
-  ;; Non-libre kernel
-  (kernel linux)
-  (initrd microcode-initrd)
-  (firmware (list linux-firmware))
-
   ;; Audio fixes
   (kernel-arguments
   (cons* "snd_hda_intel.dmic_detect=0"

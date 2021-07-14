@@ -2,6 +2,8 @@
              (gnu system)
              (px system))
 
+(use-service-modules docker)
+
 (px-desktop-os
  (operating-system
   (host-name "px-base")
@@ -40,9 +42,6 @@
    %px-desktop-packages))
 
   ;; Services
-  (services (cons* (service docker-service-type
-    (docker-configuration ...))
-   (service nginx-servicetype
-     (nginx-configuration ...))
+  (services (cons* (service docker-service-type)
    %px-desktop-services))
   ))
