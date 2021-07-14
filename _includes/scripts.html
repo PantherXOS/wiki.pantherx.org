@@ -1,5 +1,10 @@
+{% include meta.html %}
+{% if site.type == 'web' %}
 <script src="/assets/js/bundle.min.js"></script>
-
+{% else %}
+<script src="./assets/js/bundle.min.js"></script>
+{% endif %}
+	
 {% if page.url == "/Search/" %}
 <script>
 	// Just temporary, will be replaced by a serverless function
