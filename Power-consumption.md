@@ -117,3 +117,26 @@ Just for the curious, here are some readings from `powerstat` with `throttled` r
 18:12:50   3.5   0.0   1.2  95.2   0.2    1  20642   5714    8    6    6  11.61
 18:13:00   2.3   0.0   1.1  95.6   1.0    1  16946   6556    5    6    7  11.46
 ```
+
+### cpupower
+
+For more agressive power savings, I've found this tool the be useful.
+
+```
+su - root
+guix package -i cpupower
+cpupower frequency-set -g powersave
+```
+
+Again some readings from `powerstat` with `throttled` running, after cpupower adjustments:
+
+```
+  Time    User  Nice   Sys  Idle    IO  Run Ctxt/s  IRQ/s Fork Exec Exit  Watts
+18:32:41   4.1   0.1   2.0  93.3   0.6    1   9997   6825   37   27   28   7.45
+18:32:51  16.3   0.0   3.2  73.1   7.3    1  24108  10618  179   52   94   9.14
+18:33:01   7.9   0.1   2.4  89.4   0.2    1  15276   8806   18   18   17   8.89
+18:33:11   9.2   0.1   2.1  88.5   0.2    1  11546   3990    6    6    8   9.04
+18:33:21   6.6   0.0   2.4  90.9   0.1    1  10996   3116    6    8   21   8.79
+```
+
+Together these tools to provide me with a substantial boost in runtime.

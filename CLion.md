@@ -3,13 +3,15 @@ namespace: clion
 description: "A powerful IDE from JetBrains helps you develop in C and C++ on Linux, macOS"
 description-source: "https://www.jetbrains.com/clion/"
 categories:
- - type:
-   - "Application"
- - location:
-   - "Development"
-   - "Development environments"
+  - type:
+      - "Application"
+  - location:
+      - "Development"
+      - "Development environments"
 language: en
 ---
+
+This works but is unsupported. If you need need CLion, go ahead. If you're flexible, there's VScode and VScodium.
 
 ## Prepare
 
@@ -34,18 +36,19 @@ $ /path/to/folder/clion/bin/clion.sh
 ```
 
 Update `CMake` and `GDB` path in `Configuration Toolchains`:
+
 - `/home/panther/.guix-profile/bin/cmake` for `CMake`
 - `/home/panther/.guix-profile/bin/gdb` for `gdb`
 
-*I assumed you installed `cmake` and `gdb` already.*
+_I assumed you installed `cmake` and `gdb` already._
 
-## Trobleshooting 
+## Trobleshooting
 
 ### Auto completion
 
 CLion uses an embedded version of `clangd` as language server for auto completion support, and it crashes due to missing library issues. a quick workaround is to disable `clangd` completion and use build-in auto completion support in CLion. for this we need to go to following path
 
- `settings` > `languages and frameworks` > `C\C++` > `clangd`
+`settings` > `languages and frameworks` > `C\C++` > `clangd`
 
 and select `Disable Cland completion` option in `code completion` section.
 
@@ -80,16 +83,14 @@ Let's see how the major version numbers map to Java versions:
     57 = Java 13
 ```
 
-
 ## Tested Versions
 
 These version tested with this approach and are working with `icedtea@3.7`:
 
-* `CLion-2019.3.4`
-* `CLion-2019.3.6`
-* `CLion-2020.1`
-
+- `CLion-2019.3.4`
+- `CLion-2019.3.6`
+- `CLion-2020.1`
 
 **Useful Links**
-* https://www.mail-archive.com/help-guix@gnu.org/msg08193.html
 
+- https://www.mail-archive.com/help-guix@gnu.org/msg08193.html
