@@ -1,8 +1,6 @@
 ---
 ---
 
-## Desktop Search
-
 **If you are running PantherX Desktop, this is configured out of the box.**
 
 Our desktop search is powered by Recoll. It's blazing fast and does full-test search so even if you're looking for a phrase in a PDF, document, email or any other supported file-type, you're covered.

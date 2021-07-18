@@ -1,8 +1,6 @@
 ---
 ---
 
-## Backup Settings
-
 **If you are running PantherX Desktop or Server, this is configured out of the box.**
 
 Backup settings allows you to configure backup accounts you have setup in Online Accounts to actually do something.
