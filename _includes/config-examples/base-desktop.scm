@@ -3,6 +3,7 @@
              (px system))
 
 (use-service-modules docker)
+(use-package-modules emacs tmux)
 
 (px-desktop-os
  (operating-system
@@ -15,7 +16,7 @@
   ;; root file system.
   (bootloader (bootloader-configuration
                (bootloader grub-bootloader)
-               (target "/dev/sda"))
+               (target "/dev/sda")))
        
   (file-systems (cons (file-system
                        (device (file-system-label "my-root"))
@@ -34,7 +35,7 @@
                 ;; and access the webcam.
                 (supplementary-groups '("wheel"
                                         "audio" "video"))
-                (home-directory "/home/your-name")))
+                (home-directory "/home/your-name"))
                %base-user-accounts))
 
   ;; Globally-installed packages.
