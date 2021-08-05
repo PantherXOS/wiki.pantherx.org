@@ -4,6 +4,7 @@
              (px system))
 
 (use-service-modules docker)
+(use-package-modules emacs tmux)
 
 (px-desktop-os
  (operating-system
