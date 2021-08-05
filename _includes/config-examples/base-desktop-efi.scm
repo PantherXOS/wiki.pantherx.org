@@ -11,17 +11,22 @@
   (timezone "Europe/Berlin")
   (locale "en_US.utf8")
 
-  ;; Boot in "legacy" BIOS mode, assuming /dev/sda is the
+  ;; Boot in EFI mode, assuming /dev/sda is the
   ;; target hard disk, and "my-root" is the label of the target
   ;; root file system.
   (bootloader (bootloader-configuration
-               (bootloader grub-bootloader)
-               (target "/dev/sda")))
+               (bootloader grub-efi-bootloader)
+               (target "/boot/efi")))
        
-  (file-systems (cons (file-system
+  (file-systems (append
+		(list (file-system
                        (device (file-system-label "my-root"))
                        (mount-point "/")
                        (type "ext4"))
+					  (file-system
+					   (device "/dev/sda1")
+					   (mount-point "/boot/efi")
+					   (type "vfat")))
                       %base-file-systems))
 
   (users (cons (user-account

@@ -1,41 +1,103 @@
 ---
 ---
 
-## Pre-installation
+You will ocassionally see a `$` before a command. This is mostly to differentiate the input (what you type), from the output, the computer provides.
 
-### Verify signature
-
-### Boot the live environment
-
-### Set the keyboard layout
-
-To set the keyboard layout:
+Here's an example:
 
 ```bash
-$ loadkeys dvorak
+$ lsblk
+NAME          MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
+sda             8:0    0 465.8G  0 disk  
+└─sda1          8:1    0 465.8G  0 part  /media/franz/4e619844-b92a-49bd-8b70-cf934abdc8eb
 ```
 
-To list available keyboard layouts, refer to `/run/current-system/profile/share/keymaps` or run `man loadkeys`. By default, the installation uses _US qwerty_.
+So the actual command is `lsblk` (you don't write `$`).
+
+On the other hand, if there's only a command, and no output, we sometimes omit the `$` like so:
+
+```bash
+lsblk
+```
+
+## Pre-installation
+
+Before you get started, ready a USB stick with the latest ISO image.
+
+Plugin the USB stick and determine the name:
+
+```bash
+$ lsblk
+NAME          MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
+sda             8:0    0 465.8G  0 disk  
+└─sda1          8:1    0 465.8G  0 part  /media/franz/4e619844-b92a-49bd-8b70-cf934abdc8eb             
+sdb             8:16   1  14.9G  0 disk                                                                
+├─sdb1          8:17   1  14.9G  0 part                                                                
+└─sdb2          8:18   1   512K  0 part  /media/franz/UEFI_NTFS                                        
+nvme0n1       259:0    0 953.9G  0 disk                                                                
+├─nvme0n1p1   259:1    0   549M  0 part  /boot/efi                                                     
+└─nvme0n1p2   259:2    0 953.3G  0 part                                                                
+  └─cryptroot 253:0    0 953.3G  0 crypt /
+```
+
+In my case, it's `/dev/sdb`, so I proceed with copying the ISO to this drive:
+
+```bash
+$ sudo dd if=pantherx-1.3.0-5.456b36b-image.iso of=/dev/sdb status=progress                                                                
+Password: 
+1090949632 bytes (1.1 GB, 1.0 GiB) copied, 270 s, 4.0 MB/s 
+2137076+0 records in
+2137076+0 records out
+1094182912 bytes (1.1 GB, 1.0 GiB) copied, 270.272 s, 4.0 MB/s
+$ sync
+```
+
+Now just plugin the USB stick into the target computer, and boot from it. Most commonly, you can select to boot from it with `F11`.
+
+### First steps
+
+Once you have booted from USB, you will be greeted with "Locale language" selection.
+
+1. Select the locale (English)
+2. Select the region (Ireland)
+
+The graphical installation is not quite ready yet, so we'll proceed manually.
+
+Select "Install using the shell based process".
 
 ### Connect to the Internet
 
-Find available network interfaces:
+Now that you're in the command like, you should read "Welcome to the Installation of PantherX OS!". Before we get continue, we need to establish a internet connection. If you are connected with a LAN cable, that might already have happened.
+
+Here's how you verify whether you're connected:
 
 ```bash
 $ ifconfig -a
 ```
 
-#### Wired Network
+One of the listed interfaces, should have a valid IP address. For example `192.168.1.67`. If that's the case, you can proceed to the next step. If not, here's how you connect:
+
+#### Wired Network (LAN)
 
 To configure a wired network run the following command, substituting interface with the name of the wired interface you want to use:
 
 ```bash
-$ ifconfig interface up
+$ ifconfig INTERFACE_NAME up
+
+# Example
+$ ifconfig enp2s0 up
 ```
 
-#### Wireless Network
+Now try to get a IP address:
 
-##### Using WPA-Supplicant
+```bash
+$ dhclient -v INTERFACE_NAME
+
+# Example
+$ dhclient -v enp2s0
+```
+
+#### Wireless Network (WLAN)
 
 To configure wireless networking, create a configuration file for the wpa_supplicant configuration tool:
 
@@ -43,107 +105,124 @@ To configure wireless networking, create a configuration file for the wpa_suppli
 $ nano wpa_supplicant.conf
 ```
 
-with the following content, substituting your network details:
+with the following content:
 
 ```
 network={
-  ssid="my-ssid"
+  ssid="YOUR_WIFI_NAME"
   key_mgmt=WPA-PSK
-  psk="the network's secret passphrase"
+  psk="YOUR_WIFI_PASSWORD"
+}
+```
+
+once you're done, this should look roughly like this:
+
+```
+network={
+  ssid="MyWirelessNetwork"
+  key_mgmt=WPA-PSK
+  psk="3295e09f-241b-4a06-a492-f3f3cc95c24d"
 }
 ```
 
 To start the wireless service, and run it on _interface_ in the background:
 
 ```bash
-$ wpa_supplicant -c wpa_supplicant.conf -i interface -B
+$ wpa_supplicant -c wpa_supplicant.conf -i INTERFACE_NAME -B
+
+# Example
+$ wpa_supplicant -c wpa_supplicant.conf -i enp2s0 -B
 ```
 
-##### Using Connman
-
-Note: We do not support connman.
-
-Another tool that is available is `connman` service and we can configure that using `connmanctl`. In order to connect to wifi networks using `connmanctl`, first we need to unblock the `wifi` module using:
-
-```shell
-$ rfkill unblock wifi
-```
-
-now we can connect to wifi networks using `connmanctl`:
-
-```shell
-$ connmanctl
-connmanctl> scan wifi
-connmanctl> services
-SSID-1   wifi_...._......
-SSID-2   wifi_...._......
-SSID-3   wifi_...._......
-SSID-4   wifi_...._......
-SSID-5   wifi_...._......
-...
-connmanctl> agent on
-connmanctl> connect wifi_...
-```
-
-#### Get IP
-
-To get a new IP for your _interface_:
+Now try to get a IP address:
 
 ```bash
-$ dhclient -v interface
+$ dhclient -v INTERFACE_NAME
+
+# Example
+$ dhclient -v enp2s0
 ```
 
-### SSH access
+### SSH access (OPTIONAL)
 
 If you want to continue with the installation remotely, load the SSH server and set a _root_ password:
 
 ```bash
 $ herd start ssh-daemon
+Service ssh-daemon has been started.
 $ passwd
+New Password:
+Retype new password:
+passwd: password updated successfully
 ```
 
-### Partition the disks
+Now simply connect via SSH from another computer: `ssh root@192.168.1.67`.
 
-First we'll need to create at least one partition:
+### Partition and format the disks
+
+Depending on your PC, you should either install with BIOS or EFI support. EFI support is only available on newer PC's, yet BIOS support should always work.
+
+Before you get started, make sure you target the right hard disk:
 
 ```bash
-$ cfdisk
+$ lsblk
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda      8:0    0 59.6G  0 disk 
+└─sda1   8:1    0 59.6G  0 part 
+sdb      8:16   1 14.9G  0 disk 
+├─sdb1   8:17   1    1G  0 part 
+└─sdb2   8:18   1  2.8M  0 part
 ```
 
-**For a very basic set-up, go with**
+In this case, `sda` will be out target disk.
 
-- dos
-- new
-- keep size
-- primary
-- write - yes
-- quit
+#### BIOS-Boot (OPTION 1)
 
-### Format the partitions
+TODO
 
-To format the new partition, use:
+#### EFI-Boot (OPTION 2)
+
+First we need to ensure that the target disk follows the GPT format:
 
 ```bash
-$ mkfs.ext4 -L my-root /dev/sda1
+parted /dev/sda mklabel gpt --script
 ```
 
-#### swap space
-
-If you've also created a _swap_ partition _sda2_, format and enable it now:
+Let's partition
 
 ```bash
-$ mkswap /dev/sda2
-$ swapon /dev/sda2
+cfdisk /dev/sda
 ```
 
-Alternatively, you may create a _swap_ file:
+1. Create a boot partition with the capacity of `200M` and `EFI System` type
+2. Create a system partition with the capacity of whatever is remaining (`59.4G`) and `Linux filesystem` (Default)
+
+Make sure that it looks roughly like this:
+
+```
+Device			Start			End				Sectors			Size 		Type
+/dev/sda1       2048            411647          409600          200M 		EFI System
+/dev/sda2   	411648          125045390       124633743       59.4G 		Linux filesystem
+```
+
+Now set the `esp` flag:
 
 ```bash
-$ dd if=/dev/zero of=/mnt/swapfile bs=1MiB count=10240
-# For security, we allow only root to read / write the swap file
-$ chmod 600 /mnt/swapfile
-$ mkswap /mnt/swapfile
-$ swapon /mnt/swapfile
+parted /dev/sda set 1 esp on
+```
+
+Next, format the two partitions:
+
+```bash
+mkfs.fat -F32 /dev/sda1
+mkfs.ext4 -L my-root /dev/sda2
+```
+
+and mount the EFI partition at `/boot/efi`
+
+```bash
+mkdir /boot/efi
+mount /dev/sda1 /boot/efi
 ```
 
 ### Mount the file systems
@@ -151,43 +230,90 @@ $ swapon /mnt/swapfile
 ```bash
 $ mount LABEL=my-root /mnt
 ```
+### Swap space
 
-additionally if you want to mount additional partitions (eg. `/home`),
-you need to mount them after this step:
+This is somewhat optional but highly recommended. If your computer runs out of memory (RAM), it can utilize the swap space, to store the data. This is a 1000x times slower than RAM but will prevent your computer from locking-up.
+
+Here's how you create a swap space:
+
+_If you have 4GB of RAM, a count of `4096` (as in 4096 MB) is recommended._
 
 ```bash
-mkdir -p /mnt/home
-mount /dev/sdaX /mnt/home
+$ dd if=/dev/zero of=/mnt/swapfile bs=1MiB count=4096
+4096+0 records in
+4096+0 records out
+4294967296 bytes (4.3 GB, 4.0 GiB) copied, 34.4218 s, 125 MB/s
+$ chmod 600 /mnt/swapfile
+$ mkswap /mnt/swapfile
+Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
+no label, UUID=ea7cc142-1225-48a1-b68d-dd5c9a958938
+$ swapon /mnt/swapfile
 ```
 
 ## Installation
 
+Now we're ready to kick-off the actual installation!
+
 ```bash
-herd start cow-store /mnt
+$ herd start cow-store /mnt
+Service cow-store has been started.
 ```
 
 ### Configure the system
+
+First we will have to create a folder, to hold our new system configuration:
 
 ```bash
 $ mkdir /mnt/etc
 ```
 
-Now we'll have to create 2 files:
-
-1. System configuration
-2. Channel configuration
+Create the file with:
 
 ```bash
 $ nano /mnt/etc/system.scm
 ```
 
-with the following content:
+You'll need to modify some details:
+
+- `host-name` (px-base): This is what your computer will be called on the network
+- `timezone` (Europe/Berlin). You can find a list of all time zones [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+
+Under users, adapt the user account:
+
+- `name`: This is a one-word, lowercase username such as `franz`
+- `home-directory`: should reflect the username: `/home/franz`
+
+#### System configuration BIOS-boot (OPTION 1)
+
+If you followed the bios boot partitioning steps, your system configuration should look like this. **Make sure that you adapt it to your needs!**
+
+You can ignore the other settings for now.
 
 ```scheme
 {% include config-examples/base-desktop.scm %}
 ```
 
-Now the channels:
+#### System configuration EFI-boot (OPTION 2)
+
+Create the file with:
+
+```bash
+$ nano /mnt/etc/system.scm
+```
+
+If you followed the EFI boot partitioning steps, your system configuration should look like this. **Make sure that you adapt it to your needs!**
+
+You can ignore the other settings for now.
+
+```scheme
+{% include config-examples/base-desktop-efi.scm %}
+```
+
+#### Channels
+
+Once you've set the system configuration, we put in place the channels in place. These work much like repositories on other Linux distribution... This is where your software comes from!
+
+Create the file with:
 
 ```bash
 $ nano /mnt/etc/channels.scm
@@ -195,100 +321,74 @@ $ nano /mnt/etc/channels.scm
 
 with the following content:
 
-```bash
-TODO
+```scheme
+(list (channel
+        (name 'guix)
+        (url "https://channels.pantherx.org/git/pantherx.git")
+        (branch "rolling-nonlibre"))
+      (channel
+        (name 'nongnu)
+        (url "https://channels.pantherx.org/git/nongnu.git")
+        (branch "rolling"))
+      (channel
+        (name 'pantherx)
+        (url "https://channels.pantherx.org/git/pantherx-extra.git")
+        (branch "rolling")))
 ```
+
+### Update and install
 
 Once you're satisfied with your configuration, proceed with the installation.
 
 First we'll pull the latest packages:
 
 ```bash
-$ guix pull --channels=/mnt/etc/channels.scm
+$ guix pull --channels=/mnt/etc/channels.scm --disable-authentication
+Updating channel 'guix' from Git repository at 'https://channels.pantherx.org/git/pantherx.git'...
+receiving objects  37% [#################################################################### 
+...
+hint: After setting `PATH', run `hash guix' to make sure your shell refers to `/root/.config/guix/current/bin/guix'.
+```
+
+_Initial pull requires `--disable-authentication` to be set. We are working on a solution to rectify the problem. Subsequent pulls, do not require this.
+
+Lastly, run:
+
+```bash
+hash guix
 ```
 
 Once that's done, initiate the system
 
 ```bash
 $ guix system init /mnt/etc/system.scm /mnt
+substitute: updating substitutes from 'https://ci.guix.gnu.org'... 100.0%
+substitute: updating substitutes from 'https://bordeaux.guix.gnu.org'... 100.0%
+substitute: updating substitutes from 'https://build.pantherx.org'... 100.0%
+242.6 MB will be downloaded
+ usb-modeswitch-data-20191128  19KiB
+ ...
+guix system: bootloader successfully installed on '/dev/sda'
 ```
 
 ## Reboot
 
-After completion, you may boot into your new system with `reboot`.
+After completion, `reboot`.
+
+_Tip: SSH is disabled by default on Desktop so you won't be able to reconnect after reboot without enabling it first_
 
 ## Post-installation
 
-To proceed, it's best you login with _root_.
+You should be greeted with a login screen, but you won't be able to login yet.
 
-### Root password
+1. Switch to another TTY with STRG + ALT + F1
+2. Login (press enter)
+3. Set a root password with `passwd`
+4. Set a user password with `passwd YOUR_USERNAME`
 
-Set the _root_ password with:
+Now you can switch back to TTY with STRG + ALT +F7
 
-```bash
-$ passwd
-```
-
-### User password
-
-Set the _username_ password with:
-
-```bash
-$ passwd username
-```
-
-### Update the system
-
-It's good practice to update the system now:
-
-```bash
-$ guix pull
-```
-
-This will download the latest package definitions, and update _guix_ itself. To apply the update, do:
-
-```bash
-$ guix system reconfigure /etc/system-config.scm
-```
-
-Once that has completed, restart your system:
-
-```bash
-$ reboot
-```
-
-After rebooting, you can list your system generations with:
-
-```bash
-$ guix system list-generations
-```
-
-After a fresh installation, and first update, you should see 2 generations, similar to this:
-
-```bash
-Generation 1	Dec 07 2018 23:20:14
-  file name: /var/guix/profiles/system-1-link
-  canonical file name: /gnu/store/sfk9hvzlxppgbkp1rql1d9r7gv3zrj4a-system
-  label: GNU with Linux-Libre 4.19.6 (beta)
-  bootloader: grub
-  root device: label: "my-root"
-  kernel: /gnu/store/0zajbn9q39yva4l0zzrcshlll8qikzba-linux-libre-4.19.6/bzImage
-Generation 2	Dec 08 2018 11:36:15
-  file name: /var/guix/profiles/system-2-link
-  canonical file name: /gnu/store/5q7i7wg2smfyfkzdkgi0na2xl8c6yz21-system
-  label: GNU with Linux-Libre 4.19.6 (beta)
-  bootloader: grub
-  root device: label: "my-root"
-  kernel: /gnu/store/0zajbn9q39yva4l0zzrcshlll8qikzba-linux-libre-4.19.6/bzImage
-```
-
-Every time you make a change to your system configuration, with `guix system reconfigure ...`, a new system generation will be initiated. If anything ever goes wrong, you can roll-back to a previous generation _1_ with:
-
-```bash
-$ guix system switch-generation 1
-```
-
-This _switch_ is also available trough _grub_, so you can roll-back, without command line access.
+By the way, good to remember this! If you desktop ever becomes unresponsive, you can always try STRG + ALT + F1, login and `reboot` - or do whatever you have to.
 
 ## Miscellaneous Notes:
 
