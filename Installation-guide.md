@@ -379,6 +379,8 @@ _Tip: SSH is disabled by default on Desktop so you won't be able to reconnect af
 
 ## Post-installation
 
+### Set a user and root password
+
 You should be greeted with a login screen, but you won't be able to login yet.
 
 1. Switch to another TTY with STRG + ALT + F1
@@ -390,47 +392,30 @@ Now you can switch back to TTY with STRG + ALT +F7
 
 By the way, good to remember this! If you desktop ever becomes unresponsive, you can always try STRG + ALT + F1, login and `reboot` - or do whatever you have to.
 
-## Miscellaneous Notes:
+### First login:
 
-### Dual Boot
+Once you login for the first time, there's a couple of things to be aware of.
 
-in order to have dual boot on PantherX, we need to add menu entries for other
-operating systems to `bootloader` section of system configuration:
+#### (1) Syncthing
 
-```scheme
-(bootloader (bootloader-configuration
-              ...
-              (menu-entries
-                (list (menu-entry
-                        (label "Arch Linux")
-                          (linux "/path/to/vmlinuz-linux")          ; path to vmlinuz-linux, in target partition
-                          (linux-arguments '("root=/dev/sdaX"))     ; target partition that tartget os files are located in
-                          (initrd "/path/to/initramfs-linux.img"))  ; path to initrd image in target partition
-                      ...
-                      ))))
-```
+You will be promted to setup Syncthing, a powerful, decentralized file sharing utility that will replace your Dropbox account by tomorrow.
 
-**Note:** since PantherX linux image and initrd is stored inside *store* and automatically
-managed by `guix system`, so for now PantherX should be responsible for management.
+1. Open the Settings
+2. Go to "Tray" (left sidebar) and look for the tab "Connection"
+3. Click "Insert values from local Syncthing configuration" and confirm with "Apply"
 
-[reference](https://guix.gnu.org/manual/en/html_node/Bootloader-Configuration.html)
+Whenever you want to activate Syncthing, just click on the traybar icon (greyed out circle) and click "Continue".
 
-### Touchpad Tap to click Activation
+#### (2) Albert
 
-To activation tap to click you can add an extra config to `xorg-configuration` in `sddm-service-type` part:
+Albert is an incredibly useful utility that not only helps you launch apps, but does calculations, plays music - really whatever you want.
 
-```scheme
-         (service sddm-service-type
-             (sddm-configuration
-               (minimum-uid 1000)
-               (theme "darkine")
-               (xorg-configuration
-                 (xorg-configuration
-                   (extra-config `("Section \"InputClass\"\n"
-                                   "   Identifier \"touchpad\"\n"
-                                   "   Driver \"libinput\"\n"
-                                   "   MatchIsTouchpad \"on\"\n"
-                                   "   Option \"Tapping\" \"on\"\n"
-                                   "EndSection\n"
-                                   "\n"))))))
-```
+#### (3) PantherX Hub
+
+If you want to use Hub, you need to setup a account first.
+
+1. Open the Menu
+2. Go to Preferences > Online Accounts
+3. Add a account
+
+Hub currently supports GitLab, GitHub, ClawsMail (Email) and Mastodon. This list will expand in the coming months.
