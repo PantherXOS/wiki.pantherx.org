@@ -24,6 +24,11 @@ lsblk
 
 Before you get started, ready a USB stick with the latest ISO image.
 
+1. Download [pantherx-1.3.0-5.456b36b-image.iso.tar.gz](https://s3.eu-central-1.amazonaws.com/temp.pantherx.org/pantherx-1.3.0-5.456b36b-image.iso.tar.gz) (s3.eu-central-1.amazonaws.com)
+2. Extract the ISO
+
+#### Flash with dd
+
 Plugin the USB stick and determine the name:
 
 ```bash
@@ -52,9 +57,13 @@ Password:
 $ sync
 ```
 
-Now just plugin the USB stick into the target computer, and boot from it. Most commonly, you can select to boot from it with `F11`.
+#### Flash with etcher
+
+If you prefer a GUI tool that runs on your existing OS (Windows, MacOS, other Linux), have a look at [etcher](https://github.com/balena-io/etcher/releases).
 
 ### First steps
+
+Now just plugin the USB stick into the target computer, and boot from it. Most commonly, you can get a boot device selection with `F11`.
 
 Once you have booted from USB, you will be greeted with "Locale language" selection.
 
@@ -178,7 +187,29 @@ In this case, `sda` will be out target disk.
 
 #### BIOS-Boot (OPTION 1)
 
-TODO
+Let's partition
+
+```bash
+cfdisk /dev/sda
+```
+
+1. Create a boot partition with the capacity of `2M` and `BIOS Boot` type
+2. Create a system partition with the capacity of whatever is remaining (`59.4G`) and `Linux filesystem` (Default)
+
+Make sure that it looks roughly like this:
+
+```
+Device			Start			End				Sectors			Size 		Type
+/dev/sda1       2048            6143          	4096          	2M 			BIOS boot
+/dev/sda2   	6144          	125045390       125039246       59.4G 		Linux filesystem
+```
+
+
+Next, format the second partitions:
+
+```bash
+mkfs.ext4 -L my-root /dev/sda2
+```
 
 #### EFI-Boot (OPTION 2)
 
@@ -291,6 +322,14 @@ You can ignore the other settings for now.
 
 ```scheme
 {% include config-examples/base-desktop.scm %}
+```
+
+---
+
+Here's an example with Docker service:
+
+```scheme
+{% include config-examples/base-desktop-docker.scm %}
 ```
 
 #### System configuration EFI-boot (OPTION 2)
@@ -408,7 +447,7 @@ Whenever you want to activate Syncthing, just click on the traybar icon (greyed 
 
 #### (2) Albert
 
-Albert is an incredibly useful utility that not only helps you launch apps, but does calculations, plays music - really whatever you want.
+You will be promted to setup Albert; it's an incredibly useful utility that not only helps you launch apps, but does calculations, plays music - really whatever you want.
 
 #### (3) PantherX Hub
 
@@ -419,3 +458,19 @@ If you want to use Hub, you need to setup a account first.
 3. Add a account
 
 Hub currently supports GitLab, GitHub, ClawsMail (Email) and Mastodon. This list will expand in the coming months.
+
+## Get Help
+
+This is a beta release, so please keep a few things in mind:
+
+- We do not accept bug reports at this time
+- We do not provide support except for occasional forum comments
+- We try to release updates on a weekly basis
+
+With that being said, we are working exclusively on PantherX OS and I myself do virtually everything on the system without any major issues. In fact, after years on MacOS and the months on various other Linux distributions, I have found PantherX to be much more reliable. If you do ever run into any issues after an update, simply reboot and roll-back your system in literally 1 second.
+
+Have a great time on PantherX OS
+
+### Forum
+
+We encourage you to look around the Wiki and go to [community.pantherx.org](https://community.pantherx.org/) to seek help from the community.

@@ -1,10 +1,6 @@
 (use-modules (gnu)
              (gnu system)
-			 (gnu packages emacs)
              (px system))
-
-(use-service-modules docker)
-(use-package-modules emacs tmux)
 
 (px-desktop-os
  (operating-system
@@ -40,10 +36,10 @@
                %base-user-accounts))
 
   ;; Globally-installed packages.
-  (packages (cons* emacs
+  (packages (cons*
    %px-desktop-packages))
 
   ;; Services
-  (services (cons* (service docker-service-type)
+  (services (cons*
    %px-desktop-services))
   ))

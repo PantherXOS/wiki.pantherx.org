@@ -2,28 +2,25 @@
              (gnu system)
              (px system))
 
+(use-service-modules docker)
+
 (px-desktop-os
  (operating-system
   (host-name "px-base")
   (timezone "Europe/Berlin")
   (locale "en_US.utf8")
 
-  ;; Boot in EFI mode, assuming /dev/sda is the
+  ;; Boot in "legacy" BIOS mode, assuming /dev/sda is the
   ;; target hard disk, and "my-root" is the label of the target
   ;; root file system.
   (bootloader (bootloader-configuration
-               (bootloader grub-efi-bootloader)
-               (target "/boot/efi")))
+               (bootloader grub-bootloader)
+               (target "/dev/sda")))
        
-  (file-systems (append
-		(list (file-system
+  (file-systems (cons (file-system
                        (device (file-system-label "my-root"))
                        (mount-point "/")
                        (type "ext4"))
-					  (file-system
-					   (device "/dev/sda1")
-					   (mount-point "/boot/efi")
-					   (type "vfat")))
                       %base-file-systems))
 
   (users (cons (user-account
@@ -34,9 +31,10 @@
                 ;; Adding the account to the "wheel" group
                 ;; makes it a sudoer.  Adding it to "audio"
                 ;; and "video" allows the user to play sound
-                ;; and access the webcam.
+                ;; and access the webcam. Adding it to "docker"
+				;; allows docker deamon access
                 (supplementary-groups '("wheel"
-                                        "audio" "video"))
+                                        "audio" "video" "docker"))
                 (home-directory "/home/panther"))
                %base-user-accounts))
 
@@ -45,6 +43,6 @@
    %px-desktop-packages))
 
   ;; Services
-  (services (cons*
+  (services (cons* (service docker-service-type)
    %px-desktop-services))
   ))
