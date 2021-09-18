@@ -18,6 +18,7 @@ px-base-os
 This provides the default desktop environment.
 
 - Non-libre kernel
+- SSH login is disabled
 
 ```
 px-desktop-os
@@ -34,6 +35,7 @@ px-desktop-os
 This provides the default desktop environment with non-libre components stipped.
 
 - Libre kernel
+- SSH login is disabled
 
 ```
 px-libre-desktop-os
@@ -46,6 +48,8 @@ px-libre-desktop-os
 This provides the default server environment.
 
 - Libre kernel
+- SSH login is enabled (only with private key)
+- DHCP
 
 ```scheme
 px-server-os

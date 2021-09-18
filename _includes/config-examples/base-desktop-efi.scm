@@ -16,15 +16,15 @@
                (target "/boot/efi")))
        
   (file-systems (append
-		(list (file-system
-                       (device (file-system-label "my-root"))
-                       (mount-point "/")
-                       (type "ext4"))
-					  (file-system
-					   (device "/dev/sda1")
-					   (mount-point "/boot/efi")
-					   (type "vfat")))
-                      %base-file-systems))
+        (list (file-system
+                (device (file-system-label "my-root"))
+                (mount-point "/")
+                (type "ext4"))
+              (file-system
+                (device "/dev/sda1")
+                (mount-point "/boot/efi")
+                (type "vfat")))
+              %base-file-systems))
 
   (users (cons (user-account
                 (name "panther")
