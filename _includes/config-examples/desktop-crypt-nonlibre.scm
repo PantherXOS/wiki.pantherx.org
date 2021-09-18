@@ -20,7 +20,7 @@
 
   (bootloader (bootloader-configuration
    				(bootloader grub-efi-bootloader)
-   				(target "/boot/efi")))
+   				(targets '("/boot/efi"))))
 
   ;; Encrypted partition
   (mapped-devices
