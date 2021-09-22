@@ -470,7 +470,22 @@ By the way, good to remember this! If you desktop ever becomes unresponsive, you
 
 Once you login for the first time, there's a couple of things to be aware of.
 
-#### (1) Syncthing
+#### (1) General
+
+We highly recommend you to run an initial update, before you get started.
+
+```bash
+px update apply # initial user update
+su - root
+px update apply # initial root updaye
+reboot
+```
+
+This will also ensure that you do not run into this issue: [Opening Folders from Directory Menu failed](https://wiki.pantherx.org/LXQt/)
+
+You can do 2, 3, 4 while you're waiting for the update to finish.
+
+#### (2) Syncthing
 
 You will be promted to setup Syncthing, a powerful, decentralized file sharing utility that will replace your Dropbox account by tomorrow.
 
@@ -480,11 +495,11 @@ You will be promted to setup Syncthing, a powerful, decentralized file sharing u
 
 Whenever you want to activate Syncthing, just click on the traybar icon (greyed out circle) and click "Continue".
 
-#### (2) Albert
+#### (3) Albert
 
 You will be promted to setup Albert; it's an incredibly useful utility that not only helps you launch apps, but does calculations, plays music - really whatever you want.
 
-#### (3) PantherX Hub
+#### (4) PantherX Hub
 
 If you want to use Hub, you need to setup a account first.
 
