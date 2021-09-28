@@ -359,14 +359,6 @@ You can ignore the other settings for now.
 {% include config-examples/base-desktop.scm %}
 ```
 
----
-
-Here's an example with Docker service:
-
-```scheme
-{% include config-examples/base-desktop-docker.scm %}
-```
-
 #### System configuration EFI-boot (OPTION 2)
 
 Create the file with:
@@ -390,7 +382,8 @@ Once you've set the system configuration, we put in place the channels in place.
 Create the file with:
 
 ```bash
-$ nano /mnt/etc/channels.scm
+$ mkdir /mnt/etc/guix
+$ nano /mnt/etc/guix/channels.scm
 ```
 
 with the following content:
@@ -417,7 +410,7 @@ Once you're satisfied with your configuration, proceed with the installation.
 First we'll pull the latest packages:
 
 ```bash
-$ guix pull --channels=/mnt/etc/channels.scm --disable-authentication
+$ guix pull --channels=/mnt/etc/guix/channels.scm --disable-authentication
 Updating channel 'guix' from Git repository at 'https://channels.pantherx.org/git/pantherx.git'...
 receiving objects  37% [####################################################################
 ...

@@ -1,7 +1,15 @@
+;; PantherX OS Desktop Configuration r2
+;; boot in "legacy" BIOS mode
+;; /etc/system.scm
+;;
+;; with Docker service
+
 (use-modules (gnu)
              (gnu system)
+             (px system install)
              (px system))
 
+;; Add the service module 'docker'
 (use-service-modules docker)
 
 (px-desktop-os
@@ -42,7 +50,7 @@
   (packages (cons*
    %px-desktop-packages))
 
-  ;; Services
+  ;; Globally-activated services.
   (services (cons* (service docker-service-type)
    %px-desktop-services))
   ))

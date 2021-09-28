@@ -1,5 +1,10 @@
+;; PantherX OS Desktop Configuration r2
+;; boot in "legacy" BIOS mode
+;; /etc/system.scm
+
 (use-modules (gnu)
              (gnu system)
+             (px system install)
              (px system))
 
 (px-desktop-os
@@ -39,7 +44,7 @@
   (packages (cons*
    %px-desktop-packages))
 
-  ;; Services
+  ;; Globally-activated services.
   (services (cons*
    %px-desktop-services))
   ))
