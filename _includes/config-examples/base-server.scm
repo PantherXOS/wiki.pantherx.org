@@ -1,4 +1,4 @@
-;; PantherX OS Server Configuration r2
+;; PantherX OS Server Configuration v2
 ;; boot in "legacy" BIOS mode
 ;; /etc/system.scm
 
@@ -33,6 +33,9 @@
                 (name "panther")
                 (comment "panther's account")
                 (group "users")
+                ;; Set the default password to 'pantherx'
+                ;; Important: Change with 'passwd panther' after first login
+                (password (crypt "pantherx" "$6$abc"))
 
                 ;; Adding the account to the "wheel" group
                 ;; makes it a sudoer.  Adding it to "audio"
@@ -50,5 +53,6 @@
   ;; Globally-activated services.
   (services (cons*
    %px-server-services)))
+
  #:open-ports '(("tcp" "ssh"))
  #:authorized-keys `(("root" ,(plain-file "panther.pub" %ssh-public-key))))

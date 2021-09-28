@@ -22,6 +22,8 @@ lsblk
 
 ## Pre-installation
 
+_Beta 3 will be available in early October 2021._
+
 Before you get started, ready a USB stick with the latest ISO image.
 
 1. Download [pantherx-1.3.0-5-2.456b36b-image.iso.tar.gz](https://temp.pantherx.org/pantherx-1.3.0-5-2.456b36b-image.iso.tar.gz) (Beta 2)
@@ -390,17 +392,17 @@ with the following content:
 
 ```scheme
 (list (channel
-        (name 'guix)
-        (url "https://channels.pantherx.org/git/pantherx.git")
-        (branch "rolling-nonlibre"))
+       (name 'guix)
+       (url "https://channels.pantherx.org/git/pantherx.git")
+       (branch "rolling-nonlibre"))
       (channel
-        (name 'nongnu)
-        (url "https://channels.pantherx.org/git/nongnu.git")
-        (branch "rolling"))
+       (name 'nongnu)
+       (url "https://channels.pantherx.org/git/nongnu.git")
+       (branch "rolling"))
       (channel
-        (name 'pantherx)
-        (url "https://channels.pantherx.org/git/pantherx-extra.git")
-        (branch "rolling")))
+       (name 'pantherx)
+       (url "https://channels.pantherx.org/git/pantherx-extra.git")
+       (branch "rolling")))
 ```
 
 ### Update and install
