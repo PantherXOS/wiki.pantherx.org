@@ -8,7 +8,7 @@ Here's an example:
 ```bash
 $ lsblk
 NAME          MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
-sda             8:0    0 465.8G  0 disk  
+sda             8:0    0 465.8G  0 disk
 └─sda1          8:1    0 465.8G  0 part  /media/franz/4e619844-b92a-49bd-8b70-cf934abdc8eb
 ```
 
@@ -24,8 +24,14 @@ lsblk
 
 Before you get started, ready a USB stick with the latest ISO image.
 
-1. Download [pantherx-1.3.0-5.456b36b-image.iso.tar.gz](https://s3.eu-central-1.amazonaws.com/temp.pantherx.org/pantherx-1.3.0-5.456b36b-image.iso.tar.gz) (s3.eu-central-1.amazonaws.com)
+1. Download [pantherx-1.3.0-7.e9ca32e-image.iso.tar.gz](https://temp.pantherx.org/pantherx-1.3.0-7.e9ca32e-image.iso.tar.gz) (Beta 3)
 2. Extract the ISO
+
+On Linux you can use `tar`:
+
+```bash
+tar -xf pantherx-1.3.0-7.e9ca32e-image.iso.tar.gz
+```
 
 #### Flash with dd
 
@@ -34,27 +40,31 @@ Plugin the USB stick and determine the name:
 ```bash
 $ lsblk
 NAME          MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINT
-sda             8:0    0 465.8G  0 disk  
-└─sda1          8:1    0 465.8G  0 part  /media/franz/4e619844-b92a-49bd-8b70-cf934abdc8eb             
-sdb             8:16   1  14.9G  0 disk                                                                
-├─sdb1          8:17   1  14.9G  0 part                                                                
-└─sdb2          8:18   1   512K  0 part  /media/franz/UEFI_NTFS                                        
-nvme0n1       259:0    0 953.9G  0 disk                                                                
-├─nvme0n1p1   259:1    0   549M  0 part  /boot/efi                                                     
-└─nvme0n1p2   259:2    0 953.3G  0 part                                                                
+sda             8:0    1  14.9G  0 disk
+├─sda1          8:1    1     1G  0 part  /media/franz/GUIX_IMAGE
+└─sda2          8:2    1   2.8M  0 part
+nvme0n1       259:0    0 953.9G  0 disk
+├─nvme0n1p1   259:1    0   549M  0 part  /boot/efi
+└─nvme0n1p2   259:2    0 953.3G  0 part
   └─cryptroot 253:0    0 953.3G  0 crypt /
 ```
 
-In my case, it's `/dev/sdb`, so I proceed with copying the ISO to this drive:
+In my case, it's `/dev/sda`, so I proceed with copying the ISO to this drive:
 
 ```bash
-$ sudo dd if=pantherx-1.3.0-5.456b36b-image.iso of=/dev/sdb status=progress                                                                
-Password: 
-1090949632 bytes (1.1 GB, 1.0 GiB) copied, 270 s, 4.0 MB/s 
-2137076+0 records in
-2137076+0 records out
-1094182912 bytes (1.1 GB, 1.0 GiB) copied, 270.272 s, 4.0 MB/s
+$ sudo dd if=pantherx-1.3.0-7.e9ca32e-image.iso of=/dev/sda status=progress
+Password:
+1110499840 bytes (1.1 GB, 1.0 GiB) copied, 284 s, 3.9 MB/s
+2169320+0 records in
+2169320+0 records out
+1110691840 bytes (1.1 GB, 1.0 GiB) copied, 284.985 s, 3.9 MB/s
 $ sync
+```
+
+Now unmount / eject the drive:
+
+```
+sudo umount /dev/sda1
 ```
 
 #### Flash with etcher
@@ -67,8 +77,8 @@ Now just plugin the USB stick into the target computer, and boot from it. Most c
 
 Once you have booted from USB, you will be greeted with "Locale language" selection.
 
-1. Select the locale (English)
-2. Select the region (Ireland)
+1. Select your locale
+2. Select your region
 
 The graphical installation is not quite ready yet, so we'll proceed manually.
 
@@ -82,9 +92,32 @@ Here's how you verify whether you're connected:
 
 ```bash
 $ ifconfig -a
+eno1      Link encap:Ethernet  HWaddr A8:A1:59:5E:FB:D9
+          UP BROADCAST MULTICAST DYNAMIC  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0  TX bytes:0
+          Interrupt:16 Memory:a1200000-a1220000
+
+enp2s0    Link encap:Ethernet  HWaddr A8:A1:59:5E:FC:A0
+          inet addr:192.168.1.69  Bcast:192.168.1.255  Mask:255.255.255.0  # <-- valid IP
+          UP BROADCAST RUNNING MULTICAST DYNAMIC  MTU:1500  Metric:1
+          RX packets:71 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:104 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:12868  TX bytes:19744
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Bcast:0.0.0.0  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:19 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:19 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:3485  TX bytes:3485
 ```
 
-One of the listed interfaces, should have a valid IP address. For example `192.168.1.67`. If that's the case, you can proceed to the next step. If not, here's how you connect:
+One of the listed interfaces, should have a valid IP address. For example `192.168.1.69`. If that's the case, you can proceed to the next step. If not, here's how you connect:
 
 #### Wired Network (LAN)
 
@@ -176,10 +209,10 @@ Before you get started, make sure you target the right hard disk:
 ```bash
 $ lsblk
 NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sda      8:0    0 59.6G  0 disk 
-└─sda1   8:1    0 59.6G  0 part 
-sdb      8:16   1 14.9G  0 disk 
-├─sdb1   8:17   1    1G  0 part 
+sda      8:0    0 59.6G  0 disk
+└─sda1   8:1    0 59.6G  0 part
+sdb      8:16   1 14.9G  0 disk
+├─sdb1   8:17   1    1G  0 part
 └─sdb2   8:18   1  2.8M  0 part
 ```
 
@@ -203,7 +236,6 @@ Device			Start			End				Sectors			Size 		Type
 /dev/sda1       2048            6143          	4096          	2M 			BIOS boot
 /dev/sda2   	6144          	125045390       125039246       59.4G 		Linux filesystem
 ```
-
 
 Next, format the second partitions:
 
@@ -259,8 +291,9 @@ mount /dev/sda1 /boot/efi
 ### Mount the file systems
 
 ```bash
-$ mount LABEL=my-root /mnt
+mount LABEL=my-root /mnt
 ```
+
 ### Swap space
 
 This is somewhat optional but highly recommended. If your computer runs out of memory (RAM), it can utilize the swap space, to store the data. This is a 1000x times slower than RAM but will prevent your computer from locking-up.
@@ -304,6 +337,8 @@ Create the file with:
 $ nano /mnt/etc/system.scm
 ```
 
+_See Option 1 and 2 below._
+
 You'll need to modify some details:
 
 - `host-name` (px-base): This is what your computer will be called on the network
@@ -322,14 +357,6 @@ You can ignore the other settings for now.
 
 ```scheme
 {% include config-examples/base-desktop.scm %}
-```
-
----
-
-Here's an example with Docker service:
-
-```scheme
-{% include config-examples/base-desktop-docker.scm %}
 ```
 
 #### System configuration EFI-boot (OPTION 2)
@@ -355,24 +382,25 @@ Once you've set the system configuration, we put in place the channels in place.
 Create the file with:
 
 ```bash
-$ nano /mnt/etc/channels.scm
+$ mkdir /mnt/etc/guix
+$ nano /mnt/etc/guix/channels.scm
 ```
 
 with the following content:
 
 ```scheme
 (list (channel
-        (name 'guix)
-        (url "https://channels.pantherx.org/git/pantherx.git")
-        (branch "rolling-nonlibre"))
+       (name 'guix)
+       (url "https://channels.pantherx.org/git/pantherx.git")
+       (branch "rolling-nonlibre"))
       (channel
-        (name 'nongnu)
-        (url "https://channels.pantherx.org/git/nongnu.git")
-        (branch "rolling"))
+       (name 'nongnu)
+       (url "https://channels.pantherx.org/git/nongnu.git")
+       (branch "rolling"))
       (channel
-        (name 'pantherx)
-        (url "https://channels.pantherx.org/git/pantherx-extra.git")
-        (branch "rolling")))
+       (name 'pantherx)
+       (url "https://channels.pantherx.org/git/pantherx-extra.git")
+       (branch "rolling")))
 ```
 
 ### Update and install
@@ -382,14 +410,14 @@ Once you're satisfied with your configuration, proceed with the installation.
 First we'll pull the latest packages:
 
 ```bash
-$ guix pull --channels=/mnt/etc/channels.scm --disable-authentication
+$ guix pull --channels=/mnt/etc/guix/channels.scm --disable-authentication
 Updating channel 'guix' from Git repository at 'https://channels.pantherx.org/git/pantherx.git'...
-receiving objects  37% [#################################################################### 
+receiving objects  37% [####################################################################
 ...
 hint: After setting `PATH', run `hash guix' to make sure your shell refers to `/root/.config/guix/current/bin/guix'.
 ```
 
-_Initial pull requires `--disable-authentication` to be set. We are working on a solution to rectify the problem. Subsequent pulls, do not require this.
+_Initial pull requires `--disable-authentication` to be set. We are working on a solution to rectify the problem. Subsequent pulls, do not require this._
 
 Lastly, run:
 
@@ -418,24 +446,29 @@ _Tip: SSH is disabled by default on Desktop so you won't be able to reconnect af
 
 ## Post-installation
 
-### Set a user and root password
-
-You should be greeted with a login screen, but you won't be able to login yet.
-
-1. Switch to another TTY with STRG + ALT + F1
-2. Login (press enter)
-3. Set a root password with `passwd`
-4. Set a user password with `passwd YOUR_USERNAME`
-
-Now you can switch back to TTY with STRG + ALT +F7
-
-By the way, good to remember this! If you desktop ever becomes unresponsive, you can always try STRG + ALT + F1, login and `reboot` - or do whatever you have to.
-
 ### First login:
 
 Once you login for the first time, there's a couple of things to be aware of.
 
-#### (1) Syncthing
+#### (1) General
+
+We highly recommend you to run an initial update, before you get started.
+
+1. Open 'System Tools' > 'Terminal'
+2. Apply both user and system updates
+
+```bash
+px update apply # initial user update
+su - root
+px update apply # initial root updaye
+reboot
+```
+
+This will also ensure that you do not run into this issue: [Opening Folders from Directory Menu failed](https://wiki.pantherx.org/LXQt/)
+
+You can take care of 2, 3, 4 while you're waiting for the update to finish.
+
+#### (2) Syncthing
 
 You will be promted to setup Syncthing, a powerful, decentralized file sharing utility that will replace your Dropbox account by tomorrow.
 
@@ -445,19 +478,24 @@ You will be promted to setup Syncthing, a powerful, decentralized file sharing u
 
 Whenever you want to activate Syncthing, just click on the traybar icon (greyed out circle) and click "Continue".
 
-#### (2) Albert
+#### (3) Albert
 
 You will be promted to setup Albert; it's an incredibly useful utility that not only helps you launch apps, but does calculations, plays music - really whatever you want.
 
-#### (3) PantherX Hub
+#### (4) PantherX Hub
 
 If you want to use Hub, you need to setup a account first.
 
-1. Open the Menu
-2. Go to Preferences > Online Accounts
-3. Add a account
+1. Open 'Settings' > 'Online Accounts'
+2. Add a account
 
 Hub currently supports GitLab, GitHub, ClawsMail (Email) and Mastodon. This list will expand in the coming months.
+
+#### (5) Set new user and root password
+
+1. Open 'System Tools' > 'Terminal'
+2. Set a root password with `sudo passwd`
+3. Set a user password with `passwd YOUR_USERNAME`
 
 ## Get Help
 
@@ -465,11 +503,11 @@ This is a beta release, so please keep a few things in mind:
 
 - We do not accept bug reports at this time
 - We do not provide support except for occasional forum comments
-- We try to release updates on a weekly basis
+- We try to release updates on a 2-week basis
 
 With that being said, we are working exclusively on PantherX OS and I myself do virtually everything on the system without any major issues. In fact, after years on MacOS and the months on various other Linux distributions, I have found PantherX to be much more reliable. If you do ever run into any issues after an update, simply reboot and roll-back your system in literally 1 second.
 
-Have a great time on PantherX OS
+**Have a great time on PantherX OS**
 
 ### Forum
 
