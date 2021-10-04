@@ -8,7 +8,11 @@
 	{% if site.type == 'web' %}
 	<link rel="stylesheet" href="/assets/css/custom.min.css">
 	{% else %}
+	{% if page.path == "index.html" %}
 	<link rel="stylesheet" href="./assets/css/custom.min.css">
+	{% else %}
+	<link rel="stylesheet" href="../assets/css/custom.min.css">
+	{% endif %}
 	{% endif %}
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 </head>
