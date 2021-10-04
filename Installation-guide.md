@@ -22,17 +22,15 @@ lsblk
 
 ## Pre-installation
 
-_Beta 3 will be available in early October 2021._
-
 Before you get started, ready a USB stick with the latest ISO image.
 
-1. Download [pantherx-1.3.0-5-2.456b36b-image.iso.tar.gz](https://temp.pantherx.org/pantherx-1.3.0-5-2.456b36b-image.iso.tar.gz) (Beta 2)
+1. Download [pantherx-1.3.0-7.e9ca32e-image.iso.tar.gz](https://temp.pantherx.org/pantherx-1.3.0-7.e9ca32e-image.iso.tar.gz) (Beta 3)
 2. Extract the ISO
 
 On Linux you can use `tar`:
 
 ```bash
-tar -xf pantherx-1.3.0-5-2.456b36b-image.iso.tar.gz
+tar -xf pantherx-1.3.0-7.e9ca32e-image.iso.tar.gz
 ```
 
 #### Flash with dd
@@ -54,7 +52,7 @@ nvme0n1       259:0    0 953.9G  0 disk
 In my case, it's `/dev/sda`, so I proceed with copying the ISO to this drive:
 
 ```bash
-$ sudo dd if=pantherx-1.3.0-5-2.456b36b-image.iso of=/dev/sda status=progress
+$ sudo dd if=pantherx-1.3.0-7.e9ca32e-image.iso of=/dev/sda status=progress
 Password:
 1110499840 bytes (1.1 GB, 1.0 GiB) copied, 284 s, 3.9 MB/s
 2169320+0 records in
@@ -448,19 +446,6 @@ _Tip: SSH is disabled by default on Desktop so you won't be able to reconnect af
 
 ## Post-installation
 
-### Set a user and root password
-
-You should be greeted with a login screen, but you won't be able to login yet.
-
-1. Switch to another TTY with STRG + ALT + F1
-2. Login (press enter)
-3. Set a root password with `passwd`
-4. Set a user password with `passwd YOUR_USERNAME`
-
-Now you can switch back to TTY with STRG + ALT +F7
-
-By the way, good to remember this! If you desktop ever becomes unresponsive, you can always try STRG + ALT + F1, login and `reboot` - or do whatever you have to.
-
 ### First login:
 
 Once you login for the first time, there's a couple of things to be aware of.
@@ -468,6 +453,9 @@ Once you login for the first time, there's a couple of things to be aware of.
 #### (1) General
 
 We highly recommend you to run an initial update, before you get started.
+
+1. Open 'System Tools' > 'Terminal'
+2. Apply both user and system updates
 
 ```bash
 px update apply # initial user update
@@ -478,7 +466,7 @@ reboot
 
 This will also ensure that you do not run into this issue: [Opening Folders from Directory Menu failed](https://wiki.pantherx.org/LXQt/)
 
-You can do 2, 3, 4 while you're waiting for the update to finish.
+You can take care of 2, 3, 4 while you're waiting for the update to finish.
 
 #### (2) Syncthing
 
@@ -498,11 +486,16 @@ You will be promted to setup Albert; it's an incredibly useful utility that not 
 
 If you want to use Hub, you need to setup a account first.
 
-1. Open the Menu
-2. Go to Preferences > Online Accounts
-3. Add a account
+1. Open 'Settings' > 'Online Accounts'
+2. Add a account
 
 Hub currently supports GitLab, GitHub, ClawsMail (Email) and Mastodon. This list will expand in the coming months.
+
+#### (5) Set new user and root password
+
+1. Open 'System Tools' > 'Terminal'
+2. Set a root password with `sudo passwd`
+3. Set a user password with `passwd YOUR_USERNAME`
 
 ## Get Help
 
@@ -510,11 +503,11 @@ This is a beta release, so please keep a few things in mind:
 
 - We do not accept bug reports at this time
 - We do not provide support except for occasional forum comments
-- We try to release updates on a weekly basis
+- We try to release updates on a 2-week basis
 
 With that being said, we are working exclusively on PantherX OS and I myself do virtually everything on the system without any major issues. In fact, after years on MacOS and the months on various other Linux distributions, I have found PantherX to be much more reliable. If you do ever run into any issues after an update, simply reboot and roll-back your system in literally 1 second.
 
-Have a great time on PantherX OS
+**Have a great time on PantherX OS**
 
 ### Forum
 
