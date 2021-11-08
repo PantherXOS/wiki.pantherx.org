@@ -24,9 +24,10 @@ On the other hand, _PantherX_ has some _Build Systems_ for _C/C++_ packages:
 
 1. `gnu-build-system` : `configure & make & make install`.
 2. `cmake-build-system` : `cmake & make & make install`.
-3. `trivial-build-system` : Every thing should be defined in the package definition.
+3. `qt-build-system` : `qmake & make & make install`.
+4. `trivial-build-system` : Every thing should be defined in the package definition.
 
-With above descriptions, for packaging a _Qt Application_ For _PantherX_ we should select _1._ or _2._ and customize/replace some steps in guix build system.
+With above descriptions, for packaging a _Qt Application_ For _PantherX_ we should select _1._, _2._ or _3._ and customize/replace some steps in guix build system.
 
 ## PantherX Specifics
 
@@ -61,8 +62,39 @@ instead of `$INSTALL_ROOT/usr`.
      )))
 ```
 
-## Examples
+### Examples
 
 1. `qpdfview` - [Package Link](https://git.pantherx.org/development/guix-pantherx/blob/master/px/packages/document.scm#L28)
 2. `qview` - [Package Link](https://git.pantherx.org/development/pantherx/blob/px-development-stable-v1/gnu/packages/image-viewers.scm#L454)
 
+
+## Packaging the applications with QtWebEngine as dependency
+
+If you developed one application which is using the `QtWebEngine` library, you should update the path of `QtWebEngineProcess` in the package definition, like the example:
+
+
+```scheme
+...
+      (arguments
+        `(#:phases
+          (modify-phases %standard-phases
+            (add-after 'install 'wrap
+              ;; The program fails to find the QtWebEngineProcess program,
+              ;; so we set QTWEBENGINEPROCESS_PATH to help it.
+              (lambda* (#:key inputs outputs #:allow-other-keys)
+                (let ((bin (string-append (assoc-ref outputs "out") "/bin"))
+                      (qtwebengineprocess (string-append
+                                            (assoc-ref inputs "qtwebengine")
+                                            "/lib/qt5/libexec/QtWebEngineProcess")))
+                  (for-each (lambda (program)
+                              (wrap-program program
+                                `("QTWEBENGINEPROCESS_PATH" =
+                                  (,qtwebengineprocess))))
+                            (find-files bin ".*")))
+                #t)))))
+...
+```
+
+### Examples
+
+You can find many examples in upstream. It's enough to search `qtwebengine` in upstream guix package repository.
