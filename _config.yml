@@ -2,6 +2,7 @@ title: PantherX Wiki
 description:
 baseurl: ""
 url: ""
+assets: "/assets"
 
 type: web
 

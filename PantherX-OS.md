@@ -1,7 +1,7 @@
 ---
 ---
 
-![PantherX Desktop](/assets/images/px-desktop.jpg)
+![PantherX Desktop]({{ site.assets }}/images/px-desktop.jpg)
 
 ## Principles
 
