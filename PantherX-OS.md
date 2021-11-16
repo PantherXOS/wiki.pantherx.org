@@ -1,8 +1,6 @@
 ---
 ---
 
-![PantherX Desktop]({{ site.assets }}/images/px-desktop.jpg)
-
 ## Principles
 
 ### Simplicity
@@ -28,3 +26,13 @@
 ### Versatility
 
 - Easy to reconfigure the entire system, based on a single configuration
+
+## Screenshots
+
+**Desktop: Beta 4 (2021)**
+
+![PantherX Desktop]({{ site.assets }}/images/px-desktop-nov-2021.jpg)
+
+**Desktop: Final release (planned for fall 2022)**
+
+![PantherX Desktop]({{ site.assets }}/images/px-desktop.jpg)
