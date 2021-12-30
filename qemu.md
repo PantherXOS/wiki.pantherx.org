@@ -3,11 +3,11 @@ namespace: qemu
 description: "QEMU is a free and open-source emulator and virtualizer that can perform hardware virtualization."
 description-source: "https://en.wikipedia.org/wiki/QEMU"
 categories:
- - type:
-   - "Application"
- - location:
-   - "Development"
-   - "Virtualization"
+  - type:
+      - "Application"
+  - location:
+      - "Development"
+      - "Virtualization"
 language: en
 ---
 
@@ -15,106 +15,6 @@ language: en
 
 ```bash
 $ guix package -i qemu
-```
-
-## Create a (Debian) virtual machine
-
-### Create disk
-
-Before we get started, we need some sort of disk, to store our data:
-
-- `qcow` is a sparse bundle format that grows as you fill it
-- `8GB` is the (maximum) size
-
-```bash
-$ qemu-img create -f qcow2 debian.qcow 8G
-```
-
-### Boot from ISO
-
-We also need a ISO to boot and install from:
-
-```bash
-$ wget https://cdimage.debian.org/cdimage/release/10.5.0/amd64/iso-cd/debian-10.5.0-amd64-netinst.iso
-```
-
-Now we can boot qemu with the sparse bundle (HDD) and ISO attached:
-
-- `-m 512` is the assigned RAM in Megabyte (512 MB)
-
-```bash
-$ qemu-system-x86_64 -hda debian.qcow -cdrom debian-10.5.0-amd64-netinst.iso -boot d -m 512
-```
-
-Install and configure as desired. For this guide, we assume user `root` and `panther`.
-
-After the installation has completed, shutdown the virtual machine.
-
-### Boot from HDD after install
-
-```bash
-$ qemu-system-x86_64 -hda debian.qcow -m 1024
-```
-
-### Mount a shared folder
-
-You essentially boot the VM, with the shared folder "attached". if your VM is already booted, shutdown first.
-
-```bash
--virtfs local,path=$QEMU_SHARE,mount_tag=host0,security_model=none,id=host0
-```
-
-This is what it looks like:
-
-```
-$ export QEMU_SHARE=/home/franz/shared_folder
-$ qemu-system-x86_64 -hda debian.qcow -m 1024 -virtfs local,path=$QEMU_SHARE,mount_tag=host0,security_model=none,id=host0
-```
-
-Now that Debian is running...
-
-Login as panther and create the shared folder:
-
-```bash
-$ mkdir shared
-```
-
-and mount it:
-
-```bash
-$ sudo mount -t 9p -o trans=virtio,cache=none,rw host0 /home/panther/shared -oversion=9p2000.L -oaccess=user
-```
-
-_If you don't have `sudo` installed, you can also login as root with `su - root`.
-
-### Mount a shared folder via samba
-
-Only you should add `-net nic -net user,smb=shared_folder_path` option to `qemu-system-x86_64/qemu-system-i386` cli. So:
-
-```bash
-$ qemu-system-x86_64 ubuntu -m 6144 -enable-kvm -net nic -net user,smb=/home/panther/shared
-```
-
-* You should installed `samba` already on the host.
-* Install `cifs-utils` in your QEMU VM.
-
-```bash
-sudo apt install cifs-utils
-```
-
-* mount in your QEMU VM.
-
-```bash
-mount -t cifs //10.0.2.4/qemu/ /mnt/
-```
-
-### Port forwarding
-
-This is especially useful to access the virtual machine SSH, or any running application.
-
-```bash
--device e1000,netdev=net0 \
--netdev user,id=net0,hostfwd=tcp::2222-:22 \
 ```
 
 ### More performance using KVM
@@ -152,11 +52,112 @@ Now you can:
 $ qemu-system-x86_64 -enable-kvm
 ```
 
+## Create a (PantherX) virtual machine
+
+### Create disk
+
+Before we get started, we need some sort of disk, to store our data:
+
+- `qcow` is a sparse bundle format that grows as you fill it
+- `8GB` is the (maximum) size
+
+```bash
+$ qemu-img create -f qcow2 pantherx.qcow 8G -enable-kvm
+```
+
+### Boot from ISO
+
+We also need a ISO to boot and install from:
+
+```bash
+$ wget https://temp.pantherx.org/pantherx-1.3.0-11.134d005-image.iso.tar.gz
+tar -xf pantherx-1.3.0-11.134d005-image.iso.tar.gz
+```
+
+Now we can boot qemu with the sparse bundle (HDD) and ISO attached:
+
+- `-m 2048` is the assigned RAM in Megabyte (1024 MB)
+
+```bash
+$ qemu-system-x86_64 -hda pantherx.qcow -cdrom pantherx-1.3.0-11.134d005-image.iso -boot d -m 2048 -enable-kvm
+```
+
+Install and configure as desired. For this guide, we assume user `root` and `panther`.
+
+After the installation has completed, shutdown the virtual machine.
+
+### Boot from HDD after install
+
+```bash
+$ qemu-system-x86_64 -hda pantherx.qcow -m 1024 -enable-kvm
+```
+
+### Mount a shared folder
+
+You essentially boot the VM, with the shared folder "attached". if your VM is already booted, shutdown first.
+
+```bash
+-virtfs local,path=$QEMU_SHARE,mount_tag=host0,security_model=none,id=host0
+```
+
+This is what it looks like:
+
+```
+$ export QEMU_SHARE=/home/franz/shared_folder
+$ qemu-system-x86_64 -hda pantherx.qcow -m 1024 -virtfs local,path=$QEMU_SHARE,mount_tag=host0,security_model=none,id=host0 -enable-kvm
+```
+
+Now that Debian is running...
+
+Login as panther and create the shared folder:
+
+```bash
+$ mkdir shared
+```
+
+and mount it:
+
+```bash
+$ sudo mount -t 9p -o trans=virtio,cache=none,rw host0 /home/panther/shared -oversion=9p2000.L -oaccess=user
+```
+
+\_If you don't have `sudo` installed, you can also login as root with `su - root`.
+
+### Mount a shared folder via samba
+
+Only you should add `-net nic -net user,smb=shared_folder_path` option to `qemu-system-x86_64/qemu-system-i386` cli. So:
+
+```bash
+$ qemu-system-x86_64 ubuntu -m 6144 -enable-kvm -net nic -net user,smb=/home/panther/shared
+```
+
+- You should installed `samba` already on the host.
+- Install `cifs-utils` in your QEMU VM.
+
+```bash
+sudo apt install cifs-utils
+```
+
+- mount in your QEMU VM.
+
+```bash
+mount -t cifs //10.0.2.4/qemu/ /mnt/
+```
+
+### Port forwarding
+
+This is especially useful to access the virtual machine SSH, or any running application.
+
+```bash
+-device e1000,netdev=net0 \
+-netdev user,id=net0,hostfwd=tcp::2222-:22 \
+```
+
 ### Attach USB device
 
 It's easy to attach almost any USB device to qemu, including card readers, cameras, phones and hard disks. This is especially useful to work with legacy Windows tools.
 
-1) Find the desired device parameter:
+1. Find the desired device parameter:
 
 ```bash
 $ lsusb
@@ -168,7 +169,7 @@ Bus 001 Device 011: ID 072f:b100 Advanced Card Systems, Ltd ACR39U <----
 ...
 ```
 
-2) Now that we have the device name, we simply append that to our qemu start command. Note `Bus 001` becomes `hostbus=1` and `Device 011` becomes `hostaddr=11`.
+2. Now that we have the device name, we simply append that to our qemu start command. Note `Bus 001` becomes `hostbus=1` and `Device 011` becomes `hostaddr=11`.
 
 ```bash
 -usb -device usb-host,hostbus=1,hostaddr=11
@@ -238,7 +239,7 @@ In this case, we'd run Jekyll inside the VM. Here's what this will look like:
 - SSH port `22` forwarded to `2222` for easy `ssh -p 2222 panther@127.0.0.1`
 - Point your browser to `127.0.0.1:4000` to see the result
 
-Tip: You will have to run your application on `0.0.0.0`. 
+Tip: You will have to run your application on `0.0.0.0`.
 With jekyll, you can do `jekyll --host 0.0.0.0`.
 For jekyll, you might also have to add `--force_polling` for your changes to get picked-up since inotify doesn't work trough p9.
 
