@@ -42,7 +42,7 @@ function SERVE_PROJECT_DESKTOP {
 while true; do
   clear
   cat << _EOF_
-Welcome to Jekyll Manager v0.0.7
+Welcome to Jekyll Manager v0.0.8
 
 Please select:
 
@@ -54,7 +54,7 @@ Please select:
 
 _EOF_
 
-  read -p "Enter selection [0-3] > "
+  read -p "Enter selection [0-4] > "
 
   if [[ $REPLY =~ ^[0-5]$ ]]; then
     case $REPLY in

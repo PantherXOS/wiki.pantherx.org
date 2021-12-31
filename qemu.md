@@ -62,7 +62,7 @@ Before we get started, we need some sort of disk, to store our data:
 - `8GB` is the (maximum) size
 
 ```bash
-$ qemu-img create -f qcow2 pantherx.qcow 8G -enable-kvm
+$ qemu-img create -f qcow2 pantherx.qcow 32G
 ```
 
 ### Boot from ISO
@@ -89,7 +89,7 @@ After the installation has completed, shutdown the virtual machine.
 ### Boot from HDD after install
 
 ```bash
-$ qemu-system-x86_64 -hda pantherx.qcow -m 1024 -enable-kvm
+$ qemu-system-x86_64 -hda pantherx.qcow -m 2048 -enable-kvm
 ```
 
 ### Mount a shared folder
@@ -150,7 +150,7 @@ This is especially useful to access the virtual machine SSH, or any running appl
 
 ```bash
 -device e1000,netdev=net0 \
--netdev user,id=net0,hostfwd=tcp::2222-:22 \
+-netdev user,id=net0,hostfwd=tcp::2222-:22
 ```
 
 ### Attach USB device

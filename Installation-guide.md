@@ -77,10 +77,19 @@ Now just plugin the USB stick into the target computer, and boot from it. Most c
 
 Once you have booted from USB, you will be greeted with "Locale language" selection.
 
-1. Select your locale
-2. Select your region
+**(1)** Select your locale
+
+{% include snippets/screenshot.html image='installer/install_locale-language.png' %}
+
+**(2)** Select your location
+
+{% include snippets/screenshot.html image='installer/install_location.png' %}
 
 Select "Install using the shell based process".
+
+{% include snippets/screenshot.html image='installer/install_install-using-shell.png' %}
+
+If you're connected via LAN cable, you probably already have internet. Skip ahead to [installation](/Installation-guide/#installation).
 
 ### Connect to the Internet
 
@@ -200,6 +209,10 @@ Now simply connect via SSH from another computer: `ssh root@192.168.1.67`.
 
 ## Installation
 
+<small>
+_Pro-Tip: [Download and run the latest installer](https://community.pantherx.org/t/pantherx-installation-download-and-run-the-latest-installer/73)_
+</small>
+
 We have come-up with a simple installer that automates all steps. You can go ahead with the defaults with:
 
 ```bash
@@ -208,69 +221,121 @@ px-install
 
 or customize username, password and so on with:
 
+{% include snippets/screenshot.html image='installer/install_px-install-run.png' alt="" %}
+
 ```bash
 px-install run
 ```
 
-_You can find out more about px-install at [git.pantherx.org/published/px-install](https://git.pantherx.org/published/px-install_pub)._
+{% include snippets/screenshot.html image='installer/install_px-install-approve.png' alt="" %}
 
-## Reboot
+Once the installation has completed, it should read something like this:
 
-After completion, `reboot`.
+```bash
+guix system: bootloader successfully installed on /dev/sda
+```
 
-_Tip: SSH is disabled by default on Desktop so you won't be able to reconnect after reboot without enabling it first_
+Now simply reboot with
+
+```bash
+reboot
+```
+
+- _You can find out more about px-install at [git.pantherx.org/published/px-install](https://git.pantherx.org/published/px-install_pub)._
+- _Tip: SSH is disabled by default on Desktop so you won't be able to reconnect after reboot without enabling it first_
 
 ## Post-installation
 
-### First login:
+{% include snippets/screenshot.html image='installer/install_login-screen.png' alt="" %}
 
 Once you login for the first time, there's a couple of things to be aware of.
 
-#### (1) General
+### General
 
 We've put together a welcome screen that guides you trough the essentials:
 
-1. Set new user and root password
-2. Update your system (opens Software; then just click "Update")
-3. Changing the theme (dark/bright)
-4. Reboot
+{% include snippets/screenshot.html image='installer/install_welcome-screen.png' alt="" %}
 
-#### (2) Syncthing
+**(1.1)** Set new user and root password
+
+You will be prompted for your desired user and root (administrator) password.
+
+{% include snippets/screenshot.html image='installer/install_welcome-screen-set-password.png' alt="" %}
+
+Once you confirm, you will be prompted for the password you set during the installation, to confirm the change. This should be the same password you used to login.
+
+{% include snippets/screenshot.html image='installer/install_welcome-screen-set-password-confirm.png' alt="" %}
+
+**(1.2)** Update your system (opens Software; then just click "Update")
+
+{% include snippets/screenshot.html image='installer/install_welcome-screen-software-update.png' alt="" %}
+
+You will be prompted for your new user password to confirm.
+
+This will take a while; In the meantime you can confirm your (2) Syncthing and (3) Albert configuration.
+
+**Once the update is completed, the buttons (Updating..., Cancel), will return to "UPDATE ALL"**. As this happens, you can close Software.
+
+**(1.3)** Changing the theme (dark/bright)
+
+You have the option to stick with the default, dark theme or switch to a bright theme.
+
+**(1.4)** Reboot
+
+After you confirm the update (1.2) has completed, you can reboot your system.
+
+### Syncthing
+
+_Free, unlimited, 100% private Dropbox alternative._
+
+{% include snippets/screenshot.html image='installer/install_syncthing-tray-first-run.png' alt="" %}
 
 You will be promted to setup Syncthing, a powerful, decentralized file sharing utility that will replace your Dropbox account by tomorrow.
 
+{% include snippets/screenshot.html image='installer/install_syncthing-tray-setup.png' alt="" %}
+
 1. Open the Settings
 2. Go to "Tray" (left sidebar) and look for the tab "Connection"
-3. Click "Insert values from local Syncthing configuration" and confirm with "Apply"
+3. Click "Insert values from local Syncthing configuration"
+4. Select "Connect automatically on startup"
+5. Confirm with "Apply"
 
 Whenever you want to activate Syncthing, just click on the traybar icon (greyed out circle) and click "Continue".
 
-#### (3) Albert
+### Albert
+
+_Very useful quick-launcher to open applications and control your system._
+
+{% include snippets/screenshot.html image='installer/install_albert-first-run.png' alt="" %}
 
 You will be promted to setup Albert; it's an incredibly useful utility that not only helps you launch apps, but does calculations, plays music - really whatever you want.
 
-#### (4) PantherX Hub
+{% include snippets/screenshot.html image='installer/install_albert-set-hotkey.png' alt="" %}
 
-**You should do this after (1) and reboot**
+### PantherX Hub
+
+**You should do this after update and reboot**
 
 If you want to use Hub, you need to setup a account first.
 
 1. Open 'Settings' > 'Online Accounts'
 2. Add a account
 
-Hub currently supports GitLab, GitHub, ClawsMail (Email) and Mastodon. This list will expand in the coming months.
+Hub currently supports GitLab, GitHub, Email (via ClawsMail), Discourse and Mastodon notifications. This list will expand in the coming months.
 
 ## Get Help
 
 This is a beta release, so please keep a few things in mind:
 
 - We do not accept bug reports at this time
-- We do not provide support except for occasional forum comments
+- We have limited or no time to provide support
 - We try to release updates on a 2-week basis
 
-With that being said, we are working exclusively on PantherX OS and I myself do virtually everything on the system without any major issues. In fact, after years on MacOS and the months on various other Linux distributions, I have found PantherX to be much more reliable. If you do ever run into any issues after an update, simply reboot and roll-back your system in literally 1 second.
+With that being said, we are working exclusively on PantherX OS and I myself do virtually everything on the system without any major issues. In fact, after years on MacOS and the months on various other Linux distributions, I have found PantherX to be much more reliable. If you do ever run into any issues after an update, simply reboot and roll-back your system - in literally 1 second.
 
 **Have a great time on PantherX OS**
+
+{% include snippets/screenshot.html image='installer/start-customizing.png' alt="" %}
 
 ### Forum
 
