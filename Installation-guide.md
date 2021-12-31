@@ -1,7 +1,7 @@
 ---
 ---
 
-You will ocassionally see a `$` before a command. This is mostly to differentiate the input (what you type), from the output, the computer provides.
+You will occasionally see a `$` before a command. This is mostly to differentiate the input (what you type), from the output, the computer provides.
 
 Here's an example:
 
@@ -61,7 +61,7 @@ Password:
 $ sync
 ```
 
-Now unmount / eject the drive:
+Now un-mount / eject the drive:
 
 ```
 sudo umount /dev/sda1
@@ -93,7 +93,7 @@ If you're connected via LAN cable, you probably already have internet. Skip ahea
 
 ### Connect to the Internet
 
-Now that you're in the command like, you should read "Welcome to the Installation of PantherX OS!". Before we get continue, we need to establish a internet connection. If you are connected with a LAN cable, that might already have happened.
+Now that you're in the command like, it should read "Welcome to the Installation of PantherX OS!". Before you continue, you need to establish a internet connection. If you are connected with a LAN cable, that might already have happened.
 
 Here's how you verify whether you're connected:
 
@@ -108,7 +108,7 @@ eno1      Link encap:Ethernet  HWaddr A8:A1:59:5E:FB:D9
           Interrupt:16 Memory:a1200000-a1220000
 
 enp2s0    Link encap:Ethernet  HWaddr A8:A1:59:5E:FC:A0
-          inet addr:192.168.1.69  Bcast:192.168.1.255  Mask:255.255.255.0  # <-- valid IP
+          inet addr:192.168.1.69  Bcast:192.168.1.255  Mask:255.255.255.0  # <------- valid IP
           UP BROADCAST RUNNING MULTICAST DYNAMIC  MTU:1500  Metric:1
           RX packets:71 errors:0 dropped:0 overruns:0 frame:0
           TX packets:104 errors:0 dropped:0 overruns:0 carrier:0
@@ -256,7 +256,7 @@ We've put together a welcome screen that guides you trough the essentials:
 
 {% include snippets/screenshot.html image='installer/install_welcome-screen.png' alt="" %}
 
-**(1.1)** Set new user and root password
+##### **(1.1)** Set new user and root password
 
 You will be prompted for your desired user and root (administrator) password.
 
@@ -266,7 +266,7 @@ Once you confirm, you will be prompted for the password you set during the insta
 
 {% include snippets/screenshot.html image='installer/install_welcome-screen-set-password-confirm.png' alt="" %}
 
-**(1.2)** Update your system (opens Software; then just click "Update")
+##### **(1.2)** Update your system (opens Software; then just click "Update")
 
 {% include snippets/screenshot.html image='installer/install_welcome-screen-software-update.png' alt="" %}
 
@@ -276,11 +276,11 @@ This will take a while; In the meantime you can confirm your (2) Syncthing and (
 
 **Once the update is completed, the buttons (Updating..., Cancel), will return to "UPDATE ALL"**. As this happens, you can close Software.
 
-**(1.3)** Changing the theme (dark/bright)
+##### **(1.3)** Changing the theme (dark/bright)
 
 You have the option to stick with the default, dark theme or switch to a bright theme.
 
-**(1.4)** Reboot
+##### **(1.4)** Reboot
 
 After you confirm the update (1.2) has completed, you can reboot your system.
 
@@ -300,7 +300,7 @@ You will be promted to setup Syncthing, a powerful, decentralized file sharing u
 4. Select "Connect automatically on startup"
 5. Confirm with "Apply"
 
-Whenever you want to activate Syncthing, just click on the traybar icon (greyed out circle) and click "Continue".
+Whenever you want to activate Syncthing, just click on the traybar icon (grayed out circle) and click "Continue".
 
 ### Albert
 

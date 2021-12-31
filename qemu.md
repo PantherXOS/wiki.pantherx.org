@@ -59,7 +59,7 @@ $ qemu-system-x86_64 -enable-kvm
 Before we get started, we need some sort of disk, to store our data:
 
 - `qcow` is a sparse bundle format that grows as you fill it
-- `8GB` is the (maximum) size
+- `32G` is the maximum size this bundle can grow to
 
 ```bash
 $ qemu-img create -f qcow2 pantherx.qcow 32G
@@ -192,7 +192,7 @@ qemu-system-x86_64 \
 
 If you faced with an error like this:
 
-```
+```bash
 qemu-system-x86_64: -device usb-host,hostbus=1,hostaddr=11: failed to open host usb device 1:6
 ```
 
@@ -209,7 +209,7 @@ qemu-system-x86_64 \
 
 To enable VNC access to your VNC on local port `5900`, simply append:
 
-```
+```bash
 -vnc :0
 ```
 

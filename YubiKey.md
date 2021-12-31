@@ -22,7 +22,8 @@ Tested:
 | ----------------------------------------------- | ------------------ | -------- |
 | fastmail.com 2FA                                | working            | working  |
 | demo.yubico.com/webauthn-technical/registration | working            | working  |
-| GitLab                                          | working            |          |
+| GitLab                                          | working            | working  |
+| ...                                             |                    |          |
 
 ## Troubleshooting
 

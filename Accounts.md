@@ -9,7 +9,7 @@ Accounts (or Online Accounts) is a great place to manage all your accounts.
 
 The number of supported providers and applications is growing steadily. At the time of writing:
 
-- Gitlab( (with Hub)
+- Gitlab (with Hub)
 - Etherscan
 - GitHub (with Hub)
 - BlockIO
@@ -17,6 +17,7 @@ The number of supported providers and applications is growing steadily. At the t
 - SMTP / IMAP
 - Encrypted Backup to S3 / Wasabi / Hard Disk
 - Mastodon (with Hub)
+- Discource (with Hub)
 
 Accounts "with Hub" support, will trigger notifications in PantherX Hub right on your desktop.
 

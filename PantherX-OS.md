@@ -5,27 +5,27 @@
 
 ### Simplicity
 
-- Easy to find, install and use quality open source software that rivals paid alternatives
-- Configure the system, and all accessible features, with a intuitive interface
-- Never break, or fail but worst case, recover in seconds, without data lost
-
-- It should be easy for everyone to find, install and use quality open source software that rivals paid alternatives.
-- It should be possible to inspect and modify any software that runs on your computer.
+- Your entire system configuration in one file
+- Time machine to switch between system snapshots (roll-back, roll-forward)
+- Only successful updates apply: No more broken systems
+- Intuitive desktop and thousands of open source applications and games
 
 ### Modernity
 
-- Use the latest available packages
-- Time travel for installed applications and packages (roll-back, roll-forward)
-- Built-in (native!) software to spawn virtual environments, or switch between profiles in real-time
+- Easy access to the latest packages
+- Built-in, isolated development environments
+- Perfect system replication and export to disk image, VM, docker and others
 
 ### Security
 
-- Don't use complicated init systems, or daemons without clear documentation and source code
-- Make it easy to maintain a transparent, clean and reproducible system
+- No systemd; Simple, robust init system
+- Clear defaults to configure web servers, database, firewall, tor and so on
+- PantherX benefits from it's Guix roots and the large upstream community
 
 ### Versatility
 
-- Easy to reconfigure the entire system, based on a single configuration
+- Powerful plugin system to write your own Account and Hub integration in Python and C++
+- It's Linux. Welcome home.
 
 ## Screenshots
 

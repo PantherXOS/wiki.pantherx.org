@@ -11,8 +11,8 @@ We owe our existance to the Guix and LXQt team.
 
 ### GNU Guix
 
-- contains no nonfree software but PantherX makes them available, where superior (or necessary)
-- supports GNU Hurd and Linux Libre as Kernel, PantherX additionally supports nonfree Kernel
+- contains no non-free software but PantherX makes them available, where superior (or necessary)
+- supports GNU Hurd and Linux Libre as Kernel, PantherX additionally supports non-free Kernel
 - relies on GNU Shepherd as init system, so does PantherX
 
 Read more about the differences between Linux and Linux-libre on [stackexchange.com](https://unix.stackexchange.com/a/288174)

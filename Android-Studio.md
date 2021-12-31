@@ -3,11 +3,11 @@ namespace: android
 description: "Android Studio is the official integrated development environment (IDE) for Google's Android operating system, built on JetBrains' IntelliJ IDEA software and designed specifically for Android development."
 description-source: "https://en.wikipedia.org/wiki/Android_Studio"
 categories:
- - type:
-   - "Application"
- - location:
-   - "Development"
-   - "Development environments"
+  - type:
+      - "Application"
+  - location:
+      - "Development"
+      - "Development environments"
 language: en
 ---
 
@@ -135,4 +135,5 @@ To run this again, at a later point, go back to `~/git/android` and repeat the l
 
 ## See also
 
-- [Running android studio on Guix](https://lepiller.eu/en/running-android-studio-on-guix.html)
+- [Running android studio on Guix](https://lepiller.eu/en/running-android-studio-on-guix.html) - lepiller.eu
+- [Installing Android Studio on GNU Guix](https://pari.math.u-bordeaux.fr/paridroid/index.html) - pari.math.u-bordeaux.fr (scroll to the bottom)
