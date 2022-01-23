@@ -66,16 +66,18 @@ Download `nRF Connect` (Nordic Semiconductor ASA) on your mobile phone.
 
 Once you're in the app, add a new service (Devices / Advertiser):
 
+_These steps describe the Android version of nRF Connect. The iOS release has significant differences._
+
 1. Press the red "+"
 2. You should see a prompt: "New advertising packet"
-   - Display name can be whatever; `Heart beat`
+   - Display name can be whatever; `Heart Monitor`
    - ADD RECORD:
      - Service Data (The data we'll be sending; a heart beat measurement)
-   - UUID or service name: `2A37` (0x2A37) [source](https://btprodspecificationrefs.blob.core.windows.net/assigned-values/16-bit%20UUID%20Numbers%20Document.pdf)
-   - Data (HEX): 0x`4C`
+     - UUID or service name: `2A37` (0x2A37) [source](https://btprodspecificationrefs.blob.core.windows.net/assigned-values/16-bit%20UUID%20Numbers%20Document.pdf)
+     - Data (HEX): 0x`4C`
    - ADD RECORD:
      - Service Name (The type of service; heart monitor)
-   - UUID `180D` (0x180D) [source](https://btprodspecificationrefs.blob.core.windows.net/assigned-values/16-bit%20UUID%20Numbers%20Document.pdf)
+     - UUID `180D` (0x180D) [source](https://btprodspecificationrefs.blob.core.windows.net/assigned-values/16-bit%20UUID%20Numbers%20Document.pdf)
 3. Confirm with OK and activate
 
 #### Confirm it's working
@@ -88,8 +90,7 @@ On your desktop, open a Terminal:
 2. Start a scan with `scan on` (just type this in the terminal)
 3. Look out for the values you're advertising
 
-```
-# You may have to install `bluez` to your profile with `guix package -i bluez`
+```bash
 $ bluetoothctl
 Agent registered
 [MX Anywhere 2S]
@@ -103,6 +104,14 @@ Discovery started
   0f 05 80 35 64 d3 c6 10 03 6e 0e bb              ...5d....n..
 [NEW] Device 3A:76:AA:3B:43:29 3A-76-AA-3B-43-29
 ```
+
+If you're getting an error about how `bluetoothctl` wasn't found, it might not be in your profile. Install it with:
+
+```bash
+guix package -i bluez
+```
+
+and try the previous steps again.
 
 ##### with a 2nd phone
 
