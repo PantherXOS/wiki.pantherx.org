@@ -14,7 +14,7 @@ _Tip: Before you get started, note your current public IP with `curl https://my-
 
 ## WireGuard
 
-### Mullvad via CLI
+### WireGuard via CLI (Mullvad)
 
 Generate a WireGuard configuration in your [Mullvad account (https://mullvad.net/en/account/#/wireguard-config/)](https://mullvad.net/en/account/#/wireguard-config/):
 
@@ -51,7 +51,7 @@ Connection 'mlvd-se8' (acf9afff-d380-4d86-99b9-529a8b5c76ef) successfully delete
 
 ## OpenVPN
 
-### Mullvad via GUI
+### OpenVPN via GUI (Mullvad)
 
 Generate a OpenVPN configuration in your [Mullvad account (https://mullvad.net/en/account/#/openvpn-config/)](https://mullvad.net/en/account/#/openvpn-config/):
 
