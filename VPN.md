@@ -10,11 +10,11 @@ categories:
 language: en
 ---
 
-## WireGuard
-
 _Tip: Before you get started, note your current public IP with `curl https://my-ip.pantherx.org`._
 
-### Mullvad
+## WireGuard
+
+### Mullvad via CLI
 
 Generate a WireGuard configuration in your [Mullvad account (https://mullvad.net/en/account/#/wireguard-config/)](https://mullvad.net/en/account/#/wireguard-config/):
 
@@ -48,6 +48,44 @@ To remove this connection, simply run:
 $ nmcli connection delete mlvd-se8
 Connection 'mlvd-se8' (acf9afff-d380-4d86-99b9-529a8b5c76ef) successfully deleted.
 ```
+
+## OpenVPN
+
+### Mullvad via GUI
+
+Generate a OpenVPN configuration in your [Mullvad account (https://mullvad.net/en/account/#/openvpn-config/)](https://mullvad.net/en/account/#/openvpn-config/):
+
+1. Select "Android/Chrome OS"
+2. Select Country and City
+3. Download file
+
+Add it to Network Manager
+
+Open **Menu** > **Settings** > **Advanced networking** and look for the "+" at the bottom of the screen, to add a new connection
+
+Select "Import a saved VPN configuration"
+
+{% include snippets/screenshot.html image='vpn/ovpn-import-saved.png' alt="Import OpenVPN connection to Network Manager" %}
+
+The username is your Mullvad account number, the password is `m`.
+
+{% include snippets/screenshot.html image='vpn/ovpn-add-username-password.png' alt="Add Mullvad username and password to OpenVPN connection in Network Manager" %}
+
+#### Connect automatically
+
+After you add the connection, you may want to connect to it automatically:
+
+1. Close the OpenVPN config
+2. Select the network you wish to associate with the VPN, from the overview
+3. Select "Automatically connect to VPN" and the VPN (for ex. `mullvad_se_all`) and save
+
+{% include snippets/screenshot.html image='vpn/ovpn-connect-automatically.png' alt="Automatically connect to OpenVPN with Network Manager" %}
+
+#### Connect manually
+
+Look for Network Manager in the task bar, left click on the icon, and look for "VPN Connections"
+
+{% include snippets/screenshot.html image='vpn/ovpn-connect-manually.png' alt="Manually connect to OpenVPN with Network Manager" %}
 
 ## See also
 
