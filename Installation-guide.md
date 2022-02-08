@@ -98,52 +98,42 @@ Now that you're in the command like, it should read "Welcome to the Installation
 Here's how you verify whether you're connected:
 
 ```bash
-$ ifconfig -a
-eno1      Link encap:Ethernet  HWaddr A8:A1:59:5E:FB:D9
-          UP BROADCAST MULTICAST DYNAMIC  MTU:1500  Metric:1
-          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:0  TX bytes:0
-          Interrupt:16 Memory:a1200000-a1220000
+$ px-install network-check
+------
+Welcome to PantherX Installation v0.0.30
 
-enp2s0    Link encap:Ethernet  HWaddr A8:A1:59:5E:FC:A0
-          inet addr:192.168.1.69  Bcast:192.168.1.255  Mask:255.255.255.0  # <------- valid IP
-          UP BROADCAST RUNNING MULTICAST DYNAMIC  MTU:1500  Metric:1
-          RX packets:71 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:104 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:12868  TX bytes:19744
+For guidance, consult: https://wiki.pantherx.org/Installation-guide
+For help, visit https://community.pantherx.org
+------
 
-lo        Link encap:Local Loopback
-          inet addr:127.0.0.1  Bcast:0.0.0.0  Mask:255.0.0.0
-          UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:19 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:19 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:3485  TX bytes:3485
+######## RESULT ########
+Found 1 suitable network adapters
+
+1. Adapter
+Name: enp2s0
+State: UP
+Address: | IP: 192.168.1.73  Broadcast: 192.168.1.255 | IP: fe80::6e4b:90ff:feed:9578  Broadcast: None
+
+You appear to be online.
+Run 'px-install run' to continue with the setup.
 ```
 
 One of the listed interfaces, should have a valid IP address. For example `192.168.1.69`. If that's the case, you can proceed to the next step. If not, here's how you connect:
+
+**Either LAN or WLAN must be working before you can proceed**. Here's how you configure either:
 
 #### Wired Network (LAN)
 
 To configure a wired network run the following command, substituting interface with the name of the wired interface you want to use:
 
 ```bash
-$ ifconfig INTERFACE_NAME up
-
-# Example
-$ ifconfig enp2s0 up
+$ ifconfig INTERFACE_NAME up # for ex. enp2s0
 ```
 
 Now try to get a IP address:
 
 ```bash
-$ dhclient -v INTERFACE_NAME
-
-# Example
-$ dhclient -v enp2s0
+$ dhclient -v INTERFACE_NAME # for ex. enp2s0
 ```
 
 #### Wireless Network (WLAN)
@@ -210,10 +200,10 @@ Now simply connect via SSH from another computer: `ssh root@192.168.1.67`.
 ## Installation
 
 <small>
-_Pro-Tip: [Download and run the latest installer](https://community.pantherx.org/t/pantherx-installation-download-and-run-the-latest-installer/73)_
+_Pro-Tip: [Download and run the latest installer](https://git.pantherx.org/development/applications/px-install#debugging)_
 </small>
 
-We have come-up with a simple installer that automates all steps. You can go ahead with the defaults with:
+We have come-up with a simple installer that automates all steps. You can go ahead with the defaults (username: `pantherx`) with:
 
 ```bash
 px-install
