@@ -24,13 +24,13 @@ lsblk
 
 Before you get started, ready a USB stick with the latest ISO image.
 
-1. Download [pantherx-1.3.0-21.e5abfc0-2-image.iso.tar.gz](https://temp.pantherx.org/pantherx-1.3.0-21.e5abfc0-2-image.iso.tar.gz) (Beta 4)
+1. Download [pantherx-1.3.0-21.91fffa2-2-image.iso.tar.gz](https://temp.pantherx.org/pantherx-1.3.0-21.91fffa2-2-image.iso.tar.gz) (Beta 4)
 2. Extract the ISO
 
 On Linux you can use `tar`:
 
 ```bash
-tar -xf pantherx-1.3.0-21.e5abfc0-2-image.iso.tar.gz
+tar -xf pantherx-1.3.0-21.91fffa2-2-image.iso.tar.gz
 ```
 
 #### Flash with dd
@@ -52,7 +52,7 @@ nvme0n1       259:0    0 953.9G  0 disk
 In my case, it's `/dev/sda`, so I proceed with copying the ISO to this drive:
 
 ```bash
-$ sudo dd if=pantherx-1.3.0-21.e5abfc0-2-image.iso of=/dev/sda status=progress
+$ sudo dd if=pantherx-1.3.0-21.91fffa2-2-image.iso of=/dev/sda status=progress
 Password:
 1110499840 bytes (1.1 GB, 1.0 GiB) copied, 284 s, 3.9 MB/s
 2169320+0 records in
