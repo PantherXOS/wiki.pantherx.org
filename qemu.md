@@ -215,6 +215,32 @@ To enable VNC access to your VNC on local port `5900`, simply append:
 
 You should be able to connect to the VM via VNC on `127.0.0.1:5900`.
 
+### Boot using UEFI instead of BIOS
+
+```bash
+guix package -i ovmf
+```
+
+Find the file
+
+```bash
+$ ls /gnu/store/ | grep ovmf
+691ijfpiblxgfvxcpfrhjdn1ckbl7kg0-ovmf-20170116-1.13a50a6-builder
+7y5j5nvynw4s4nyg7g6vg8n30f7kq2b8-ovmf-20170116-1.13a50a6.drv
+837v4a6k3b2bl0h6k5rlb4gfgr2ck5wf-ovmf-20170116-1.13a50a6/
+
+$ /gnu/store/837v4a6k3b2bl0h6k5rlb4gfgr2ck5wf-ovmf-20170116-1.13a50a6/share/firmware/
+ovmf_ia32.bin  ovmf_x64.bin
+```
+
+Use it with qemu:
+
+```bash
+-bios /gnu/store/837v4a6k3b2bl0h6k5rlb4gfgr2ck5wf-ovmf-20170116-1.13a50a6/share/firmware/ovmf_x64.bin
+```
+
+If no bootable (EFI-compatible) medium has been found, it will drop to an EFI shell.
+
 ### Bonus: Development setup
 
 If we combine this with the shared folder, we have a flexibe setup for development:
