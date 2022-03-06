@@ -3,10 +3,10 @@ namespace: python
 description: "S3cmd is a command line tool for uploading, retrieving and managing data in storage services that are compatible with the Amazon Simple Storage Service (S3) protocol, including S3 itself. It supports rsync-like backup, GnuPG encryption, and more. It also supports management of Amazon's CloudFront content delivery network."
 description-source: ""
 categories:
- - type:
-   - "Application"
- - location:
-   - "Development"
+  - type:
+      - "Application"
+  - location:
+      - "Development"
 language: en
 ---
 
@@ -51,7 +51,7 @@ When you're working with Wasabi instead of Amazon AWS, make sure you include the
 --host-bucket="%(bucket)s.s3.wasabisys.com"
 ```
 
-Other regions include: 
+Other regions include:
 
 - Wasabi US East 1 (N. Virginia): `s3.wasabisys.com` or `s3.us-east-1.wasabisys.com`
 - Wasabi US East 2 (N. Virginia): `s3.us-east-2.wasabisys.com`
@@ -70,7 +70,7 @@ s3cmd get \
 your-local-folder
 ```
 
-### Upload all files to S3 bucket:
+### Upload a file to S3 bucket:
 
 ```bash
 s3cmd put \
@@ -78,6 +78,28 @@ s3cmd put \
 --secret_key=ABC \
 --region=eu-central-1 \
 --recursive your-local-folder/ \
+s3://your-bucket-url
+```
+
+Example:
+
+```bash
+s3cmd put \
+--access_key=AASCDNPYDWSKWISAAS \
+--secret_key=TXVAWbVKaCVARwxSDDAcOPLa12EodHTADUzu \
+--region=eu-central-1 \
+large-file.tar.xz \
+s3://my-s3-bucket.org
+```
+
+### Upload all files to S3 bucket:
+
+```bash
+s3cmd put \
+--access_key=ABC \
+--secret_key=ABC \
+--region=eu-central-1 \
+your-local.file \
 s3://your-bucket-url
 ```
 

@@ -173,13 +173,25 @@ $ wpa_supplicant -c wpa_supplicant.conf -i INTERFACE_NAME -B
 $ wpa_supplicant -c wpa_supplicant.conf -i enp2s0 -B
 ```
 
+**Note** If this doesn't work, you might want to try to check your network with rfkill:
+
+```bash
+$ rfkill
+ID TYPE      DEVICE                   SOFT      HARD
+ 0 bluetooth tpacpi_bluetooth_sw unblocked unblocked
+ 1 bluetooth hci0                unblocked unblocked
+ 2 wlan      phy0                unblocked unblocked
+```
+
+If the wlan interface is blocked, you can unblock it with `sudo rfkill unblock wlan`. You should run `wpa_supplicant -c ...` after you unblock the device.
+
 Now try to get a IP address:
 
 ```bash
 $ dhclient -v INTERFACE_NAME
 
 # Example
-$ dhclient -v enp2s0
+$ dhclient -v wlan0
 ```
 
 ### SSH access (OPTIONAL)
