@@ -77,7 +77,7 @@ s3cmd put \
 --access_key=ABC \
 --secret_key=ABC \
 --region=eu-central-1 \
---recursive your-local-folder/ \
+your-local.file \
 s3://your-bucket-url
 ```
 
@@ -99,7 +99,7 @@ s3cmd put \
 --access_key=ABC \
 --secret_key=ABC \
 --region=eu-central-1 \
-your-local.file \
+--recursive your-local-folder/ \
 s3://your-bucket-url
 ```
 
