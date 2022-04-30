@@ -3,7 +3,7 @@ namespace: VPN
 description: Notes about using a virtual private network on PantherX
 categories:
   - type:
-    - "Guide"
+      - "Guide"
   - location:
   - "vpn"
   - "Desktop"
@@ -86,6 +86,18 @@ After you add the connection, you may want to connect to it automatically:
 Look for Network Manager in the task bar, left click on the icon, and look for "VPN Connections"
 
 {% include snippets/screenshot.html image='vpn/ovpn-connect-manually.png' alt="Manually connect to OpenVPN with Network Manager" %}
+
+### OpenVPN via GUI (iVPN)
+
+Generate a new config here: https://www.ivpn.net/openvpn-config and download and extract it (right click: extract here).
+
+Add it to Network Manager
+
+Open **Menu** > **Settings** > **Advanced networking** and look for the "+" at the bottom of the screen, to add a new connection.
+
+Select "Import a saved VPN configuration" and look for the `.ovpn` file in the folder extracted previously.
+
+The username is your accont ID (‘ivpnXXXXXXXX’ or ‘i-XXXX-XXXX-XXXX’) and any password.
 
 ## See also
 
