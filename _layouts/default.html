@@ -6,7 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{% include meta.html %}
 	{% if site.type == 'web' %}
-	<link rel="stylesheet" href="/assets/css/custom.min.css">
+	<meta itemprop="name" content="{{ page.title }} | {{ site.title }}">
+	<meta itemprop="description" content="{{ page.description }}">
+	<meta itemprop="image" content="https://www.pantherx.org/assets/images/px-desktop.jpg">
 	{% else %}
 	{% if page.path == "index.html" %}
 	<link rel="stylesheet" href="./assets/css/custom.min.css">
