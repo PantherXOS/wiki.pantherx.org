@@ -12,26 +12,56 @@ language: en
 
 ## Installation
 
-To install _git_ for the current user, run:
+To install _go_ for the current user, run:
 
 ```bash
-guix package -i gccgo
-guix package -i go # to ensure go is up to date
+guix package -i go gcc-toolchain
 ```
 
-`gccgo` actually includes `go@1.16.*`. We install `go` again, to get `1.17.8`.
+If you prefer to run go in a throw-away environment:
+
+```bash
+guix environment --pure --ad-hoc go gcc-toolchain
+```
 
 ## Usage
 
+By default, go files are at `~/go`:
+
 ```bash
 cd ~/
-mkdir go; mkdir go/src; mkdir go/src/hello
-cd go/src/hello
+mkdir go
+```
+
+The source is in a subfolder:
+
+```bash
+cd go
+mkdir src
+```
+
+Individual modules, are again in a subfolder:
+
+```bash
+cd src
+mkdir hello
+```
+
+To init the module:
+
+```bash
+cd hello
+go mod init
+```
+
+Now write some go code:
+
+```bash
 go mod init
 nano hello.go
 ```
 
-This part is up to you! When you're done, run:
+When you're done:
 
 ```bash
 go run .
@@ -42,21 +72,7 @@ go run .
 ### C compiler "gcc" not found
 
 ```bash
-guix package -i gccgo
-guix package -i go # to ensure go is up to date
-```
-
-As of May 2022:
-
-```bash
-$ gccgo --version version
-gccgo (GCC) 11.2.0
-Copyright (C) 2021 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-$ go version
-go version go1.17.8 linux/amd64
+guix package -i gcc-toolchain
 ```
 
 ### unknown type name gnuc_va_list
@@ -87,11 +103,11 @@ In file included from libcgo.h:7,
   342 |                      __gnuc_va_list __arg);
 ```
 
-(1) Remove conflicting compiler:
+Find conflicting compiler:
 
 ```bash
 guix package --list-installed | grep "gcc"
-# look out for 'gcc', 'gcc-objc', 'gcc-objc++', 'gcc-toolchain'
+# look out for 'gcc', 'gcc-objc', 'gcc-objc++'
 ```
 
 Remove with:
@@ -100,4 +116,4 @@ Remove with:
 guix package -r gcc gcc-objc
 ```
 
-If you are working with multiple languages, consider using [environments](/Environments/).
+If you are working with multiple languages, consider learning about [environments](/Environments/).
