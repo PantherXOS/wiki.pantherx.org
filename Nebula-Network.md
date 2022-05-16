@@ -30,10 +30,26 @@ Refer to [Getting started (quickly)](https://github.com/slackhq/nebula#getting-s
 
 ## Service
 
+Open `/etc/system.scm` and adjust accordingly:
+
 ### Single network
 
+Add required imports. It may look something like this:
+
 ```scheme
-(service nebula-service-type)
+(use-modules (gnu)
+             (gnu system)
+             (px system install)
+             (px system)
+             (px services networking)) ;; add this only
+```
+
+Add service, to services:
+
+```scheme
+(services (cons*
+             (service nebula-service-type) ;; add this only
+             %px-server-services)) ;; on desktop, this is 'px-desktop-services'
 ```
 
 The default config is assumed to be at `/etc/nebula/config.yml`
