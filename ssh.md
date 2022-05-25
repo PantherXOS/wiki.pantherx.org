@@ -5,11 +5,21 @@
 
 ### Host key verification failed.
 
-Open the _known_hosts_ file, and remove the entry.
+Either remove the offending entry with:
+
+```bash
+ssh-keygen -R [IP/HOSTNAME]
+```
+
+or open the the _known_hosts_ file, and remove the entry manually:
 
 ```bash
 nano ~/.ssh/known_hosts
 ```
+
+**Important** Keep in mind that this is an important security measure. The fact that this fails means that you have previously connected to a computer at the same address with a different finger print. This means that either the machine on the other end has changed significantly (reformatted) or has been replaced.
+
+Unless you are aware of, or made the change, you probably shouldn't ignore this error.
 
 # SSH Reverse Runnel
 
