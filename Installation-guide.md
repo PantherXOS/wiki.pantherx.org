@@ -138,6 +138,8 @@ $ dhclient -v INTERFACE_NAME # for ex. enp2s0
 
 #### Wireless Network (WLAN)
 
+_Try our new `px-install wifi-setup`, or configure manually:_
+
 To configure wireless networking, create a configuration file for the wpa_supplicant configuration tool:
 
 ```bash
