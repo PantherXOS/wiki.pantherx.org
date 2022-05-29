@@ -24,7 +24,7 @@ lsblk
 
 Before you get started, ready a USB stick with the latest ISO image.
 
-1. Download [pantherx-1.3.0-27.c07910a-image.iso.tar.gz](https://temp.pantherx.org/pantherx-1.3.0-27.c07910a-image.iso.tar.gz) (Beta 5.1)
+1. Download [pantherx-1.3.0-27.c07910a-image.iso.tar.gz](https://temp.pantherx.org/pantherx-1.3.0-27.c07910a-image.iso.tar.gz) (Beta 6)
 2. Extract the ISO
 
 On Linux you can use `tar`:
