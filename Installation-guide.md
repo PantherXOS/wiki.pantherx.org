@@ -151,7 +151,7 @@ with the following content:
 ```
 network={
   ssid="YOUR_WIFI_NAME"
-  key_mgmt=WPA-PSK
+  key_mgmt=SECURITY_STANDARD
   psk="YOUR_WIFI_PASSWORD"
 }
 ```
@@ -165,6 +165,8 @@ network={
   psk="3295e09f-241b-4a06-a492-f3f3cc95c24d"
 }
 ```
+
+_You can find more examples and options here: [wpa_supplicant.conf: Linux man page](https://linux.die.net/man/5/wpa_supplicant.conf)._
 
 To start the wireless service, and run it on _interface_ in the background:
 
@@ -185,7 +187,7 @@ ID TYPE      DEVICE                   SOFT      HARD
  2 wlan      phy0                unblocked unblocked
 ```
 
-If the wlan interface is blocked, you can unblock it with `sudo rfkill unblock wlan`. You should run `wpa_supplicant -c ...` after you unblock the device.
+If the wlan interface is blocked, you can unblock it with `rfkill unblock wlan`.
 
 Now try to get a IP address:
 
@@ -225,11 +227,11 @@ px-install
 
 or customize username, password and so on with:
 
-{% include snippets/screenshot.html image='installer/install_px-install-run.png' alt="" %}
-
 ```bash
 px-install run
 ```
+
+{% include snippets/screenshot.html image='installer/install_px-install-run.png' alt="" %}
 
 {% include snippets/screenshot.html image='installer/install_px-install-approve.png' alt="" %}
 
@@ -290,11 +292,11 @@ After you confirm the update (1.2) has completed, you can reboot your system.
 
 ### Syncthing
 
-_Free, unlimited, 100% private Dropbox alternative._
+_With Syncthing, you can share any number of files and folders between your devices (Desktop & Mobile) and friends, family, co-workers or clients. It requires no account or subscription, and your data remains yours._
 
 {% include snippets/screenshot.html image='installer/install_syncthing-tray-first-run.png' alt="" %}
 
-You will be promted to setup Syncthing, a powerful, decentralized file sharing utility that will replace your Dropbox account by tomorrow.
+You will be promted to setup Syncthing:
 
 {% include snippets/screenshot.html image='installer/install_syncthing-tray-setup.png' alt="" %}
 
