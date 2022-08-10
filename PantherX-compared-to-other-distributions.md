@@ -21,15 +21,13 @@ If you made it this far - All works great, until one day you get a call from you
 
 **To the rescue**
 
-On PantherX, instead of manually setting up applications and services, you define them in the system configuration, and the operating system will not only generate all required configuration files and services automatically, but will also keep them up-to-date with every update.
+On PantherX, instead of manually setting up applications and services, you define them in the system configuration, and the operating system will not only generate all required configuration files and services automatically, but also regenerate them for each update.
 
 And if something does go wrong (cosmic rays?), you can always roll-back to before the update - in a second.
 
 **Think big**
 
-Now picture this, for the entire operating system - from the bootloader to desktop; automatically keeping everything the way you have specified it; seamlessly migrating most changes without you ever noticing and instant roll-back if you ever need it. 
-
-Better yet, you can apply configuration changes to 1 or 100 machines automatically; In fact, you can have them reconfigure themselves from slot machine, to web server, to desktop. Not physically of course.
+Now picture this, for the entire operating system - from the boot-loader to desktop; automatically keeping everything the way you have specified it; seamlessly migrating most changes without you ever noticing and instant roll-back if you ever need it. Better yet, you can apply configuration changes to 1 or 100 machines automatically; In fact, you can have them reconfigure themselves from slot machine, to web server, to desktop. Not physically of course (yet).
 
 ### GNU Guix
 

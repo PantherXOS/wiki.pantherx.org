@@ -9,7 +9,7 @@ PantherX is a modern, Unix-like  computer operating system, designed to enable e
 
 ### I am a complete GNU/Linux beginner. Should I use PantherX?
 
-Yes, PantherX has been designed, specifically designed for end-user, no matter whether you're an existing GNU/Linux user, or are migrating from Mac OSX or Windows. You'll feel right at home, with PantherX.
+Yes, PantherX has been designed, specifically designed for end-user, no matter whether you're an existing GNU/Linux user, or are migrating from MacOS or Windows. You'll feel right at home, with PantherX.
 
 ### Is PantherX designed to be used as a server? A desktop? A workstation?
 
@@ -28,3 +28,9 @@ If you've ever experienced any of these problems, _PantherX_ is your solution:
 - You install a package / service / desktop, and now want to completely reverse it
 - You're working with 10 different package managers, including _apt_, _pip_, _rvm_, ... and can't take it anymore
 - You set-up a desktop / server and experience an issue, which you cannot reproduce
+
+Also checkout: [What differentiates PantherX?](/PantherX-compared-to-other-distributions/#whats-unique-here)
+
+### Can I try PantherX today?
+
+You can install an early beta of PantherX Desktop and Server, using a fully automated command-line application: [PantherX Installation Guide](/Installation-guide/#pre-installation).
