@@ -3,9 +3,11 @@
 
 ## Principles
 
+See also: [PantherX compared to other distributions](https://wiki.pantherx.org/PantherX-compared-to-other-distributions/)
+
 ### Simplicity
 
-- Your entire system configuration in one file
+- Your entire system configuration in one file: See [system configuration](/System-configuration/)
 - Time machine to switch between system snapshots (roll-back, roll-forward)
 - Only successful updates apply: No more broken systems
 - Intuitive desktop and thousands of open source applications and games
@@ -20,7 +22,7 @@
 
 - No systemd; Simple, robust init system
 - Clear defaults to configure web servers, database, firewall, tor and so on
-- PantherX benefits from it's Guix roots and the large upstream community
+- PantherX benefits from large upstream community
 
 ### Versatility
 

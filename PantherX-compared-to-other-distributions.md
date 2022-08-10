@@ -3,11 +3,33 @@
 
 ## General
 
-PantherX is a GNU Guix upstream distribution, with the aim to provide a more complete, lightweight and user friendly computing environment.
+PantherX is a GNU Guix downstream distribution, with the aim to provide a more complete, lightweight and user friendly computing environment.
 
-What sparked PantherX was one user's frustration with the direction of MacOS and the endless number of failed attempts to permanently switch to any of the "popular" Linux distributions. While far from perfect, PantherX has finally sealed the deal, and is improving on a daily basis. It just feels right and literally never breaks - much of this is thanks to it's roots in Guix and LXQt.
+What sparked PantherX was one user's frustration with the direction of Apple's MacOS and the endless number of failed attempts to permanently switch to any of the "popular" Linux distributions. While far from perfect (yet), PantherX has finally sealed the deal, and is improving on a daily basis. It just feels right and literally never breaks - much of this is thanks to Guix and LXQt.
 
-We owe our existance to the Guix and LXQt team.
+#### What's unique here
+
+Let me try to illustrate what differentiates PantherX and Guix, that benefits all users knowingly, or unknowingly:
+
+**Scenario**
+
+Imagine you need to configure a system with multiple applications and services; May it be a desktop for your grandparents, or a powerful web-server for your next business venture - commonly you will have to deal with some configuration files, learn about the specific options and expected location of the file, and create some scripts or service files to make sure everything starts (and re-starts) automatically.
+
+**Nightmare**
+
+If you made it this far - All works great, until one day you get a call from your grandparents, or co-worker, that things "suddenly" don't work anymore. Soon you realize that with the last update, the configuration format has changed, moved to a new location, has been modified or corrupted. Now you're stuck trying to figure out how-to fix this on 1 or 100 machines remotely, which will cost you your evening and sanity - and keeps users on the other side from accessing their work.
+
+**To the rescue**
+
+On PantherX, instead of manually setting up applications and services, you define them in the system configuration, and the operating system will not only generate all required configuration files and services automatically, but will also keep them up-to-date with every update.
+
+And if something does go wrong (cosmic rays?), you can always roll-back to before the update - in a second.
+
+**Think big**
+
+Now picture this, for the entire operating system - from the bootloader to desktop; automatically keeping everything the way you have specified it; seamlessly migrating most changes without you ever noticing and instant roll-back if you ever need it. 
+
+Better yet, you can apply configuration changes to 1 or 100 machines automatically; In fact, you can have them reconfigure themselves from slot machine, to web server, to desktop. Not physically of course.
 
 ### GNU Guix
 
