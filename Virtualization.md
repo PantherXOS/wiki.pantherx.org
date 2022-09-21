@@ -3,29 +3,102 @@ namespace: Virtualization
 description: Notes about using virtualization technologies on Guix.
 categories:
   - type:
-    - "Guide"
+      - "Guide"
   - location:
   - "virtualization"
   - "Desktop"
-language: en 
+language: en
 ---
-
-Below you will find a summary of how-to generate a virtual environment from a system configuration file. If you would like to learn more about different virtualization software, and how-to install and use them, please continue here: [qemu](/qemu/) / [docker](/Docker/)
 
 ## QEMU
 
+Read more about [qemu](/qemu/).
+
 ### Run as live machine
 
-Using Guix as host, we can generate a shell script that runs Guix based on a system configuration file. later we can pass QEMU parameters to this generated script.
+Let's say you wanted to run PantherX Desktop in a virtual machine.
 
-```bash
-$ guix system vm /path/to/config.scm
-...
-/gnu/store/...-run-vm.sh
-$ /gnu/store/…-run-vm.sh -m 1024 -smp 2 -net user,model=virtio-net-pci
+Create a system config `px-desktop-config_vm.scm`:
+
+```scheme
+;; PantherX OS Desktop Configuration v2
+;; for Virtual machine
+
+(use-modules (gnu)
+             (gnu system)
+             (px system install)
+             (px system))
+
+(px-desktop-os
+ (operating-system
+  (host-name "px-base")
+  (timezone "Europe/Berlin")
+  (locale "en_US.utf8")
+
+  (bootloader (bootloader-configuration
+              (bootloader grub-bootloader)
+              (target "/dev/vda")
+              (terminal-outputs '(console))))
+ (file-systems (cons (file-system
+                      (mount-point "/")
+                      (device "/dev/vda1")
+                      (type "ext4"))
+                     %base-file-systems))
+
+  (users (cons (user-account
+                (name "panther")
+                (comment "panther's account")
+                (group "users")
+                ;; Set the default password to 'pantherx'
+                ;; Important: Change with 'passwd panther' after first login
+                (password (crypt "pantherx" "$6$abc"))
+
+                (supplementary-groups '("wheel"
+                                        "audio" "video"))
+                (home-directory "/home/panther"))
+               %base-user-accounts))
+
+  ;; Globally-installed packages.
+  (packages (cons*
+	     %px-desktop-packages))
+
+  ;; Globally-activated services.
+  (services (cons*
+		   %px-desktop-services))))
+
 ```
 
-running the above script, we have a QEMU instance, that boots to an instance of Guix defined by our configuration file.
+Build a VM from `px-desktop-config_vm.scm`:
+
+```bash
+guix system vm guix-desktop-vm_image.scm --substitute-urls='https://bordeaux.guix.gnu.org https://packages.pantherx.org'
+```
+
+Once that's done, you should get a bash script:
+
+```bash
+building /gnu/store/v6s7975lv0z95ss2k7bjc5y5j9myh4ap-copy-image.drv...
+building /gnu/store/z73xm20ipfdbqwid5mvlpfysp83lf8m9-run-vm.sh.drv...
+/gnu/store/7d6mi0wpfyxsxy25rd8gcnj1x5szdgcr-run-vm.sh
+```
+
+Run like this:
+
+```
+/gnu/store/7d6mi0wpfyxsxy25rd8gcnj1x5szdgcr-run-vm.sh -m 2048 -smp 2 -nic user,model=virtio-net-pci -enable-kvm
+```
+
+Notes:
+
+- `m` is memory
+- `smp` is the processor count
+- `enable-kvm` will enable hardware acceleration (you should! enable this)
+
+Important: To actually use the `-enable-kvm` flag, you need to enable it for your user, in the system configuration at `/etc/system.scm`. Learn more: [More performance using KVM](/qemu/#more-performance-using-kvm)
+
+{% include snippets/screenshot.html image='Virtualization/guix-desktop-config_vm.png' %}
+
+Login with password `pantherx`.
 
 ### Prepare permanent disk image
 
@@ -51,21 +124,21 @@ $ qemu-system-x86_64 \
 
 running the disk image there are a series of items that we need to consider:
 
-1. generated disk image will be saved in `store`, and since store is a read-only location, we need to copy that to some other place and assign write permission before we can use generated image.
+**(1)** generated disk image will be saved in `store`, and since store is a read-only location, we need to copy that to some other place and assign write permission before we can use generated image.
 
-2. default image generated using `guix system vm-image` usually doesn't have enough space for additional files and packages to store/install. so if we need more space, we should pass our desired size using `--image-size` parameter.
+**(2)** default image generated using `guix system vm-image` usually doesn't have enough space for additional files and packages to store/install. so if we need more space, we should pass our desired size using `--image-size` parameter.
 
 ```bash
 $ guix system vm-image /path/to/config.scm --image-size=10G
 ```
 
-3. in order to have ssh access to the virtual machine, we need to forward default ssh port of the guest machine to some other port in host using `hostfwt` parameter of QEMU:
+**(3)** in order to have ssh access to the virtual machine, we need to forward default ssh port of the guest machine to some other port in host using `hostfwt` parameter of QEMU:
 
 ```bash
 $ qemu-system-x86_64 -nic user,model=virtio-net-pci,hostfwd=tcp::10022-:22 ...
 ```
 
-later we can connect to guest machine using ssh client:
+**(4)** later we can connect to guest machine using ssh client:
 
 ```bash
 $ ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022 root@127.0.0.1
@@ -83,6 +156,7 @@ sendkey ctrl-alt-f2
 
 later we can switch back to default console using `ctrl+alt+1` command.
 
-## Docker
+## See also
 
-_TODO_
+- [qemu](/qemu/)
+- [Invoking guix system](https://guix.gnu.org/manual/en/html_node/Invoking-guix-system.html)
