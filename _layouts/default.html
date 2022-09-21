@@ -6,12 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{% include meta.html %}
 	{% if site.type == 'web' %}
-	<title>{{ page.title }} | {{ site.title }}</title>
-	<meta name="og:title" content="{{ page.title }} | {{ site.title }}">
-	<meta name="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+	<title>
+		{% if page.title %}{{ page.title }}{% else %}{{ page.path | remove: '.html' | remove: '.md' | replace: '-',' ' }}{% endif %} | {{ site.title }}
+	</title>
+	<meta name="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ page.path | remove: '.html' | remove: '.md' | replace: '-',' ' }}{% endif %} | {{ site.title }}">
+	<meta name="og:description"
+		content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 	<meta name="og:image" content="https://www.pantherx.org/assets/images/px-desktop.jpg">
-	<meta itemprop="name" content="{{ page.title }} | {{ site.title }}">
-	<meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+	<meta itemprop="name" content="{% if page.title %}{{ page.title }}{% else %}{{ page.path | remove: '.html' | remove: '.md' | replace: '-',' ' }}{% endif %}">
+	<meta itemprop="description"
+		content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 	<meta itemprop="image" content="https://www.pantherx.org/assets/images/px-desktop.jpg">
 	<link rel="stylesheet" href="/assets/css/custom.min.css">
 	{% else %}
