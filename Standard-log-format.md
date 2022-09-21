@@ -1,6 +1,5 @@
 ---
 namespace: guix
-title: Standard Log Format for PantherX Applications
 categories:
  - type:
    - "Development Documents"

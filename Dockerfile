@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     openssl \
     awscli \
     && aws configure set preview.cloudfront true
+RUN gem install public_suffix -v 4.0.7
 RUN gem install bundler jekyll
 RUN bundle install
 EXPOSE 4000
