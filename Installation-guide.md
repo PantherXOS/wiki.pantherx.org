@@ -24,13 +24,13 @@ lsblk
 
 Before you get started, ready a USB stick with the latest ISO image.
 
-1. Download [pantherx-1.3.0-27.c07910a-image.iso.tar.gz](https://temp.pantherx.org/pantherx-1.3.0-27.c07910a-image.iso.tar.gz) (Beta 6)
+1. Download [pantherx-1.3.0-29.7a44940-image.iso.tar.gz](https://temp.pantherx.org/pantherx-1.3.0-29.7a44940-image.iso.tar.gz) (Beta 6)
 2. Extract the ISO
 
 On Linux you can use `tar`:
 
 ```bash
-tar -xf pantherx-1.3.0-27.c07910a-image.iso.tar.gz
+tar -xf pantherx-1.3.0-29.7a44940-image.iso.tar.gz
 ```
 
 #### Flash with dd
@@ -52,7 +52,7 @@ nvme0n1       259:0    0 953.9G  0 disk
 In my case, it's `/dev/sda`, so I proceed with copying the ISO to this drive:
 
 ```bash
-$ sudo dd if=pantherx-1.3.0-27.c07910a-image.iso of=/dev/sda status=progress
+$ sudo dd if=pantherx-1.3.0-29.7a44940-image.iso of=/dev/sda status=progress
 Password:
 1110499840 bytes (1.1 GB, 1.0 GiB) copied, 284 s, 3.9 MB/s
 2169320+0 records in
@@ -334,10 +334,8 @@ Hub currently supports GitLab, GitHub, Email (via ClawsMail), Discourse and Mast
 This is a beta release, so please keep a few things in mind:
 
 - We do not accept bug reports at this time
-- We have limited or no time to provide support
+- We only provide limited support on our community forum
 - We try to release updates on a 2-week basis
-
-With that being said, we are working exclusively on PantherX OS and I myself do virtually everything on the system without any major issues. In fact, after years on MacOS and the months on various other Linux distributions, I have found PantherX to be much more reliable. If you do ever run into any issues after an update, simply reboot and roll-back your system - in literally 1 second.
 
 **Have a great time on PantherX OS**
 
