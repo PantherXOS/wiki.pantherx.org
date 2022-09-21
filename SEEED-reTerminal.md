@@ -138,22 +138,6 @@ Username: panther
 Password: pantherx
 ```
 
-### Usage
-
-To update the image, login as root, and run:
-
-```bash
-px update apply
-```
-
-_The image is still a work in progress; Your initial update might easily take an hour._
-
-To update your system configuration after changing `system.scm` run:
-
-```bash
-px reconfigure
-```
-
 ## Configuration example
 
 To reconfigure your image, use the following configuration examples as reference.
@@ -167,6 +151,24 @@ To reconfigure your image, use the following configuration examples as reference
 
 ```scheme
 {% include config-examples/px-server-os-reterminal.scm %}
+```
+
+## Usage
+
+_Before you can update and reconfigure the system, create a system configuration at `/etc/system.scm`._
+
+To update the image, login as root, and run:
+
+```bash
+px update apply
+```
+
+_The image is still a work in progress and pre-built packages are not always available; Your initial update might easily take an hour or longer._
+
+To update your system configuration after changing `/etc/system.scm` run:
+
+```bash
+px reconfigure
 ```
 
 ## See also
