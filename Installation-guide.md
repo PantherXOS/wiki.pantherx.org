@@ -93,7 +93,7 @@ If you're connected via LAN cable, you probably already have internet. Skip ahea
 
 ### Connect to the Internet
 
-Now that you're in the command like, it should read "Welcome to the Installation of PantherX OS!". Before you continue, you need to establish a internet connection. If you are connected with a LAN cable, that might already have happened.
+Now that you're in the command line, it should read "Welcome to the Installation of PantherX OS!". Before you continue, you need to establish a internet connection. If you are connected with a LAN cable, that might already have happened.
 
 Here's how you verify whether you're connected:
 

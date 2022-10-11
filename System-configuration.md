@@ -1,6 +1,8 @@
 ---
 ---
 
+PantherX comes with a really easy, command-line based installer that asks virtually no questions. Simply boot the ISO, make sure you're connected to the internet and run [`px-install`](/Installation-guide/#installation). If you know how-to press buttons on your keyboard, it's as easy to use, as any installer with interface. If you insist on an interface, we kindly ask you to wait another couple of months, or [help us](/Getting-involved/) write one now.
+
 ## Desktop
 
 This provides the default desktop environment.
@@ -13,6 +15,8 @@ px-desktop-os
 %px-desktop-packages
 %px-desktop-services
 ```
+
+If you have a modern PC, you will probably want to use UEFI: Skip ahead to "Desktop: Boot in UEFI mode"
 
 ### Example
 
@@ -28,10 +32,34 @@ px-desktop-os
 {% include config-examples/base-desktop-docker.scm %}
 ```
 
-**Desktop: Boot in EFI mode**
+**Desktop: Boot in UEFI mode**
 
 ```scheme
 {% include config-examples/base-desktop-efi.scm %}
+```
+
+### Adjust Firewall
+
+PantherX defaults to `nftables` as package filter and as seen above, it's easy to open additional ports.
+
+Example for SSH:
+
+```scheme
+#:open-ports '(("tcp" "ssh"))
+```
+
+Example for typical webserver:
+
+```scheme
+#:open-ports '(("tcp" "ssh", "http", "https"))
+#:open-ports '(("tcp" "22", "80", "443")) ;; identical
+```
+
+Example with multiple protocols:
+
+```scheme
+#:open-ports '(("tcp" "ssh")
+               ("udp" "53"))
 ```
 
 ### Enable SSH access
@@ -53,12 +81,37 @@ To access your desktop remotely:
 ))
 ```
 
+### Change Kernel
+
+`px-desktop-os` defaults on `nonlibre` kernel, `px-server-os` on `libre`.
+
+You can easily switch between kernel:
+
+- `#:kernel 'libre`
+- `#:kernel 'nonlibre`
+- `#:kernel 'custom`
+
+If needed, `'custom` gives you fill control:
+
+```scheme
+(px-desktop-os
+  (operating-system
+    ...
+    (kernel linux)
+      (initrd microcode-initrd)
+      (firmware (list linux-firmware))
+	...
+))
+```
+
 ## Desktop Libre
 
-This provides the default desktop environment with non-libre components stipped.
+This provides the default desktop environment with non-libre components stripped.
 
 - Libre kernel
 - Firewall with sane defaults (`22` is not open)
+
+Use this only if you know what you're doing.
 
 ```
 px-desktop-os
@@ -71,9 +124,11 @@ You can toggle the libre kernel in `system.scm`:
 ```scheme
 (px-desktop-os
   ...
-  #:kernel 'nonlibre
+  #:kernel 'libre
 )
 ```
+
+_For Firewall and SSH configuration, check the previous section. It's identical for every system._
 
 ## Server
 
@@ -97,6 +152,8 @@ px-server-os
 ```scheme
 {% include config-examples/base-server.scm %}
 ```
+
+_For Firewall and SSH configuration, check the previous section. It's identical for every system._
 
 ## See also
 

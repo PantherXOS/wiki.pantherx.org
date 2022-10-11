@@ -84,9 +84,9 @@ Read more about the differences between Linux and Linux-libre on [stackexchange.
 
 ### Manjaro
 
-- is based on _Arch_ with _Xfce_ as it's default desktop
+- is based on _Arch_ with _Xfce_ as it's default desktop but supports others as well
 - both _Manjaro_ and PantherX rely on a rolling release cycle
-- _openSUSE_ relies on systemd as init, PantherX uses GNU Shepherd
+- _Manjaro_ relies on systemd as init, PantherX uses GNU Shepherd
 
 ## See also
 
