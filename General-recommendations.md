@@ -10,15 +10,24 @@ Users and their associated groups are defined in the system configuration (`/etc
 For a single user, it may look like this:
 
 ```scheme
-  (users (cons (user-account
-                (name "franz")
-                (comment "default")
-                (group "users")
-                (supplementary-groups '("wheel" "netdev" "docker" "kvm"
-                                        "audio" "video" "lpadmin" "lp"))
-                (home-directory "/home/franz"))
-               %base-user-accounts))
+(users (cons (user-account
+              (name "franz")
+              (comment "default")
+              (group "users")
+              (supplementary-groups '("wheel" "netdev" "docker" "kvm"
+                                      "audio" "video" "lpadmin" "lp"))
+              (home-directory "/home/franz"))
+             %base-user-accounts))
 ```
+
+Note that I have quite a few supplementary groups:
+
+- `wheel` to enable `sudo` use
+- `netdev` for wifi management
+- `kvm` mostly for hardware acceleration under qemu
+- `audio` for audio playback
+- `video` for webcam access
+- `lpadmin` and `lp` to add, remove printers via cups (usually a web interface)
 
 ### Privilege escalation
 
