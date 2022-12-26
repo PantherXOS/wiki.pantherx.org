@@ -65,3 +65,27 @@ The default config is assumed to be at `/etc/nebula/config.yml`
                 (provision '(nebula-2))
                 (config-path "/etc/nebula/network2/config.yml"))))
 ```
+
+### Inline Configuration
+
+define configuration as a `plain-file`:
+
+```scheme
+(define %nebula-config-file
+  (plain-file "nebula.yml"
+              "---
+pki:
+  ca: /etc/nebula/certs/ca.crt
+  cert: /etc/nebula/certs/host.crt
+  key: /etc/nebula/certs/host.key
+..."))
+```
+
+use the configuration in the `nebula-service-type`:
+
+```scheme
+(service nebula-service-type
+         (list (nebula-configuration
+                (provision '(nebula))
+                (config-path %nebula-config-file))))
+```
