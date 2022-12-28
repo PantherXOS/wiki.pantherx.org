@@ -100,3 +100,12 @@ run a nodejs application with `pm2` which is installed for `panther` user in `/h
            ...))
 ```
 
+## `create-swap-space-service`
+
+This service checks if  the `/swapfile` is initialized and creates it with the given size if not.
+
+```scheme
+(services (cons*
+           (create-swap-space-service "2G") ;; size of the swap file
+           ...))
+```
