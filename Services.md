@@ -109,3 +109,60 @@ This service checks if  the `/swapfile` is initialized and creates it with the g
            (create-swap-space-service "2G") ;; size of the swap file
            ...))
 ```
+
+## `rsyslog-service-type`
+
+This service adds a new `rsyslog` daemon with provided configuration to the system.
+
+
+### Default configuration
+
+in order to add the service with default configuration:
+
+```scheme
+(services (cons*
+           (service rsyslog-service-type)
+           ...))
+```
+
+### Custom configuration
+
+in order to modify the default configuration, first we create the configuration file:
+
+```scheme
+(define %rsyslog-configuration
+  (plain-file "rsyslog.conf"
+    "..."))
+```
+
+then we modify the service configuration as follows:
+
+```scheme
+(services (cons*
+           (service rsyslog-service-type
+                    (rsyslog-configuration
+                      (config-file %rsyslog-configuration)))
+           ...))
+```
+
+### Add log forwarding
+
+in order to add log forwarding to a remote server, we need to append forwarding rules to the default configuration:
+
+```scheme
+(define %remote-rsyslog-config-file
+  (plain-file "remote-rsyslog.conf"
+    (string-append %rsyslog-default-config "\n\n"
+	  "$PreserveFQDN on
+
+$DefaultNetstreamDriverCAFile /etc/rsyslog/ca.pem
+
+$DefaultNetstreamDriver gtls
+$ActionSendStreamDriverMode 1
+$ActionSendStreamDriverAuthMode anon
+
+*.* @@(o)log.example.com:1234
+")))
+```
+
+then modify the service based on what mentioned in [custom configuration](#custom-configuration) section.
