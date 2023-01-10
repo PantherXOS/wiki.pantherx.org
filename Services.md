@@ -75,6 +75,7 @@ more details about Nebula network can be found [here](https://wiki.pantherx.org/
      (px-server-launcher-configuration
        (user "panther")  ;; optional, default=panther
        (group "users")   ;; optional, default=users
+       (cwd "/path/to/working/directory") ;; optional, default=#f
        (executable "/path/to/executable/file")
        (args '())        ;; optional, list of arguments pass to the executable
        ))
@@ -87,9 +88,33 @@ more details about Nebula network can be found [here](https://wiki.pantherx.org/
               ...))
    ```
 
-### Example
+### Examples
 
-run a nodejs application with `pm2` which is installed for `panther` user in `/home/panther/example-app`:
+1. run with `npm` command:
+
+```scheme
+(services (cons*
+           (service px-server-launcher-service-type
+                    (px-server-launcher-configuration
+                      (cwd "/home/panther/example-app")
+                      (executable "npm")
+                      (args '("start"))))
+           ...))
+```
+
+2. run with `pm2` installed locally on the application directory:
+
+```scheme
+(services (cons*
+           (service px-server-launcher-service-type
+                    (px-server-launcher-configuration
+                      (cwd "/home/panther/example-app")
+                      (executable "./node_modules/.bin/pm2")
+                      (args '("start" "ecosystem.config.js"))))
+           ...))
+```
+
+3. run without changing the current working directory:
 
 ```scheme
 (services (cons*
