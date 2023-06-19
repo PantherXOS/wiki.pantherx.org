@@ -3,7 +3,7 @@
 	     (gnu packages emacs)
              (nongnu packages linux)
              (nongnu system linux-initrd)
-             (px system))
+             (px config))
 
 (use-service-modules docker)
 

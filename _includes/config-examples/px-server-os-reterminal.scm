@@ -3,8 +3,8 @@
              (px bootloader u-boot)
              (px packages linux)
              (px services desktop)
-             (px system install)
-             (px system install raspberry)
+             (px system config)
+             (px system raspberry)
              (px hardware raspberrypi))
 
 (px-server-os

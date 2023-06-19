@@ -216,7 +216,7 @@ Now simply connect via SSH from another computer: `ssh root@192.168.1.67`.
 ## Installation
 
 <small>
-_Pro-Tip: [Download and run the latest installer](https://git.pantherx.org/development/applications/px-install#debugging)_
+It is highly recommended to download and run the latest version of the installer, instead of the included version: [Download and run the latest installer](https://git.pantherx.org/development/applications/px-install#debugging)
 </small>
 
 We have come-up with a simple installer that automates all steps. You can go ahead with the defaults (username: `pantherx`) with:

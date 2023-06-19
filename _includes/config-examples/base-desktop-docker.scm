@@ -6,8 +6,7 @@
 
 (use-modules (gnu)
              (gnu system)
-             (px system install)
-             (px system))
+             (px system config))
 
 ;; Add the service module 'docker'
 (use-service-modules docker)

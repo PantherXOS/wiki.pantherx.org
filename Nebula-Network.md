@@ -39,8 +39,7 @@ Add required imports. It may look something like this:
 ```scheme
 (use-modules (gnu)
              (gnu system)
-             (px system install)
-             (px system)
+             (px system config)
              (px services networking)) ;; add this only
 ```
 

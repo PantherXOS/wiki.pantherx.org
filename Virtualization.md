@@ -26,8 +26,7 @@ Create a system config `px-desktop-config_vm.scm`:
 
 (use-modules (gnu)
              (gnu system)
-             (px system install)
-             (px system))
+             (px system config))
 
 (px-desktop-os
  (operating-system

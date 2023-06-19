@@ -4,8 +4,7 @@
 
 (use-modules (gnu)
              (gnu system)
-             (px system install)
-             (px system))
+             (px system config))
 
 (define %ssh-public-key
   "ssh-ed25519 AAAAC3NzaC1lZSJANJQ5AAAAIP7gcASKK1KAM91dl1OC0GqpgcudsaaJ4QydPg panther")
