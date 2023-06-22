@@ -48,4 +48,5 @@
   
   ;; Globally-activated services.
   (services (cons*
+             (service px-desktop-service-type)
 	     %px-desktop-services))))

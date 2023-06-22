@@ -56,5 +56,5 @@
   
   ;; Services
   (services (cons* (service docker-service-type)
+                   (service px-desktop-service-type)
 		   %px-desktop-services))))
-

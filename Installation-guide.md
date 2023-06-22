@@ -331,16 +331,10 @@ Hub currently supports GitLab, GitHub, Email (via ClawsMail), Discourse and Mast
 
 ## Get Help
 
-This is a beta release, so please keep a few things in mind:
+### Forum
 
-- We do not accept bug reports at this time
-- We only provide limited support on our community forum
-- We try to release updates on a 2-week basis
+We encourage you to look around the Wiki and go to [community.pantherx.org](https://community.pantherx.org/) to seek help from the community.
 
 **Have a great time on PantherX OS**
 
 {% include snippets/screenshot.html image='installer/start-customizing.png' alt="" %}
-
-### Forum
-
-We encourage you to look around the Wiki and go to [community.pantherx.org](https://community.pantherx.org/) to seek help from the community.
