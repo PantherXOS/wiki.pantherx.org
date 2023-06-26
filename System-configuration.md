@@ -1,7 +1,10 @@
 ---
 ---
 
-PantherX comes with a really easy, command-line based installer that asks virtually no questions. Simply boot the ISO, make sure you're connected to the internet and run [`px-install`](/Installation-guide/#installation). If you know how-to press buttons on your keyboard, it's as easy to use, as any installer with interface. If you insist on an interface, we kindly ask you to wait another couple of months, or [help us](/Getting-involved/) write one now.
+PantherX comes with a really easy, command-line based installer that asks virtually no questions. Simply boot the ISO, make sure you're connected to the internet and run [`px-install`](/Installation-guide/#installation).
+
+
+Also checkout our new [System Configuration Generator](https://www.pantherx.org/configs/).
 
 ## Desktop
 

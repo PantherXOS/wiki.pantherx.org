@@ -401,18 +401,16 @@ $ nano /mnt/etc/guix/channels.scm
 with the following content:
 
 ```scheme
-(list (channel
-       (name 'guix)
-       (url "https://channels.pantherx.org/git/pantherx.git")
-       (branch "rolling-nonlibre"))
-      (channel
-       (name 'nongnu)
-       (url "https://channels.pantherx.org/git/nongnu.git")
-       (branch "rolling"))
-      (channel
-       (name 'pantherx)
-       (url "https://channels.pantherx.org/git/pantherx-extra.git")
-       (branch "rolling")))
+(cons* (channel
+        (name 'pantherx)
+        (branch "master")
+        (url "https://channels.pantherx.org/git/panther.git")
+         (introduction
+          (make-channel-introduction
+           "54b4056ac571611892c743b65f4c47dc298c49da"
+           (openpgp-fingerprint
+            "A36A D41E ECC7 A871 1003  5D24 524F EB1A 9D33 C9CB"))))
+       %default-channels)
 ```
 
 ### Update and install
@@ -422,14 +420,12 @@ Once you're satisfied with your configuration, proceed with the installation.
 First we'll pull the latest packages:
 
 ```bash
-$ guix pull --channels=/mnt/etc/guix/channels.scm --disable-authentication
-Updating channel 'guix' from Git repository at 'https://channels.pantherx.org/git/pantherx.git'...
+$ guix pull --channels=/mnt/etc/guix/channels.scm
+Updating channel 'guix' from Git repository at 'https://channels.pantherx.org/git/panther.git'...
 receiving objects  37% [####################################################################
 ...
 hint: After setting `PATH', run `hash guix' to make sure your shell refers to `/root/.config/guix/current/bin/guix'.
 ```
-
-_Initial pull requires `--disable-authentication` to be set. We are working on a solution to rectify the problem. Subsequent pulls, do not require this._
 
 Lastly, run:
 

@@ -15,7 +15,7 @@ Depending on the user and application you're running, the default channels file 
 
 #### root user
 
-- The `px update apply` command defaults to `/etc/channels.scm` and `/etc/system.scm`
+- The `px update apply` command defaults to `/etc/guix/channels.scm` and `/etc/system.scm`
 - the `guix pull` command defaults to `~/.config/guix/channels.scm`
 
 We recommend to always run `px update apply` to download and install the latest **system** updates. For system updates, it's important you actually login as `root` using `su - root` before running `px update apply`.
@@ -24,7 +24,7 @@ _Hint:_ This only updates global and root profile packages.
 
 #### normal user
 
-- The `px update apply` command defaults to `/etc/channels.scm`
+- The `px update apply` command defaults to `/etc/guix/channels.scm`
 - the `guix pull` command defaults to `~/.config/guix/channels.scm`
 
 We recommend to always run `px update apply` to download and install the latest **user** updates
@@ -33,7 +33,7 @@ We recommend to always run `px update apply` to download and install the latest 
 
 For users unfamiliar with guix, this is probably a lot to swallow. However, there's really only 3 important things to remember:
 
-1. Have a `/etc/channels.scm` in place
+1. Have a `/etc/guix/channels.scm` in place
 2. Run system updates with `su - root` and then `px update apply`
 3. Update applications you have installed under your user (not root) with `px update apply`
 
@@ -41,44 +41,19 @@ We also have a handy GUI application "Software" that will do all this for you.
 
 ### Channels File
 
-#### Desktop
-
-For our default desktop environment, we default to the standard Linux kernel for maximum hardware compatibility.
-
-Here's what your `/etc/channels.scm` should look like:
+Here's what your `/etc/guix/channels.scm` should look like:
 
 ```scheme
-;; PantherX Default Desktop Channels
+;; PantherX Default Channels
 
-(list (channel
-        (name 'guix)
-        (url "https://channels.pantherx.org/git/pantherx.git")
-        (branch "rolling-nonlibre"))
-      (channel
-        (name 'nongnu)
-        (url "https://channels.pantherx.org/git/nongnu.git")
-        (branch "rolling"))
-      (channel
+(cons* (channel
         (name 'pantherx)
-        (url "https://channels.pantherx.org/git/pantherx-extra.git")
-        (branch "rolling")))
-```
-
-#### Server
-
-For server deployment, you probably be fine with the Linux libre kernel.
-
-Here's what your `/etc/channels.scm` should look like:
-
-```scheme
-;; PantherX Default Server Channels
-
-(list (channel
-        (name 'guix)
-        (url "https://channels.pantherx.org/git/pantherx.git")
-        (branch "rolling-nonlibre"))
-      (channel
-        (name 'pantherx)
-        (url "https://channels.pantherx.org/git/pantherx-extra.git")
-        (branch "rolling")))
+        (branch "master")
+        (url "https://channels.pantherx.org/git/panther.git")
+         (introduction
+          (make-channel-introduction
+           "54b4056ac571611892c743b65f4c47dc298c49da"
+           (openpgp-fingerprint
+            "A36A D41E ECC7 A871 1003  5D24 524F EB1A 9D33 C9CB"))))
+       %default-channels)
 ```
