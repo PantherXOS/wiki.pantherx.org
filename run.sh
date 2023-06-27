@@ -6,6 +6,7 @@ echo ""
 
 function RUN_CONTAINER_BASH {
   docker build --network=host --tag ${CONTAINER} .
+  
   docker container run --rm -v ${PWD}:/usr/working \
   -e AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID} \
   -e AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY} \
@@ -16,12 +17,14 @@ function RUN_CONTAINER_BASH {
 }
 
 function BUILD_PROJECT {
-  node_modules/.bin/gulp
+  bundle install
+  npm ci
+  npm run build
 }
 
 function DEPLOY_PROJECT {
   BUILD_PROJECT
-  bundle install
+  # bundle install
   bundle exec jekyll build -d ../_site
   aws s3 sync ../_site/ s3://${AWS_S3_BUCKET} --delete
   aws cloudfront create-invalidation --distribution-id $AWS_CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
@@ -29,13 +32,13 @@ function DEPLOY_PROJECT {
 
 function SERVE_PROJECT {
   BUILD_PROJECT
-  bundle install
+  # bundle install
   bundle exec jekyll serve --host 0.0.0.0 -d ../_site
 }
 
 function SERVE_PROJECT_DESKTOP {
   BUILD_PROJECT
-  bundle install
+  # bundle install
   bundle exec jekyll serve --config _config.yml,_config_desktop.yml --host 0.0.0.0 -d ../_site
 }
 
