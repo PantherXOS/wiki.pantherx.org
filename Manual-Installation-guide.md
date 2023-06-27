@@ -24,14 +24,8 @@ lsblk
 
 Before you get started, ready a USB stick with the latest ISO image.
 
-1. Download [pantherx-1.4.0-1.9fe5b49-image.iso.tar.gz](https://temp.pantherx.org/pantherx-1.4.0-1.9fe5b49-image.iso.tar.gz) (Beta 6)
-2. Extract the ISO
-
-On Linux you can use `tar`:
-
-```bash
-tar -xf pantherx-1.4.0-1.9fe5b49-image.iso.tar.gz
-```
+Download [{{ site.iso_title }}]({{ site.iso_url }}) ({{ site.iso_size }})
+<br/><code>{{ site.iso_hash }}</code>
 
 #### Flash with dd
 
@@ -51,8 +45,10 @@ nvme0n1       259:0    0 953.9G  0 disk
 
 In my case, it's `/dev/sda`, so I proceed with copying the ISO to this drive:
 
+{% capture new_var %}if={{ site.iso_title }}{% endcapture %}
+
 ```bash
-$ sudo dd if=pantherx-1.4.0-1.9fe5b49-image.iso of=/dev/sda status=progress
+$ sudo dd {{ new_var }} of=/dev/sda status=progress
 Password:
 1110499840 bytes (1.1 GB, 1.0 GiB) copied, 284 s, 3.9 MB/s
 2169320+0 records in

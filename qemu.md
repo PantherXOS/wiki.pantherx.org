@@ -70,8 +70,7 @@ $ qemu-img create -f qcow2 pantherx.qcow 32G
 We also need a ISO to boot and install from:
 
 ```bash
-$ wget https://temp.pantherx.org/pantherx-1.3.0-11.134d005-image.iso.tar.gz
-tar -xf pantherx-1.3.0-11.134d005-image.iso.tar.gz
+$ wget {{ site.iso_url }}
 ```
 
 Now we can boot qemu with the sparse bundle (HDD) and ISO attached:
@@ -79,7 +78,7 @@ Now we can boot qemu with the sparse bundle (HDD) and ISO attached:
 - `-m 2048` is the assigned RAM in Megabyte (1024 MB)
 
 ```bash
-$ qemu-system-x86_64 -hda pantherx.qcow -cdrom pantherx-1.3.0-11.134d005-image.iso -boot d -m 2048 -enable-kvm
+$ qemu-system-x86_64 -hda pantherx.qcow -cdrom {{ site.iso_title }} -boot d -m 2048 -enable-kvm
 ```
 
 Install and configure as desired. For this guide, we assume user `root` and `panther`.

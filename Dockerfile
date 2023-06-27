@@ -1,14 +1,8 @@
-FROM starefossen/ruby-node:2-10-slim
+FROM franzos/jekyll-node-python-awscli:v0.4
+
 WORKDIR /usr/working
+
 COPY Gemfile ./
-RUN apt-get update && apt-get install -y \
-    graphicsmagick \
-    imagemagick \
-    dh-autoreconf \
-    openssl \
-    awscli \
-    && aws configure set preview.cloudfront true
-RUN gem install public_suffix -v 4.0.7
-RUN gem install bundler jekyll
-RUN bundle install
+COPY package.json ./
+
 EXPOSE 4000
