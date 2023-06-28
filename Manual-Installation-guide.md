@@ -470,49 +470,10 @@ reboot
 
 This will also ensure that you do not run into this issue: [Opening Folders from Directory Menu failed](https://wiki.pantherx.org/LXQt/)
 
-You can take care of 2, 3, 4 while you're waiting for the update to finish.
-
-#### (2) Syncthing
-
-You will be promted to setup Syncthing, a powerful, decentralized file sharing utility that will replace your Dropbox account by tomorrow.
-
-1. Open the Settings
-2. Go to "Tray" (left sidebar) and look for the tab "Connection"
-3. Click "Insert values from local Syncthing configuration" and confirm with "Apply"
-
-Whenever you want to activate Syncthing, just click on the traybar icon (greyed out circle) and click "Continue".
-
-#### (3) Albert
-
-You will be promted to setup Albert; it's an incredibly useful utility that not only helps you launch apps, but does calculations, plays music - really whatever you want.
-
-#### (4) PantherX Hub
-
-If you want to use Hub, you need to setup a account first.
-
-1. Open 'Settings' > 'Online Accounts'
-2. Add a account
-
-Hub currently supports GitLab, GitHub, ClawsMail (Email) and Mastodon. This list will expand in the coming months.
-
-#### (5) Set new user and root password
+#### (2) Set new user and root password
 
 1. Open 'System Tools' > 'Terminal'
 2. Set a root password with `sudo passwd`
 3. Set a user password with `passwd YOUR_USERNAME`
 
-## Get Help
-
-This is a beta release, so please keep a few things in mind:
-
-- We do not accept bug reports at this time
-- We do not provide support except for occasional forum comments
-- We try to release updates on a 2-week basis
-
-With that being said, we are working exclusively on PantherX OS and I myself do virtually everything on the system without any major issues. In fact, after years on MacOS and the months on various other Linux distributions, I have found PantherX to be much more reliable. If you do ever run into any issues after an update, simply reboot and roll-back your system in literally 1 second.
-
 **Have a great time on PantherX OS**
-
-### Forum
-
-We encourage you to look around the Wiki and go to [community.pantherx.org](https://community.pantherx.org/) to seek help from the community.

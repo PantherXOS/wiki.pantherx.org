@@ -28,6 +28,7 @@ exclude:
   - s3_website.yml
   - project.config
   - run.sh
+  - venv
 
 defaults:
   - scope:
@@ -62,10 +63,10 @@ nav:
     url: https://www.pantherx.org/for-small-business/
   - title: Packages
     url: https://www.pantherx.org/packages/
+  - title: Configuration
+    url: https://www.pantherx.org/configs/
   - title: Wiki
     url: /
-  - title: Community
-    url: https://community.pantherx.org
   - title: Contact
     url: https://www.pantherx.org/contact/
 
@@ -74,11 +75,8 @@ sidebar:
     - Main page
     - Table of contents
     - Getting involved
-    - Wiki news
     - Search
   interaction:
-    - Help
-    - Contributing
     - Recent Changes
 
 plugins:

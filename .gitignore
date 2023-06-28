@@ -8,5 +8,6 @@ vendor
 .stignore
 project.config
 .jekyll-cache
+venv
 
 Gemfile.lock
