@@ -199,15 +199,28 @@ If you are running out of disk space, it might help clear old store items:
 guix gc
 ```
 
-Also checkout: [Disk usage: Find out where your space goes](https://community.pantherx.org/t/disk-usage-find-out-where-your-space-goes/48)
-
 ## Appearance
 
 ### Display Scaling
 
-On high resolution screens, it's easy to scale the entire desktop. What works well: 1.25x, 1.5x, 2x.
+If you are working on a high resolution screen and have a hard time reading the text, this one is for you. With a few manual adjustments, most if not all applications happily scale to 1.5x to 2x - likely others, if you go trough some trial and error.
 
-Find out more: [Scaling on high-resolution screens](https://community.pantherx.org/t/scaling-on-high-resolution-screens/42)
+Here's how:
+
+1. Menu > Preferences > Advanced Settings > Session Settings
+2. Look for "Environment (Advanced)" on the sidebar
+
+The following values work well for me (2560x1440 on a 14" screen) but depending on your eyes, screen size and resolution, you might want to adjust.
+
+```
+GDK_DPI_SCALE = 1.5
+GDK_SCALE = 1.5
+QT_AUTO_SCREEN_SCALE_FACTOR = 0
+QT_SCALE_FACTOR = 1.5
+XCURSOR_SIZE = 26
+```
+
+To apply, simply log-out and back in. Better yet, reboot.
 
 ## System service
 

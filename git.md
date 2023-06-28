@@ -93,35 +93,6 @@ $ git commit -m "file: revised instructions"
 
 It's good practice, to add short but clear commit messages.
 
-##### Revision selection
-
-##### Viewing changes
-
-#### Undoing things
-
-#### Branching
-
-#### Collaboration
-
-##### Pull requests
-
-##### Using remotes
-
-##### Push to a repository
-
-##### Dealing with merges
-
-#### History and versioning
-
-##### Searching the history
-
-##### Tagging
-
-##### Organizing commits
-
----
----
-
 ## Tips and tricks
 
 #### Using multiple SSH keys
@@ -141,37 +112,55 @@ host git.domain2.com
  User git
 ```
 
-#### Using git-config
+## Troubleshooting
 
-#### Adopting a good etiquette
+### Error: gpg failed to sign the data
 
-#### Speeding up authentication
+If you're facing issues signing with gpg, here's what you can do:
 
-#### Protocol defaults
+```bash
+$ git commit -m "initial commit"
+error: gpg failed to sign the data
+fatal: failed to write commit object
+```
 
-#### Bash completion
+Double-check that gpg is working:
 
-#### Git prompt
+```bash
+$ echo "test" | gpg --clearsign
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
 
-#### Visual representation
+test
+gpg: signing failed: No pinentry
+gpg: [stdin]: clear-sign failed: No pinentry
+```
 
-#### Commit tips
+_Note: It's not working; Looks like it cannot find pinentry._
 
-#### Signing commits
+### Quick Fix
 
-#### Working with a non-master branch
+Find out the location of pinentry:
 
-#### Directly sending patches to a mailing list
+```bash
+# Find out pinentry location
+$ which pinentry
+/run/current-system/profile/bin/pinentry
+```
 
-#### When the remote repo is huge
+Stop the running gpg daemon:
 
-##### Simplest way: fetch the entire repo
+```bash
+# kill running daemon
+pkill gpg-agent
+```
 
-##### Partial fetch
+Start daemon:
 
-##### Get other branches
-
-##### Possible Future alternative
+```bash
+# run new daemon
+gpg-agent --pinentry-program=/run/current-system/profile/bin/pinentry --daemon
+```
 
 ## See also
 

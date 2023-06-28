@@ -80,6 +80,242 @@ $ vue --version
 @vue/cli 4.5.7
 ```
 
+## Develop node applications on PantherX (PostgreSQL, Redis, Nginx)
+
+We'll set these up for local development but with minor modifications you can run this on a server too.
+
+1. PostgreSQL (root)
+2. Redis (root)
+3. Nginx (root)
+4. Hosts file (root)
+5. NPM
+
+### Configuration
+
+Login as root before you continue.
+
+```
+su - root
+```
+
+#### PostgreSQL
+
+To configure this, you will need to do two things:
+
+1. Import the `databases` package and service module.
+2. Add the `postgresql-service-type` to your services
+
+Open `/etc/system.scm`:
+
+```scheme
+(use-modules (gnu)
+             (gnu system)
+             (px system)
+             ...
+             ;; Add this line
+             (gnu packages databases))
+
+;; Add this line
+;; If 'user-service-modules' already exists, just add 'databases' to it
+(use-service-modules databases)
+
+(px-desktop-os
+ (operating-system
+ 
+  ...
+ 
+))
+```
+
+Modify services:
+
+_Refer to https://www.postgresql.org/docs/13/auth-pg-hba-conf.html for more information on `pg_hba.conf` and database authentication options._
+
+```scheme
+(services (cons* (service postgresql-service-type
+                          (postgresql-configuration
+                           (config-file
+                            (postgresql-config-file
+                             (hba-file
+                              (plain-file "pg_hba.conf"
+                         "
+local   all     all                     trust
+host    all     all     127.0.0.1/32    trust
+host    all     all     ::1/128         md5"))))
+                             (postgresql postgresql-10)))
+                 %px-desktop-services))
+```
+
+This will ensure that any user can connect do any database via unix socker or `127.0.0.1` for ease.
+
+#### Redis
+
+All we need to add is `(service redis-service-type)`.
+
+```scheme
+(services (cons* (service postgresql-service-type
+                          (postgresql-configuration
+                           (config-file
+                            (postgresql-config-file
+                             (hba-file
+                              (plain-file "pg_hba.conf"
+                         "
+local   all     all                     trust
+host    all     all     127.0.0.1/32    trust
+host    all     all     ::1/128         md5"))))
+                             (postgresql postgresql-10)))
+                 ;; Add this line
+                 (service redis-service-type)
+                 %px-desktop-services))
+```
+
+#### Nginx
+
+To configure this, you will need to do two things:
+
+1. Generate a certificate
+2. Import the `web` package and service module.
+3. Add the `nginx-service-type` to your services
+
+**(1)** Create a self-signed certificate:
+
+```bash
+openssl req -newkey rsa:4096 \
+            -x509 \
+            -sha256 \
+            -days 3650 \
+            -nodes \
+            -out ~/example.crt \
+            -keyout ~/example.key
+```
+
+Open `nano /etc/system.scm`:
+
+**(2)** Import the `web` package and service module
+
+```scheme
+(use-modules (gnu)
+             (gnu system)
+             (px system)
+              ...
+             (gnu packages databases)
+             ;; Add this line
+             (gnu packages web))
+
+(use-service-modules databases web)
+
+(px-desktop-os
+ (operating-system
+
+....
+
+))
+```
+
+**(3)** Add the `nginx-service-type` to your services
+
+Modify services to look like this:
+
+_This is where your self-signed certificate and key at `/root/...` is used. (Don't do this in production. Use [Certificate Services](https://guix.gnu.org/manual/en/html_node/Certificate-Services.html) instead.)_
+
+```scheme
+(services (cons* (service postgresql-service-type
+                          (postgresql-configuration
+                           (config-file
+                            (postgresql-config-file
+                             (hba-file
+                              (plain-file "pg_hba.conf"
+                         "
+local   all     all                     trust
+host    all     all     127.0.0.1/32    trust
+host    all     all     ::1/128         md5"))))
+                             (postgresql postgresql-10)))
+                 (service redis-service-type)
+                 ;; Add these lines
+                 (service nginx-service-type
+                          (nginx-configuration
+                           (server-blocks
+                            (list (nginx-server-configuration
+                             (server-name '("example.com"))
+                             (ssl-certificate "/root/example.crt")
+                             (ssl-certificate-key "/root/example.key")
+                             (locations
+                               (list
+                                 (nginx-location-configuration
+                                 (uri "/")
+                                 (body '("proxy_pass http://localhost:4000;"))))))))))
+                %px-desktop-services))
+```
+
+#### Modify hosts file
+
+To actually test this locally, we need to also modify the hosts file and add `127.0.0.1 example.com`. We also do this in `/etc/system.scm`:
+
+```scheme
+...
+(px-desktop-os
+ (operating-system
+  (host-name "panther")
+  (timezone "Europe/Berlin")
+  (locale "en_US.utf8")
+
+  ;; Add these lines
+  (hosts-file
+   (plain-file "hosts"
+               "
+127.0.0.1 localhost panther
+::1       localhost panther
+127.0.0.1 example.com"))
+
+...
+
+))
+```
+
+**To apply all these changes**, reconfigure:
+
+```bash
+guix system reconfigure /etc/system.scm
+```
+
+#### NPM
+
+Now you should have PostgreSQL, Redis and Nginx running.
+
+Go back to your user account.
+
+```bash
+exit
+```
+
+Install node:
+
+```bash
+guix package -i node
+```
+
+and run your application (for ex. express server) on port `4000`.
+
+#### Testing
+
+Just open https://example.com/ in Firefox, skip the certificate warning and you should see your application.
+
+To revert, simply remove the changes from `/etc/system.scm` and reconfigure with
+
+```bash
+guix system reconfigure /etc/system.scm
+```
+
+You can also start and stop or restart services:
+
+```bash
+su - root
+herd status # get a list of all running services
+herd stop nginx
+herd start nginx
+herd restart nginx
+```
+
 ## Troubleshooting
 
 ```bash

@@ -25,6 +25,69 @@ Tested:
 | GitLab                                          | working            | working  |
 | ...                                             |                    |          |
 
+### YubiKey: Switch between U2F and OTP modes
+
+It's best to follow these steps as a root, to avoid issues with device recognition after switching modes:
+
+```sh
+su - root
+```
+
+Install the Yubikey manager:
+
+```sh
+$ guix package -i python-yubikey-manager
+```
+
+Verify your device is recognized:
+
+```sh
+$ ykman list
+YubiKey 5 Nano [FIDO] Serial: 109*****
+```
+
+Determine current connection mode:
+
+```
+$ ykman mode
+Current connection mode is: FIDO
+Supported USB interfaces are: OTP, FIDO, CCID
+
+# for more information
+$ ykman info
+Device type: YubiKey 5 Nano
+Serial number: 109*****
+Firmware version: 5.2.4
+Form factor: Nano (USB-A)
+Enabled USB interfaces: FIDO
+
+Applications
+OTP             Disabled
+FIDO U2F        Enabled 
+OpenPGP         Disabled
+PIV             Disabled
+OATH            Disabled
+FIDO2           Enabled
+```
+
+Switch to OTP
+
+```sh
+$ ykman mode otp
+Set mode of YubiKey to OTP? [y/N]: y
+```
+
+When you touch your YubiKey now, you should get a OTP input (`cccccdligrgcdtoqkjsnahtnhfvbhicjbgasdiujesc`), to whatever field is selected. Depending on whether you're using Slot 1 or 2, this happens immideately, or after a 3 seconds delay.
+
+To switch back to FIDO
+
+```sh
+ykman mode FIDO
+Set mode of YubiKey to FIDO? [y/N]: y
+```
+
+Unless not supported, it's best to stick to FIDO U2F for ease and security.
+
 ## Troubleshooting
 
 ### Check if your YubiKey is recognized
