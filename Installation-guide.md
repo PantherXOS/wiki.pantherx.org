@@ -71,6 +71,8 @@ If you prefer a GUI tool that runs on your existing OS (Windows, MacOS, other Li
 
 Now just plugin the USB stick into the target computer, and boot from it. Most commonly, you can get a boot device selection with `F11`.
 
+_Here's what a typical installation looks like: [youtube.com/watch?v=fK2Rx9MKLqw](https://www.youtube.com/watch?v=fK2Rx9MKLqw)._
+
 Once you have booted from USB, you will be greeted with "Locale language" selection.
 
 **(1)** Select your locale
@@ -229,6 +231,13 @@ px-install run
 
 {% include snippets/screenshot.html image='installer/install_px-install-run.png' alt="" %}
 
+In the latest release, you can select from 4 desktop environments:
+
+- XFCE
+- MATE
+- Gnome
+- LXQt
+
 {% include snippets/screenshot.html image='installer/install_px-install-approve.png' alt="" %}
 
 Once the installation has completed, it should read something like this:
@@ -243,13 +252,35 @@ Now simply reboot with
 reboot
 ```
 
-- _You can find out more about px-install at [git.pantherx.org/published/px-install](https://git.pantherx.org/published/px-install_pub)._
+- _You can find out more about px-install at [git.pantherx.org/development/applications/px-install](https://git.pantherx.org/development/applications/px-install)._
 - _Tip: SSH is disabled by default on Desktop so you won't be able to reconnect after reboot without enabling it first_
 
 ## Post-installation
 
 {% include snippets/screenshot.html image='installer/install_login-screen.png' alt="" %}
 
+1. Set a new password
+
+```bash
+sudo su - root
+passwd # for root
+passwd panther # for panther user (or your own username)
+```
+
+If you did not set a password, the default is `pantherx`.
+
+2. Update the system
+
+You'll want to update both system and user profile. To speed this up by 2x, you can usually do this in parralel, in two tabs (your user, root):
+
+```bash
+px update apply
+```
+
+3. Reboot and enjoy
+
 **Have a great time on PantherX OS**
 
-{% include snippets/screenshot.html image='installer/start-customizing.png' alt="" %}
+Notes:
+
+- You can update your system automatically: [Unattended Upgrades](/Unattended-Upgrades/)
