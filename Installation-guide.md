@@ -69,9 +69,11 @@ If you prefer a GUI tool that runs on your existing OS (Windows, MacOS, other Li
 
 ### First steps
 
-Now just plugin the USB stick into the target computer, and boot from it. Most commonly, you can get a boot device selection with `F11`.
+Here's what a typical installation looks like, assuming you're already connected to the internet (LAN): [youtube.com/watch?v=fK2Rx9MKLqw](https://www.youtube.com/watch?v=fK2Rx9MKLqw).
 
-_Here's what a typical installation looks like: [youtube.com/watch?v=fK2Rx9MKLqw](https://www.youtube.com/watch?v=fK2Rx9MKLqw)._
+---
+
+Now just plugin the USB stick into the target computer, and boot from it. Most commonly, you can get a boot device selection with `F11`.
 
 Once you have booted from USB, you will be greeted with "Locale language" selection.
 
@@ -259,7 +261,7 @@ reboot
 
 {% include snippets/screenshot.html image='installer/install_login-screen.png' alt="" %}
 
-1. Set a new password
+(1) Set a new password
 
 ```bash
 sudo su - root
@@ -269,7 +271,7 @@ passwd panther # for panther user (or your own username)
 
 If you did not set a password, the default is `pantherx`.
 
-2. Update the system
+(2) Update the system
 
 You'll want to update both system and user profile. To speed this up by 2x, you can usually do this in parralel, in two tabs (your user, root):
 
@@ -277,7 +279,7 @@ You'll want to update both system and user profile. To speed this up by 2x, you 
 px update apply
 ```
 
-3. Reboot and enjoy
+(3) Reboot and enjoy
 
 **Have a great time on PantherX OS**
 
