@@ -4,6 +4,7 @@
 
 (use-modules (gnu)
              (gnu system)
+             (gnu services desktop)
              (px system config))
 
 (px-desktop-os
@@ -48,5 +49,5 @@
   
   ;; Globally-activated services.
   (services (cons*
-             (service px-desktop-service-type)
+             (service xfce-desktop-service-type)
 	     %px-desktop-services))))

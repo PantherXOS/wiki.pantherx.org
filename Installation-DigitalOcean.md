@@ -12,8 +12,11 @@ language: "en"
 outdated: true
 ---
 
-In this tutorial we want to provide a step-by-step guide to transform an existing DigitalOcean droplet
-to a Guix System instance.
+In this tutorial we want to provide a step-by-step guide to transform an existing DigitalOcean droplet to a Guix System instance.
+
+Refer to [px-install](https://github.com/PantherXOS/px-install) for scripts:
+- pantherx-on-digitalocean.sh
+- pantherx-on-hetzner-cloud.sh
 
 ## Prerequisites
 

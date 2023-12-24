@@ -19,6 +19,13 @@ px-desktop-os
 %px-desktop-services
 ```
 
+You can configure any of the available guix desktops:
+
+- `xfce-desktop-service-type`
+- `mate-desktop-service-type`
+- `gnome-desktop-service-type`
+- `lxqt-desktop-service-type`
+
 If you have a modern PC, you will probably want to use UEFI: Skip ahead to "Desktop: Boot in UEFI mode"
 
 ### Example

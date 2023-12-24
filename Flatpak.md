@@ -22,7 +22,7 @@ guix package -i flatpak
 
 ### Configure Flatpak
 
-_TODO: This is pre-configured on PantherX. Verify it's working and remove this note._
+#### Desktop Icons on LXQT
 
 1. Open **Session Settings**.
 2. Go to "Environment (Advanced)"
@@ -33,6 +33,15 @@ _TODO: This is pre-configured on PantherX. Verify it's working and remove this n
 | XDG_DATA_DIRS 	| $XDG_DATA_DIRS:/var/lib/flatpak/exports/share:${HOME}/.local/share/flatpak/exports/share 	|
 
 For the changes to take effect, you will need to log out.
+
+#### Desktop Icons LXQT, Mate, Gnome, XFCE
+
+1. Open `~/.bash_profile`
+2. Append the following line and save
+
+```bash
+source ~/.guix-profile/etc/profile.d/flatpak.sh
+```
 
 ### Install Application (Example: Signal)
 

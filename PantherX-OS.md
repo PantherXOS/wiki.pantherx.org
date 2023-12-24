@@ -34,7 +34,3 @@ See also: [PantherX compared to other distributions](https://wiki.pantherx.org/P
 **Desktop: Beta 4 (2021)**
 
 ![PantherX Desktop]({{ site.assets }}/images/px-desktop-nov-2021.jpg)
-
-**Desktop: Final release (planned for fall 2022)**
-
-![PantherX Desktop]({{ site.assets }}/images/px-desktop.jpg)

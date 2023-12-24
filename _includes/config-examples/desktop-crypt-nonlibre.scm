@@ -1,6 +1,7 @@
 (use-modules (gnu)
              (gnu system)
-	     (gnu packages emacs)
+             (gnu packages emacs)
+             (gnu services desktop)
              (nongnu packages linux)
              (nongnu system linux-initrd)
              (px config))
@@ -56,5 +57,5 @@
   
   ;; Services
   (services (cons* (service docker-service-type)
-                   (service px-desktop-service-type)
+                   (service xfce-desktop-service-type)
 		   %px-desktop-services))))

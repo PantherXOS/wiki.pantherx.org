@@ -10,6 +10,10 @@ categories:
 language: en
 ---
 
+Refer to [px-install](https://github.com/PantherXOS/px-install) for scripts:
+- pantherx-on-digitalocean.sh
+- pantherx-on-hetzner-cloud.sh
+
 ## Example Configuration
 
 A PantherX server configuration for a typical Node.js application on a Hetzner cloud server:

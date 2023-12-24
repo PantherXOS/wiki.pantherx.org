@@ -1,8 +1,6 @@
 ---
 ---
 
-**If you are running PantherX Desktop, this is configured out of the box.**
-
 _Important: This will overwrite any styling changes you made._
 
 This plugin adds support for Desktop Theme configuration to PantherX [Settings Service](https://git.pantherx.org/development/applications/px-settings-service).
