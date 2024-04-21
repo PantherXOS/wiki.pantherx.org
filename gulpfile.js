@@ -2,8 +2,54 @@ import gulp from "gulp";
 import concat from "gulp-concat";
 import cleanCss from "gulp-clean-css";
 import uglify from "gulp-uglify-es";
-import imagemin from "gulp-imagemin";
+// Broken; Is not producting valid images
+// import imagemin from "gulp-imagemin";
 import pump from "pump";
+import fs from 'fs';
+import path from 'path';
+
+function copyFiles(srcPath, destPath) {
+  return new Promise((resolve, reject) => {
+    fs.readdir(srcPath, (err, files) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      files.forEach(file => {
+        const srcFile = path.join(srcPath, file);
+        const destFile = path.join(destPath, file);
+
+        fs.stat(srcFile, (err, stat) => {
+          if (err) {
+            reject(err);
+            return;
+          }
+
+          if (stat.isDirectory()) {
+            fs.mkdir(destFile, { recursive: true }, (err) => {
+              if (err) {
+                reject(err);
+                return;
+              }
+
+              copyFiles(srcFile, destFile).then(resolve).catch(reject);
+            });
+          } else {
+            fs.copyFile(srcFile, destFile, (err) => {
+              if (err) {
+                reject(err);
+                return;
+              }
+
+              resolve();
+            });
+          }
+        });
+      });
+    });
+  });
+}
 
 const { series, src, dest } = gulp;
 
@@ -55,9 +101,10 @@ function fonts() {
 }
 
 function images() {
-  return src("src/images/**/*")
-    .pipe(imagemin())
-    .pipe(dest("assets/images"));
+  const srcPath = 'src/images';
+  const destPath = 'assets/images';
+
+  return copyFiles(srcPath, destPath);
 }
 
 function watch() {
