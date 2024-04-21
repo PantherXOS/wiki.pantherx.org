@@ -12,6 +12,7 @@ function copyFiles(srcPath, destPath) {
   return new Promise((resolve, reject) => {
     fs.readdir(srcPath, (err, files) => {
       if (err) {
+        console.error(`Error reading directory ${srcPath}`, err);
         reject(err);
         return;
       }
@@ -22,6 +23,7 @@ function copyFiles(srcPath, destPath) {
 
         fs.stat(srcFile, (err, stat) => {
           if (err) {
+            console.error(`Error getting stats for file ${srcFile}`, err);
             reject(err);
             return;
           }
@@ -29,6 +31,7 @@ function copyFiles(srcPath, destPath) {
           if (stat.isDirectory()) {
             fs.mkdir(destFile, { recursive: true }, (err) => {
               if (err) {
+                console.error(`Error creating directory ${destFile}`, err);
                 reject(err);
                 return;
               }
@@ -36,13 +39,22 @@ function copyFiles(srcPath, destPath) {
               copyFiles(srcFile, destFile).then(resolve).catch(reject);
             });
           } else {
-            fs.copyFile(srcFile, destFile, (err) => {
+            fs.mkdir(path.dirname(destFile), { recursive: true }, (err) => {
               if (err) {
+                console.error(`Error creating directory for file ${destFile}`, err);
                 reject(err);
                 return;
               }
 
-              resolve();
+              fs.copyFile(srcFile, destFile, (err) => {
+                if (err) {
+                  console.error(`Error copying file ${srcFile} to ${destFile}`, err);
+                  reject(err);
+                  return;
+                }
+
+                resolve();
+              });
             });
           }
         });
