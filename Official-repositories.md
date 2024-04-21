@@ -41,6 +41,8 @@ We also have a handy GUI application "Software" that will do all this for you.
 
 ### Channels File
 
+**Important:**: As of April 2024, this is no longer necessary unless you want to use PantherX channels on a foreign distro.
+
 Here's what your `/etc/guix/channels.scm` should look like:
 
 ```scheme

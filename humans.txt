@@ -14,4 +14,4 @@
   Last update: {{ site.time }}
   Language: English
   Doctype: HTML5
-  IDE: WebStorm, Atom
+  IDE: VSCode, nvim

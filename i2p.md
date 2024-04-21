@@ -16,20 +16,20 @@ Below I will show how-to easily use I2P with a specialized Chrome profile. You c
 
 First of all, install the I2P daemon:
 
-```
+```bash
 guix package -i i2pd
 ```
 
 Now simply run it. This will create a new config and data directory at `~/.i2pd`:
 
-```
+```bash
 $ i2pd
 11:28:27@746/none - i2pd v2.44.0 (0.9.56) starting…
 ```
 
 Next we'll create a bash script to run Chrome, configured for I2P. Simply save this as `run-i2p-chromium.sh`:
 
-```
+```bash
 #! /usr/bin/env sh
 # Launches Chromium, pre-configured for I2P
 #
@@ -62,7 +62,7 @@ This example was copied from here, with minor adaption: https://eyedeekay.github
 
 Now simply run the script:
 
-```
+```bash
 bash run-i2p-chromium.sh
 ```
 

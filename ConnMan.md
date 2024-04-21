@@ -69,18 +69,6 @@ IPv4 = 192.168.2.2/255.255.255.0/192.168.2.1
 MAC = 06:05:04:03:02:01
 ```
 
-#### Enabling and disabling wifi
-
-#### Connecting to an open access point
-
-#### Connecting to a protected access point
-
-#### Using iwd instead of wpa_supplicant
-
-### Settings
-
-### Technologies
-
 ## See also
 
 - [ConnMan service provisioning file](https://manpages.debian.org/testing/connman/connman-service.config.5.en.html)

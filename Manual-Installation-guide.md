@@ -383,53 +383,9 @@ You can ignore the other settings for now.
 {% include config-examples/base-desktop-efi.scm %}
 ```
 
-#### Channels
-
-Once you've set the system configuration, we put in place the channels in place. These work much like repositories on other Linux distribution... This is where your software comes from!
-
-Create the file with:
-
-```bash
-$ mkdir /mnt/etc/guix
-$ nano /mnt/etc/guix/channels.scm
-```
-
-with the following content:
-
-```scheme
-(cons* (channel
-        (name 'pantherx)
-        (branch "master")
-        (url "https://channels.pantherx.org/git/panther.git")
-         (introduction
-          (make-channel-introduction
-           "54b4056ac571611892c743b65f4c47dc298c49da"
-           (openpgp-fingerprint
-            "A36A D41E ECC7 A871 1003  5D24 524F EB1A 9D33 C9CB"))))
-       %default-channels)
-```
-
 ### Update and install
 
 Once you're satisfied with your configuration, proceed with the installation.
-
-First we'll pull the latest packages:
-
-```bash
-$ guix pull --channels=/mnt/etc/guix/channels.scm
-Updating channel 'guix' from Git repository at 'https://channels.pantherx.org/git/panther.git'...
-receiving objects  37% [####################################################################
-...
-hint: After setting `PATH', run `hash guix' to make sure your shell refers to `/root/.config/guix/current/bin/guix'.
-```
-
-Lastly, run:
-
-```bash
-hash guix
-```
-
-Once that's done, initiate the system
 
 ```bash
 $ guix system init /mnt/etc/system.scm /mnt
