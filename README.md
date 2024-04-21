@@ -39,19 +39,32 @@ To run this Wiki locally, you need to install `bundle`, `yarn` and `jekyll`.
 
 ### Set-up Environment
 
+Install
+
 ```bash
-$ bundle install
-$ npm install
+guix shell node pnpm ruby@2 bundler make gcc-toolchain@12
+BUNDLE_PATH=.bundler bundle install
+pnpm install
 ```
 
-### Compile Assets
+Build:
 
 ```bash
-$ node_modules/.bin/gulp
+pnpm exec gulp
+BUNDLE_PATH=.bundler bundle exec jekyll build -d .site
 ```
 
 ### Run Site
 
 ```bash
-$ bundle exec jekyll serve
+BUNDLE_PATH=.bundler bundle exec jekyll serve -d .site
+```
+
+## Deployment
+
+Handled by Gitlab CI but may be tested locally:
+
+```bash
+docker build --network host -t pantherx-wiki-build .
+docker run --network host -it --rm pantherx-wiki-build
 ```
