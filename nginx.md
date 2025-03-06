@@ -159,7 +159,7 @@ If you wanted to actually share this with others, power up a server and use prop
 ### Clean-up
 
 1. Remove the certificate, key and website `/src/http/example.com/`
-2. Revert changes in `/etc/config.scm`
+2. Revert changes in `/etc/system.scm`
 3. Reconfigure
 
 ```bash

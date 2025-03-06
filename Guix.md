@@ -81,7 +81,7 @@ $ guix package -u package-name
 To perform a system update:
 
 ```bash
-$ guix system reconfigure /etc/config.scm
+$ guix system reconfigure /etc/system.scm
 ```
 
 #### Roll-back a system upgrade

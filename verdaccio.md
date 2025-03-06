@@ -28,7 +28,7 @@ Next, back on your computer, prepare the server configuration. You can use the f
 - Add your SSH public key here: `ssh-ed25519 AAAAC3DCaC1lZDI1NDS5AASAAIP7........`
 - Adjust the target disk `(target "/dev/sda")))` and `(device "/dev/sda1")`
   - On DigitalOcean VM's thats usuall `(target "/dev/vda")))` and `(device "/dev/vda1")`
-  - You can refer to `/etc/config.scm` on the target machine to double-check
+  - You can refer to `/etc/system.scm` on the target machine to double-check
 - Replace all `npm.domain.com` with your domain
 - Adjust the target machine IP address: `(host-name "192.168.1.100")`
 

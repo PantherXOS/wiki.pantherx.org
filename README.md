@@ -65,6 +65,5 @@ BUNDLE_PATH=.bundler bundle exec jekyll serve -d .site
 Handled by Gitlab CI but may be tested locally:
 
 ```bash
-docker build --network host -t pantherx-wiki-build .
-docker run --network host -it --rm pantherx-wiki-build
+bash deploy.sh
 ```

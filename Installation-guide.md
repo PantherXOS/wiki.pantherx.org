@@ -259,8 +259,6 @@ reboot
 
 ## Post-installation
 
-{% include snippets/screenshot.html image='installer/install_login-screen.png' alt="" %}
-
 (1) Set a new password
 
 ```bash

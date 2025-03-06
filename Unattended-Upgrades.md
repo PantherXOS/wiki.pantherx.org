@@ -15,7 +15,7 @@ language: "en"
 
 Here's how you setup unattended upgrades on PantherX OS:
 
-1. Open `/etc/config.scm` (`nano /etc/config.scm`)
+1. Open `/etc/system.scm` (`nano /etc/system.scm`)
 2. Add the `unattended-upgrade-service-type` to the file's services section:
 
 ```scheme
@@ -46,7 +46,7 @@ Update the schedule to whatever you need.
 Reconfigure with
 
 ```bash
-sudo guix system reconfigure /etc/config.scm
+sudo guix system reconfigure /etc/system.scm
 ```
 
 Check the logs:
