@@ -110,7 +110,7 @@ The result may look like this:
 To update and reconfigure your system in one-go:
 
 ```bash
-$ px update apply
+$ guix pull
 ```
 
 If you prefer to simply apply the config change, without updating:

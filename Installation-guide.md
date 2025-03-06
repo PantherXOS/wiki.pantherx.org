@@ -273,10 +273,20 @@ If you did not set a password, the default is `pantherx`.
 
 (2) Update the system
 
-You'll want to update both system and user profile. To speed this up by 2x, you can usually do this in parralel, in two tabs (your user, root):
+You'll want to update both system and user profile. To speed this up by 2x, you can usually do this in parralel, in two tabs
+
+root:
 
 ```bash
-px update apply
+guix pull
+guix system reconfigure /etc/system.scm
+```
+
+user:
+
+```bash
+guix pull
+guix package -u
 ```
 
 (3) Reboot and enjoy

@@ -410,23 +410,7 @@ _Tip: SSH is disabled by default on Desktop so you won't be able to reconnect af
 
 Once you login for the first time, there's a couple of things to be aware of.
 
-#### (1) General
-
-We highly recommend you to run an initial update, before you get started.
-
-1. Open 'System Tools' > 'Terminal'
-2. Apply both user and system updates
-
-```bash
-px update apply # initial user update
-su - root
-px update apply # initial root updaye
-reboot
-```
-
-This will also ensure that you do not run into this issue: [Opening Folders from Directory Menu failed](https://wiki.pantherx.org/LXQt/)
-
-#### (2) Set new user and root password
+#### Set new user and root password
 
 1. Open 'System Tools' > 'Terminal'
 2. Set a root password with `sudo passwd`

@@ -10,6 +10,8 @@ categories:
 language: en
 ---
 
+Checkout the Guix Cookbook, for more up to date info: [Using Security Keys](https://guix.gnu.org/cookbook/en/html_node/Using-security-keys.html).
+
 ## Setup
 
 The YubiKey itself should work out of the box.

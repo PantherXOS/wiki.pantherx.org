@@ -60,14 +60,14 @@ Note: Access root services via `su - root`.
 To update all user packages:
 
 ```bash
-px update apply
+guix pull
 ```
 
 To update the operating system and all system and global packages:
 
 ```bash
 su - root
-px update apply
+guix pull
 ```
 
 ## Package management

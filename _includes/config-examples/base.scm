@@ -2,8 +2,7 @@
 
 (use-modules (gnu)
              (gnu system)
-             (px system panther)
-             (gnu packages desktop))
+             (px system panther))
 
 (operating-system
  (inherit %panther-os)
@@ -37,11 +36,5 @@
     (home-directory "/home/panther"))
    %base-user-accounts))
 
- ;; Globally-installed packages.
- (packages %panther-base-packages)
-
- ;; Globally-activated services.
- (services
-  (cons*
-   (service xfce-desktop-service-type)
-   %panther-desktop-services)))
+  (packages %panther-base-packages)
+  (services %panther-base-services))
