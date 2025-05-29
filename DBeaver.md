@@ -14,7 +14,7 @@ language: en
 
 ## Installation
 
-DBeaver is not yet available on PantherX but you can install it anyway, using Flatpak.
+DBeaver is available on Flatpak.
 
 If you don't have Flatpak, simply run:
 

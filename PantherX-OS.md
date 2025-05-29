@@ -28,9 +28,3 @@ See also: [PantherX compared to other distributions](https://wiki.pantherx.org/P
 
 - Powerful plugin system to write your own Account and Hub integration in Python and C++
 - It's Linux. Welcome home.
-
-## Screenshots
-
-**Desktop: Beta 4 (2021)**
-
-![PantherX Desktop]({{ site.assets }}/images/px-desktop-nov-2021.jpg)

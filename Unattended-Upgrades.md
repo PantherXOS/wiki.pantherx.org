@@ -13,7 +13,7 @@ language: "en"
 
 ## Setup
 
-Here's how you setup unattended upgrades on PantherX OS:
+Here's how you setup unattended upgrades with GNU Guix:
 
 1. Open `/etc/system.scm` (`nano /etc/system.scm`)
 2. Add the `unattended-upgrade-service-type` to the file's services section:

@@ -10,5 +10,5 @@ vendor
 project.config
 .jekyll-cache
 venv
-
+.bundler
 Gemfile.lock

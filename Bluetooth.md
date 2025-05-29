@@ -11,8 +11,6 @@ categories:
 language: en
 ---
 
-On PantherX Desktop Bluetooth is enabled by default from Beta 6.
-
 ## Management
 
 ## Troubleshooting

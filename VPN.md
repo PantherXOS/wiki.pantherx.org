@@ -1,6 +1,6 @@
 ---
 namespace: VPN
-description: Notes about using a virtual private network on PantherX
+description: Notes about using a virtual private network
 categories:
   - type:
       - "Guide"

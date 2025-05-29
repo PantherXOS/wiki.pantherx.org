@@ -12,8 +12,6 @@ categories:
 language: en
 ---
 
-**The default on PantherX is Network Manager. ConnMan is working but unsupported.**
-
 ## Installation
 
 To install _ConnMan_ run:
@@ -42,7 +40,7 @@ $ connmanctl --help
            (disable-vpn? #t)))
 ```
 
-Read more about [System configuration](System-configuration) on PantherX.
+Read more about [System configuration](System-configuration) with GNU Guix.
 
 #### Config file
 

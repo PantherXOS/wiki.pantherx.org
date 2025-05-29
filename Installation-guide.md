@@ -289,7 +289,7 @@ guix package -u
 
 (3) Reboot and enjoy
 
-**Have a great time on PantherX OS**
+**Have a great time with GNU Guix**
 
 Notes:
 

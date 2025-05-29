@@ -416,4 +416,4 @@ Once you login for the first time, there's a couple of things to be aware of.
 2. Set a root password with `sudo passwd`
 3. Set a user password with `passwd YOUR_USERNAME`
 
-**Have a great time on PantherX OS**
+**Have a great time with GNU Guix**

@@ -50,7 +50,7 @@ YubiKey 5 Nano [FIDO] Serial: 109*****
 
 Determine current connection mode:
 
-```
+```bash
 $ ykman mode
 Current connection mode is: FIDO
 Supported USB interfaces are: OTP, FIDO, CCID

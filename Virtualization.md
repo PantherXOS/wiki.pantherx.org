@@ -21,15 +21,13 @@ Let's say you wanted to run PantherX Desktop in a virtual machine.
 Create a system config `px-desktop-config_vm.scm`:
 
 ```scheme
-;; PantherX OS Desktop Configuration v2
-;; for Virtual machine
-
 (use-modules (gnu)
              (gnu system)
-             (px system config))
+             (px system panther)
+             (gnu packages desktop))
 
-(px-desktop-os
- (operating-system
+(operating-system
+  (inherit %panther-os)
   (host-name "px-base")
   (timezone "Europe/Berlin")
   (locale "en_US.utf8")
@@ -38,10 +36,11 @@ Create a system config `px-desktop-config_vm.scm`:
               (bootloader grub-bootloader)
               (target "/dev/vda")
               (terminal-outputs '(console))))
- (file-systems (cons (file-system
-                      (mount-point "/")
-                      (device "/dev/vda1")
-                      (type "ext4"))
+
+  (file-systems (cons (file-system
+                       (mount-point "/")
+                       (device "/dev/vda1")
+                       (type "ext4"))
                      %base-file-systems))
 
   (users (cons (user-account
@@ -59,11 +58,12 @@ Create a system config `px-desktop-config_vm.scm`:
 
   ;; Globally-installed packages.
   (packages (cons*
-	     %px-desktop-packages))
+	     %panther-base-packages))
 
   ;; Globally-activated services.
   (services (cons*
-		   %px-desktop-services))))
+        (service xfce-desktop-service-type)
+		   %panther-desktop-services)))
 
 ```
 

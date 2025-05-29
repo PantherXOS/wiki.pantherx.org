@@ -177,8 +177,6 @@ su - root
 herd status nftables
 ```
 
-Note: On PantherX Server, port 22 is open by default (not on Desktop).
-
 ### Resource sharing
 
 ## Input devices
